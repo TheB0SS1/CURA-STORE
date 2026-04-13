@@ -25,7 +25,6 @@
       padding: 0 24px;
     }
 
-    /* header */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -52,7 +51,6 @@
     .cart-icon {
       position: relative;
       cursor: pointer;
-      font-size: 1.6rem;
       background: #f5f5f5;
       padding: 10px 20px;
       border-radius: 40px;
@@ -74,7 +72,6 @@
       font-weight: 600;
     }
 
-    /* hero */
     .hero {
       padding: 60px 0 40px;
       text-align: center;
@@ -91,7 +88,6 @@
       margin: 16px auto 0;
     }
 
-    /* products */
     .section-title {
       font-size: 1.8rem;
       font-weight: 500;
@@ -193,7 +189,6 @@
       background: #2c2c2c;
     }
 
-    /* cart sidebar */
     .cart-overlay {
       position: fixed;
       top: 0;
@@ -215,7 +210,7 @@
     .cart-panel {
       background: white;
       width: 100%;
-      max-width: 500px;
+      max-width: 520px;
       height: 100%;
       overflow-y: auto;
       padding: 28px 24px;
@@ -283,8 +278,8 @@
       background: #ddd;
     }
     .cart-total {
-      margin: 24px 0;
-      font-size: 1.4rem;
+      margin: 20px 0;
+      font-size: 1.3rem;
       font-weight: 700;
       border-top: 2px solid #000;
       padding-top: 18px;
@@ -294,13 +289,32 @@
       color: #777;
       padding: 40px 0;
     }
+    .checkout-trigger-btn {
+      background: #000;
+      color: white;
+      border: none;
+      padding: 16px;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 16px;
+      transition: 0.2s;
+    }
+    .checkout-trigger-btn:hover {
+      background: #2c2c2c;
+    }
 
-    /* checkout form */
     .checkout-form {
       margin-top: 16px;
       background: #fafafa;
       padding: 20px;
       border-radius: 24px;
+      display: none;
+    }
+    .checkout-form.active {
+      display: block;
     }
     .checkout-form h4 {
       margin-bottom: 14px;
@@ -315,7 +329,7 @@
       margin-bottom: 6px;
       font-size: 0.85rem;
     }
-    .form-group input, .form-group select {
+    .form-group input {
       width: 100%;
       padding: 12px 14px;
       border: 1px solid #ddd;
@@ -376,7 +390,7 @@
       <p>Dental essentials — premium quality</p>
     </div>
     <div class="cart-icon" id="cartIconBtn">
-      🛒 <span id="cartCountDisplay">0</span>
+      🛒 Cart <span id="cartCountDisplay">0</span>
     </div>
   </div>
 
@@ -389,18 +403,19 @@
   <div class="products-grid" id="productsGrid"></div>
 </div>
 
-<!-- Cart Sidebar -->
 <div id="cartOverlay" class="cart-overlay">
   <div class="cart-panel">
     <div class="cart-header">
-      <h3>Your cart</h3>
+      <h3>Your Shopping Cart</h3>
       <button class="close-cart" id="closeCartBtn">✕</button>
     </div>
     <div id="cartItemsContainer" class="cart-items-list"></div>
     <div id="cartTotalArea" class="cart-total">Total: 0 EGP</div>
     
-    <div class="checkout-form">
-      <h4>📋 Checkout details</h4>
+    <button id="showCheckoutBtn" class="checkout-trigger-btn">📝 Proceed to Checkout</button>
+    
+    <div id="checkoutForm" class="checkout-form">
+      <h4>📋 Customer Information</h4>
       <div class="form-group">
         <label>Full Name *</label>
         <input type="text" id="fullName" placeholder="Dr. Ahmed Mahmoud">
@@ -420,7 +435,7 @@
           <label><input type="radio" name="gender" value="Female"> Female</label>
         </div>
       </div>
-      <button id="placeOrderBtn" class="submit-order">✔ Place Order</button>
+      <button id="placeOrderBtn" class="submit-order">✔ Place Order & Send via WhatsApp</button>
     </div>
   </div>
 </div>
@@ -431,7 +446,6 @@
 </footer>
 
 <script>
-  // PRODUCT CATALOG with image mapping O1.jpg to O8.jpg
   const PRODUCTS = [
     { id: "spoon_matrix", name: "Spoon Matrix", price: 40, image: "O1.jpg" },
     { id: "composite_gun", name: "Gun for Composite Compule", price: 220, image: "O2.jpg" },
@@ -453,7 +467,7 @@
     const totalPriceElem = document.getElementById('cartTotalArea');
 
     if (totalItems === 0) {
-      cartContainer.innerHTML = '<div class="empty-cart-msg">Your cart is empty.</div>';
+      cartContainer.innerHTML = '<div class="empty-cart-msg">Your cart is empty. Add some products!</div>';
       totalPriceElem.innerText = `Total: 0 EGP`;
       return;
     }
@@ -523,6 +537,14 @@
     updateCartUI();
     updateProductQuantities();
     saveCart();
+    
+    // Show a small visual feedback without opening cart
+    const btn = document.querySelector(`.add-to-cart[data-id="${productId}"]`);
+    if (btn) {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = "✓ Added!";
+      setTimeout(() => { btn.innerHTML = originalText; }, 800);
+    }
   }
 
   function changeProductQty(productId, delta) {
@@ -554,7 +576,7 @@
           <button class="qty-btn incr-btn" data-id="${prod.id}">+</button>
         </div>
         <button class="add-to-cart" data-id="${prod.id}">
-          + Add to cart
+          + Add to Cart
         </button>
       `;
       grid.appendChild(card);
@@ -576,7 +598,6 @@
       btn.addEventListener('click', (e) => {
         const pid = btn.getAttribute('data-id');
         addToCart(pid, 1);
-        openCartSidebar();
       });
     });
   }
@@ -597,7 +618,12 @@
   }
 
   const overlay = document.getElementById('cartOverlay');
-  function openCartSidebar() { overlay.classList.add('open'); }
+  const checkoutForm = document.getElementById('checkoutForm');
+  
+  function openCartSidebar() { 
+    overlay.classList.add('open');
+    checkoutForm.classList.remove('active');
+  }
   function closeCartSidebar() { overlay.classList.remove('open'); }
 
   function buildOrderMessage(customerName, phone, address, gender) {
@@ -668,6 +694,7 @@ Order Date: ${orderDate}`;
       document.getElementById('phoneNumber').value = '';
       document.getElementById('address').value = '';
       document.querySelectorAll('input[name="gender"]').forEach(r => r.checked = false);
+      checkoutForm.classList.remove('active');
       alert("✨ Order sent! Thank you for shopping at Cura Store.");
     }
   }
@@ -675,9 +702,20 @@ Order Date: ${orderDate}`;
   document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
     loadCart();
+    
     document.getElementById('cartIconBtn')?.addEventListener('click', openCartSidebar);
     document.getElementById('closeCartBtn')?.addEventListener('click', closeCartSidebar);
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closeCartSidebar(); });
+    
+    const showCheckoutBtn = document.getElementById('showCheckoutBtn');
+    showCheckoutBtn?.addEventListener('click', () => {
+      if (Object.values(cart).reduce((s,q)=>s+q,0) === 0) {
+        alert("Your cart is empty! Add some products first.");
+        return;
+      }
+      checkoutForm.classList.add('active');
+    });
+    
     document.getElementById('placeOrderBtn')?.addEventListener('click', placeOrder);
   });
 </script>
