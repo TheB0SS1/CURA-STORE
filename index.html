@@ -48,6 +48,29 @@
       letter-spacing: 0.5px;
       color: #555;
     }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .whatsapp-group-btn {
+      background: #25D366;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .whatsapp-group-btn:hover {
+      background: #128C7E;
+      transform: scale(1.02);
+    }
     .cart-icon {
       position: relative;
       cursor: pointer;
@@ -97,7 +120,7 @@
     }
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 28px;
       margin-bottom: 60px;
     }
@@ -136,6 +159,12 @@
       margin-bottom: 8px;
       line-height: 1.3;
       min-height: 50px;
+    }
+    .product-description {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 8px;
+      font-weight: 400;
     }
     .product-price {
       font-weight: 700;
@@ -188,6 +217,15 @@
     .add-to-cart:hover {
       background: #2c2c2c;
     }
+    .badge-set {
+      background: #e8e8e8;
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
 
     .cart-overlay {
       position: fixed;
@@ -210,7 +248,7 @@
     .cart-panel {
       background: white;
       width: 100%;
-      max-width: 520px;
+      max-width: 550px;
       height: 100%;
       overflow-y: auto;
       padding: 28px 24px;
@@ -364,6 +402,20 @@
     .submit-order:hover {
       background: #2c2c2c;
     }
+    .whatsapp-group-footer {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
+    }
+    .whatsapp-group-footer a {
+      color: #25D366;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
 
     footer {
       text-align: center;
@@ -378,6 +430,7 @@
       .container { padding: 0 18px; }
       .hero h2 { font-size: 1.8rem; }
       .cart-panel { max-width: 100%; }
+      .nav-actions { width: 100%; justify-content: space-between; }
     }
   </style>
 </head>
@@ -389,8 +442,13 @@
       <h1>CURA <span>STORE</span></h1>
       <p>Dental essentials — premium quality</p>
     </div>
-    <div class="cart-icon" id="cartIconBtn">
-      🛒 Cart <span id="cartCountDisplay">0</span>
+    <div class="nav-actions">
+      <a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank" class="whatsapp-group-btn">
+        <i>💬</i> WhatsApp Group
+      </a>
+      <div class="cart-icon" id="cartIconBtn">
+        🛒 Cart <span id="cartCountDisplay">0</span>
+      </div>
     </div>
   </div>
 
@@ -437,6 +495,9 @@
       </div>
       <button id="placeOrderBtn" class="submit-order">✔ Place Order & Send via WhatsApp</button>
     </div>
+    <div class="whatsapp-group-footer">
+      <a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank">💬 Join our Cura Store WhatsApp Community</a>
+    </div>
   </div>
 </div>
 
@@ -447,14 +508,14 @@
 
 <script>
   const PRODUCTS = [
-    { id: "spoon_matrix", name: "Spoon Matrix", price: 40, image: "O1.jpg" },
-    { id: "composite_gun", name: "Gun for Composite Compule", price: 220, image: "O2.jpg" },
-    { id: "glass_gun", name: "Glass Ionomer Gun", price: 1100, image: "O3.jpg" },
-    { id: "glass_powder", name: "Glass Ionomer Powder & Liquid", price: 75, image: "O4.jpg" },
-    { id: "glass_capsule", name: "Glass Ionomer Capsule", price: 165, image: "O5.jpg" },
-    { id: "composite_enamel", name: "Composite Enamel Shade Compule", price: 175, image: "O6.jpg" },
-    { id: "composite_dentin", name: "Composite Dentin Shade Compule", price: 175, image: "O7.jpg" },
-    { id: "composite_body", name: "Composite Body Shade Compule", price: 175, image: "O8.jpg" }
+    { id: "spoon_matrix", name: "Spoon Matrix", price: 40, description: "2 pieces included — set of two", image: "O1.jpg" },
+    { id: "composite_gun", name: "Gun for Composite Compule", price: 220, description: "", image: "O2.jpg" },
+    { id: "glass_gun", name: "Glass Ionomer Gun", price: 1100, description: "", image: "O3.jpg" },
+    { id: "glass_powder", name: "Glass Ionomer Powder & Liquid", price: 75, description: "", image: "O4.jpg" },
+    { id: "glass_capsule", name: "Glass Ionomer Capsule", price: 165, description: "", image: "O5.jpg" },
+    { id: "composite_enamel", name: "Composite Enamel Shade Compule", price: 175, description: "", image: "O6.jpg" },
+    { id: "composite_dentin", name: "Composite Dentin Shade Compule", price: 175, description: "", image: "O7.jpg" },
+    { id: "composite_body", name: "Composite Body Shade Compule", price: 175, description: "", image: "O8.jpg" }
   ];
 
   let cart = {};
@@ -485,8 +546,8 @@
       cartHTML += `
         <div class="cart-item">
           <div class="cart-item-info">
-            <div class="cart-item-name">${product.name}</div>
-            <div class="cart-item-price">${product.price} EGP each</div>
+            <div class="cart-item-name">${product.name} ${product.description ? '(Set of 2)' : ''}</div>
+            <div class="cart-item-price">${product.price} EGP each ${product.description ? '(for both pieces)' : ''}</div>
           </div>
           <div class="cart-item-actions">
             <button class="cart-qty-btn" data-id="${pid}" data-delta="-1">−</button>
@@ -538,7 +599,6 @@
     updateProductQuantities();
     saveCart();
     
-    // Show a small visual feedback without opening cart
     const btn = document.querySelector(`.add-to-cart[data-id="${productId}"]`);
     if (btn) {
       const originalText = btn.innerHTML;
@@ -569,7 +629,8 @@
           <img src="${prod.image}" alt="${prod.name}" onerror="this.src='https://placehold.co/200x180?text=${prod.name.substring(0,15)}'">
         </div>
         <div class="product-name">${prod.name}</div>
-        <div class="product-price">${prod.price} EGP</div>
+        ${prod.description ? `<div class="badge-set">📦 ${prod.description}</div>` : ''}
+        <div class="product-price">${prod.price} EGP ${prod.description ? '(for both)' : ''}</div>
         <div class="qty-selector">
           <button class="qty-btn decr-btn" data-id="${prod.id}">−</button>
           <span class="qty-value" id="qty-val-${prod.id}">${currentQty}</span>
@@ -634,12 +695,13 @@
       if (qty <= 0) continue;
       const prod = PRODUCTS.find(p => p.id === pid);
       if (!prod) continue;
-      summaryLines.push(`${prod.name} (Qty: ${qty}) - ${prod.price} EGP`);
+      const lineDetail = prod.description ? `${prod.name} (Set of 2 pieces) (Qty: ${qty}) - ${prod.price} EGP per set` : `${prod.name} (Qty: ${qty}) - ${prod.price} EGP`;
+      summaryLines.push(lineDetail);
       totalPrice += prod.price * qty;
     }
     if (summaryLines.length === 0) return null;
     
-    const assignedContact = gender === "Male" ? "01024382869" : "+20 10 63919580";
+    const assignedContact = gender === "Male" ? "+201031718103" : "+20 10 64112263";
     const orderDate = new Date().toLocaleString('en-EG');
     
     const message = `New Order - Cura Store
@@ -657,7 +719,9 @@ Total Price: ${totalPrice} EGP
 
 Assigned Contact: ${assignedContact}
 
-Order Date: ${orderDate}`;
+Order Date: ${orderDate}
+
+Thank you for shopping at Cura Store! 🦷`;
     return { message, contact: assignedContact };
   }
 
@@ -695,7 +759,7 @@ Order Date: ${orderDate}`;
       document.getElementById('address').value = '';
       document.querySelectorAll('input[name="gender"]').forEach(r => r.checked = false);
       checkoutForm.classList.remove('active');
-      alert("✨ Order sent! Thank you for shopping at Cura Store.");
+      alert("✨ Order sent! Thank you for shopping at Cura Store.\n\nJoin our WhatsApp group for updates and offers!");
     }
   }
 
