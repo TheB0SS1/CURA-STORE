@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover" />
-  <title>Cura Store | Global Dental Brand</title>
-  <!-- Font & Icons -->
+  <title>Cura Store | 4th Year · Clinical</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    /* ----- RESET & VARIABLES (Premium Global Brand) ----- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --bg: #f7f5f0;
@@ -22,9 +20,9 @@
       --gold: #c9a96e;
       --gold-light: rgba(201,169,110,0.12);
       --shadow: 0 30px 60px -20px rgba(0,0,0,0.06);
-      --radius: 32px;
-      --radius-sm: 18px;
-      --transition: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      --radius: 28px;
+      --radius-sm: 16px;
+      --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
     [data-theme="dark"] {
       --bg: #12100e;
@@ -48,7 +46,7 @@
       overflow-x: hidden;
     }
 
-    /* ----- Floating Stars (Ultra Premium) ----- */
+    /* Stars */
     .stars-container {
       position: fixed;
       inset: 0;
@@ -86,7 +84,7 @@
     .container { max-width: 1380px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
     a { text-decoration: none; color: inherit; }
 
-    /* ----- STICKY NAV (Glassmorphism Premium) ----- */
+    /* NAVBAR */
     .navbar {
       position: sticky;
       top: 0;
@@ -125,6 +123,21 @@
       gap: 12px;
       flex-wrap: wrap;
     }
+    .btn-home {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 60px;
+      padding: 8px 18px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-home:hover { border-color: var(--gold); }
     .theme-toggle {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -201,157 +214,158 @@
       font-weight: 700;
     }
 
-    /* ----- HERO (Global Brand Statement) ----- */
+    /* HERO */
     .hero {
-      padding: 80px 0 50px;
+      padding: 50px 0 20px;
       text-align: center;
     }
     .hero h2 {
-      font-size: 3.2rem;
+      font-size: 2.6rem;
       font-weight: 500;
-      letter-spacing: -1.5px;
+      letter-spacing: -1px;
       color: var(--text);
     }
     .hero h2 i { color: var(--gold); }
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--text-soft);
-      max-width: 640px;
-      margin: 18px auto 0;
-      line-height: 1.7;
+      max-width: 620px;
+      margin: 12px auto 0;
     }
 
-    /* ----- Brand Catalog Cards (2 Big Cards) ----- */
-    .catalog-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      margin: 20px 0 60px;
+    /* Search */
+    .search-section {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0 30px;
     }
-    .catalog-card {
+    .search-bar {
+      width: 100%;
+      max-width: 500px;
+      padding: 14px 24px;
+      border: 1px solid var(--border);
+      border-radius: 60px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.9rem;
+      transition: var(--transition);
+      outline: none;
+      font-family: inherit;
+    }
+    .search-bar:focus { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-light); }
+
+    /* Section Title */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin: 10px 0 24px;
+      padding-left: 20px;
+      border-left: 4px solid var(--gold);
+      color: var(--text);
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .product-card {
       background: var(--surface);
       border-radius: var(--radius);
-      padding: 40px 32px 36px;
+      padding: 20px 18px 22px;
       border: 1px solid var(--border);
       transition: var(--transition);
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
     }
-    .catalog-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 20%, var(--gold-light), transparent 70%);
-      opacity: 0;
-      transition: var(--transition);
-    }
-    .catalog-card:hover::before { opacity: 0.6; }
-    .catalog-card:hover {
-      transform: translateY(-8px);
+    .product-card:hover {
+      transform: translateY(-6px);
       border-color: var(--gold);
-      box-shadow: 0 40px 80px -20px rgba(201,169,110,0.15);
+      box-shadow: 0 30px 60px -16px rgba(0,0,0,0.08);
     }
-    .catalog-card .card-icon {
-      font-size: 2.4rem;
-      color: var(--gold);
-      margin-bottom: 16px;
-      display: block;
-    }
-    .catalog-card h3 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .catalog-card .year-badge {
-      display: inline-block;
-      background: var(--gold-light);
-      color: var(--gold);
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 4px 16px;
-      border-radius: 40px;
-      border: 1px solid var(--border);
+    .product-img {
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .product-img img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s;
+    }
+    .product-card:hover .product-img img { transform: scale(1.03); }
+    .product-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.3;
+      min-height: 44px;
+    }
+    .product-code {
+      font-size: 0.65rem;
+      color: var(--text-soft);
+      font-weight: 500;
       letter-spacing: 0.3px;
     }
-    .catalog-card p {
-      color: var(--text-soft);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
+    .product-price {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin: 8px 0 12px;
     }
-    .catalog-card .explore-btn {
-      display: inline-flex;
+    .qty-selector {
+      display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 28px;
+      gap: 12px;
+      margin: 12px 0 14px;
+    }
+    .qty-btn {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      width: 36px;
+      height: 36px;
+      border-radius: 60px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--text);
+    }
+    .qty-btn:hover { border-color: var(--gold); background: var(--gold-light); }
+    .qty-value {
+      font-weight: 600;
+      min-width: 30px;
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .add-to-cart {
+      width: 100%;
       background: var(--gold);
       color: #0b0a0a;
       border: none;
+      padding: 12px 0;
       border-radius: 60px;
       font-weight: 700;
       font-size: 0.85rem;
       cursor: pointer;
       transition: var(--transition);
-    }
-    .catalog-card .explore-btn:hover { background: #b8955e; transform: scale(1.02); }
-
-    /* ----- Founders (Glass) ----- */
-    .founders-section {
-      margin: 30px 0 40px;
-      padding: 40px 28px;
-      background: var(--surface-glass);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      text-align: center;
-    }
-    .founders-section h3 {
-      font-size: 1.4rem;
-      font-weight: 500;
-      margin-bottom: 22px;
-      color: var(--text);
-    }
-    .founders-section h3 i { color: var(--gold); }
-    .founders-list {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .founder-card { text-align: center; }
-    .founder-icon {
-      width: 68px;
-      height: 68px;
-      background: var(--gold-light);
-      color: var(--gold);
-      border-radius: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 10px;
-      font-size: 1.6rem;
-      border: 1px solid var(--border);
-      transition: var(--transition);
+      gap: 8px;
     }
-    .founder-card:hover .founder-icon { transform: scale(1.06); border-color: var(--gold); }
-    .founder-name { font-weight: 600; font-size: 0.85rem; color: var(--text); }
+    .add-to-cart:hover { background: #b8955e; transform: scale(1.01); }
 
-    /* ----- Footer ----- */
-    footer {
-      text-align: center;
-      padding: 32px 0 28px;
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
-      font-size: 0.75rem;
-      color: var(--text-soft);
-    }
-    footer a { color: var(--gold); font-weight: 500; }
-
-    /* ===== CART SIDEBAR (Glass) ===== */
+    /* CART SIDEBAR */
     .cart-overlay {
       position: fixed;
       inset: 0;
@@ -486,7 +500,7 @@
     .whatsapp-footer { text-align: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
     .whatsapp-footer a { color: #25D366; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; }
 
-    /* ===== LOGIN MODAL ===== */
+    /* LOGIN MODAL */
     .login-overlay {
       position: fixed;
       inset: 0;
@@ -571,7 +585,7 @@
     .login-submit:hover { background: #b8955e; }
     #verifyStatus, #loginStatus { margin-top: 6px; font-size: 0.8rem; color: var(--text-soft); }
 
-    /* ===== INVOICE ===== */
+    /* INVOICE */
     .invoice-overlay {
       position: fixed;
       inset: 0;
@@ -633,29 +647,37 @@
     }
     .inv-download-btn:hover { background: #b8955e; }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 820px) {
-      .catalog-grid { grid-template-columns: 1fr; gap: 24px; }
-      .hero h2 { font-size: 2.4rem; }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 0 28px;
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--text-soft);
     }
+    footer a { color: var(--gold); font-weight: 500; }
+
+    /* Responsive */
     @media (max-width: 720px) {
       .navbar .container { flex-direction: column; align-items: stretch; }
       .nav-actions { justify-content: center; }
       .cart-panel { max-width: 100%; }
-      .catalog-card { padding: 28px 20px; }
+      .hero h2 { font-size: 2rem; }
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
     }
     @media (max-width: 480px) {
       .container { padding: 0 16px; }
-      .hero h2 { font-size: 1.8rem; }
-      .catalog-card h3 { font-size: 1.3rem; }
+      .products-grid { grid-template-columns: 1fr; }
       .login-panel { padding: 20px; margin: 10px; }
       .invoice-card { padding: 20px; margin: 12px; }
+      .hero h2 { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- Floating Stars -->
+<!-- Stars -->
 <div class="stars-container">
   <div class="star"></div><div class="star"></div><div class="star"></div>
   <div class="star"></div><div class="star"></div><div class="star"></div>
@@ -664,13 +686,14 @@
 </div>
 
 <!-- NAVBAR -->
-<nav class="navbar" id="navbar">
+<nav class="navbar">
   <div class="container">
     <div class="logo">
       <h1>CURA <span>STORE</span></h1>
-      <p>Global Dental · Since 2024</p>
+      <p>4th Year · Clinical Collection</p>
     </div>
     <div class="nav-actions">
+      <a href="index.html" class="btn-home"><i class="fas fa-home"></i> Home</a>
       <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i> <span id="themeLabel">Light</span></button>
       <a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Group</a>
       <button class="btn-login" id="loginBtn"><i class="fas fa-user"></i> Login</button>
@@ -681,58 +704,25 @@
 
 <!-- HERO -->
 <section class="hero container">
-  <h2>Precision <i>·</i> Quality <i>·</i> Care</h2>
-  <p>Globally trusted dental tools & materials — engineered for excellence.</p>
+  <h2>4th Year · <i>Clinical Excellence</i></h2>
+  <p>Professional-grade instruments and materials for real patient care — trusted by clinicians worldwide.</p>
 </section>
 
-<!-- BRAND CATALOG (2 Big Cards) -->
-<div class="container">
-  <div style="display:flex; align-items:center; gap:12px; margin: 10px 0 20px;">
-    <i class="fas fa-crown" style="color:var(--gold); font-size:1.6rem;"></i>
-    <span style="font-size:1.3rem; font-weight:500; color:var(--text);">Brand Catalog</span>
-  </div>
-  <div class="catalog-grid">
-    <!-- 3rd Year Card -->
-    <div class="catalog-card" id="catalogThird">
-      <span class="card-icon"><i class="fas fa-graduation-cap"></i></span>
-      <h3>3rd Year · Preclinical</h3>
-      <span class="year-badge">Foundation & Technique</span>
-      <p>
-        Essential tools for mastering preclinical skills. From composite compules to glass ionomer systems — 
-        every product is selected to build precision and confidence in the simulation lab.
-      </p>
-      <button class="explore-btn" id="goThirdBtn"><i class="fas fa-arrow-right"></i> Explore 3rd Year</button>
-    </div>
-    <!-- 4th Year Card -->
-    <div class="catalog-card" id="catalogFourth">
-      <span class="card-icon"><i class="fas fa-tooth"></i></span>
-      <h3>4th Year · Clinical</h3>
-      <span class="year-badge">Advanced Patient Care</span>
-      <p>
-        Professional-grade instruments for real clinical practice. Matrices, high-performance guns, 
-        and restorative solutions trusted by clinicians worldwide.
-      </p>
-      <button class="explore-btn" id="goFourthBtn"><i class="fas fa-arrow-right"></i> Explore 4th Year</button>
-    </div>
-  </div>
+<!-- Search -->
+<div class="container search-section">
+  <input type="text" class="search-bar" id="searchInput" placeholder="🔍 Search products by name or code..." />
 </div>
 
-<!-- FOUNDERS -->
+<!-- Products -->
 <div class="container">
-  <div class="founders-section">
-    <h3><i class="fas fa-crown"></i> Meet the Founders</h3>
-    <div class="founders-list">
-      <div class="founder-card"><div class="founder-icon"><i class="fas fa-user-md"></i></div><div class="founder-name">Ramadan Thabet Obaid</div></div>
-      <div class="founder-card"><div class="founder-icon"><i class="fas fa-user-md"></i></div><div class="founder-name">Badr Abdlhamed</div></div>
-      <div class="founder-card"><div class="founder-icon"><i class="fas fa-user-md"></i></div><div class="founder-name">Ali Mohamed Elghbary</div></div>
-    </div>
-  </div>
+  <div class="section-title"><i class="fas fa-tooth" style="color:var(--gold); margin-right:10px;"></i>Clinical Collection</div>
+  <div class="products-grid" id="productsGrid"></div>
 </div>
 
 <!-- FOOTER -->
 <footer class="container">
   <p>Cura Store — Global Dental Excellence</p>
-  <p style="margin-top:4px;">High quality · Competitive prices · Full transparency</p>
+  <p style="margin-top:4px;">4th Year · Clinical Collection</p>
   <p style="margin-top:6px;">Designed by <a href="https://zead1254.github.io/Dr_zead/" target="_blank">The Boss</a></p>
 </footer>
 
@@ -799,17 +789,125 @@
 
 <script>
   // ============================================================
-  // DATA (Products for cart only — no display on this page)
+  // PRODUCT DATA (4th Year) — All images with double dash: --001.jpg
   // ============================================================
   const PRODUCTS = [
-    { id: "comp_enamel", name: "Composite Enamel Shade Compule", price: 175, year: "third" },
-    { id: "comp_dentin", name: "Composite Dentin Shade Compule", price: 175, year: "third" },
-    { id: "comp_body", name: "Composite Body Shade Compule", price: 175, year: "third" },
-    { id: "glass_powder", name: "Glass Ionomer Powder & Liquid", price: 100, year: "third" },
-    { id: "glass_capsule", name: "Glass Ionomer Capsule", price: 165, year: "third" },
-    { id: "spoon_matrix", name: "Spoon Matrix (Set of 2)", price: 40, year: "fourth" },
-    { id: "comp_gun", name: "Gun for Composite Compule", price: 220, year: "fourth" },
-    { id: "glass_gun", name: "Glass Ionomer Gun", price: 1100, year: "fourth" }
+    { id: "RST-001", name: "Temporary Restoration", price: 200, image: "--001.jpg", code: "RST-001" },
+    { id: "DIA-001", name: "Articulating Paper", price: 180, image: "--002.jpg", code: "DIA-001" },
+    { id: "STE-001", name: "Alcohol", price: 120, image: "--003.jpg", code: "STE-001" },
+    { id: "MAT-001", name: "Catalyst", price: 250, image: "--004.jpg", code: "MAT-001" },
+    { id: "PPE-001", name: "Mask", price: 180, image: "--005.jpg", code: "PPE-001" },
+    { id: "EQU-001", name: "Adaptor", price: 150, image: "--006.jpg", code: "EQU-001" },
+    { id: "END-001", name: "MTA", price: 2000, image: "--007.jpg", code: "END-001" },
+    { id: "DIS-001", name: "Cotton Rolls", price: 120, image: "--008.jpg", code: "DIS-001" },
+    { id: "IMP-001", name: "Alginate Alginplus", price: 650, image: "--009.jpg", code: "IMP-001" },
+    { id: "IMP-002", name: "Alginate Tropicalgin", price: 700, image: "--010.jpg", code: "IMP-002" },
+    { id: "DIS-002", name: "Kidney Dish", price: 80, image: "--011.jpg", code: "DIS-002" },
+    { id: "PRS-001", name: "Retraction Cord", price: 350, image: "--012.jpg", code: "PRS-001" },
+    { id: "DIS-003", name: "Gauze", price: 150, image: "--013.jpg", code: "DIS-003" },
+    { id: "DIS-004", name: "Disposable Tray", price: 8, image: "--014.jpg", code: "DIS-004" },
+    { id: "EQU-002", name: "Contra Angle High-Speed Handpiece (8 Holes, LED)", price: 3800, image: "--015.jpg", code: "EQU-002" },
+    { id: "EQU-003", name: "Contra Angle High-Speed Handpiece (8 Holes, Without LED)", price: 2900, image: "--016.jpg", code: "EQU-003" },
+    { id: "RST-002", name: "Flowable Composite", price: 750, image: "--017.jpg", code: "RST-002" },
+    { id: "RST-003", name: "Resin Rings", price: 450, image: "--018.jpg", code: "RST-003" },
+    { id: "DIA-002", name: "Mouth Mirror Handle", price: 120, image: "--019.jpg", code: "DIA-002" },
+    { id: "PRS-002", name: "Pink Wax", price: 180, image: "--020.jpg", code: "PRS-002" },
+    { id: "END-002", name: "Resin Sealer", price: 900, image: "--021.jpg", code: "END-002" },
+    { id: "RST-004", name: "Plastic Wedges (1 pc)", price: 10, image: "--022.jpg", code: "RST-004" },
+    { id: "DIA-003", name: "Double-Sided Mouth Mirror", price: 90, image: "--023.jpg", code: "DIA-003" },
+    { id: "RST-005", name: "Beautifil A2 Packable Composite", price: 850, image: "--024.jpg", code: "RST-005" },
+    { id: "PRS-003", name: "Self-Adhesive Resin Cement", price: 1600, image: "--025.jpg", code: "PRS-003" },
+    { id: "IMP-003", name: "Green Stick Compound", price: 450, image: "--026.jpg", code: "IMP-003" },
+    { id: "RST-006", name: "Beautifil A2 Low-Shrinkage Packable Composite", price: 950, image: "--027.jpg", code: "RST-006" },
+    { id: "ORT-001", name: "Orthodontic Wire", price: 180, image: "--028.jpg", code: "ORT-001" },
+    { id: "DIS-005", name: "Wrapping Film", price: 300, image: "--029.jpg", code: "DIS-005" },
+    { id: "IMP-004", name: "Zetaplus Kit (Large)", price: 1200, image: "--030.jpg", code: "IMP-004" },
+    { id: "IMP-005", name: "Zetaplus Kit (Small)", price: 800, image: "--031.jpg", code: "IMP-005" },
+    { id: "RST-007", name: "Flex Dam", price: 350, image: "--032.jpg", code: "RST-007" },
+    { id: "END-003", name: "Endo Sponge", price: 180, image: "--033.jpg", code: "END-003" },
+    { id: "DIS-006", name: "Plastic Instrument Tray", price: 120, image: "--034.jpg", code: "DIS-006" },
+    { id: "DIS-007", name: "Plastic Cup", price: 2, image: "--035.jpg", code: "DIS-007" },
+    { id: "SUR-001", name: "Topical Anesthetic Gel", price: 250, image: "--036.jpg", code: "SUR-001" },
+    { id: "SUR-002", name: "Metal Syringe", price: 450, image: "--037.jpg", code: "SUR-002" },
+    { id: "RST-008", name: "Universal Bond 4 ml", price: 950, image: "--038.jpg", code: "RST-008" },
+    { id: "RST-009", name: "Universal Bond 0.5 ml", price: 180, image: "--039.jpg", code: "RST-009" },
+    { id: "SUR-003", name: "Anesthesia Carpules (Blue)", price: 450, image: "--040.jpg", code: "SUR-003" },
+    { id: "SUR-004", name: "Anesthesia Carpules (Red)", price: 450, image: "--041.jpg", code: "SUR-004" },
+    { id: "STE-002", name: "Sterilization Pouch (5×10)", price: 450, image: "--042.jpg", code: "STE-002" },
+    { id: "DIA-004", name: "Caries Detector", price: 450, image: "--043.jpg", code: "DIA-004" },
+    { id: "FIN-001", name: "Polishing Paste", price: 250, image: "--044.jpg", code: "FIN-001" },
+    { id: "INS-001", name: "Metal Sectional Tray", price: 350, image: "--045.jpg", code: "INS-001" },
+    { id: "INS-002", name: "Single-Sided Retractor", price: 280, image: "--046.jpg", code: "INS-002" },
+    { id: "FIN-002", name: "Polishing Brush Bur", price: 60, image: "--047.jpg", code: "FIN-002" },
+    { id: "PRS-004", name: "Temporary Crown (Han)", price: 450, image: "--048.jpg", code: "PRS-004" },
+    { id: "PRS-005", name: "Temporary Crown (Charm)", price: 500, image: "--049.jpg", code: "PRS-005" },
+    { id: "DIS-008", name: "Plastic Syringe (100 pcs)", price: 350, image: "--050.jpg", code: "DIS-008" },
+    { id: "RST-010", name: "Light Cure GIC Capsules", price: 1500, image: "--051.jpg", code: "RST-010" },
+    { id: "DIS-009", name: "Napkin", price: 120, image: "--052.jpg", code: "DIS-009" },
+    { id: "STE-003", name: "Sterilization Pouch (2.25×5)", price: 220, image: "--053.jpg", code: "STE-003" },
+    { id: "PPE-002", name: "Dental Floss", price: 120, image: "--054.jpg", code: "PPE-002" },
+    { id: "DIS-010", name: "Air-Water Plastic Tips", price: 250, image: "--055.jpg", code: "DIS-010" },
+    { id: "STE-004", name: "Sterilization Pouch (4.33×10)", price: 380, image: "--056.jpg", code: "STE-004" },
+    { id: "FIN-003", name: "Finishing Strip", price: 180, image: "--057.jpg", code: "FIN-003" },
+    { id: "SUR-005", name: "Injection Needle", price: 180, image: "--058.jpg", code: "SUR-005" },
+    { id: "STE-005", name: "Chlorhexidine", price: 180, image: "--059.jpg", code: "STE-005" },
+    { id: "PPE-003", name: "Gloves", price: 300, image: "--060.jpg", code: "PPE-003" },
+    { id: "PPE-004", name: "Dental Gown", price: 250, image: "--061.jpg", code: "PPE-004" },
+    { id: "PPE-005", name: "Over Gloves", price: 120, image: "--062.jpg", code: "PPE-005" },
+    { id: "RST-011", name: "Acid Etchant", price: 350, image: "--063.jpg", code: "RST-011" },
+    { id: "PRS-006", name: "Temporary Cement", price: 500, image: "--064.jpg", code: "PRS-006" },
+    { id: "RST-012", name: "Glass Ionomer Cement (GIC)", price: 750, image: "--065.jpg", code: "RST-012" },
+    { id: "RST-013", name: "TheraCal", price: 2200, image: "--066.jpg", code: "RST-013" },
+    { id: "RAD-001", name: "X-ray Film with Manual Processing Solution (100 pcs)", price: 2000, image: "--067.jpg", code: "RAD-001" },
+    { id: "RAD-002", name: "Auto-Processing X-ray Film (50 pcs)", price: 1500, image: "--068.jpg", code: "RAD-002" },
+    { id: "INS-003", name: "Double-Sided Retractor", price: 350, image: "--069.jpg", code: "INS-003" },
+    { id: "EQU-004", name: "Apple High-Speed Handpiece with LED", price: 3000, image: "--070.jpg", code: "EQU-004" },
+    { id: "EQU-005", name: "Apple High-Speed Handpiece without LED", price: 2300, image: "--071.jpg", code: "EQU-005" },
+    { id: "FIN-004", name: "Finishing Strip", price: 180, image: "--072.jpg", code: "FIN-004" },
+    { id: "EQU-006", name: "COXO High-Speed Handpiece with LED", price: 4500, image: "--073.jpg", code: "EQU-006" },
+    { id: "EQU-007", name: "COXO High-Speed Handpiece without LED", price: 3600, image: "--074.jpg", code: "EQU-007" },
+    { id: "DIS-011", name: "Plastic Suction Tips", price: 180, image: "--075.jpg", code: "DIS-011" },
+    { id: "RST-014", name: "Enamel Shade", price: 800, image: "--076.jpg", code: "RST-014" },
+    { id: "RST-015", name: "Dentin Shade", price: 800, image: "--077.jpg", code: "RST-015" },
+    { id: "INS-004", name: "Composite Applicator (Zeffiro)", price: 250, image: "--078.jpg", code: "INS-004" },
+    { id: "PPE-006", name: "Overhead", price: 300, image: "--079.jpg", code: "PPE-006" },
+    { id: "DIS-012", name: "Ear Sticks", price: 60, image: "--080.jpg", code: "DIS-012" },
+    { id: "INS-005", name: "Excavator (Zeffiro)", price: 220, image: "--081.jpg", code: "INS-005" },
+    { id: "RST-016", name: "Varnish", price: 350, image: "--082.jpg", code: "RST-016" },
+    { id: "INS-006", name: "Metal Scissors", price: 180, image: "--083.jpg", code: "INS-006" },
+    { id: "PRS-007", name: "Wax Carver", price: 180, image: "--084.jpg", code: "PRS-007" },
+    { id: "PRS-008", name: "Wax Knife", price: 180, image: "--085.jpg", code: "PRS-008" },
+    { id: "SUR-006", name: "Lancet Holder", price: 220, image: "--086.jpg", code: "SUR-006" },
+    { id: "SUR-007", name: "Lancet Blade No. 15", price: 150, image: "--087.jpg", code: "SUR-007" },
+    { id: "INS-007", name: "Plastic Spatula", price: 60, image: "--088.jpg", code: "INS-007" },
+    { id: "INS-008", name: "Metal Spatula", price: 120, image: "--089.jpg", code: "INS-008" },
+    { id: "END-004", name: "Endodontic Ruler", price: 180, image: "--090.jpg", code: "END-004" },
+    { id: "PRS-009", name: "Retraction Cord Applicator", price: 300, image: "--091.jpg", code: "PRS-009" },
+    { id: "IMP-006", name: "Dentulous Metal Tray Size 2", price: 350, image: "--092.jpg", code: "IMP-006" },
+    { id: "IMP-007", name: "Dentulous Metal Tray Size 3", price: 350, image: "--093.jpg", code: "IMP-007" },
+    { id: "END-005", name: "Gutta-Percha Medium (15–45)", price: 300, image: "--094.jpg", code: "END-005" },
+    { id: "END-006", name: "Gutta-Percha Medium (45–80)", price: 300, image: "--095.jpg", code: "END-006" },
+    { id: "STE-006", name: "Betadine", price: 120, image: "--096.jpg", code: "STE-006" },
+    { id: "IMP-008", name: "Medium Body Silicone (Silaxil)", price: 850, image: "--097.jpg", code: "IMP-008" },
+    { id: "END-007", name: "H-File (15–40)", price: 250, image: "--098.jpg", code: "END-007" },
+    { id: "END-008", name: "H-File (45–80)", price: 250, image: "--099.jpg", code: "END-008" },
+    { id: "END-009", name: "K-File (15–40)", price: 250, image: "--100.jpg", code: "END-009" },
+    { id: "END-010", name: "K-File (45–80)", price: 250, image: "--101.jpg", code: "END-010" },
+    { id: "RST-017", name: "EverX Composite", price: 2500, image: "--102.jpg", code: "RST-017" },
+    { id: "RST-018", name: "Celluloid Strip", price: 120, image: "--103.jpg", code: "RST-018" },
+    { id: "END-011", name: "K-File No. 10", price: 250, image: "--104.jpg", code: "END-011" },
+    { id: "END-012", name: "K-File No. 8", price: 250, image: "--105.jpg", code: "END-012" },
+    { id: "PER-001", name: "Scaling Kit (4 Instruments)", price: 1200, image: "--106.jpg", code: "PER-001" },
+    { id: "ORT-002", name: "Adams Pliers", price: 750, image: "--107.jpg", code: "ORT-002" },
+    { id: "ORT-003", name: "Orthodontic Wire", price: 180, image: "--108.jpg", code: "ORT-003" },
+    { id: "ORT-004", name: "Loop Former", price: 950, image: "--109.jpg", code: "ORT-004" },
+    { id: "ORT-005", name: "Cutter Pliers", price: 1200, image: "--110.jpg", code: "ORT-005" },
+    { id: "FIN-005", name: "Cutting Stones", price: 450, image: "--111.jpg", code: "FIN-005" },
+    { id: "FIN-006", name: "Finishing Stones", price: 450, image: "--112.jpg", code: "FIN-006" },
+    { id: "FIN-007", name: "Carbide Burs", price: 450, image: "--113.jpg", code: "FIN-007" },
+    { id: "IMP-009", name: "Addition Silicone (Silaxil)", price: 1200, image: "--114.jpg", code: "IMP-009" },
+    { id: "IMP-010", name: "Addition Silicone (Accusil)", price: 1500, image: "--115.jpg", code: "IMP-010" },
+    { id: "END-013", name: "Low-Speed Endo Z Bur", price: 250, image: "--116.jpg", code: "END-013" }
   ];
 
   // ============================================================
@@ -823,6 +921,8 @@
   // ============================================================
   // DOM REFS
   // ============================================================
+  const grid = document.getElementById('productsGrid');
+  const searchInput = document.getElementById('searchInput');
   const cartCountDisplay = document.getElementById('cartCountDisplay');
   const cartItemsContainer = document.getElementById('cartItemsContainer');
   const cartTotalArea = document.getElementById('cartTotalArea');
@@ -848,37 +948,67 @@
   applyTheme(localStorage.getItem('cura_theme') || 'light');
 
   // ============================================================
-  // NAVIGATION TO YEAR PAGES
+  // RENDER
   // ============================================================
-  document.getElementById('goThirdBtn').addEventListener('click', () => {
-    window.location.href = 'third-year.html';
-  });
-  document.getElementById('goFourthBtn').addEventListener('click', () => {
-    window.location.href = 'fourth-year.html';
-  });
-  // Also make the whole card clickable
-  document.getElementById('catalogThird').addEventListener('click', (e) => {
-    if (e.target.tagName !== 'BUTTON') window.location.href = 'third-year.html';
-  });
-  document.getElementById('catalogFourth').addEventListener('click', (e) => {
-    if (e.target.tagName !== 'BUTTON') window.location.href = 'fourth-year.html';
-  });
+  function renderProducts(filter = '') {
+    const filtered = PRODUCTS.filter(p =>
+      p.name.toLowerCase().includes(filter.toLowerCase()) ||
+      p.code.toLowerCase().includes(filter.toLowerCase())
+    );
+    if (!filtered.length) {
+      grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px 0; color:var(--text-soft);">No products found.</div>`;
+      return;
+    }
+    grid.innerHTML = '';
+    filtered.forEach(p => {
+      const qty = cart[p.id] || 0;
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <div class="product-img"><img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/200x180?text=${encodeURIComponent(p.name)}'" /></div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-code">${p.code}</div>
+        <div class="product-price">${p.price} EGP</div>
+        <div class="qty-selector">
+          <button class="qty-btn decr-btn" data-id="${p.id}">−</button>
+          <span class="qty-value" id="qty-val-${p.id}">${qty}</span>
+          <button class="qty-btn incr-btn" data-id="${p.id}">+</button>
+        </div>
+        <button class="add-to-cart" data-id="${p.id}"><i class="fas fa-plus"></i> Add to Cart</button>
+      `;
+      grid.appendChild(card);
+    });
+
+    document.querySelectorAll('.decr-btn').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, -1)));
+    document.querySelectorAll('.incr-btn').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, 1)));
+    document.querySelectorAll('.add-to-cart').forEach(b => b.addEventListener('click', () => {
+      if (!loggedInUser?.verified) { alert('⚠️ Please login & verify first.'); openLoginModal(); return; }
+      addToCart(b.dataset.id, 1);
+    }));
+  }
 
   // ============================================================
-  // CART (shared across pages via localStorage)
+  // CART
   // ============================================================
   function addToCart(id, n = 1) {
     cart[id] = (cart[id] || 0) + n;
     if (cart[id] <= 0) delete cart[id];
     updateCartUI();
+    updateQtyDisplay();
     saveCart();
+    const btn = document.querySelector(`.add-to-cart[data-id="${id}"]`);
+    if (btn) { const orig = btn.innerHTML; btn.innerHTML = '<i class="fas fa-check"></i> Added!'; setTimeout(() => btn.innerHTML = orig, 700); }
   }
   function changeQty(id, delta) {
     const cur = cart[id] || 0;
     const nv = cur + delta;
     if (nv <= 0) delete cart[id]; else cart[id] = nv;
     updateCartUI();
+    updateQtyDisplay();
     saveCart();
+  }
+  function updateQtyDisplay() {
+    PRODUCTS.forEach(p => { const el = document.getElementById(`qty-val-${p.id}`); if (el) el.textContent = cart[p.id] || 0; });
   }
   function updateCartUI() {
     const totalItems = Object.values(cart).reduce((s, q) => s + q, 0);
@@ -914,7 +1044,7 @@
         const id = b.dataset.id, delta = b.dataset.delta;
         if (delta === 'remove') delete cart[id];
         else { const cur = cart[id] || 0; const nv = cur + parseInt(delta); if (nv <= 0) delete cart[id]; else cart[id] = nv; }
-        updateCartUI(); saveCart();
+        updateCartUI(); updateQtyDisplay(); saveCart();
       });
     });
   }
@@ -922,7 +1052,7 @@
   function loadCart() {
     const s = localStorage.getItem('cura_cart');
     if (s) try { cart = JSON.parse(s); } catch(e) {}
-    updateCartUI();
+    updateCartUI(); updateQtyDisplay();
   }
 
   // ============================================================
@@ -1041,12 +1171,12 @@
     if (!items.length) { alert('Cart is empty.'); return; }
     const totalPrice = items.reduce((s, i) => s + i.price * i.qty, 0);
     const contact = gender === 'Male' ? '+20 10 31718103' : '+20 10 64112263';
-    const msg = `New Order - Cura Store\n\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\nGender: ${gender}\n\nItems:\n${items.map(i => `${i.name} (x${i.qty}) - ${i.price * i.qty} EGP`).join('\n')}\n\nTotal: ${totalPrice} EGP\nContact: ${contact}\nDate: ${new Date().toLocaleString('en-EG')}`;
+    const msg = `New Order - Cura Store (4th Year)\n\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\nGender: ${gender}\n\nItems:\n${items.map(i => `${i.name} (x${i.qty}) - ${i.price * i.qty} EGP`).join('\n')}\n\nTotal: ${totalPrice} EGP\nContact: ${contact}\nDate: ${new Date().toLocaleString('en-EG')}`;
     const invoiceHTML = generateInvoiceHTML(name, phone, address, gender, items, totalPrice);
     if (confirm('Confirm order & send via WhatsApp?')) {
       window.open(`https://wa.me/${contact.replace(/[^0-9+]/g,'')}?text=${encodeURIComponent(msg)}`, '_blank');
       openInvoice(invoiceHTML);
-      cart = {}; updateCartUI(); saveCart(); closeCartSidebar(); checkoutForm.classList.remove('active');
+      cart = {}; updateCartUI(); updateQtyDisplay(); saveCart(); closeCartSidebar(); checkoutForm.classList.remove('active');
     }
   }
 
@@ -1060,7 +1190,11 @@
   // INIT
   // ============================================================
   document.addEventListener('DOMContentLoaded', () => {
-    loadCart(); loadUser();
+    renderProducts();
+    loadCart();
+    loadUser();
+
+    searchInput.addEventListener('input', (e) => renderProducts(e.target.value));
 
     document.getElementById('cartBtn').addEventListener('click', openCartSidebar);
     document.getElementById('closeCartBtn').addEventListener('click', closeCartSidebar);
