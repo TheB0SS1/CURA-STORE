@@ -14,11 +14,11 @@
 --bg:#f3f4f6;--surface:#ffffff;--text:#0f172a;--text-s:#64748b;
 --border:#e2e8f0;--primary:#0f172a;--accent:#0d9488;
 --accent-l:rgba(13,148,136,.05);--accent-m:rgba(13,148,136,.12);
---gold:#92400e;--gold-l:rgba(146,64,14,.05);
+--gold:#b45309;--gold-l:rgba(180,83,9,.06);
 --danger:#dc2626;--danger-l:rgba(220,38,38,.05);
 --sh-s:0 1px 3px rgba(15,23,42,.04),0 1px 2px rgba(15,23,42,.02);
---sh-m:0 4px 16px rgba(15,23,42,.05),0 1px 4px rgba(15,23,42,.03);
---sh-lg:0 10px 40px rgba(15,23,42,.07);
+--sh-m:0 4px 16px rgba(15,23,42,.06),0 1px 4px rgba(15,23,42,.03);
+--sh-lg:0 12px 40px rgba(15,23,42,.08);
 --r:16px;--rs:12px;--pill:100px;
 --tr:.25s cubic-bezier(.4,0,.2,1);
 }
@@ -28,18 +28,17 @@
 --accent-l:rgba(20,184,166,.06);--accent-m:rgba(20,184,166,.15);
 --gold:#f59e0b;--gold-l:rgba(245,158,11,.06);
 --danger:#f87171;--danger-l:rgba(248,113,113,.06);
---sh-s:0 1px 3px rgba(0,0,0,.2);
---sh-m:0 4px 16px rgba(0,0,0,.25);
---sh-lg:0 10px 40px rgba(0,0,0,.35);
+--sh-s:0 1px 3px rgba(0,0,0,.2);--sh-m:0 4px 16px rgba(0,0,0,.25);--sh-lg:0 12px 40px rgba(0,0,0,.35);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s;
+background-image:radial-gradient(circle at 15% 50%,rgba(13,148,136,.03) 0%,transparent 50%),radial-gradient(circle at 85% 20%,rgba(245,158,11,.025) 0%,transparent 50%)}
 .ctn{max-width:980px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
 a{text-decoration:none;color:inherit}button{font-family:inherit}
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);border-bottom:1px solid var(--border);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);padding:0 0;transition:background .3s,border .3s}
-[data-theme="dark"] .nav{background:rgba(11,17,32,.88)}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);border-bottom:1px solid var(--border);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);transition:background .3s,border .3s}
+[data-theme="dark"] .nav{background:rgba(11,17,32,.9)}
 .nav .ctn{display:flex;justify-content:space-between;align-items:center;height:56px}
 .logo{display:flex;align-items:center;gap:10px}
 .logo-mark{width:32px;height:32px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.85rem}
@@ -48,13 +47,11 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .nav-a{display:flex;align-items:center;gap:8px}
 .nb{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:var(--pill);font-size:.7rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);transition:var(--tr);height:34px}
 .nb:hover{border-color:var(--accent);background:var(--accent-l)}
-.nb.wa{background:#25D366;color:#fff;border-color:#25D366}
-.nb.wa:hover{background:#1da851}
-.nb.no{color:var(--text-s);border-color:transparent;font-size:.65rem;padding:6px 10px}
-.nb.no:hover{color:var(--danger);background:var(--danger-l);border-color:transparent}
+.nb.wa{background:#25D366;color:#fff;border-color:#25D366}.nb.wa:hover{background:#1da851}
+.nb.no{color:var(--text-s);border-color:transparent;font-size:.65rem;padding:6px 10px}.nb.no:hover{color:var(--danger);background:var(--danger-l);border-color:transparent}
 
 /* PROGRESS */
-.prog{position:sticky;top:56px;z-index:99;background:var(--surface);border-bottom:1px solid var(--border);padding:0;transition:background .3s,border .3s)}
+.prog{position:sticky;top:56px;z-index:99;background:var(--surface);border-bottom:1px solid var(--border);transition:background .3s,border .3s}
 .prog .ctn{height:36px;display:flex;align-items:center;gap:14px}
 .prog-t{flex:1;height:3px;background:var(--border);border-radius:10px;overflow:hidden}
 .prog-f{height:100%;background:linear-gradient(90deg,var(--accent),#f59e0b);border-radius:10px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0}
@@ -75,7 +72,7 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .s-t{font-size:1rem;font-weight:700;color:var(--text);line-height:1.2}
 .s-d{font-size:.72rem;color:var(--text-s);margin-top:1px}
 
-/* PRODUCT CARDS */
+/* PRODUCT CARDS — Multi-select */
 .pr{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:16px}
 .pc{background:var(--surface);border-radius:var(--rs);border:1.5px solid var(--border);cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;position:relative;overflow:hidden}
 .pc:hover{border-color:var(--accent);box-shadow:var(--sh-m);transform:translateY(-2px)}
@@ -85,8 +82,7 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .pc-img img{width:100%;height:100%;object-fit:contain;padding:10px;transition:transform .4s cubic-bezier(.4,0,.2,1);display:block}
 .pc:hover .pc-img img{transform:scale(1.05)}
 .pc-fb{display:none;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#c0c8d4;padding:8px;text-align:center;width:100%;height:100%;position:absolute;inset:0}
-.pc-fb i{font-size:1.5rem;opacity:.3}
-.pc-fb span{font-size:.5rem;font-weight:600;opacity:.4;max-width:85%}
+.pc-fb i{font-size:1.5rem;opacity:.3}.pc-fb span{font-size:.5rem;font-weight:600;opacity:.4;max-width:85%}
 .pc-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column}
 .pc-id{font-size:.52rem;font-weight:700;color:var(--accent);letter-spacing:.4px;text-transform:uppercase}
 .pc-nm{font-weight:700;font-size:.78rem;color:var(--text);line-height:1.3;margin-top:1px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -97,10 +93,13 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .pq button{background:none;border:none;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;font-weight:700;color:var(--text);display:flex;align-items:center;justify-content:center;transition:var(--tr)}
 .pq button:hover{background:var(--accent-l);color:var(--accent)}
 .pq span{min-width:16px;text-align:center;font-weight:700;font-size:.72rem}
-.pc-chk{position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.5rem;color:transparent;transition:var(--tr);background:var(--surface);z-index:4}
+.pq-lg button{width:36px;height:36px;font-size:1rem}.pq-lg span{min-width:28px;font-size:.9rem}
+.pc-chk{position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.55rem;color:transparent;transition:var(--tr);background:var(--surface);z-index:4;cursor:pointer}
+.pc-chk:hover{border-color:var(--accent);background:var(--accent-l);color:var(--accent)}
 .pc.sel .pc-chk{background:var(--accent);border-color:var(--accent);color:#fff}
+.pc-brand{font-size:.55rem;color:var(--text-s);font-weight:500;margin-top:2px;opacity:.7}
 
-/* SECTION NAV — Skip beside Continue */
+/* SECTION NAV */
 .sn{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;flex-wrap:wrap}
 .b-bk{padding:8px 16px;border-radius:var(--pill);border:1px solid var(--border);background:var(--surface);color:var(--text-s);font-weight:600;font-size:.75rem;cursor:pointer;transition:var(--tr);height:36px;display:inline-flex;align-items:center;gap:5px}
 .b-bk:hover{border-color:var(--text-s);color:var(--text)}
@@ -114,6 +113,10 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .b-co.on.pulse{animation:bp 2s ease infinite}
 @keyframes bp{0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,.25)}50%{box-shadow:0 0 0 6px rgba(13,148,136,0)}}
 
+/* TOP CONTINUE for Essentials */
+.top-co{display:flex;justify-content:flex-end;margin-bottom:14px}
+.top-co .b-co{margin-left:0}
+
 /* GLOVES */
 .gl-w{max-width:300px;margin:0 auto}
 .gl-img{height:150px;overflow:hidden;background:var(--bg);border-radius:var(--rs);margin-bottom:14px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
@@ -123,23 +126,26 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .gl-ch:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-l)}
 .gl-ch.on{border-color:var(--accent);background:var(--accent);color:#fff;box-shadow:0 3px 12px rgba(13,148,136,.2)}
 .gl-sk{display:block;margin:0 auto 12px;background:none;border:none;color:var(--text-s);font-size:.75rem;font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:2px;transition:var(--tr);font-family:inherit}
-.gl-sk:hover{color:var(--accent)}
-.gl-sk.on{color:var(--accent);text-decoration:none}
+.gl-sk:hover{color:var(--accent)}.gl-sk.on{color:var(--accent);text-decoration:none}
 
 /* STATUS */
 .st{font-size:.68rem;font-weight:600;color:var(--text-s);margin-bottom:4px;min-height:15px}
 .st.ok{color:var(--accent)}.st.sk{color:var(--text-s);font-style:italic}
 
-/* ESSENTIALS */
-.es-ban{background:var(--accent-l);border-radius:var(--rs);padding:14px 18px;margin-bottom:14px;border-left:3px solid var(--accent)}
-.es-ban h4{font-size:.92rem;font-weight:700}
-.es-ban p{font-size:.72rem;color:var(--text-s);margin-top:2px;line-height:1.6}
+/* ESSENTIALS — Arabic Banner */
+.es-ban{background:var(--accent-l);border-radius:var(--rs);padding:18px 20px;margin-bottom:14px;border-left:3px solid var(--accent);direction:rtl;text-align:right}
+.es-ban .es-title{font-size:1rem;font-weight:800;color:var(--text);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.es-ban .es-body{font-size:.76rem;color:var(--text-s);line-height:1.85}
+.es-ban .es-body ul{list-style:none;padding:0;margin:6px 0 0}
+.es-ban .es-body ul li{padding:2px 0;padding-right:16px;position:relative}
+.es-ban .es-body ul li::before{content:"•";position:absolute;right:0;color:var(--accent);font-weight:700}
+.es-ban .es-count{display:inline-block;margin-top:8px;font-size:.68rem;font-weight:600;color:var(--accent);background:var(--accent-m);padding:3px 12px;border-radius:var(--pill);direction:ltr;text-align:center}
 .sb{width:100%;max-width:340px;padding:8px 14px;border:1px solid var(--border);border-radius:var(--pill);background:var(--surface);color:var(--text);font-size:.78rem;font-family:inherit;transition:var(--tr);outline:none;margin-bottom:10px}
 .sb:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-l)}
 .eg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px}
-.ei{background:var(--bg);border-radius:var(--rs);padding:6px 8px;border:1px solid var(--border);display:flex;align-items:center;gap:8px;transition:var(--tr)}
+.ei{background:var(--bg);border-radius:var(--rs);padding:6px 8px;border:1px solid var(--border);display:flex;align-items:center;gap:8px;transition:var(--tr);cursor:pointer}
 .ei:hover{border-color:var(--accent)}
-.ei.rm{opacity:.35}
+.ei.rm{opacity:.35}.ei.rm:hover{opacity:.6}
 .ei-im{width:48px;height:48px;border-radius:8px;flex-shrink:0;overflow:hidden;background:var(--surface);position:relative;border:1px solid var(--border)}
 .ei-im img{width:100%;height:100%;object-fit:contain;padding:3px;display:block}
 .ei-im .fb{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:#c0c8d4;font-size:.9rem}
@@ -186,6 +192,38 @@ footer a{color:var(--accent);font-weight:600}
 [data-theme="dark"] .toast{background:var(--surface);color:var(--text)}
 .toast.show{transform:translateX(-50%) translateY(0)}
 
+/* ======= PRODUCT DETAIL OVERLAY ======= */
+.det-ov{position:fixed;inset:0;z-index:200;display:flex;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.det-ov.open{opacity:1;pointer-events:auto}
+.det-bd{position:absolute;inset:0;background:rgba(15,23,42,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.det-pn{position:relative;width:100%;max-width:500px;margin-left:auto;background:var(--surface);overflow-y:auto;transform:translateX(100%);transition:transform .38s cubic-bezier(.32,.72,.24,1.02);display:flex;flex-direction:column;max-height:100vh}
+.det-ov.open .det-pn{transform:translateX(0)}
+.det-back{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:8px;padding:14px 18px;background:var(--surface);border-bottom:1px solid var(--border);cursor:pointer;transition:var(--tr);flex-shrink:0}
+.det-back:hover{background:var(--accent-l)}
+.det-back i{font-size:.85rem;color:var(--accent)}
+.det-back span{font-size:.82rem;font-weight:600;color:var(--text)}
+.det-img{width:100%;height:320px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;position:relative}
+.det-img img{max-width:100%;max-height:100%;object-fit:contain;padding:32px;transition:transform .3s}
+.det-img-fb{display:none;flex-direction:column;align-items:center;gap:4px;color:#c0c8d4}
+.det-img-fb i{font-size:2.5rem;opacity:.3}
+.det-info{padding:22px 24px 0;flex:1}
+.det-id{font-size:.6rem;font-weight:700;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.det-name{font-size:1.15rem;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:6px}
+.det-brand{font-size:.75rem;color:var(--text-s);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.det-brand i{color:var(--accent);font-size:.65rem}
+.det-desc{font-size:.82rem;color:var(--text-s);line-height:1.65;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.det-price-row{display:flex;align-items:baseline;gap:6px;margin-bottom:20px}
+.det-price{font-size:1.6rem;font-weight:900;color:var(--gold)}
+.det-price-cur{font-size:.85rem;font-weight:600;color:var(--text-s)}
+.det-acts{padding:0 24px 32px;flex-shrink:0}
+.det-qty-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding:12px 16px;background:var(--bg);border-radius:var(--rs);border:1px solid var(--border)}
+.det-qty-label{font-size:.78rem;font-weight:600;color:var(--text-s)}
+.det-btn{width:100%;padding:14px;border-radius:var(--pill);border:none;font-weight:700;font-size:.88rem;cursor:pointer;transition:var(--tr);display:flex;align-items:center;justify-content:center;gap:8px}
+.det-btn.add{background:var(--accent);color:#fff}
+.det-btn.add:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 20px rgba(13,148,136,.25)}
+.det-btn.remove{background:var(--surface);color:var(--danger);border:1.5px solid var(--danger)}
+.det-btn.remove:hover{background:var(--danger-l)}
+
 @media(max-width:700px){
 .nav .ctn{height:50px}.logo-mark{width:28px;height:28px;font-size:.75rem}.logo-t{font-size:1.05rem}
 .pr{grid-template-columns:1fr 1fr}.eg{grid-template-columns:1fr}
@@ -195,6 +233,9 @@ footer a{color:var(--accent);font-weight:600}
 .b-co{margin-left:0;width:100%;justify-content:center}
 .pc-img{height:115px}
 .toast{max-width:90vw;font-size:.72rem;padding:10px 18px}
+.det-pn{max-width:100%}.det-img{height:240px}.det-img img{padding:20px}
+.det-info{padding:18px 18px 0}.det-acts{padding:0 18px 24px}
+.det-name{font-size:1.05rem}.det-price{font-size:1.35rem}
 }
 @media(max-width:420px){.pr{grid-template-columns:1fr}.ctn{padding:0 14px}.pc-img{height:130px}}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
@@ -216,11 +257,16 @@ footer a{color:var(--accent);font-weight:600}
 <footer class="ctn"><p>CURA STORE — Premium Dental Supplies &nbsp;·&nbsp; Designed by <a href="https://zead1254.github.io/Dr_zead/" target="_blank">The Boss</a></p></footer>
 <div class="toast" id="toast"></div>
 
+<!-- Product Detail Overlay -->
+<div class="det-ov" id="detOv">
+  <div class="det-bd" onclick="closeDetail()"></div>
+  <div class="det-pn" id="detPn"></div>
+</div>
+
 <script>
-// Images are in the SAME folder as this HTML file
 const IP='';
 
-// Arabic skip messages
+/* Arabic skip messages — friendly Egyptian tone */
 const SKIP_MSG={
   contra:'✅ تمام، ما اخترتش أي Contra Angle Handpiece. يلا بينا على اللي بعده.',
   alginate:'✅ تمام، مش محتاج Alginate دلوقتي. يلا بينا على اللي بعده.',
@@ -235,44 +281,58 @@ const SKIP_MSG={
   gloves:'✅ تمام، ما اخترتش Gloves. يلا بينا على الأدوات الأساسية.'
 };
 
-// Products — img = filename with -- prefix, e.g. "--015.jpg"
-const PD={
-contra:{title:'Contra Angle Handpieces',desc:'Select the handpiece that fits your practice.',items:[
-{id:'EQU-002',name:'Contra Angle High-Speed (8 Holes, LED)',img:'--015.jpg',desc:'8 holes, LED',price:2800},
-{id:'EQU-003',name:'Contra Angle High-Speed (8 Holes, No LED)',img:'--016.jpg',desc:'8 holes, no LED',price:1950},
-{id:'EQU-004',name:'Apple High-Speed with LED',img:'--070.jpg',desc:'High-speed LED',price:2825},
-{id:'EQU-005',name:'Apple High-Speed without LED',img:'--071.jpg',desc:'High-speed no LED',price:1670},
-{id:'EQU-006',name:'COXO High-Speed with LED',img:'--073.jpg',desc:'Premium LED',price:3925},
-{id:'EQU-007',name:'COXO High-Speed without LED',img:'--074.jpg',desc:'Premium no LED',price:2825}]},
-alginate:{title:'Alginate',desc:'Choose your preferred impression material.',items:[
-{id:'IMP-001',name:'Alginate Alginplus',img:'--009.jpg',desc:'Impression material',price:295},
-{id:'IMP-002',name:'Alginate Tropicalgin',img:'--010.jpg',desc:'Impression material',price:435}]},
-mirror:{title:'Mouth Mirror',desc:'Select the type you need.',items:[
-{id:'DIA-002',name:'Mouth Mirror Handle',img:'--019.jpg',desc:'Stainless steel',price:130},
-{id:'DIA-003',name:'Double-Sided Mouth Mirror',img:'--023.jpg',desc:'Dual-sided',price:85}]},
-composite:{title:'Beautifil Composite',desc:'Select the composite type.',items:[
-{id:'RST-005',name:'Beautifil A2 Packable Composite',img:'--024.jpg',desc:'A2 packable',price:900},
-{id:'RST-006',name:'Beautifil A2 Low-Shrinkage',img:'--027.jpg',desc:'Low shrinkage A2',price:1210}]},
-zeta:{title:'Zeta Plus',desc:'Choose your Zeta Plus kit size.',items:[
-{id:'IMP-004',name:'Zetaplus Kit (Large)',img:'--030.jpg',desc:'Large kit',price:1990},
-{id:'IMP-005',name:'Zetaplus Kit (Small)',img:'--031.jpg',desc:'Small kit',price:820}]},
-bond:{title:'Universal Bond',desc:'Select the bond size you need.',items:[
-{id:'RST-008',name:'Universal Bond 4 ml',img:'--038.jpg',desc:'4 ml bottle',price:2200},
-{id:'RST-009',name:'Universal Bond 0.5 ml',img:'--039.jpg',desc:'0.5 ml bottle',price:450}]},
-crown:{title:'Temporary Crown',desc:'Select the brand.',items:[
-{id:'PRS-004',name:'Temporary Crown (Han)',img:'--048.jpg',desc:'Han brand',price:1465},
-{id:'PRS-005',name:'Temporary Crown (Charm)',img:'--049.jpg',desc:'Charm brand',price:1490}]},
-xray:{title:'X-Ray Film',desc:'Select the processing type.',items:[
-{id:'RAD-001',name:'X-ray Manual Processing (100 pcs)',img:'--067.jpg',desc:'100 pcs, manual',price:1980},
-{id:'RAD-002',name:'X-ray Auto-Processing (50 pcs)',img:'--068.jpg',desc:'50 pcs, automatic',price:1860}]},
-silicone:{title:'Addition Silicone',desc:'Choose your addition silicone material.',items:[
-{id:'IMP-009',name:'Addition Silicone (Silaxil)',img:'--114.jpg',desc:'High precision',price:1400},
-{id:'IMP-010',name:'Addition Silicone (Accusil)',img:'--115.jpg',desc:'High precision',price:1100}]},
-endo:{title:'Endo Z Bur',desc:'Choose the quantity you need.',items:[
-{id:'END-013',name:'Low-Speed Endo Z Bur',img:'--116.jpg',desc:'Single piece',price:85}]}
+/* Arabic section descriptions */
+const AR_DESC={
+  contra:'اختار الـ Handpieces اللي تناسب شغلك. ممكن تختار أكتر من واحد.',
+  alginate:'اختار الـ Alginate اللي بتفضله. ممكن تختار أكتر من نوع.',
+  mirror:'اختار نوع الـ Mouth Mirror. ممكن تختار أكتر من نوع.',
+  composite:'اختار نوع الـ Composite. ممكن تختار أكتر من نوع.',
+  zeta:'اختار مقاس الـ Zeta Plus Kit. ممكن تختار أكتر من مقاس.',
+  bond:'اختار حجم الـ Bond. ممكن تختار أكتر من حجم.',
+  crown:'اختار ماركة الـ Temporary Crown. ممكن تختار أكتر من ماركة.',
+  xray:'اختار نوع معالجة الأشعة. ممكن تختار أكتر من نوع.',
+  silicone:'اختار نوع الـ Addition Silicone. ممكن تختار أكتر من نوع.',
+  endo:'اختار كمية الـ Endo Z Bur.'
 };
 
-// Essentials [id, name, img, price, defaultQty, note]
+/* Products — img = filename with -- prefix, brand where applicable */
+const PD={
+contra:{title:'Contra Angle Handpieces',desc:AR_DESC.contra,items:[
+{id:'EQU-002',name:'Contra Angle High-Speed (8 Holes, LED)',img:'--015.jpg',desc:'8 holes with built-in LED light for superior visibility during procedures.',price:2800,brand:''},
+{id:'EQU-003',name:'Contra Angle High-Speed (8 Holes, No LED)',img:'--016.jpg',desc:'8 holes standard high-speed handpiece without LED.',price:1950,brand:''},
+{id:'EQU-004',name:'Apple High-Speed with LED',img:'--070.jpg',desc:'Apple brand high-speed handpiece with LED illumination.',price:2825,brand:'Apple'},
+{id:'EQU-005',name:'Apple High-Speed without LED',img:'--071.jpg',desc:'Apple brand high-speed handpiece, standard version.',price:1670,brand:'Apple'},
+{id:'EQU-006',name:'COXO High-Speed with LED',img:'--073.jpg',desc:'COXO premium high-speed handpiece with LED.',price:3925,brand:'COXO'},
+{id:'EQU-007',name:'COXO High-Speed without LED',img:'--074.jpg',desc:'COXO premium high-speed handpiece, standard version.',price:2825,brand:'COXO'}]},
+alginate:{title:'Alginate',desc:AR_DESC.alginate,items:[
+{id:'IMP-001',name:'Alginate Alginplus',img:'--009.jpg',desc:'Premium alginate impression material for accurate molds.',price:295,brand:'Alginplus'},
+{id:'IMP-002',name:'Alginate Tropicalgin',img:'--010.jpg',desc:'Tropicalgin alginate with extended working time.',price:435,brand:'Tropicalgin'}]},
+mirror:{title:'Mouth Mirror',desc:AR_DESC.mirror,items:[
+{id:'DIA-002',name:'Mouth Mirror Handle',img:'--019.jpg',desc:'Stainless steel mouth mirror handle, durable and ergonomic.',price:130,brand:''},
+{id:'DIA-003',name:'Double-Sided Mouth Mirror',img:'--023.jpg',desc:'Double-sided mirror for versatile intraoral viewing.',price:85,brand:''}]},
+composite:{title:'Beautifil Composite',desc:AR_DESC.composite,items:[
+{id:'RST-005',name:'Beautifil A2 Packable Composite',img:'--024.jpg',desc:'A2 shade packable composite for posterior restorations.',price:900,brand:'Beautifil'},
+{id:'RST-006',name:'Beautifil A2 Low-Shrinkage',img:'--027.jpg',desc:'A2 shade low-shrinkage composite for aesthetic results.',price:1210,brand:'Beautifil'}]},
+zeta:{title:'Zeta Plus',desc:AR_DESC.zeta,items:[
+{id:'IMP-004',name:'Zetaplus Kit (Large)',img:'--030.jpg',desc:'Large Zetaplus addition silicone kit for full arch impressions.',price:1990,brand:'Zetaplus'},
+{id:'IMP-005',name:'Zetaplus Kit (Small)',img:'--031.jpg',desc:'Small Zetaplus kit for single tooth or partial impressions.',price:820,brand:'Zetaplus'}]},
+bond:{title:'Universal Bond',desc:AR_DESC.bond,items:[
+{id:'RST-008',name:'Universal Bond 4 ml',img:'--038.jpg',desc:'4 ml universal bonding agent for all composite types.',price:2200,brand:''},
+{id:'RST-009',name:'Universal Bond 0.5 ml',img:'--039.jpg',desc:'0.5 ml universal bonding agent, compact size.',price:450,brand:''}]},
+crown:{title:'Temporary Crown',desc:AR_DESC.crown,items:[
+{id:'PRS-004',name:'Temporary Crown (Han)',img:'--048.jpg',desc:'Han brand temporary crown material for provisional restorations.',price:1465,brand:'Han'},
+{id:'PRS-005',name:'Temporary Crown (Charm)',img:'--049.jpg',desc:'Charm brand temporary crown material, easy to use.',price:1490,brand:'Charm'}]},
+xray:{title:'X-Ray Film',desc:AR_DESC.xray,items:[
+{id:'RAD-001',name:'X-ray Manual Processing (100 pcs)',img:'--067.jpg',desc:'100 periapical films for manual processing.',price:1980,brand:''},
+{id:'RAD-002',name:'X-ray Auto-Processing (50 pcs)',img:'--068.jpg',desc:'50 periapical films for automatic processing.',price:1860,brand:''}]},
+silicone:{title:'Addition Silicone',desc:AR_DESC.silicone,items:[
+{id:'IMP-009',name:'Addition Silicone (Silaxil)',img:'--114.jpg',desc:'Silaxil addition silicone for high-precision impressions.',price:1400,brand:'Silaxil'},
+{id:'IMP-010',name:'Addition Silicone (Accusil)',img:'--115.jpg',desc:'Accusil addition silicone, excellent detail reproduction.',price:1100,brand:'Accusil'}]},
+endo:{title:'Endo Z Bur',desc:AR_DESC.endo,items:[
+{id:'END-013',name:'Low-Speed Endo Z Bur',img:'--116.jpg',desc:'Endo Z bur for low-speed access and shaping.',price:85,brand:''}]}
+};
+
+/* Essentials data */
 const ER=[
 ['RST-001','Temporary Restoration','--001.jpg',75,1,''],['DIA-001','Articulating Paper 12pcs','--002.jpg',100,1,''],
 ['STE-001','Alcohol','--003.jpg',50,1,''],['MAT-001','Catalyst','--004.jpg',525,1,''],
@@ -323,14 +383,22 @@ const ER=[
 ];
 const ES=ER.map(e=>({id:e[0],name:e[1],img:e[2],price:e[3],qty:e[4],note:e[5]}));
 
-// State
+/* Steps & Labels */
 const SO=['contra','alginate','mirror','composite','zeta','bond','crown','xray','silicone','endo','gloves','essentials','info','review'];
 const SL={contra:'Contra Angle',alginate:'Alginate',mirror:'Mouth Mirror',composite:'Composite',zeta:'Zeta Plus',bond:'Universal Bond',crown:'Temporary Crown',xray:'X-Ray Film',silicone:'Addition Silicone',endo:'Endo Z Bur',gloves:'Gloves',essentials:'Essential Supplies',info:'Shipping Info',review:'Order Review'};
 const SK='curaState';
+
+/* ===== STATE =====
+   sel[sid] = {pid: qty, pid2: qty2, ...}  (multi-select)
+   sel[sid] = 'skip'  (skipped)
+   sel[sid] = undefined  (not visited)
+   ess[eid] = qty (0 = removed)
+   cq[sid-pid] = qty (card quantity display, independent)
+*/
 let sel={},ess={},gSz='',gSk=false,cur=0,cq={};
 ES.forEach(e=>{if(ess[e.id]===undefined)ess[e.id]=e.qty;});
 
-// Auto-save
+/* Auto-save */
 let _as;
 function autoSave(){clearTimeout(_as);_as=setTimeout(saveState,150);}
 function saveState(){try{localStorage.setItem(SK,JSON.stringify({sel,ess,gSz,gSk,cur,cq,form:getForm(),sq:document.getElementById('essSearch')?.value||'',scroll:window.scrollY}));}catch(e){}}
@@ -338,96 +406,468 @@ function getForm(){const f={};['f-name','f-phone','f-alt','f-city','f-addr','f-l
 function setForm(f){if(!f)return;Object.keys(f).forEach(k=>{if(k==='gender'){const r=document.querySelector(`input[name="gender"][value="${f[k]}"]`);if(r)r.checked=true;}else{const el=document.getElementById(k);if(el)el.value=f[k];}});}
 function restoreState(){const raw=localStorage.getItem(SK);if(!raw)return false;try{const s=JSON.parse(raw);sel=s.sel||{};ess=s.ess||{};gSz=s.gSz||'';gSk=s.gSk||false;cur=s.cur||0;cq=s.cq||{};ES.forEach(e=>{if(ess[e.id]===undefined)ess[e.id]=e.qty;});return s;}catch(e){return false;}}
 
-// Toast
+/* Toast */
 let _tt;
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>t.classList.remove('show'),1300);}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>t.classList.remove('show'),1400);}
 
-// Build
+/* ===== BUILD APP ===== */
 function buildApp(){
   const app=document.getElementById('app');let n=0;
+
+  /* Regular product sections */
   Object.keys(PD).forEach(sid=>{const s=PD[sid];n++;
-    app.innerHTML+=`<div class="sec${n===1?' on':''}" id="s-${sid}"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">${s.title}</div><div class="s-d">${s.desc}</div></div></div><div class="pr" id="${sid}G"></div><div class="st" id="st-${sid}"></div><div class="sn">${n>1?'<button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>':'<div></div>'}<button class="b-sk" onclick="skipSec('${sid}')">تخطي هذه الخطوة</button><button class="b-co" id="bc-${sid}" onclick="goNext('${sid}')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+    app.innerHTML+=`<div class="sec${n===1?' on':''}" id="s-${sid}">
+      <div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">${s.title}</div><div class="s-d">${s.desc}</div></div></div>
+      <div class="pr" id="${sid}G"></div>
+      <div class="st" id="st-${sid}"></div>
+      <div class="sn">${n>1?'<button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>':'<div></div>'}<button class="b-sk" onclick="skipSec('${sid}')">تخطي هذه الخطوة</button><button class="b-co" id="bc-${sid}" onclick="goNext('${sid}')">Continue <i class="fas fa-arrow-right"></i></button></div>
+    </div>`;
   });
-  n++;
-  app.innerHTML+=`<div class="sec" id="s-gloves"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Gloves</div><div class="s-d">Choose your glove size, or continue without adding.</div></div></div><div class="gl-w"><div class="gl-img"><img src="${IP}--060.jpg" alt="Gloves" onerror="this.style.display='none'"/></div><div class="gl-chips" id="gC">${['XS','S','M','L','XL'].map(sz=>`<div class="gl-ch" data-sz="${sz}" onclick="setGS('${sz}')">${sz}</div>`).join('')}</div><button class="gl-sk" id="gSkB" onclick="skipG()">تخطي (بدون إضافة جوانتي)</button></div><div class="st" id="st-gloves"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipG()">تخطي هذه الخطوة</button><button class="b-co" id="bc-gloves" onclick="goNext('gloves')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
-  n++;
-  app.innerHTML+=`<div class="sec" id="s-essentials"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Essential Dental Supplies</div><div class="s-d">Pre-selected daily essentials. Adjust as needed.</div></div></div><div class="es-ban"><h4>Essential Supplies</h4><p>Commonly used daily supplies with the best brands pre-selected. Adjust quantities, remove items, or search by name or ID.</p></div><input type="text" class="sb" id="essSearch" placeholder="Search by name or ID..." oninput="renderEss()" aria-label="Search"/><div class="eg" id="essG"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
-  n++;
-  app.innerHTML+=`<div class="sec" id="s-info"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Shipping Information</div><div class="s-d">Please enter your delivery details.</div></div></div><div class="ig"><div><label>Full Name *</label><input type="text" id="f-name" placeholder="Dr. Ahmed Mahmoud" oninput="autoSave()"/></div><div><label>Mobile Number *</label><input type="tel" id="f-phone" placeholder="01xxxxxxxxx" oninput="autoSave()"/></div><div><label>Alternative Mobile</label><input type="tel" id="f-alt" placeholder="01xxxxxxxxx" oninput="autoSave()"/></div><div><label>Gender *</label><div class="rg"><label><input type="radio" name="gender" value="Male" onchange="autoSave()"/> Male</label><label><input type="radio" name="gender" value="Female" onchange="autoSave()"/> Female</label></div></div><div><label>Governorate *</label><select id="f-gov" onchange="autoSave()"><option value="">Select</option>${['Cairo','Alexandria','Giza','Port Said','Suez','Luxor','Aswan','Asyut','Beheira','Beni Suef','Dakahlia','Damietta','Faiyum','Gharbia','Ismailia','Kafr El Sheikh','Matrouh','Minya','Monufia','New Valley','North Sinai','Qalyubia','Qena','Red Sea','Sharqia','Sohag','South Sinai'].map(g=>`<option value="${g}">${g}</option>`).join('')}</select></div><div><label>City *</label><input type="text" id="f-city" placeholder="City" oninput="autoSave()"/></div><div class="fl"><label>Full Address *</label><input type="text" id="f-addr" placeholder="Street, building, floor..." oninput="autoSave()"/></div><div class="fl"><label>Nearby Landmark</label><input type="text" id="f-land" placeholder="Landmark" oninput="autoSave()"/></div><div class="fl"><label>Notes</label><textarea id="f-notes" placeholder="Special instructions..." oninput="autoSave()"></textarea></div></div><div class="sn" style="margin-top:12px"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on" onclick="goNext('info')">Review Order <i class="fas fa-arrow-right"></i></button></div></div>`;
-  n++;
-  app.innerHTML+=`<div class="sec" id="s-review"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Order Review</div><div class="s-d">Verify your order before generating the invoice.</div></div></div><div id="revC"></div><div class="sn" style="margin-top:12px"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on pulse" onclick="genInvoice()" style="background:var(--accent)">Generate Invoice <i class="fas fa-file-invoice"></i></button></div></div>`;
 
+  /* Gloves section */
+  n++;
+  app.innerHTML+=`<div class="sec" id="s-gloves">
+    <div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Gloves</div><div class="s-d">اختار مقاس الجوانتي المناسب، أو تخطي الخطوة.</div></div></div>
+    <div class="gl-w">
+      <div class="gl-img"><img src="${IP}--060.jpg" alt="Gloves" onerror="this.style.display='none'"/></div>
+      <div class="gl-chips" id="gC">${['XS','S','M','L','XL'].map(sz=>`<div class="gl-ch" data-sz="${sz}" onclick="setGS('${sz}')">${sz}</div>`).join('')}</div>
+      <button class="gl-sk" id="gSkB" onclick="skipG()">تخطي (بدون إضافة جوانتي)</button>
+    </div>
+    <div class="st" id="st-gloves"></div>
+    <div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipG()">تخطي هذه الخطوة</button><button class="b-co" id="bc-gloves" onclick="goNext('gloves')">Continue <i class="fas fa-arrow-right"></i></button></div>
+  </div>`;
+
+  /* Essentials section — with Arabic banner and dual Continue */
+  n++;
+  const preCount=ES.length;
+  app.innerHTML+=`<div class="sec" id="s-essentials">
+    <div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Essential Dental Supplies</div><div class="s-d">الأدوات الأساسية اليومية</div></div></div>
+    <div class="es-ban">
+      <div class="es-title">📦 الأدوات الأساسية</div>
+      <div class="es-body">
+        الأدوات دي أغلب الدكاترة بيحتاجوها بشكل يومي، وإحنا اخترنالك أفضل الماركات بأفضل الأسعار علشان نوفر عليك وقت البحث.
+        <br><br>كل المنتجات دي متحددة تلقائيًا.
+        <br><br>لو كل حاجة مناسبة، دوس <strong>Continue</strong>.
+        <br><br>ولو حابب تعدل، براحتك:
+        <ul>
+          <li>شيل أي منتج.</li>
+          <li>زود أو قلل الكمية.</li>
+          <li>أو راجع تفاصيل أي منتج قبل ما تكمل.</li>
+        </ul>
+        أنت ليك كامل الحرية في تعديل الأوردر بالشكل اللي يناسبك.
+        <div class="es-count">${preCount} منتج محدد تلقائيًا</div>
+      </div>
+    </div>
+    <div class="top-co"><button class="b-co on" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div>
+    <input type="text" class="sb" id="essSearch" placeholder="Search by name or ID..." oninput="renderEss()" aria-label="Search"/>
+    <div class="eg" id="essG"></div>
+    <div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div>
+  </div>`;
+
+  /* Info section */
+  n++;
+  app.innerHTML+=`<div class="sec" id="s-info">
+    <div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Shipping Information</div><div class="s-d">دلوقتي احنا محتاجين بيانات الشحن بتاعتك.</div></div></div>
+    <div class="ig">
+      <div><label>Full Name *</label><input type="text" id="f-name" placeholder="Dr. Ahmed Mahmoud" oninput="autoSave()"/></div>
+      <div><label>Mobile Number *</label><input type="tel" id="f-phone" placeholder="01xxxxxxxxx" oninput="autoSave()"/></div>
+      <div><label>Alternative Mobile</label><input type="tel" id="f-alt" placeholder="01xxxxxxxxx" oninput="autoSave()"/></div>
+      <div><label>Gender *</label><div class="rg"><label><input type="radio" name="gender" value="Male" onchange="autoSave()"/> Male</label><label><input type="radio" name="gender" value="Female" onchange="autoSave()"/> Female</label></div></div>
+      <div><label>Governorate *</label><select id="f-gov" onchange="autoSave()"><option value="">Select</option>${['Cairo','Alexandria','Giza','Port Said','Suez','Luxor','Aswan','Asyut','Beheira','Beni Suef','Dakahlia','Damietta','Faiyum','Gharbia','Ismailia','Kafr El Sheikh','Matrouh','Minya','Monufia','New Valley','North Sinai','Qalyubia','Qena','Red Sea','Sharqia','Sohag','South Sinai'].map(g=>`<option value="${g}">${g}</option>`).join('')}</select></div>
+      <div><label>City *</label><input type="text" id="f-city" placeholder="City" oninput="autoSave()"/></div>
+      <div class="fl"><label>Full Address *</label><input type="text" id="f-addr" placeholder="Street, building, floor..." oninput="autoSave()"/></div>
+      <div class="fl"><label>Nearby Landmark</label><input type="text" id="f-land" placeholder="Landmark" oninput="autoSave()"/></div>
+      <div class="fl"><label>Notes</label><textarea id="f-notes" placeholder="Special instructions..." oninput="autoSave()"></textarea></div>
+    </div>
+    <div class="sn" style="margin-top:12px"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on" onclick="goNext('info')">Review Order <i class="fas fa-arrow-right"></i></button></div>
+  </div>`;
+
+  /* Review section */
+  n++;
+  app.innerHTML+=`<div class="sec" id="s-review">
+    <div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Order Review</div><div class="s-d">راجع الأوردر قبل ما تعمل الفاتورة.</div></div></div>
+    <div id="revC"></div>
+    <div class="sn" style="margin-top:12px"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on pulse" onclick="genInvoice()" style="background:var(--accent)">Generate Invoice <i class="fas fa-file-invoice"></i></button></div>
+  </div>`;
+
+  /* Render product grids */
   Object.keys(PD).forEach(renderGrid);
-  renderEss();updateProg();
+  renderEss();
+  updateProg();
 
+  /* Restore saved state */
   const saved=restoreState();
-  if(saved){setTimeout(()=>{if(saved.form)setForm(saved.form);if(saved.sq){const el=document.getElementById('essSearch');if(el){el.value=saved.sq;renderEss();}}if(gSz){document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===gSz));updGSt();}if(gSk){document.getElementById('gSkB')?.classList.add('on');updGSt();}Object.keys(PD).forEach(renderGrid);showSec(cur);if(saved.scroll)setTimeout(()=>window.scrollTo({top:saved.scroll,behavior:'instant'}),80);},60);}
+  if(saved){
+    setTimeout(()=>{
+      if(saved.form)setForm(saved.form);
+      if(saved.sq){const el=document.getElementById('essSearch');if(el){el.value=saved.sq;renderEss();}}
+      if(gSz){document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===gSz));updGSt();}
+      if(gSk){document.getElementById('gSkB')?.classList.add('on');updGSt();}
+      Object.keys(PD).forEach(renderGrid);
+      showSec(cur);
+      if(saved.scroll)setTimeout(()=>window.scrollTo({top:saved.scroll,behavior:'instant'}),80);
+    },60);
+  }
 }
 
+/* Show section */
 function showSec(i){if(i<0)i=0;if(i>=SO.length)i=SO.length-1;cur=i;document.querySelectorAll('.sec').forEach((el,j)=>{el.classList.toggle('on',j===i);});updateProg();}
 
+/* Image error fallbacks */
 function imgErr(el){el.style.display='none';const fb=el.parentElement.querySelector('.pc-fb');if(fb)fb.style.display='flex';}
 function eImgErr(el){el.style.display='none';const fb=el.parentElement.querySelector('.fb');if(fb)fb.style.display='flex';}
 
+/* ===== RENDER PRODUCT GRID (Multi-Select) ===== */
 function renderGrid(sid){
   const s=PD[sid],g=document.getElementById(sid+'G');if(!g)return;
   let h='';
   s.items.forEach(p=>{
-    const k=sid+'-'+p.id,q=cq[k]||1,isSel=sel[sid]?.pid===p.id;
-    h+=`<div class="pc${isSel?' sel':''}" onclick="selProd('${sid}','${p.id}')"><div class="pc-chk"><i class="fas fa-check"></i></div><div class="pc-img"><img src="${IP}${p.img}" alt="${p.name}" loading="lazy" onerror="imgErr(this)"/><div class="pc-fb"><i class="fas fa-image"></i><span>${p.img}</span></div></div><div class="pc-body"><div class="pc-id">${p.id}</div><div class="pc-nm">${p.name}</div><div class="pc-ds">${p.desc}</div><div class="pc-bot"><div class="pc-pr">${p.price.toLocaleString()} EGP</div><div class="pq" onclick="event.stopPropagation()"><button onclick="chgQ('${sid}','${p.id}',-1)">−</button><span id="cq-${k}">${q}</span><button onclick="chgQ('${sid}','${p.id}',1)">+</button></div></div></div></div>`;
+    const k=sid+'-'+p.id;
+    const q=cq[k]||1;
+    const isSel=sel[sid]&&sel[sid]!=='skip'&&sel[sid][p.id];
+    h+=`<div class="pc${isSel?' sel':''}" onclick="openDetail('${sid}','${p.id}')">
+      <div class="pc-chk" onclick="event.stopPropagation();toggleProd('${sid}','${p.id}')"><i class="fas fa-check"></i></div>
+      <div class="pc-img">
+        <img src="${IP}${p.img}" alt="${p.name}" loading="lazy" onerror="imgErr(this)"/>
+        <div class="pc-fb"><i class="fas fa-image"></i><span>${p.name}</span></div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-id">${p.id}</div>
+        <div class="pc-nm">${p.name}</div>
+        ${p.brand?'<div class="pc-brand">'+p.brand+'</div>':''}
+        <div class="pc-ds">${p.desc}</div>
+        <div class="pc-bot">
+          <div class="pc-pr">${p.price.toLocaleString()} EGP</div>
+          <div class="pq" onclick="event.stopPropagation()">
+            <button onclick="chgQ('${sid}','${p.id}',-1)">−</button>
+            <span id="cq-${k}">${q}</span>
+            <button onclick="chgQ('${sid}','${p.id}',1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
   });
-  g.innerHTML=h;updSt(sid);
+  g.innerHTML=h;
+  updSt(sid);
 }
 
+/* ===== RENDER ESSENTIALS ===== */
 function renderEss(){
   const q=(document.getElementById('essSearch')?.value||'').toLowerCase();
   const g=document.getElementById('essG');if(!g)return;
   const f=ES.filter(e=>e.name.toLowerCase().includes(q)||e.id.toLowerCase().includes(q));
   g.innerHTML=f.map(e=>{
     const qt=ess[e.id]||0,rm=qt===0,nt=e.note?` — ${e.note}`:'';
-    return`<div class="ei${rm?' rm':''}"><div class="ei-im"><img src="${IP}${e.img}" alt="${e.name}" loading="lazy" onerror="eImgErr(this)"/><div class="fb"><i class="fas fa-image"></i></div></div><div class="ei-if"><div class="ei-id">${e.id}${nt}</div><div class="ei-nm">${e.name}</div><div class="ei-pr">${e.price.toLocaleString()} EGP</div></div><div class="ei-ac">${rm?`<button onclick="restE('${e.id}')" title="Add back"><i class="fas fa-plus"></i></button>`:`<button onclick="adjE('${e.id}',-1)">−</button><span class="ei-qt">${qt}</span><button onclick="adjE('${e.id}',1)">+</button><button class="ei-rm" onclick="rmE('${e.id}')" title="Remove"><i class="fas fa-xmark"></i></button>`}</div></div>`;
+    return`<div class="ei${rm?' rm':''}" onclick="openEssDetail('${e.id}')">
+      <div class="ei-im"><img src="${IP}${e.img}" alt="${e.name}" loading="lazy" onerror="eImgErr(this)"/><div class="fb"><i class="fas fa-image"></i></div></div>
+      <div class="ei-if"><div class="ei-id">${e.id}${nt}</div><div class="ei-nm">${e.name}</div><div class="ei-pr">${e.price.toLocaleString()} EGP</div></div>
+      <div class="ei-ac" onclick="event.stopPropagation()">${rm
+        ?`<button onclick="restE('${e.id}')" title="Add back"><i class="fas fa-plus"></i></button>`
+        :`<button onclick="adjE('${e.id}',-1)">−</button><span class="ei-qt">${qt}</span><button onclick="adjE('${e.id}',1)">+</button><button class="ei-rm" onclick="rmE('${e.id}')" title="Remove"><i class="fas fa-xmark"></i></button>`
+      }</div>
+    </div>`;
   }).join('');
 }
 
-// Interactions
-function chgQ(sid,pid,d){const k=sid+'-'+pid;let v=(cq[k]||1)+d;if(v<1)v=1;if(v>99)v=99;cq[k]=v;const el=document.getElementById('cq-'+k);if(el)el.textContent=v;if(sel[sid]?.pid===pid)sel[sid].qty=v;autoSave();}
-function selProd(sid,pid){const k=sid+'-'+pid;sel[sid]={pid,qty:cq[k]||1,variation:''};renderGrid(sid);enCont(sid);autoSave();}
+/* ===== PRODUCT DETAIL OVERLAY ===== */
+function openDetail(sid,pid){
+  const sec=PD[sid],prod=sec.items.find(i=>i.id===pid);
+  if(!prod)return;
+  const k=sid+'-'+pid;
+  const qty=cq[k]||1;
+  const isSel=sel[sid]&&sel[sid]!=='skip'&&!!sel[sid][pid];
+  window._savedScroll=window.scrollY;
 
-// Skip — toast + auto-advance
-function skipSec(sid){sel[sid]='skip';renderGrid(sid);autoSave();showToast(SKIP_MSG[sid]);setTimeout(()=>goNext(sid),1200);}
-function skipG(){gSz='';gSk=true;document.querySelectorAll('.gl-ch').forEach(c=>c.classList.remove('on'));document.getElementById('gSkB')?.classList.add('on');updGSt();autoSave();showToast(SKIP_MSG.gloves);setTimeout(()=>goNext('gloves'),1200);}
+  const pn=document.getElementById('detPn');
+  pn.innerHTML=`
+    <div class="det-back" onclick="closeDetail()">
+      <i class="fas fa-arrow-left"></i><span>Back</span>
+    </div>
+    <div class="det-img">
+      <img src="${IP}${prod.img}" alt="${prod.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="det-img-fb"><i class="fas fa-image"></i><span>${prod.name}</span></div>
+    </div>
+    <div class="det-info">
+      <div class="det-id">${prod.id}</div>
+      <div class="det-name">${prod.name}</div>
+      ${prod.brand?`<div class="det-brand"><i class="fas fa-tag"></i> ${prod.brand}</div>`:''}
+      <div class="det-desc">${prod.desc}</div>
+      <div class="det-price-row">
+        <span class="det-price">${prod.price.toLocaleString()}</span>
+        <span class="det-price-cur">EGP</span>
+      </div>
+    </div>
+    <div class="det-acts">
+      <div class="det-qty-row">
+        <span class="det-qty-label">Quantity</span>
+        <div class="pq pq-lg">
+          <button onclick="chgQ('${sid}','${pid}',-1);updDetQ('${k}')">−</button>
+          <span id="dq-${k}">${qty}</span>
+          <button onclick="chgQ('${sid}','${pid}',1);updDetQ('${k}')">+</button>
+        </div>
+      </div>
+      <button class="det-btn ${isSel?'remove':'add'}" onclick="toggleProd('${sid}','${pid}');openDetail('${sid}','${pid}')">
+        ${isSel?'<i class="fas fa-minus-circle"></i> Remove from Order':'<i class="fas fa-plus-circle"></i> Add to Order'}
+      </button>
+    </div>`;
 
-function setGS(sz){gSz=sz;gSk=false;document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===sz));document.getElementById('gSkB')?.classList.remove('on');updGSt();enCont('gloves');autoSave();}
-function updGSt(){const el=document.getElementById('st-gloves');if(gSz)el.innerHTML=`<span class="ok"><i class="fas fa-check-circle"></i> Size: <strong>${gSz}</strong></span>`;else if(gSk)el.innerHTML=`<span class="sk">Skipped</span>`;else el.textContent='';}
+  const ov=document.getElementById('detOv');
+  ov.style.display='flex';
+  document.body.style.overflow='hidden';
+  requestAnimationFrame(()=>{ov.classList.add('open');});
+}
+
+/* Essential product detail */
+function openEssDetail(eid){
+  const prod=ES.find(e=>e.id===eid);if(!prod)return;
+  const qty=ess[eid]||0;
+  const isAdded=qty>0;
+  window._savedScroll=window.scrollY;
+
+  const pn=document.getElementById('detPn');
+  pn.innerHTML=`
+    <div class="det-back" onclick="closeDetail()">
+      <i class="fas fa-arrow-left"></i><span>Back</span>
+    </div>
+    <div class="det-img">
+      <img src="${IP}${prod.img}" alt="${prod.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="det-img-fb"><i class="fas fa-image"></i><span>${prod.name}</span></div>
+    </div>
+    <div class="det-info">
+      <div class="det-id">${prod.id}${prod.note?' — '+prod.note:''}</div>
+      <div class="det-name">${prod.name}</div>
+      <div class="det-desc">Essential daily dental supply, pre-selected for your convenience.</div>
+      <div class="det-price-row">
+        <span class="det-price">${prod.price.toLocaleString()}</span>
+        <span class="det-price-cur">EGP</span>
+      </div>
+    </div>
+    <div class="det-acts">
+      <div class="det-qty-row">
+        <span class="det-qty-label">Quantity</span>
+        <div class="pq pq-lg">
+          <button onclick="adjE('${eid}',-1);updEssDetQ('${eid}')">−</button>
+          <span id="deq-${eid}">${Math.max(qty,1)}</span>
+          <button onclick="adjE('${eid}',1);updEssDetQ('${eid}')">+</button>
+        </div>
+      </div>
+      <button class="det-btn ${isAdded?'remove':'add'}" onclick="${isAdded?`rmE('${eid}');openEssDetail('${eid}')`:`restE('${eid}');openEssDetail('${eid}')`}">
+        ${isAdded?'<i class="fas fa-minus-circle"></i> Remove from Order':'<i class="fas fa-plus-circle"></i> Add to Order'}
+      </button>
+    </div>`;
+
+  const ov=document.getElementById('detOv');
+  ov.style.display='flex';
+  document.body.style.overflow='hidden';
+  requestAnimationFrame(()=>{ov.classList.add('open');});
+}
+
+function updDetQ(k){const el=document.getElementById('dq-'+k);if(el)el.textContent=cq[k]||1;}
+function updEssDetQ(eid){const el=document.getElementById('deq-'+eid);if(el)el.textContent=Math.max(ess[eid]||0,1);}
+
+function closeDetail(){
+  const ov=document.getElementById('detOv');
+  ov.classList.remove('open');
+  setTimeout(()=>{
+    ov.style.display='none';
+    document.body.style.overflow='';
+    if(window._savedScroll!==undefined){
+      window.scrollTo({top:window._savedScroll,behavior:'instant'});
+      delete window._savedScroll;
+    }
+  },380);
+}
+
+/* Close detail on Escape */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.getElementById('detOv').classList.contains('open'))closeDetail();
+});
+
+/* ===== INTERACTIONS ===== */
+
+/* Toggle product selection (multi-select) */
+function toggleProd(sid,pid){
+  if(!sel[sid]||sel[sid]==='skip')sel[sid]={};
+  const k=sid+'-'+pid;
+  if(sel[sid][pid]){
+    delete sel[sid][pid];
+    /* If nothing selected, clean up */
+    if(Object.keys(sel[sid]).length===0)delete sel[sid];
+  }else{
+    sel[sid][pid]=cq[k]||1;
+  }
+  renderGrid(sid);
+  autoSave();
+}
+
+/* Change quantity on card */
+function chgQ(sid,pid,d){
+  const k=sid+'-'+pid;
+  let v=(cq[k]||1)+d;
+  if(v<1)v=1;if(v>99)v=99;
+  cq[k]=v;
+  /* Update in sel if selected */
+  if(sel[sid]&&sel[sid]!=='skip'&&sel[sid][pid])sel[sid][pid]=v;
+  /* Update card display */
+  const el=document.getElementById('cq-'+k);if(el)el.textContent=v;
+  updSt(sid);
+  autoSave();
+}
+
+/* Skip section */
+function skipSec(sid){
+  sel[sid]='skip';
+  renderGrid(sid);
+  autoSave();
+  showToast(SKIP_MSG[sid]);
+  setTimeout(()=>goNext(sid),1200);
+}
+function skipG(){
+  gSz='';gSk=true;
+  document.querySelectorAll('.gl-ch').forEach(c=>c.classList.remove('on'));
+  document.getElementById('gSkB')?.classList.add('on');
+  updGSt();autoSave();
+  showToast(SKIP_MSG.gloves);
+  setTimeout(()=>goNext('gloves'),1200);
+}
+
+/* Gloves */
+function setGS(sz){
+  gSz=sz;gSk=false;
+  document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===sz));
+  document.getElementById('gSkB')?.classList.remove('on');
+  updGSt();enCont('gloves');autoSave();
+}
+function updGSt(){
+  const el=document.getElementById('st-gloves');
+  if(gSz)el.innerHTML=`<span class="ok"><i class="fas fa-check-circle"></i> Size: <strong>${gSz}</strong></span>`;
+  else if(gSk)el.innerHTML=`<span class="sk">Skipped</span>`;
+  else el.textContent='';
+}
+
+/* Essentials adjustments */
 function adjE(id,d){let v=(ess[id]||1)+d;if(v<1)v=1;if(v>99)v=99;ess[id]=v;renderEss();autoSave();}
 function rmE(id){ess[id]=0;renderEss();autoSave();}
 function restE(id){ess[id]=1;renderEss();autoSave();}
-function updSt(sid){const el=document.getElementById('st-'+sid);if(!el)return;const s=sel[sid];if(s==='skip')el.innerHTML=`<span class="sk">Skipped</span>`;else if(s?.pid){const p=PD[sid].items.find(i=>i.id===s.pid);el.innerHTML=`<span class="ok"><i class="fas fa-check-circle"></i> ${p.id} (x${s.qty})</span>`;}else el.textContent='';}
+
+/* Update status text (multi-select aware) */
+function updSt(sid){
+  const el=document.getElementById('st-'+sid);if(!el)return;
+  const s=sel[sid];
+  if(s==='skip'){
+    el.innerHTML=`<span class="sk">Skipped</span>`;
+  }else if(s&&typeof s==='object'){
+    const keys=Object.keys(s);
+    if(keys.length===0){
+      el.textContent='';
+      const b=document.getElementById('bc-'+sid);if(b)b.classList.remove('on','pulse');
+    }else if(keys.length===1){
+      const pid=keys[0],p=PD[sid].items.find(i=>i.id===pid);
+      el.innerHTML=`<span class="ok"><i class="fas fa-check-circle"></i> ${p.id} (x${s[pid]})</span>`;
+      enCont(sid);
+    }else{
+      const totalQ=Object.values(s).reduce((a,b)=>a+b,0);
+      el.innerHTML=`<span class="ok"><i class="fas fa-check-circle"></i> ${keys.length} products selected (${totalQ} items)</span>`;
+      enCont(sid);
+    }
+  }else{
+    el.textContent='';
+    const b=document.getElementById('bc-'+sid);if(b)b.classList.remove('on','pulse');
+  }
+}
+
 function enCont(sid){const b=document.getElementById('bc-'+sid);if(b)b.classList.add('on','pulse');}
 
-// Navigation
-function goNext(sid){const idx=SO.indexOf(sid);if(idx<0)return;if(sid==='info'){const nm=document.getElementById('f-name').value.trim(),ph=document.getElementById('f-phone').value.trim(),gn=document.querySelector('input[name="gender"]:checked')?.value,gv=document.getElementById('f-gov').value,ct=document.getElementById('f-city').value.trim(),ad=document.getElementById('f-addr').value.trim();if(!nm||!ph||!gn||!gv||!ct||!ad){const el=document.getElementById('s-info');el.style.animation='none';el.offsetHeight;el.style.animation='shake .4s ease';setTimeout(()=>el.style.animation='',400);return;}}if(SO[idx+1]==='review')buildReview();showSec(idx+1);autoSave();window.scrollTo({top:0,behavior:'smooth'});}
+/* ===== NAVIGATION ===== */
+function goNext(sid){
+  const idx=SO.indexOf(sid);if(idx<0)return;
+  /* Validate info form */
+  if(sid==='info'){
+    const nm=document.getElementById('f-name').value.trim(),
+          ph=document.getElementById('f-phone').value.trim(),
+          gn=document.querySelector('input[name="gender"]:checked')?.value,
+          gv=document.getElementById('f-gov').value,
+          ct=document.getElementById('f-city').value.trim(),
+          ad=document.getElementById('f-addr').value.trim();
+    if(!nm||!ph||!gn||!gv||!ct||!ad){
+      const el=document.getElementById('s-info');
+      el.style.animation='none';el.offsetHeight;el.style.animation='shake .4s ease';
+      setTimeout(()=>el.style.animation='',400);
+      showToast('⚠️ لازم تكمل كل البيانات المطلوبة عشان تقدر تكمل.');
+      return;
+    }
+  }
+  if(SO[idx+1]==='review')buildReview();
+  showSec(idx+1);autoSave();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 function goBack(){if(cur<=0)return;showSec(cur-1);autoSave();window.scrollTo({top:0,behavior:'smooth'});}
-function updateProg(){const p=((cur+1)/SO.length)*100;document.getElementById('pF').style.width=p+'%';document.getElementById('pL').textContent=`Step ${cur+1} / ${SO.length}  ·  ${SL[SO[cur]]}`;}
-function goReview(){buildReview();showSec(SO.indexOf('review'));document.getElementById('s-review')?.scrollIntoView({behavior:'smooth',block:'start'});}
+function updateProg(){
+  const p=((cur+1)/SO.length)*100;
+  document.getElementById('pF').style.width=p+'%';
+  document.getElementById('pL').textContent=`Step ${cur+1} / ${SO.length}  ·  ${SL[SO[cur]]}`;
+}
 
-// Review
-function getItems(){const items=[];Object.keys(PD).forEach(sid=>{const s=sel[sid];if(s&&s!=='skip'&&s.pid){const p=PD[sid].items.find(i=>i.id===s.pid);if(p)items.push({id:p.id,name:p.name,price:p.price,qty:s.qty,variation:'',img:p.img});}});if(gSz&&!gSk)items.push({id:'PPE-003',name:'Gloves',price:190,qty:1,variation:'Size: '+gSz,img:'--060.jpg'});ES.forEach(e=>{const q=ess[e.id]||0;if(q>0)items.push({id:e.id,name:e.name,price:e.price,qty:q,variation:e.note?'('+e.note+')':'',img:e.img});});return items;}
+/* ===== REVIEW & INVOICE ===== */
+function getItems(){
+  const items=[];
+  Object.keys(PD).forEach(sid=>{
+    const s=sel[sid];
+    if(s&&s!=='skip'&&typeof s==='object'){
+      Object.keys(s).forEach(pid=>{
+        const p=PD[sid].items.find(i=>i.id===pid);
+        if(p)items.push({id:p.id,name:p.name,price:p.price,qty:s[pid],variation:'',img:p.img});
+      });
+    }
+  });
+  if(gSz&&!gSk)items.push({id:'PPE-003',name:'Gloves',price:190,qty:1,variation:'Size: '+gSz,img:'--060.jpg'});
+  ES.forEach(e=>{const q=ess[e.id]||0;if(q>0)items.push({id:e.id,name:e.name,price:e.price,qty:q,variation:e.note?'('+e.note+')':'',img:e.img});});
+  return items;
+}
 
 function buildReview(){
   const items=getItems(),total=items.reduce((s,i)=>s+i.price*i.qty,0);
-  const nm=document.getElementById('f-name')?.value.trim()||'—',ph=document.getElementById('f-phone')?.value.trim()||'—',aph=document.getElementById('f-alt')?.value.trim()||'—',gn=document.querySelector('input[name="gender"]:checked')?.value||'—',gv=document.getElementById('f-gov')?.value||'—',ct=document.getElementById('f-city')?.value.trim()||'—',ad=document.getElementById('f-addr')?.value.trim()||'—',lm=document.getElementById('f-land')?.value.trim()||'—';
+  const nm=document.getElementById('f-name')?.value.trim()||'—',
+        ph=document.getElementById('f-phone')?.value.trim()||'—',
+        aph=document.getElementById('f-alt')?.value.trim()||'—',
+        gn=document.querySelector('input[name="gender"]:checked')?.value||'—',
+        gv=document.getElementById('f-gov')?.value||'—',
+        ct=document.getElementById('f-city')?.value.trim()||'—',
+        ad=document.getElementById('f-addr')?.value.trim()||'—',
+        lm=document.getElementById('f-land')?.value.trim()||'—';
   let rows=items.map((it,i)=>`<tr><td>${i+1}</td><td style="text-align:left;font-weight:700;font-size:.65rem;color:var(--accent)">${it.id}</td><td style="text-align:left">${it.name}${it.variation?`<br><span style="font-size:.6rem;color:var(--text-s)">${it.variation}</span>`:''}</td><td>${it.qty}</td><td>${it.price.toLocaleString()}</td><td style="font-weight:700">${(it.price*it.qty).toLocaleString()}</td></tr>`).join('');
-  document.getElementById('revC').innerHTML=`<div class="rv-s"><h4><i class="fas fa-user"></i> Customer Information</h4><div class="rv-c"><div class="rr"><span class="rl">Name</span><span>${nm}</span></div><div class="rr"><span class="rl">Phone</span><span>${ph}</span></div><div class="rr"><span class="rl">Alt. Phone</span><span>${aph}</span></div><div class="rr"><span class="rl">Gender</span><span>${gn}</span></div><div class="rr"><span class="rl">Governorate</span><span>${gv}</span></div><div class="rr"><span class="rl">City</span><span>${ct}</span></div><div class="rr" style="grid-column:1/-1"><span class="rl">Address</span><span>${ad}${lm!=='—'?' — '+lm:''}</span></div></div></div><table class="rv-t"><thead><tr><th>#</th><th style="text-align:left">ID</th><th style="text-align:left">Product</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead><tbody>${rows}<tr class="gr"><td colspan="5" style="text-align:right">Grand Total (EGP)</td><td>${total.toLocaleString()}</td></tr></tbody></table>`;
+  document.getElementById('revC').innerHTML=`
+    <div class="rv-s"><h4><i class="fas fa-user"></i> Customer Information</h4>
+    <div class="rv-c">
+      <div class="rr"><span class="rl">Name</span><span>${nm}</span></div>
+      <div class="rr"><span class="rl">Phone</span><span>${ph}</span></div>
+      <div class="rr"><span class="rl">Alt. Phone</span><span>${aph}</span></div>
+      <div class="rr"><span class="rl">Gender</span><span>${gn}</span></div>
+      <div class="rr"><span class="rl">Governorate</span><span>${gv}</span></div>
+      <div class="rr"><span class="rl">City</span><span>${ct}</span></div>
+      <div class="rr" style="grid-column:1/-1"><span class="rl">Address</span><span>${ad}${lm!=='—'?' — '+lm:''}</span></div>
+    </div></div>
+    <table class="rv-t"><thead><tr><th>#</th><th style="text-align:left">ID</th><th style="text-align:left">Product</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>
+    <tbody>${rows}<tr class="gr"><td colspan="5" style="text-align:right">Grand Total (EGP)</td><td>${total.toLocaleString()}</td></tr></tbody></table>`;
 }
 
-// Generate Invoice
-function genInvoice(){const items=getItems(),total=items.reduce((s,i)=>s+i.price*i.qty,0);const invNum='CURA-'+Date.now().toString().slice(-6);const invDate=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});const customer={name:document.getElementById('f-name').value.trim(),phone:document.getElementById('f-phone').value.trim(),altPhone:document.getElementById('f-alt').value.trim(),gender:document.querySelector('input[name="gender"]:checked')?.value||'',governorate:document.getElementById('f-gov').value,city:document.getElementById('f-city').value.trim(),address:document.getElementById('f-addr').value.trim(),landmark:document.getElementById('f-land').value.trim(),notes:document.getElementById('f-notes').value.trim()};localStorage.setItem('curaInvoice',JSON.stringify({invoiceNumber:invNum,invoiceDate:invDate,customer,items,total}));window.location.href='invoice.html';}
+function genInvoice(){
+  const items=getItems(),total=items.reduce((s,i)=>s+i.price*i.qty,0);
+  const invNum='CURA-'+Date.now().toString().slice(-6);
+  const invDate=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+  const customer={name:document.getElementById('f-name').value.trim(),phone:document.getElementById('f-phone').value.trim(),altPhone:document.getElementById('f-alt').value.trim(),gender:document.querySelector('input[name="gender"]:checked')?.value||'',governorate:document.getElementById('f-gov').value,city:document.getElementById('f-city').value.trim(),address:document.getElementById('f-addr').value.trim(),landmark:document.getElementById('f-land').value.trim(),notes:document.getElementById('f-notes').value.trim()};
+  localStorage.setItem('curaInvoice',JSON.stringify({invoiceNumber:invNum,invoiceDate:invDate,customer,items,total}));
+  window.location.href='invoice.html';
+}
 
 function newOrder(){if(!confirm('Start a new order? All current selections will be cleared.'))return;localStorage.removeItem(SK);localStorage.removeItem('curaInvoice');location.reload();}
 function toggleTheme(){const h=document.documentElement,d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');document.getElementById('thIco').className=d?'fas fa-moon':'fas fa-sun';localStorage.setItem('curaTheme',d?'light':'dark');}
 (function(){const s=localStorage.getItem('curaTheme');if(s==='dark'){document.documentElement.setAttribute('data-theme','dark');document.getElementById('thIco').className='fas fa-sun';}})();
+
+/* Scroll auto-save */
 let _ss;window.addEventListener('scroll',()=>{clearTimeout(_ss);_ss=setTimeout(autoSave,400);});
+
+/* Initialize */
 buildApp();
 </script>
 </body>
