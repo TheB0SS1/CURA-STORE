@@ -4,677 +4,227 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover" />
   <title>Cura Store | Global Dental Brand</title>
-  <!-- Font & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
-    /* ----- RESET & VARIABLES (Premium Global Brand) ----- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #f7f5f0;
-      --surface: #ffffff;
-      --surface-glass: rgba(255,255,255,0.48);
-      --text: #161412;
-      --text-soft: #5a524a;
-      --border: #e8e2d8;
-      --gold: #c9a96e;
-      --gold-light: rgba(201,169,110,0.12);
-      --shadow: 0 30px 60px -20px rgba(0,0,0,0.06);
-      --radius: 32px;
-      --radius-sm: 18px;
-      --transition: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#f3f4f6;--surface:#ffffff;--surface-glass:rgba(255,255,255,.72);
+      --text:#0f172a;--text-s:#64748b;
+      --border:#e2e8f0;
+      --accent:#0d9488;--accent-l:rgba(13,148,136,.06);--accent-m:rgba(13,148,136,.14);
+      --gold:#b45309;--gold-l:rgba(180,83,9,.06);
+      --shadow:0 30px 60px -20px rgba(15,23,42,.06);
+      --r:32px;--rs:18px;--pill:100px;
+      --tr:.45s cubic-bezier(.22,1,.36,1);
     }
-    [data-theme="dark"] {
-      --bg: #12100e;
-      --surface: #1f1c18;
-      --surface-glass: rgba(30,27,24,0.55);
-      --text: #f0ece4;
-      --text-soft: #b8b0a0;
-      --border: #2f2a26;
-      --gold: #d4b67a;
-      --gold-light: rgba(212,182,122,0.10);
-      --shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+    [data-theme="dark"]{
+      --bg:#0b1120;--surface:#131c2e;--surface-glass:rgba(19,28,46,.72);
+      --text:#e2e8f0;--text-s:#64748b;
+      --border:#1e293b;
+      --accent:#14b8a6;--accent-l:rgba(20,184,166,.06);--accent-m:rgba(20,184,166,.14);
+      --gold:#f59e0b;--gold-l:rgba(245,158,11,.06);
+      --shadow:0 30px 60px -20px rgba(0,0,0,.4);
     }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      transition: background var(--transition), color var(--transition);
-      min-height: 100vh;
-      overflow-x: hidden;
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',-apple-system,sans-serif;
+      background:var(--bg);color:var(--text);line-height:1.5;
+      transition:background var(--tr),color var(--tr);
+      min-height:100vh;overflow-x:hidden;
+      background-image:radial-gradient(circle at 15% 50%,rgba(13,148,136,.03) 0%,transparent 50%),
+      radial-gradient(circle at 85% 20%,rgba(245,158,11,.02) 0%,transparent 50%);
     }
 
-    /* ----- Floating Stars (Ultra Premium) ----- */
-    .stars-container {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .star {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
-      opacity: 0.2;
-      animation: floatStar 22s infinite alternate ease-in-out;
-      box-shadow: 0 0 12px rgba(201,169,110,0.15);
-    }
-    .star:nth-child(1) { left: 6%; top: 12%; animation-duration: 24s; }
-    .star:nth-child(2) { left: 18%; top: 65%; animation-duration: 18s; animation-delay: 2s; width: 5px; height: 5px; }
-    .star:nth-child(3) { left: 33%; top: 22%; animation-duration: 20s; animation-delay: 4s; }
-    .star:nth-child(4) { left: 55%; top: 75%; animation-duration: 26s; animation-delay: 1s; width: 6px; height: 6px; opacity: 0.15; }
-    .star:nth-child(5) { left: 72%; top: 18%; animation-duration: 19s; animation-delay: 3s; }
-    .star:nth-child(6) { left: 88%; top: 58%; animation-duration: 21s; animation-delay: 5s; }
-    .star:nth-child(7) { left: 48%; top: 44%; animation-duration: 27s; animation-delay: 2s; }
-    .star:nth-child(8) { left: 12%; top: 90%; animation-duration: 20s; animation-delay: 6s; }
-    .star:nth-child(9) { left: 94%; top: 32%; animation-duration: 23s; animation-delay: 1s; }
-    .star:nth-child(10) { left: 64%; top: 92%; animation-duration: 25s; animation-delay: 4s; }
-    @keyframes floatStar {
-      0% { transform: translate(0,0) scale(1); opacity: 0.15; }
-      33% { transform: translate(25px,-35px) scale(1.3); opacity: 0.4; }
-      66% { transform: translate(-15px,25px) scale(0.7); opacity: 0.2; }
-      100% { transform: translate(18px,-12px) scale(1); opacity: 0.3; }
+    /* Floating particles */
+    .particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .pt{position:absolute;border-radius:50%;background:var(--accent);opacity:.12;animation:floatPt 22s infinite alternate ease-in-out;box-shadow:0 0 14px rgba(13,148,136,.1)}
+    .pt:nth-child(1){left:6%;top:12%;width:4px;height:4px;animation-duration:24s}
+    .pt:nth-child(2){left:18%;top:65%;width:5px;height:5px;animation-duration:18s;animation-delay:2s}
+    .pt:nth-child(3){left:33%;top:22%;width:4px;height:4px;animation-duration:20s;animation-delay:4s}
+    .pt:nth-child(4){left:55%;top:75%;width:6px;height:6px;opacity:.08;animation-duration:26s;animation-delay:1s}
+    .pt:nth-child(5){left:72%;top:18%;width:4px;height:4px;animation-duration:19s;animation-delay:3s}
+    .pt:nth-child(6){left:88%;top:58%;width:5px;height:5px;animation-duration:21s;animation-delay:5s}
+    .pt:nth-child(7){left:48%;top:44%;width:3px;height:3px;animation-duration:27s;animation-delay:2s}
+    .pt:nth-child(8){left:12%;top:90%;width:4px;height:4px;animation-duration:20s;animation-delay:6s}
+    .pt:nth-child(9){left:94%;top:32%;width:5px;height:5px;animation-duration:23s;animation-delay:1s}
+    .pt:nth-child(10){left:64%;top:92%;width:4px;height:4px;animation-duration:25s;animation-delay:4s}
+    @keyframes floatPt{
+      0%{transform:translate(0,0) scale(1);opacity:.1}
+      33%{transform:translate(25px,-35px) scale(1.4);opacity:.3}
+      66%{transform:translate(-15px,25px) scale(.7);opacity:.15}
+      100%{transform:translate(18px,-12px) scale(1);opacity:.2}
     }
 
-    .container { max-width: 1380px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
-    a { text-decoration: none; color: inherit; }
+    .container{max-width:1380px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+    a{text-decoration:none;color:inherit}
 
-    /* ----- STICKY NAV (Glassmorphism Premium) ----- */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--surface-glass);
-      backdrop-filter: blur(22px) saturate(1.2);
-      -webkit-backdrop-filter: blur(22px) saturate(1.2);
-      border-bottom: 1px solid var(--border);
-      padding: 18px 0;
-      transition: background var(--transition), border var(--transition);
+    /* NAVBAR */
+    .navbar{
+      position:sticky;top:0;z-index:100;
+      background:var(--surface-glass);
+      backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);
+      border-bottom:1px solid var(--border);padding:18px 0;
+      transition:background var(--tr),border var(--tr);
     }
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
+    .navbar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .logo h1{font-size:1.8rem;font-weight:800;letter-spacing:-.8px;color:var(--text)}
+    .logo h1 span{font-weight:300;color:var(--accent)}
+    .logo p{font-size:.7rem;letter-spacing:.8px;color:var(--text-s);margin-top:2px;text-transform:uppercase}
+    .nav-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .theme-toggle{
+      background:var(--surface);border:1px solid var(--border);border-radius:var(--pill);
+      padding:8px 16px;font-size:.9rem;cursor:pointer;transition:var(--tr);
+      color:var(--text);display:flex;align-items:center;gap:6px;font-weight:500;
     }
-    .logo h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      color: var(--text);
+    .theme-toggle:hover{border-color:var(--accent);background:var(--accent-l)}
+    .btn-wa{
+      background:#25D366;color:#fff;padding:8px 18px;border-radius:var(--pill);
+      font-size:.75rem;font-weight:700;display:flex;align-items:center;gap:6px;transition:var(--tr);
     }
-    .logo h1 span { font-weight: 300; color: var(--gold); }
-    .logo p {
-      font-size: 0.7rem;
-      letter-spacing: 0.8px;
-      color: var(--text-soft);
-      margin-top: 2px;
-      text-transform: uppercase;
-    }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .theme-toggle {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 60px;
-      padding: 8px 16px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: var(--transition);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-    }
-    .theme-toggle:hover { border-color: var(--gold); }
-    .btn-whatsapp {
-      background: #25D366;
-      color: #0b0a0a;
-      padding: 8px 18px;
-      border-radius: 60px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: var(--transition);
-    }
-    .btn-whatsapp:hover { background: #1ebe57; transform: scale(1.03); }
-    .btn-login {
-      background: var(--gold);
-      color: #0b0a0a;
-      padding: 8px 22px;
-      border-radius: 60px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .btn-login:hover { background: #b8955e; transform: scale(1.02); }
-    .user-badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--gold-light);
-      padding: 6px 16px;
-      border-radius: 60px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--gold);
-      border: 1px solid var(--border);
-    }
-    .cart-btn {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 60px;
-      padding: 8px 20px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: var(--transition);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cart-btn:hover { border-color: var(--gold); }
-    .cart-count {
-      background: var(--gold);
-      color: #0b0a0a;
-      border-radius: 30px;
-      padding: 0 10px;
-      font-size: 0.7rem;
-      font-weight: 700;
-    }
+    .btn-wa:hover{background:#1ebe57;transform:scale(1.03)}
 
-    /* ----- HERO (Global Brand Statement) ----- */
-    .hero {
-      padding: 80px 0 50px;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 3.2rem;
-      font-weight: 500;
-      letter-spacing: -1.5px;
-      color: var(--text);
-    }
-    .hero h2 i { color: var(--gold); }
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--text-soft);
-      max-width: 640px;
-      margin: 18px auto 0;
-      line-height: 1.7;
-    }
+    /* HERO */
+    .hero{padding:80px 0 50px;text-align:center}
+    .hero h2{font-size:3.2rem;font-weight:500;letter-spacing:-1.5px;color:var(--text)}
+    .hero h2 i{color:var(--accent);font-style:normal}
+    .hero p{font-size:1.1rem;color:var(--text-s);max-width:640px;margin:18px auto 0;line-height:1.7}
 
-    /* ----- Brand Catalog Cards (2 Big Cards) ----- */
-    .catalog-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      margin: 20px 0 60px;
+    /* CATALOG */
+    .cat-head{display:flex;align-items:center;gap:12px;margin:10px 0 20px}
+    .cat-head i{color:var(--accent);font-size:1.6rem}
+    .cat-head span{font-size:1.3rem;font-weight:500;color:var(--text)}
+    .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin:0 0 60px}
+    .cat-card{
+      background:var(--surface);border-radius:var(--r);padding:40px 32px 36px;
+      border:1px solid var(--border);transition:var(--tr);box-shadow:var(--shadow);
+      position:relative;overflow:hidden;cursor:pointer;
     }
-    .catalog-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 40px 32px 36px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
+    .cat-card::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(circle at 30% 20%,var(--accent-l),transparent 70%);
+      opacity:0;transition:var(--tr);
     }
-    .catalog-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 20%, var(--gold-light), transparent 70%);
-      opacity: 0;
-      transition: var(--transition);
+    .cat-card:hover::before{opacity:.8}
+    .cat-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 40px 80px -20px rgba(13,148,136,.12)}
+    .cat-card .c-icon{font-size:2.4rem;color:var(--accent);margin-bottom:16px;display:block}
+    .cat-card h3{font-size:1.6rem;font-weight:600;color:var(--text);margin-bottom:6px;position:relative;z-index:1}
+    .cat-card .badge{
+      display:inline-block;background:var(--accent-l);color:var(--accent);
+      font-size:.7rem;font-weight:700;padding:4px 16px;border-radius:var(--pill);
+      border:1px solid var(--border);margin-bottom:14px;letter-spacing:.3px;position:relative;z-index:1;
     }
-    .catalog-card:hover::before { opacity: 0.6; }
-    .catalog-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--gold);
-      box-shadow: 0 40px 80px -20px rgba(201,169,110,0.15);
+    .cat-card p{color:var(--text-s);font-size:.95rem;line-height:1.7;margin-bottom:20px;position:relative;z-index:1}
+    .exp-btn{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 28px;
+      background:var(--accent);color:#fff;border:none;border-radius:var(--pill);
+      font-weight:700;font-size:.85rem;cursor:pointer;transition:var(--tr);position:relative;z-index:1;
     }
-    .catalog-card .card-icon {
-      font-size: 2.4rem;
-      color: var(--gold);
-      margin-bottom: 16px;
-      display: block;
-    }
-    .catalog-card h3 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .catalog-card .year-badge {
-      display: inline-block;
-      background: var(--gold-light);
-      color: var(--gold);
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 4px 16px;
-      border-radius: 40px;
-      border: 1px solid var(--border);
-      margin-bottom: 14px;
-      letter-spacing: 0.3px;
-    }
-    .catalog-card p {
-      color: var(--text-soft);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .catalog-card .explore-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 28px;
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .catalog-card .explore-btn:hover { background: #b8955e; transform: scale(1.02); }
+    .exp-btn:hover{opacity:.9;transform:scale(1.02);box-shadow:0 6px 20px rgba(13,148,136,.25)}
 
-    /* ----- Founders (Glass) ----- */
-    .founders-section {
-      margin: 30px 0 40px;
-      padding: 40px 28px;
-      background: var(--surface-glass);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      text-align: center;
+    /* FOUNDERS */
+    .founders{
+      margin:30px 0 40px;padding:40px 28px;
+      background:var(--surface-glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      border-radius:var(--r);border:1px solid var(--border);text-align:center;
     }
-    .founders-section h3 {
-      font-size: 1.4rem;
-      font-weight: 500;
-      margin-bottom: 22px;
-      color: var(--text);
+    .founders h3{font-size:1.4rem;font-weight:500;margin-bottom:22px;color:var(--text)}
+    .founders h3 i{color:var(--accent)}
+    .f-list{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+    .f-card{text-align:center}
+    .f-icon{
+      width:68px;height:68px;background:var(--accent-l);color:var(--accent);
+      border-radius:60px;display:flex;align-items:center;justify-content:center;
+      margin:0 auto 10px;font-size:1.6rem;border:1px solid var(--border);transition:var(--tr);
     }
-    .founders-section h3 i { color: var(--gold); }
-    .founders-list {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .founder-card { text-align: center; }
-    .founder-icon {
-      width: 68px;
-      height: 68px;
-      background: var(--gold-light);
-      color: var(--gold);
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 10px;
-      font-size: 1.6rem;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-    }
-    .founder-card:hover .founder-icon { transform: scale(1.06); border-color: var(--gold); }
-    .founder-name { font-weight: 600; font-size: 0.85rem; color: var(--text); }
+    .f-card:hover .f-icon{transform:scale(1.06);border-color:var(--accent)}
+    .f-name{font-weight:600;font-size:.85rem;color:var(--text)}
 
-    /* ----- Footer ----- */
-    footer {
-      text-align: center;
-      padding: 32px 0 28px;
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
-      font-size: 0.75rem;
-      color: var(--text-soft);
+    /* FOOTER */
+    footer{
+      text-align:center;padding:32px 0 28px;border-top:1px solid var(--border);
+      margin-top:20px;font-size:.75rem;color:var(--text-s);
     }
-    footer a { color: var(--gold); font-weight: 500; }
+    footer a{color:var(--accent);font-weight:500}
 
-    /* ===== CART SIDEBAR (Glass) ===== */
-    .cart-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(8px);
-      z-index: 500;
-      visibility: hidden;
-      opacity: 0;
-      transition: var(--transition);
-      display: flex;
-      justify-content: flex-end;
+    /* ===== COMING SOON OVERLAY ===== */
+    .cs-ov{
+      position:fixed;inset:0;z-index:500;
+      background:rgba(15,23,42,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      display:flex;align-items:center;justify-content:center;
+      visibility:hidden;opacity:0;transition:var(--tr);
     }
-    .cart-overlay.open { visibility: visible; opacity: 1; }
-    .cart-panel {
-      background: var(--surface);
-      width: 100%;
-      max-width: 480px;
-      height: 100%;
-      overflow-y: auto;
-      padding: 28px 24px;
-      box-shadow: -8px 0 50px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      border-left: 1px solid var(--border);
+    .cs-ov.open{visibility:visible;opacity:1}
+    .cs-card{
+      background:var(--surface);width:100%;max-width:420px;margin:20px;
+      padding:40px 32px;border-radius:var(--r);box-shadow:0 40px 100px rgba(0,0,0,.12);
+      border:1px solid var(--border);text-align:center;position:relative;
+      transform:scale(.92);transition:transform .4s cubic-bezier(.22,1,.36,1);
     }
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 16px;
-      margin-bottom: 20px;
+    .cs-ov.open .cs-card{transform:scale(1)}
+    .cs-close{
+      position:absolute;top:16px;right:20px;background:none;border:none;
+      font-size:1.4rem;cursor:pointer;color:var(--text-s);transition:var(--tr);
     }
-    .cart-header h3 { font-size: 1.4rem; font-weight: 500; color: var(--text); }
-    .close-cart {
-      background: none;
-      border: none;
-      font-size: 1.6rem;
-      cursor: pointer;
-      color: var(--text-soft);
-      transition: var(--transition);
+    .cs-close:hover{color:var(--text)}
+    .cs-icon{font-size:3rem;color:var(--accent);margin-bottom:18px;display:block}
+    .cs-title{font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:8px}
+    .cs-sub{font-size:.9rem;color:var(--text-s);margin-bottom:24px;line-height:1.7}
+    .cs-timer{display:flex;justify-content:center;gap:12px;margin-bottom:24px}
+    .cs-tu{
+      background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);
+      padding:14px 10px;min-width:72px;
     }
-    .close-cart:hover { color: var(--text); }
-    .cart-items-list { flex: 1; }
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .cart-item-info { flex: 2; min-width: 120px; }
-    .cart-item-name { font-weight: 600; font-size: 0.85rem; color: var(--text); }
-    .cart-item-price { font-size: 0.7rem; color: var(--text-soft); }
-    .cart-item-actions { display: flex; align-items: center; gap: 8px; }
-    .cart-qty-btn {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      width: 28px;
-      height: 28px;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 0.9rem;
-      color: var(--text);
-      transition: var(--transition);
-    }
-    .cart-qty-btn:hover { border-color: var(--gold); }
-    .cart-total {
-      margin: 18px 0;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-top: 2px solid var(--border);
-      padding-top: 16px;
-      color: var(--gold);
-    }
-    .empty-cart-msg { text-align: center; color: var(--text-soft); padding: 40px 0; }
-    .checkout-trigger {
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      padding: 14px;
-      font-weight: 700;
-      border-radius: 60px;
-      cursor: pointer;
-      width: 100%;
-      margin-bottom: 14px;
-      transition: var(--transition);
-    }
-    .checkout-trigger:hover { background: #b8955e; }
-    .checkout-form {
-      margin-top: 14px;
-      background: var(--bg);
-      padding: 18px;
-      border-radius: var(--radius-sm);
-      display: none;
-      border: 1px solid var(--border);
-    }
-    .checkout-form.active { display: block; }
-    .checkout-form h4 { margin-bottom: 14px; font-size: 1rem; color: var(--text); }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-weight: 500; margin-bottom: 4px; font-size: 0.8rem; color: var(--text-soft); }
-    .form-group input {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      background: var(--surface);
-      color: var(--text);
-      font-size: 0.85rem;
-      font-family: inherit;
-      transition: var(--transition);
-    }
-    .form-group input:focus { outline: none; border-color: var(--gold); }
-    .radio-group { display: flex; gap: 20px; flex-wrap: wrap; }
-    .radio-group label { display: flex; align-items: center; gap: 6px; font-weight: 400; font-size: 0.85rem; color: var(--text); }
-    .submit-order {
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      border-radius: 60px;
-      font-weight: 700;
-      margin-top: 8px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .submit-order:hover { background: #b8955e; }
-    .whatsapp-footer { text-align: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
-    .whatsapp-footer a { color: #25D366; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; }
+    .cs-tv{font-size:1.8rem;font-weight:800;color:var(--accent);line-height:1}
+    .cs-tl{font-size:.6rem;font-weight:600;color:var(--text-s);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+    .cs-sep{font-size:1.6rem;font-weight:700;color:var(--border);align-self:flex-start;padding-top:14px}
+    .cs-note{font-size:.72rem;color:var(--text-s);font-style:italic}
 
-    /* ===== LOGIN MODAL ===== */
-    .login-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(12px);
-      z-index: 600;
-      visibility: hidden;
-      opacity: 0;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* RESPONSIVE */
+    @media(max-width:820px){
+      .cat-grid{grid-template-columns:1fr;gap:24px}
+      .hero h2{font-size:2.4rem}
     }
-    .login-overlay.open { visibility: visible; opacity: 1; }
-    .login-panel {
-      background: var(--surface);
-      width: 100%;
-      max-width: 440px;
-      padding: 32px 28px;
-      border-radius: var(--radius);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.1);
-      margin: 20px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border: 1px solid var(--border);
+    @media(max-width:720px){
+      .navbar .container{flex-direction:column;align-items:stretch}
+      .nav-actions{justify-content:center}
+      .cat-card{padding:28px 20px}
     }
-    .login-panel .close-login {
-      float: right;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      color: var(--text-soft);
-      transition: var(--transition);
+    @media(max-width:480px){
+      .container{padding:0 16px}
+      .hero h2{font-size:1.8rem}
+      .hero{padding:50px 0 30px}
+      .cat-card h3{font-size:1.3rem}
+      .cs-card{padding:28px 20px;margin:12px}
+      .cs-tu{min-width:60px;padding:10px 6px}
+      .cs-tv{font-size:1.4rem}
+      .f-list{gap:28px}
     }
-    .login-panel .close-login:hover { color: var(--text); }
-    .login-panel h3 { font-size: 1.5rem; font-weight: 500; color: var(--text); margin-bottom: 4px; }
-    .login-panel .sub { color: var(--text-soft); font-size: 0.8rem; margin-bottom: 22px; }
-    .login-panel .form-group { margin-bottom: 16px; }
-    .login-panel .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--text-soft); }
-    .login-panel .form-group input {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 0.9rem;
-      margin-top: 4px;
-      font-family: inherit;
-    }
-    .login-panel .form-group input:focus { outline: none; border-color: var(--gold); }
-    .login-panel .verify-row { display: flex; gap: 10px; align-items: center; }
-    .login-panel .verify-row input { flex: 1; }
-    .login-panel .verify-btn {
-      padding: 10px 16px;
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 0.75rem;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: var(--transition);
-    }
-    .login-panel .verify-btn:hover { background: #b8955e; }
-    .login-panel .verify-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .login-submit {
-      width: 100%;
-      padding: 12px;
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: var(--transition);
-      margin-top: 6px;
-    }
-    .login-submit:hover { background: #b8955e; }
-    #verifyStatus, #loginStatus { margin-top: 6px; font-size: 0.8rem; color: var(--text-soft); }
-
-    /* ===== INVOICE ===== */
-    .invoice-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(14px);
-      z-index: 700;
-      visibility: hidden;
-      opacity: 0;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .invoice-overlay.open { visibility: visible; opacity: 1; }
-    .invoice-card {
-      background: var(--surface);
-      max-width: 600px;
-      width: 100%;
-      margin: 20px;
-      padding: 32px 28px;
-      border-radius: var(--radius);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.15);
-      border: 1px solid var(--border);
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-    }
-    .invoice-card .close-invoice {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      color: var(--text-soft);
-      transition: var(--transition);
-    }
-    .invoice-card .close-invoice:hover { color: var(--text); }
-    .inv-logo { font-size: 1.8rem; font-weight: 700; color: var(--text); }
-    .inv-logo span { font-weight: 300; color: var(--gold); }
-    .inv-sub { color: var(--text-soft); font-size: 0.7rem; letter-spacing: 0.4px; margin-bottom: 16px; }
-    .inv-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
-    .inv-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.85rem; color: var(--text); }
-    .inv-row.total { font-weight: 700; font-size: 1.1rem; border-top: 2px solid var(--gold); padding-top: 12px; margin-top: 8px; color: var(--gold); }
-    .inv-items .item { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.8rem; border-bottom: 1px solid var(--border); color: var(--text); }
-    .inv-footer { margin-top: 20px; font-size: 0.7rem; color: var(--text-soft); text-align: center; border-top: 1px solid var(--border); padding-top: 14px; }
-    .inv-download-btn {
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      padding: 12px;
-      border-radius: 60px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 12px;
-      transition: var(--transition);
-    }
-    .inv-download-btn:hover { background: #b8955e; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 820px) {
-      .catalog-grid { grid-template-columns: 1fr; gap: 24px; }
-      .hero h2 { font-size: 2.4rem; }
-    }
-    @media (max-width: 720px) {
-      .navbar .container { flex-direction: column; align-items: stretch; }
-      .nav-actions { justify-content: center; }
-      .cart-panel { max-width: 100%; }
-      .catalog-card { padding: 28px 20px; }
-    }
-    @media (max-width: 480px) {
-      .container { padding: 0 16px; }
-      .hero h2 { font-size: 1.8rem; }
-      .catalog-card h3 { font-size: 1.3rem; }
-      .login-panel { padding: 20px; margin: 10px; }
-      .invoice-card { padding: 20px; margin: 12px; }
-    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
 
-<!-- Floating Stars -->
-<div class="stars-container">
-  <div class="star"></div><div class="star"></div><div class="star"></div>
-  <div class="star"></div><div class="star"></div><div class="star"></div>
-  <div class="star"></div><div class="star"></div><div class="star"></div>
-  <div class="star"></div>
+<!-- Floating Particles -->
+<div class="particles">
+  <div class="pt"></div><div class="pt"></div><div class="pt"></div>
+  <div class="pt"></div><div class="pt"></div><div class="pt"></div>
+  <div class="pt"></div><div class="pt"></div><div class="pt"></div>
+  <div class="pt"></div>
 </div>
 
 <!-- NAVBAR -->
-<nav class="navbar" id="navbar">
+<nav class="navbar">
   <div class="container">
     <div class="logo">
       <h1>CURA <span>STORE</span></h1>
       <p>Global Dental · Since 2024</p>
     </div>
     <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i> <span id="themeLabel">Light</span></button>
-      <a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Group</a>
-      <button class="btn-login" id="loginBtn"><i class="fas fa-user"></i> Login</button>
-      <button class="cart-btn" id="cartBtn"><i class="fas fa-shopping-bag"></i> <span id="cartCountDisplay">0</span></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon" id="thIco"></i> <span id="thLbl">Dark</span></button>
+      <a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Group</a>
     </div>
   </div>
 </nav>
@@ -685,46 +235,40 @@
   <p>Globally trusted dental tools & materials — engineered for excellence.</p>
 </section>
 
-<!-- BRAND CATALOG (2 Big Cards) -->
+<!-- BRAND CATALOG -->
 <div class="container">
-  <div style="display:flex; align-items:center; gap:12px; margin: 10px 0 20px;">
-    <i class="fas fa-crown" style="color:var(--gold); font-size:1.6rem;"></i>
-    <span style="font-size:1.3rem; font-weight:500; color:var(--text);">Brand Catalog</span>
+  <div class="cat-head">
+    <i class="fas fa-crown"></i>
+    <span>Brand Catalog</span>
   </div>
-  <div class="catalog-grid">
-    <!-- 3rd Year Card -->
-    <div class="catalog-card" id="catalogThird">
-      <span class="card-icon"><i class="fas fa-graduation-cap"></i></span>
+  <div class="cat-grid">
+    <!-- 3rd Year -->
+    <div class="cat-card" id="card3" onclick="tryNavigate('third-year.html')">
+      <span class="c-icon"><i class="fas fa-graduation-cap"></i></span>
       <h3>3rd Year · Preclinical</h3>
-      <span class="year-badge">Foundation & Technique</span>
-      <p>
-        Essential tools for mastering preclinical skills. From composite compules to glass ionomer systems — 
-        every product is selected to build precision and confidence in the simulation lab.
-      </p>
-      <button class="explore-btn" id="goThirdBtn"><i class="fas fa-arrow-right"></i> Explore 3rd Year</button>
+      <span class="badge">Foundation & Technique</span>
+      <p>Essential tools for mastering preclinical skills. From composite compules to glass ionomer systems — every product is selected to build precision and confidence in the simulation lab.</p>
+      <button class="exp-btn" onclick="event.stopPropagation();tryNavigate('third-year.html')"><i class="fas fa-arrow-right"></i> Explore 3rd Year</button>
     </div>
-    <!-- 4th Year Card -->
-    <div class="catalog-card" id="catalogFourth">
-      <span class="card-icon"><i class="fas fa-tooth"></i></span>
+    <!-- 4th Year -->
+    <div class="cat-card" id="card4" onclick="tryNavigate('fourth-year.html')">
+      <span class="c-icon"><i class="fas fa-tooth"></i></span>
       <h3>4th Year · Clinical</h3>
-      <span class="year-badge">Advanced Patient Care</span>
-      <p>
-        Professional-grade instruments for real clinical practice. Matrices, high-performance guns, 
-        and restorative solutions trusted by clinicians worldwide.
-      </p>
-      <button class="explore-btn" id="goFourthBtn"><i class="fas fa-arrow-right"></i> Explore 4th Year</button>
+      <span class="badge">Advanced Patient Care</span>
+      <p>Professional-grade instruments for real clinical practice. Matrices, high-performance guns, and restorative solutions trusted by clinicians worldwide.</p>
+      <button class="exp-btn" onclick="event.stopPropagation();tryNavigate('fourth-year.html')"><i class="fas fa-arrow-right"></i> Explore 4th Year</button>
     </div>
   </div>
 </div>
 
 <!-- FOUNDERS -->
 <div class="container">
-  <div class="founders-section">
+  <div class="founders">
     <h3><i class="fas fa-crown"></i> Meet the Founders</h3>
-    <div class="founders-list">
-      <div class="founder-card"><div class="founder-icon"><i class="fas fa-user-md"></i></div><div class="founder-name">Ramadan Thabet Obaid</div></div>
-      <div class="founder-card"><div class="founder-icon"><i class="fas fa-user-md"></i></div><div class="founder-name">Badr Abdlhamed</div></div>
-      <div class="founder-card"><div class="founder-icon"><i class="fas fa-user-md"></i></div><div class="founder-name">Ali Mohamed Elghbary</div></div>
+    <div class="f-list">
+      <div class="f-card"><div class="f-icon"><i class="fas fa-user-md"></i></div><div class="f-name">Ramadan Thabet Obaid</div></div>
+      <div class="f-card"><div class="f-icon"><i class="fas fa-user-md"></i></div><div class="f-name">Badr Abdlhamed</div></div>
+      <div class="f-card"><div class="f-icon"><i class="fas fa-user-md"></i></div><div class="f-name">Ali Mohamed Elghbary</div></div>
     </div>
   </div>
 </div>
@@ -732,360 +276,152 @@
 <!-- FOOTER -->
 <footer class="container">
   <p>Cura Store — Global Dental Excellence</p>
-  <p style="margin-top:4px;">High quality · Competitive prices · Full transparency</p>
-  <p style="margin-top:6px;">Designed by <a href="https://zead1254.github.io/Dr_zead/" target="_blank">The Boss</a></p>
+  <p style="margin-top:4px">High quality · Competitive prices · Full transparency</p>
+  <p style="margin-top:6px">Designed by <a href="https://zead1254.github.io/Dr_zead/" target="_blank">The Boss</a></p>
 </footer>
 
-<!-- CART SIDEBAR -->
-<div class="cart-overlay" id="cartOverlay">
-  <div class="cart-panel">
-    <div class="cart-header"><h3><i class="fas fa-shopping-bag" style="color:var(--gold);"></i> Your Cart</h3><button class="close-cart" id="closeCartBtn"><i class="fas fa-times"></i></button></div>
-    <div class="cart-items-list" id="cartItemsContainer"></div>
-    <div class="cart-total" id="cartTotalArea">Total: 0 EGP</div>
-    <button class="checkout-trigger" id="showCheckoutBtn"><i class="fas fa-credit-card"></i> Proceed to Checkout</button>
-    <div class="checkout-form" id="checkoutForm">
-      <h4>📋 Customer Details</h4>
-      <div class="form-group"><label>Full Name *</label><input type="text" id="fullName" placeholder="Dr. Ahmed Mahmoud" /></div>
-      <div class="form-group"><label>Phone *</label><input type="tel" id="phoneNumber" placeholder="01xxxxxxxxx" /></div>
-      <div class="form-group"><label>Detailed Address *</label><input type="text" id="address" placeholder="Street, building, floor, clinic..." /></div>
-      <div class="form-group"><label>Gender *</label><div class="radio-group"><label><input type="radio" name="gender" value="Male" /> Male</label><label><input type="radio" name="gender" value="Female" /> Female</label></div></div>
-      <button class="submit-order" id="placeOrderBtn"><i class="fas fa-check-circle"></i> Place Order & Send</button>
+<!-- COMING SOON OVERLAY -->
+<div class="cs-ov" id="csOv">
+  <div class="cs-card">
+    <button class="cs-close" onclick="closeCS()"><i class="fas fa-times"></i></button>
+    <span class="cs-icon"><i class="fas fa-hourglass-half"></i></span>
+    <div class="cs-title">سيتم إضافة البيانات قريباً</div>
+    <div class="cs-sub" id="csSub">الصفحة لسه تحت التجهيز، هتكون جاهزة خلال فترة قصيرة.</div>
+    <div class="cs-timer" id="csTimer">
+      <div class="cs-tu"><div class="cs-tv" id="csH">48</div><div class="cs-tl">Hours</div></div>
+      <div class="cs-sep">:</div>
+      <div class="cs-tu"><div class="cs-tv" id="csM">00</div><div class="cs-tl">Minutes</div></div>
+      <div class="cs-sep">:</div>
+      <div class="cs-tu"><div class="cs-tv" id="csS">00</div><div class="cs-tl">Seconds</div></div>
     </div>
-    <div class="whatsapp-footer"><a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank"><i class="fab fa-whatsapp"></i> Join WhatsApp Community</a></div>
-  </div>
-</div>
-
-<!-- LOGIN MODAL -->
-<div class="login-overlay" id="loginOverlay">
-  <div class="login-panel">
-    <button class="close-login" id="closeLoginBtn"><i class="fas fa-times"></i></button>
-    <h3><i class="fas fa-lock" style="color:var(--gold);"></i> Login / Sign Up</h3>
-    <p class="sub">Verify your phone to access premium shopping</p>
-    <div class="form-group">
-      <label>Phone Number *</label>
-      <div class="verify-row">
-        <input type="tel" id="loginPhone" placeholder="01xxxxxxxxx" />
-        <button class="verify-btn" id="sendVerificationBtn">Send Code</button>
-      </div>
-    </div>
-    <div class="form-group" id="verificationGroup" style="display:none;">
-      <label>Verification Code *</label>
-      <div class="verify-row">
-        <input type="text" id="verificationCode" placeholder="4-digit code" maxlength="4" />
-        <button class="verify-btn" id="verifyCodeBtn">Verify</button>
-      </div>
-      <div id="verifyStatus"></div>
-    </div>
-    <div class="form-group"><label>Full Name</label><input type="text" id="loginFullName" placeholder="Your full name" /></div>
-    <div class="form-group"><label>Detailed Address</label><input type="text" id="loginAddress" placeholder="Street, building, floor..." /></div>
-    <div class="form-group"><label>Gender</label><div class="radio-group"><label><input type="radio" name="loginGender" value="Male" /> Male</label><label><input type="radio" name="loginGender" value="Female" /> Female</label></div></div>
-    <button class="login-submit" id="completeLoginBtn"><i class="fas fa-check"></i> Complete Login</button>
-    <div id="loginStatus"></div>
-  </div>
-</div>
-
-<!-- INVOICE OVERLAY -->
-<div class="invoice-overlay" id="invoiceOverlay">
-  <div class="invoice-card" id="invoiceCard">
-    <button class="close-invoice" id="closeInvoiceBtn"><i class="fas fa-times"></i></button>
-    <div class="inv-logo">CURA <span>STORE</span></div>
-    <div class="inv-sub">Global Dental — Official Invoice</div>
-    <hr class="inv-divider" />
-    <div id="invoiceContent"></div>
-    <button class="inv-download-btn" id="downloadInvoiceBtn"><i class="fas fa-download"></i> Download Invoice (Image)</button>
-    <div class="inv-footer">Thank you for choosing Cura Store 🦷</div>
+    <div class="cs-note">الموعد متوقع وليس نهائي — ممكن تتضاف قبل كده</div>
   </div>
 </div>
 
 <script>
-  // ============================================================
-  // DATA (Products for cart only — no display on this page)
-  // ============================================================
-  const PRODUCTS = [
-    { id: "comp_enamel", name: "Composite Enamel Shade Compule", price: 175, year: "third" },
-    { id: "comp_dentin", name: "Composite Dentin Shade Compule", price: 175, year: "third" },
-    { id: "comp_body", name: "Composite Body Shade Compule", price: 175, year: "third" },
-    { id: "glass_powder", name: "Glass Ionomer Powder & Liquid", price: 100, year: "third" },
-    { id: "glass_capsule", name: "Glass Ionomer Capsule", price: 165, year: "third" },
-    { id: "spoon_matrix", name: "Spoon Matrix (Set of 2)", price: 40, year: "fourth" },
-    { id: "comp_gun", name: "Gun for Composite Compule", price: 220, year: "fourth" },
-    { id: "glass_gun", name: "Glass Ionomer Gun", price: 1100, year: "fourth" }
-  ];
+/* ===== THEME ===== */
+const HOURS_48 = 48 * 60 * 60 * 1000;
+let _timerInterval = null;
 
-  // ============================================================
-  // STATE
-  // ============================================================
-  let cart = {};
-  let loggedInUser = null;
-  let verificationCodeStored = null;
-  let lastInvoiceHTML = '';
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  const ico = document.getElementById('thIco');
+  const lbl = document.getElementById('thLbl');
+  if (t === 'dark') { ico.className = 'fas fa-sun'; lbl.textContent = 'Light'; }
+  else { ico.className = 'fas fa-moon'; lbl.textContent = 'Dark'; }
+  localStorage.setItem('cura_theme', t);
+}
 
-  // ============================================================
-  // DOM REFS
-  // ============================================================
-  const cartCountDisplay = document.getElementById('cartCountDisplay');
-  const cartItemsContainer = document.getElementById('cartItemsContainer');
-  const cartTotalArea = document.getElementById('cartTotalArea');
-  const cartOverlay = document.getElementById('cartOverlay');
-  const checkoutForm = document.getElementById('checkoutForm');
-  const loginOverlay = document.getElementById('loginOverlay');
-  const invoiceOverlay = document.getElementById('invoiceOverlay');
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  applyTheme(cur === 'dark' ? 'light' : 'dark');
+});
 
-  // ============================================================
-  // THEME
-  // ============================================================
-  let currentTheme = localStorage.getItem('cura_theme') || 'light';
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    document.getElementById('themeLabel').textContent = theme === 'dark' ? 'Dark' : 'Light';
-    document.getElementById('themeToggle').innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i> <span id="themeLabel">Light</span>' : '<i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>';
-    localStorage.setItem('cura_theme', theme);
-    currentTheme = theme;
-  }
-  document.getElementById('themeToggle').addEventListener('click', () => {
-    applyTheme(currentTheme === 'light' ? 'dark' : 'light');
-  });
-  applyTheme(localStorage.getItem('cura_theme') || 'light');
+applyTheme(localStorage.getItem('cura_theme') || 'light');
 
-  // ============================================================
-  // NAVIGATION TO YEAR PAGES
-  // ============================================================
-  document.getElementById('goThirdBtn').addEventListener('click', () => {
-    window.location.href = 'third-year.html';
-  });
-  document.getElementById('goFourthBtn').addEventListener('click', () => {
-    window.location.href = 'fourth-year.html';
-  });
-  // Also make the whole card clickable
-  document.getElementById('catalogThird').addEventListener('click', (e) => {
-    if (e.target.tagName !== 'BUTTON') window.location.href = 'third-year.html';
-  });
-  document.getElementById('catalogFourth').addEventListener('click', (e) => {
-    if (e.target.tagName !== 'BUTTON') window.location.href = 'fourth-year.html';
-  });
+/* ===== NAVIGATION WITH FILE CHECK ===== */
+async function tryNavigate(url) {
+  /* Show a brief loading state on the card */
+  const card = url.includes('third') ? document.getElementById('card3') : document.getElementById('card4');
+  card.style.opacity = '0.7';
+  card.style.pointerEvents = 'none';
 
-  // ============================================================
-  // CART (shared across pages via localStorage)
-  // ============================================================
-  function addToCart(id, n = 1) {
-    cart[id] = (cart[id] || 0) + n;
-    if (cart[id] <= 0) delete cart[id];
-    updateCartUI();
-    saveCart();
-  }
-  function changeQty(id, delta) {
-    const cur = cart[id] || 0;
-    const nv = cur + delta;
-    if (nv <= 0) delete cart[id]; else cart[id] = nv;
-    updateCartUI();
-    saveCart();
-  }
-  function updateCartUI() {
-    const totalItems = Object.values(cart).reduce((s, q) => s + q, 0);
-    cartCountDisplay.textContent = totalItems;
-    if (totalItems === 0) {
-      cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Your cart is empty.</div>';
-      cartTotalArea.textContent = 'Total: 0 EGP';
-      return;
-    }
-    let html = '', total = 0;
-    for (let pid in cart) {
-      const qty = cart[pid];
-      if (qty <= 0) continue;
-      const p = PRODUCTS.find(x => x.id === pid);
-      if (!p) continue;
-      total += p.price * qty;
-      html += `
-        <div class="cart-item">
-          <div class="cart-item-info"><div class="cart-item-name">${p.name}</div><div class="cart-item-price">${p.price} EGP each</div></div>
-          <div class="cart-item-actions">
-            <button class="cart-qty-btn" data-id="${pid}" data-delta="-1">−</button>
-            <span style="min-width:28px;text-align:center;font-weight:600;">${qty}</span>
-            <button class="cart-qty-btn" data-id="${pid}" data-delta="+1">+</button>
-            <button class="cart-qty-btn" data-id="${pid}" data-delta="remove" style="background:rgba(200,0,0,0.08);">🗑</button>
-          </div>
-        </div>
-      `;
-    }
-    cartItemsContainer.innerHTML = html;
-    cartTotalArea.textContent = `Total: ${total} EGP`;
-    document.querySelectorAll('.cart-qty-btn').forEach(b => {
-      b.addEventListener('click', () => {
-        const id = b.dataset.id, delta = b.dataset.delta;
-        if (delta === 'remove') delete cart[id];
-        else { const cur = cart[id] || 0; const nv = cur + parseInt(delta); if (nv <= 0) delete cart[id]; else cart[id] = nv; }
-        updateCartUI(); saveCart();
-      });
-    });
-  }
-  function saveCart() { localStorage.setItem('cura_cart', JSON.stringify(cart)); }
-  function loadCart() {
-    const s = localStorage.getItem('cura_cart');
-    if (s) try { cart = JSON.parse(s); } catch(e) {}
-    updateCartUI();
-  }
-
-  // ============================================================
-  // LOGIN
-  // ============================================================
-  function openLoginModal() { loginOverlay.classList.add('open'); }
-  function closeLoginModal() { loginOverlay.classList.remove('open'); }
-
-  document.getElementById('sendVerificationBtn').addEventListener('click', function() {
-    const phone = document.getElementById('loginPhone').value.trim();
-    if (phone.length < 10) { document.getElementById('loginStatus').textContent = '❌ Enter valid phone.'; return; }
-    verificationCodeStored = Math.floor(1000 + Math.random() * 9000).toString();
-    document.getElementById('verificationGroup').style.display = 'block';
-    document.getElementById('verifyStatus').innerHTML = `📱 Code sent to ${phone} (demo: ${verificationCodeStored})`;
-    document.getElementById('loginStatus').textContent = '';
-    this.disabled = true; this.textContent = 'Code Sent';
-  });
-
-  document.getElementById('verifyCodeBtn').addEventListener('click', function() {
-    const code = document.getElementById('verificationCode').value.trim();
-    if (!verificationCodeStored) { document.getElementById('verifyStatus').textContent = '❌ Send code first.'; return; }
-    document.getElementById('verifyStatus').innerHTML = code === verificationCodeStored ? '✅ Verified!' : '❌ Invalid code.';
-  });
-
-  document.getElementById('completeLoginBtn').addEventListener('click', function() {
-    const phone = document.getElementById('loginPhone').value.trim();
-    const name = document.getElementById('loginFullName').value.trim();
-    const address = document.getElementById('loginAddress').value.trim();
-    let gender = null;
-    document.querySelectorAll('input[name="loginGender"]').forEach(r => { if (r.checked) gender = r.value; });
-    if (phone.length < 10 || !name || !address || !gender) {
-      document.getElementById('loginStatus').textContent = '❌ Fill all fields.';
-      return;
-    }
-    if (!verificationCodeStored || document.getElementById('verifyStatus').innerHTML.indexOf('✅') === -1) {
-      document.getElementById('loginStatus').textContent = '❌ Verify phone first.';
-      return;
-    }
-    loggedInUser = { phone, name, address, gender, verified: true };
-    localStorage.setItem('cura_user', JSON.stringify(loggedInUser));
-    document.getElementById('loginStatus').textContent = '✅ Login successful!';
-    document.getElementById('loginBtn').innerHTML = `<i class="fas fa-user-check"></i> ${name}`;
-    document.getElementById('loginBtn').style.background = 'var(--gold)';
-    closeLoginModal();
-    document.getElementById('fullName').value = name;
-    document.getElementById('phoneNumber').value = phone;
-    document.getElementById('address').value = address;
-    document.querySelectorAll('input[name="gender"]').forEach(r => { if (r.value === gender) r.checked = true; });
-  });
-
-  function loadUser() {
-    const s = localStorage.getItem('cura_user');
-    if (s) try {
-      loggedInUser = JSON.parse(s);
-      if (loggedInUser?.verified) {
-        document.getElementById('loginBtn').innerHTML = `<i class="fas fa-user-check"></i> ${loggedInUser.name}`;
-        document.getElementById('loginBtn').style.background = 'var(--gold)';
-        document.getElementById('fullName').value = loggedInUser.name || '';
-        document.getElementById('phoneNumber').value = loggedInUser.phone || '';
-        document.getElementById('address').value = loggedInUser.address || '';
-        if (loggedInUser.gender) document.querySelectorAll('input[name="gender"]').forEach(r => { if (r.value === loggedInUser.gender) r.checked = true; });
-      }
-    } catch(e) {}
-  }
-
-  // ============================================================
-  // INVOICE
-  // ============================================================
-  function generateInvoiceHTML(name, phone, address, gender, items, total) {
-    const contact = gender === 'Male' ? '+20 10 31718103' : '+20 10 64112263';
-    let itemsHTML = items.map(i => `<div class="item"><span>${i.name} (x${i.qty})</span><span>${i.price * i.qty} EGP</span></div>`).join('');
-    return `
-      <div><div class="inv-row"><span>Customer</span><span>${name}</span></div>
-      <div class="inv-row"><span>Phone</span><span>${phone}</span></div>
-      <div class="inv-row"><span>Address</span><span>${address}</span></div>
-      <div class="inv-row"><span>Gender</span><span>${gender}</span></div>
-      <div class="inv-row"><span>Date</span><span>${new Date().toLocaleString('en-EG')}</span></div>
-      <div class="inv-row"><span>Contact</span><span>${contact}</span></div></div>
-      <hr class="inv-divider" />
-      <div class="inv-items">${itemsHTML}</div>
-      <div class="inv-row total"><span>Total</span><span>${total} EGP</span></div>
-    `;
-  }
-  function openInvoice(html) { lastInvoiceHTML = html; document.getElementById('invoiceContent').innerHTML = html; invoiceOverlay.classList.add('open'); }
-  function closeInvoice() { invoiceOverlay.classList.remove('open'); }
-
-  document.getElementById('downloadInvoiceBtn').addEventListener('click', function() {
-    const card = document.getElementById('invoiceCard');
-    if (typeof html2canvas !== 'undefined') {
-      html2canvas(card, { scale: 2, backgroundColor: getComputedStyle(document.body).getPropertyValue('--surface').trim() || '#ffffff' })
-        .then(canvas => { const a = document.createElement('a'); a.download = 'Cura_Store_Invoice.png'; a.href = canvas.toDataURL('image/png'); a.click(); });
+  try {
+    const resp = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+    if (resp.ok) {
+      /* File exists — clear timer if any, navigate */
+      localStorage.removeItem('cura_cs_' + url);
+      window.location.href = url;
     } else {
-      alert('📸 For image download, add html2canvas library or use Print (Ctrl+P) to save as PDF.');
-      window.print();
+      showComingSoon(url);
     }
-  });
-
-  // ============================================================
-  // CHECKOUT
-  // ============================================================
-  function placeOrder() {
-    if (!loggedInUser?.verified) { alert('⚠️ Please login & verify first.'); openLoginModal(); return; }
-    const name = document.getElementById('fullName').value.trim();
-    const phone = document.getElementById('phoneNumber').value.trim();
-    const address = document.getElementById('address').value.trim();
-    let gender = null;
-    document.querySelectorAll('input[name="gender"]').forEach(r => { if (r.checked) gender = r.value; });
-    if (!name || !phone || !address || !gender) { alert('❌ Fill all fields.'); return; }
-    const items = [];
-    for (let pid in cart) {
-      const qty = cart[pid];
-      if (qty <= 0) continue;
-      const p = PRODUCTS.find(x => x.id === pid);
-      if (p) items.push({ name: p.name, qty, price: p.price });
-    }
-    if (!items.length) { alert('Cart is empty.'); return; }
-    const totalPrice = items.reduce((s, i) => s + i.price * i.qty, 0);
-    const contact = gender === 'Male' ? '+20 10 31718103' : '+20 10 64112263';
-    const msg = `New Order - Cura Store\n\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\nGender: ${gender}\n\nItems:\n${items.map(i => `${i.name} (x${i.qty}) - ${i.price * i.qty} EGP`).join('\n')}\n\nTotal: ${totalPrice} EGP\nContact: ${contact}\nDate: ${new Date().toLocaleString('en-EG')}`;
-    const invoiceHTML = generateInvoiceHTML(name, phone, address, gender, items, totalPrice);
-    if (confirm('Confirm order & send via WhatsApp?')) {
-      window.open(`https://wa.me/${contact.replace(/[^0-9+]/g,'')}?text=${encodeURIComponent(msg)}`, '_blank');
-      openInvoice(invoiceHTML);
-      cart = {}; updateCartUI(); saveCart(); closeCartSidebar(); checkoutForm.classList.remove('active');
-    }
+  } catch (e) {
+    /* Network error or file not found */
+    showComingSoon(url);
   }
 
-  // ============================================================
-  // SIDEBAR
-  // ============================================================
-  function openCartSidebar() { cartOverlay.classList.add('open'); checkoutForm.classList.remove('active'); }
-  function closeCartSidebar() { cartOverlay.classList.remove('open'); }
+  card.style.opacity = '';
+  card.style.pointerEvents = '';
+}
 
-  // ============================================================
-  // INIT
-  // ============================================================
-  document.addEventListener('DOMContentLoaded', () => {
-    loadCart(); loadUser();
+/* ===== COMING SOON OVERLAY ===== */
+function showComingSoon(url) {
+  const ov = document.getElementById('csOv');
+  const key = 'cura_cs_' + url;
+  let startTime = localStorage.getItem(key);
 
-    document.getElementById('cartBtn').addEventListener('click', openCartSidebar);
-    document.getElementById('closeCartBtn').addEventListener('click', closeCartSidebar);
-    cartOverlay.addEventListener('click', e => { if (e.target === cartOverlay) closeCartSidebar(); });
+  if (!startTime) {
+    startTime = Date.now().toString();
+    localStorage.setItem(key, startTime);
+  }
 
-    document.getElementById('showCheckoutBtn').addEventListener('click', () => {
-      if (!Object.values(cart).reduce((s,q) => s+q, 0)) { alert('Cart is empty.'); return; }
-      if (!loggedInUser?.verified) { alert('⚠️ Login first.'); openLoginModal(); return; }
-      checkoutForm.classList.toggle('active');
-    });
-    document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
+  /* Clear any previous timer */
+  if (_timerInterval) clearInterval(_timerInterval);
 
-    document.getElementById('loginBtn').addEventListener('click', openLoginModal);
-    document.getElementById('closeLoginBtn').addEventListener('click', closeLoginModal);
-    loginOverlay.addEventListener('click', e => { if (e.target === loginOverlay) closeLoginModal(); });
-    document.getElementById('closeInvoiceBtn').addEventListener('click', closeInvoice);
-    invoiceOverlay.addEventListener('click', e => { if (e.target === invoiceOverlay) closeInvoice(); });
+  function updateTimer() {
+    const elapsed = Date.now() - parseInt(startTime);
+    let remaining = HOURS_48 - elapsed;
 
-    if (loggedInUser?.verified) {
-      document.getElementById('loginPhone').value = loggedInUser.phone || '';
-      document.getElementById('loginFullName').value = loggedInUser.name || '';
-      document.getElementById('loginAddress').value = loggedInUser.address || '';
-      if (loggedInUser.gender) document.querySelectorAll('input[name="loginGender"]').forEach(r => { if (r.value === loggedInUser.gender) r.checked = true; });
+    if (remaining <= 0) {
+      remaining = 0;
+      document.getElementById('csSub').textContent = 'الصفحة لسه تحت التجهيز — هتتضاف في أقرب وقت.';
+      document.getElementById('csTimer').style.opacity = '0.3';
     }
-  });
+
+    const h = Math.floor(remaining / 3600000);
+    const m = Math.floor((remaining % 3600000) / 60000);
+    const s = Math.floor((remaining % 60000) / 1000);
+
+    document.getElementById('csH').textContent = String(h).padStart(2, '0');
+    document.getElementById('csM').textContent = String(m).padStart(2, '0');
+    document.getElementById('csS').textContent = String(s).padStart(2, '0');
+  }
+
+  updateTimer();
+  _timerInterval = setInterval(updateTimer, 1000);
+
+  ov.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  /* Store current url for retry */
+  ov.dataset.url = url;
+}
+
+function closeCS() {
+  const ov = document.getElementById('csOv');
+  ov.classList.remove('open');
+  document.body.style.overflow = '';
+  if (_timerInterval) { clearInterval(_timerInterval); _timerInterval = null; }
+}
+
+/* Close on backdrop click */
+document.getElementById('csOv').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('csOv')) closeCS();
+});
+
+/* Close on Escape */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.getElementById('csOv').classList.contains('open')) closeCS();
+});
+
+/* ===== AUTO-CHECK WHEN PAGE GETS FOCUS (user returns from another tab) ===== */
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    /* If the overlay is open, re-check the file */
+    const ov = document.getElementById('csOv');
+    if (ov.classList.contains('open') && ov.dataset.url) {
+      fetch(ov.dataset.url, { method: 'HEAD', cache: 'no-store' })
+        .then(r => {
+          if (r.ok) {
+            localStorage.removeItem('cura_cs_' + ov.dataset.url);
+            closeCS();
+            window.location.href = ov.dataset.url;
+          }
+        })
+        .catch(() => {});
+    }
+  }
+});
 </script>
 </body>
 </html>
