@@ -1,1225 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover" />
-  <title>Cura Store | 4th Year · Clinical</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #f7f5f0;
-      --surface: #ffffff;
-      --surface-glass: rgba(255,255,255,0.48);
-      --text: #161412;
-      --text-soft: #5a524a;
-      --border: #e8e2d8;
-      --gold: #c9a96e;
-      --gold-light: rgba(201,169,110,0.12);
-      --shadow: 0 30px 60px -20px rgba(0,0,0,0.06);
-      --radius: 28px;
-      --radius-sm: 16px;
-      --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    [data-theme="dark"] {
-      --bg: #12100e;
-      --surface: #1f1c18;
-      --surface-glass: rgba(30,27,24,0.55);
-      --text: #f0ece4;
-      --text-soft: #b8b0a0;
-      --border: #2f2a26;
-      --gold: #d4b67a;
-      --gold-light: rgba(212,182,122,0.10);
-      --shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      transition: background var(--transition), color var(--transition);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes,viewport-fit=cover"/>
+<title>Cura Store · Premium Dental Supplies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#f3f4f6;--surface:#ffffff;--text:#0f172a;--text-s:#64748b;
+--border:#e2e8f0;--primary:#0f172a;--accent:#0d9488;
+--accent-l:rgba(13,148,136,.05);--accent-m:rgba(13,148,136,.12);
+--gold:#92400e;--gold-l:rgba(146,64,14,.05);
+--danger:#dc2626;--danger-l:rgba(220,38,38,.05);
+--sh-s:0 1px 3px rgba(15,23,42,.04),0 1px 2px rgba(15,23,42,.02);
+--sh-m:0 4px 16px rgba(15,23,42,.05),0 1px 4px rgba(15,23,42,.03);
+--sh-lg:0 10px 40px rgba(15,23,42,.07);
+--r:16px;--rs:12px;--pill:100px;
+--tr:.25s cubic-bezier(.4,0,.2,1);
+}
+[data-theme="dark"]{
+--bg:#0b1120;--surface:#131c2e;--text:#e2e8f0;--text-s:#64748b;
+--border:#1e293b;--primary:#e2e8f0;--accent:#14b8a6;
+--accent-l:rgba(20,184,166,.06);--accent-m:rgba(20,184,166,.15);
+--gold:#f59e0b;--gold-l:rgba(245,158,11,.06);
+--danger:#f87171;--danger-l:rgba(248,113,113,.06);
+--sh-s:0 1px 3px rgba(0,0,0,.2);
+--sh-m:0 4px 16px rgba(0,0,0,.25);
+--sh-lg:0 10px 40px rgba(0,0,0,.35);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
+.ctn{max-width:980px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+a{text-decoration:none;color:inherit}button{font-family:inherit}
 
-    /* Stars */
-    .stars-container {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .star {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
-      opacity: 0.2;
-      animation: floatStar 22s infinite alternate ease-in-out;
-      box-shadow: 0 0 12px rgba(201,169,110,0.15);
-    }
-    .star:nth-child(1) { left: 6%; top: 12%; animation-duration: 24s; }
-    .star:nth-child(2) { left: 18%; top: 65%; animation-duration: 18s; animation-delay: 2s; width: 5px; height: 5px; }
-    .star:nth-child(3) { left: 33%; top: 22%; animation-duration: 20s; animation-delay: 4s; }
-    .star:nth-child(4) { left: 55%; top: 75%; animation-duration: 26s; animation-delay: 1s; width: 6px; height: 6px; opacity: 0.15; }
-    .star:nth-child(5) { left: 72%; top: 18%; animation-duration: 19s; animation-delay: 3s; }
-    .star:nth-child(6) { left: 88%; top: 58%; animation-duration: 21s; animation-delay: 5s; }
-    .star:nth-child(7) { left: 48%; top: 44%; animation-duration: 27s; animation-delay: 2s; }
-    .star:nth-child(8) { left: 12%; top: 90%; animation-duration: 20s; animation-delay: 6s; }
-    .star:nth-child(9) { left: 94%; top: 32%; animation-duration: 23s; animation-delay: 1s; }
-    .star:nth-child(10) { left: 64%; top: 92%; animation-duration: 25s; animation-delay: 4s; }
-    @keyframes floatStar {
-      0% { transform: translate(0,0) scale(1); opacity: 0.15; }
-      33% { transform: translate(25px,-35px) scale(1.3); opacity: 0.4; }
-      66% { transform: translate(-15px,25px) scale(0.7); opacity: 0.2; }
-      100% { transform: translate(18px,-12px) scale(1); opacity: 0.3; }
-    }
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);border-bottom:1px solid var(--border);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);padding:0 0;transition:background .3s,border .3s}
+[data-theme="dark"] .nav{background:rgba(11,17,32,.88)}
+.nav .ctn{display:flex;justify-content:space-between;align-items:center;height:56px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:32px;height:32px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.85rem}
+.logo-t{font-size:1.2rem;font-weight:800;letter-spacing:-.5px;color:var(--text)}
+.logo-t span{font-weight:300;color:var(--accent)}
+.nav-a{display:flex;align-items:center;gap:8px}
+.nb{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:var(--pill);font-size:.7rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);transition:var(--tr);height:34px}
+.nb:hover{border-color:var(--accent);background:var(--accent-l)}
+.nb.wa{background:#25D366;color:#fff;border-color:#25D366}
+.nb.wa:hover{background:#1da851}
+.nb.no{color:var(--text-s);border-color:transparent;font-size:.65rem;padding:6px 10px}
+.nb.no:hover{color:var(--danger);background:var(--danger-l);border-color:transparent}
 
-    .container { max-width: 1380px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
-    a { text-decoration: none; color: inherit; }
+/* PROGRESS */
+.prog{position:sticky;top:56px;z-index:99;background:var(--surface);border-bottom:1px solid var(--border);padding:0;transition:background .3s,border .3s)}
+.prog .ctn{height:36px;display:flex;align-items:center;gap:14px}
+.prog-t{flex:1;height:3px;background:var(--border);border-radius:10px;overflow:hidden}
+.prog-f{height:100%;background:linear-gradient(90deg,var(--accent),#f59e0b);border-radius:10px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0}
+.prog-l{font-size:.62rem;font-weight:600;color:var(--text-s);white-space:nowrap;letter-spacing:.2px}
 
-    /* NAVBAR */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--surface-glass);
-      backdrop-filter: blur(22px) saturate(1.2);
-      -webkit-backdrop-filter: blur(22px) saturate(1.2);
-      border-bottom: 1px solid var(--border);
-      padding: 18px 0;
-      transition: background var(--transition), border var(--transition);
-    }
-    .navbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .logo h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      color: var(--text);
-    }
-    .logo h1 span { font-weight: 300; color: var(--gold); }
-    .logo p {
-      font-size: 0.7rem;
-      letter-spacing: 0.8px;
-      color: var(--text-soft);
-      margin-top: 2px;
-      text-transform: uppercase;
-    }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn-home {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 60px;
-      padding: 8px 18px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-home:hover { border-color: var(--gold); }
-    .theme-toggle {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 60px;
-      padding: 8px 16px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: var(--transition);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-    }
-    .theme-toggle:hover { border-color: var(--gold); }
-    .btn-whatsapp {
-      background: #25D366;
-      color: #0b0a0a;
-      padding: 8px 18px;
-      border-radius: 60px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: var(--transition);
-    }
-    .btn-whatsapp:hover { background: #1ebe57; transform: scale(1.03); }
-    .btn-login {
-      background: var(--gold);
-      color: #0b0a0a;
-      padding: 8px 22px;
-      border-radius: 60px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .btn-login:hover { background: #b8955e; transform: scale(1.02); }
-    .user-badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--gold-light);
-      padding: 6px 16px;
-      border-radius: 60px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--gold);
-      border: 1px solid var(--border);
-    }
-    .cart-btn {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 60px;
-      padding: 8px 20px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: var(--transition);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cart-btn:hover { border-color: var(--gold); }
-    .cart-count {
-      background: var(--gold);
-      color: #0b0a0a;
-      border-radius: 30px;
-      padding: 0 10px;
-      font-size: 0.7rem;
-      font-weight: 700;
-    }
+/* HERO */
+.hero{padding:28px 0 10px;text-align:center}
+.hero h2{font-size:1.5rem;font-weight:700;letter-spacing:-.3px;color:var(--text)}
+.hero h2 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:.82rem;color:var(--text-s);max-width:420px;margin:4px auto 0}
 
-    /* HERO */
-    .hero {
-      padding: 50px 0 20px;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 2.6rem;
-      font-weight: 500;
-      letter-spacing: -1px;
-      color: var(--text);
-    }
-    .hero h2 i { color: var(--gold); }
-    .hero p {
-      font-size: 1rem;
-      color: var(--text-soft);
-      max-width: 620px;
-      margin: 12px auto 0;
-    }
+/* SECTIONS */
+.sec{display:none;background:var(--surface);border-radius:var(--r);padding:28px 24px;border:1px solid var(--border);box-shadow:var(--sh-m);margin-bottom:16px;transition:background .3s,border .3s,box-shadow .3s}
+.sec.on{display:block;animation:si .35s cubic-bezier(.4,0,.2,1) both}
+@keyframes si{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.s-hdr{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.s-b{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;flex-shrink:0;background:var(--accent-l);color:var(--accent);font-size:.68rem;font-weight:800}
+.s-t{font-size:1rem;font-weight:700;color:var(--text);line-height:1.2}
+.s-d{font-size:.72rem;color:var(--text-s);margin-top:1px}
 
-    /* Search */
-    .search-section {
-      display: flex;
-      justify-content: center;
-      margin: 24px 0 30px;
-    }
-    .search-bar {
-      width: 100%;
-      max-width: 500px;
-      padding: 14px 24px;
-      border: 1px solid var(--border);
-      border-radius: 60px;
-      background: var(--surface);
-      color: var(--text);
-      font-size: 0.9rem;
-      transition: var(--transition);
-      outline: none;
-      font-family: inherit;
-    }
-    .search-bar:focus { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-light); }
+/* PRODUCT CARDS */
+.pr{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.pc{background:var(--surface);border-radius:var(--rs);border:1.5px solid var(--border);cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.pc:hover{border-color:var(--accent);box-shadow:var(--sh-m);transform:translateY(-2px)}
+.pc:active{transform:translateY(0);box-shadow:var(--sh-s)}
+.pc.sel{border-color:var(--accent);background:var(--accent-l);box-shadow:0 0 0 3px var(--accent-m)}
+.pc-img{height:140px;overflow:hidden;background:var(--bg);position:relative;display:flex;align-items:center;justify-content:center}
+.pc-img img{width:100%;height:100%;object-fit:contain;padding:10px;transition:transform .4s cubic-bezier(.4,0,.2,1);display:block}
+.pc:hover .pc-img img{transform:scale(1.05)}
+.pc-fb{display:none;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#c0c8d4;padding:8px;text-align:center;width:100%;height:100%;position:absolute;inset:0}
+.pc-fb i{font-size:1.5rem;opacity:.3}
+.pc-fb span{font-size:.5rem;font-weight:600;opacity:.4;max-width:85%}
+.pc-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column}
+.pc-id{font-size:.52rem;font-weight:700;color:var(--accent);letter-spacing:.4px;text-transform:uppercase}
+.pc-nm{font-weight:700;font-size:.78rem;color:var(--text);line-height:1.3;margin-top:1px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pc-ds{font-size:.65rem;color:var(--text-s);flex:1;margin-top:1px}
+.pc-bot{display:flex;align-items:center;justify-content:space-between;margin-top:8px;gap:6px}
+.pc-pr{font-weight:800;font-size:.88rem;color:var(--gold);white-space:nowrap}
+.pq{display:inline-flex;align-items:center;gap:0;background:var(--bg);border:1px solid var(--border);border-radius:var(--pill);padding:1px 3px}
+.pq button{background:none;border:none;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;font-weight:700;color:var(--text);display:flex;align-items:center;justify-content:center;transition:var(--tr)}
+.pq button:hover{background:var(--accent-l);color:var(--accent)}
+.pq span{min-width:16px;text-align:center;font-weight:700;font-size:.72rem}
+.pc-chk{position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.5rem;color:transparent;transition:var(--tr);background:var(--surface);z-index:4}
+.pc.sel .pc-chk{background:var(--accent);border-color:var(--accent);color:#fff}
 
-    /* Section Title */
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 500;
-      margin: 10px 0 24px;
-      padding-left: 20px;
-      border-left: 4px solid var(--gold);
-      color: var(--text);
-    }
+/* SECTION NAV — Skip beside Continue */
+.sn{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;flex-wrap:wrap}
+.b-bk{padding:8px 16px;border-radius:var(--pill);border:1px solid var(--border);background:var(--surface);color:var(--text-s);font-weight:600;font-size:.75rem;cursor:pointer;transition:var(--tr);height:36px;display:inline-flex;align-items:center;gap:5px}
+.b-bk:hover{border-color:var(--text-s);color:var(--text)}
+.b-sk{background:none;border:none;color:var(--text-s);font-size:.72rem;font-weight:500;cursor:pointer;padding:8px 12px;border-radius:var(--pill);transition:var(--tr);text-decoration:underline;text-underline-offset:2px;height:36px;display:inline-flex;align-items:center}
+.b-sk:hover{color:var(--accent);background:var(--accent-l);text-decoration:none}
+.b-co{padding:8px 24px;border-radius:var(--pill);border:none;background:var(--primary);color:var(--surface);font-weight:700;font-size:.78rem;cursor:pointer;transition:var(--tr);opacity:.3;pointer-events:none;margin-left:auto;height:36px;display:inline-flex;align-items:center;gap:5px}
+[data-theme="dark"] .b-co{background:var(--accent)}
+.b-co.on{opacity:1;pointer-events:auto}
+.b-co.on:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 4px 12px rgba(13,148,136,.2)}
+[data-theme="dark"] .b-co.on:hover{box-shadow:0 4px 12px rgba(20,184,166,.2)}
+.b-co.on.pulse{animation:bp 2s ease infinite}
+@keyframes bp{0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,.25)}50%{box-shadow:0 0 0 6px rgba(13,148,136,0)}}
 
-    /* Products Grid */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-      margin-bottom: 50px;
-    }
-    .product-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 20px 18px 22px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--gold);
-      box-shadow: 0 30px 60px -16px rgba(0,0,0,0.08);
-    }
-    .product-img {
-      background: var(--bg);
-      border-radius: var(--radius-sm);
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 14px;
-      overflow: hidden;
-    }
-    .product-img img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      transition: transform 0.4s;
-    }
-    .product-card:hover .product-img img { transform: scale(1.03); }
-    .product-name {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--text);
-      margin-bottom: 4px;
-      line-height: 1.3;
-      min-height: 44px;
-    }
-    .product-code {
-      font-size: 0.65rem;
-      color: var(--text-soft);
-      font-weight: 500;
-      letter-spacing: 0.3px;
-    }
-    .product-price {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--gold);
-      margin: 8px 0 12px;
-    }
-    .qty-selector {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 12px 0 14px;
-    }
-    .qty-btn {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      width: 36px;
-      height: 36px;
-      border-radius: 60px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      color: var(--text);
-    }
-    .qty-btn:hover { border-color: var(--gold); background: var(--gold-light); }
-    .qty-value {
-      font-weight: 600;
-      min-width: 30px;
-      text-align: center;
-      font-size: 1rem;
-      color: var(--text);
-    }
-    .add-to-cart {
-      width: 100%;
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      padding: 12px 0;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .add-to-cart:hover { background: #b8955e; transform: scale(1.01); }
+/* GLOVES */
+.gl-w{max-width:300px;margin:0 auto}
+.gl-img{height:150px;overflow:hidden;background:var(--bg);border-radius:var(--rs);margin-bottom:14px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.gl-img img{width:100%;height:100%;object-fit:contain;padding:12px}
+.gl-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 12px}
+.gl-ch{padding:8px 22px;border-radius:var(--pill);border:1.5px solid var(--border);background:var(--surface);font-weight:700;font-size:.82rem;cursor:pointer;transition:var(--tr);color:var(--text-s);min-width:48px;text-align:center}
+.gl-ch:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-l)}
+.gl-ch.on{border-color:var(--accent);background:var(--accent);color:#fff;box-shadow:0 3px 12px rgba(13,148,136,.2)}
+.gl-sk{display:block;margin:0 auto 12px;background:none;border:none;color:var(--text-s);font-size:.75rem;font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:2px;transition:var(--tr);font-family:inherit}
+.gl-sk:hover{color:var(--accent)}
+.gl-sk.on{color:var(--accent);text-decoration:none}
 
-    /* CART SIDEBAR */
-    .cart-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(8px);
-      z-index: 500;
-      visibility: hidden;
-      opacity: 0;
-      transition: var(--transition);
-      display: flex;
-      justify-content: flex-end;
-    }
-    .cart-overlay.open { visibility: visible; opacity: 1; }
-    .cart-panel {
-      background: var(--surface);
-      width: 100%;
-      max-width: 480px;
-      height: 100%;
-      overflow-y: auto;
-      padding: 28px 24px;
-      box-shadow: -8px 0 50px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      border-left: 1px solid var(--border);
-    }
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 16px;
-      margin-bottom: 20px;
-    }
-    .cart-header h3 { font-size: 1.4rem; font-weight: 500; color: var(--text); }
-    .close-cart {
-      background: none;
-      border: none;
-      font-size: 1.6rem;
-      cursor: pointer;
-      color: var(--text-soft);
-      transition: var(--transition);
-    }
-    .close-cart:hover { color: var(--text); }
-    .cart-items-list { flex: 1; }
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .cart-item-info { flex: 2; min-width: 120px; }
-    .cart-item-name { font-weight: 600; font-size: 0.85rem; color: var(--text); }
-    .cart-item-price { font-size: 0.7rem; color: var(--text-soft); }
-    .cart-item-actions { display: flex; align-items: center; gap: 8px; }
-    .cart-qty-btn {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      width: 28px;
-      height: 28px;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 0.9rem;
-      color: var(--text);
-      transition: var(--transition);
-    }
-    .cart-qty-btn:hover { border-color: var(--gold); }
-    .cart-total {
-      margin: 18px 0;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-top: 2px solid var(--border);
-      padding-top: 16px;
-      color: var(--gold);
-    }
-    .empty-cart-msg { text-align: center; color: var(--text-soft); padding: 40px 0; }
-    .checkout-trigger {
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      padding: 14px;
-      font-weight: 700;
-      border-radius: 60px;
-      cursor: pointer;
-      width: 100%;
-      margin-bottom: 14px;
-      transition: var(--transition);
-    }
-    .checkout-trigger:hover { background: #b8955e; }
-    .checkout-form {
-      margin-top: 14px;
-      background: var(--bg);
-      padding: 18px;
-      border-radius: var(--radius-sm);
-      display: none;
-      border: 1px solid var(--border);
-    }
-    .checkout-form.active { display: block; }
-    .checkout-form h4 { margin-bottom: 14px; font-size: 1rem; color: var(--text); }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-weight: 500; margin-bottom: 4px; font-size: 0.8rem; color: var(--text-soft); }
-    .form-group input {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      background: var(--surface);
-      color: var(--text);
-      font-size: 0.85rem;
-      font-family: inherit;
-      transition: var(--transition);
-    }
-    .form-group input:focus { outline: none; border-color: var(--gold); }
-    .radio-group { display: flex; gap: 20px; flex-wrap: wrap; }
-    .radio-group label { display: flex; align-items: center; gap: 6px; font-weight: 400; font-size: 0.85rem; color: var(--text); }
-    .submit-order {
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      border-radius: 60px;
-      font-weight: 700;
-      margin-top: 8px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .submit-order:hover { background: #b8955e; }
-    .whatsapp-footer { text-align: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
-    .whatsapp-footer a { color: #25D366; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; }
+/* STATUS */
+.st{font-size:.68rem;font-weight:600;color:var(--text-s);margin-bottom:4px;min-height:15px}
+.st.ok{color:var(--accent)}.st.sk{color:var(--text-s);font-style:italic}
 
-    /* LOGIN MODAL */
-    .login-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(12px);
-      z-index: 600;
-      visibility: hidden;
-      opacity: 0;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .login-overlay.open { visibility: visible; opacity: 1; }
-    .login-panel {
-      background: var(--surface);
-      width: 100%;
-      max-width: 440px;
-      padding: 32px 28px;
-      border-radius: var(--radius);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.1);
-      margin: 20px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border: 1px solid var(--border);
-    }
-    .login-panel .close-login {
-      float: right;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      color: var(--text-soft);
-      transition: var(--transition);
-    }
-    .login-panel .close-login:hover { color: var(--text); }
-    .login-panel h3 { font-size: 1.5rem; font-weight: 500; color: var(--text); margin-bottom: 4px; }
-    .login-panel .sub { color: var(--text-soft); font-size: 0.8rem; margin-bottom: 22px; }
-    .login-panel .form-group { margin-bottom: 16px; }
-    .login-panel .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--text-soft); }
-    .login-panel .form-group input {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 0.9rem;
-      margin-top: 4px;
-      font-family: inherit;
-    }
-    .login-panel .form-group input:focus { outline: none; border-color: var(--gold); }
-    .login-panel .verify-row { display: flex; gap: 10px; align-items: center; }
-    .login-panel .verify-row input { flex: 1; }
-    .login-panel .verify-btn {
-      padding: 10px 16px;
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 0.75rem;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: var(--transition);
-    }
-    .login-panel .verify-btn:hover { background: #b8955e; }
-    .login-panel .verify-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .login-submit {
-      width: 100%;
-      padding: 12px;
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: var(--transition);
-      margin-top: 6px;
-    }
-    .login-submit:hover { background: #b8955e; }
-    #verifyStatus, #loginStatus { margin-top: 6px; font-size: 0.8rem; color: var(--text-soft); }
+/* ESSENTIALS */
+.es-ban{background:var(--accent-l);border-radius:var(--rs);padding:14px 18px;margin-bottom:14px;border-left:3px solid var(--accent)}
+.es-ban h4{font-size:.92rem;font-weight:700}
+.es-ban p{font-size:.72rem;color:var(--text-s);margin-top:2px;line-height:1.6}
+.sb{width:100%;max-width:340px;padding:8px 14px;border:1px solid var(--border);border-radius:var(--pill);background:var(--surface);color:var(--text);font-size:.78rem;font-family:inherit;transition:var(--tr);outline:none;margin-bottom:10px}
+.sb:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-l)}
+.eg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px}
+.ei{background:var(--bg);border-radius:var(--rs);padding:6px 8px;border:1px solid var(--border);display:flex;align-items:center;gap:8px;transition:var(--tr)}
+.ei:hover{border-color:var(--accent)}
+.ei.rm{opacity:.35}
+.ei-im{width:48px;height:48px;border-radius:8px;flex-shrink:0;overflow:hidden;background:var(--surface);position:relative;border:1px solid var(--border)}
+.ei-im img{width:100%;height:100%;object-fit:contain;padding:3px;display:block}
+.ei-im .fb{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:#c0c8d4;font-size:.9rem}
+.ei-if{flex:1;min-width:0}
+.ei-id{font-size:.46rem;font-weight:700;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+.ei-nm{font-size:.68rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ei-pr{font-size:.6rem;font-weight:700;color:var(--gold)}
+.ei-ac{display:flex;align-items:center;gap:1px;flex-shrink:0}
+.ei-ac button{background:var(--surface);border:1px solid var(--border);border-radius:50%;width:22px;height:22px;cursor:pointer;font-weight:700;font-size:.65rem;color:var(--text);display:flex;align-items:center;justify-content:center;transition:var(--tr)}
+.ei-ac button:hover{border-color:var(--accent);background:var(--accent-l);color:var(--accent)}
+.ei-qt{min-width:14px;text-align:center;font-weight:700;font-size:.65rem}
+.ei-rm{color:var(--danger)!important;border-color:rgba(220,38,38,.15)!important;font-size:.45rem!important}
+.ei-rm:hover{background:var(--danger-l)!important;border-color:var(--danger)!important}
 
-    /* INVOICE */
-    .invoice-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(14px);
-      z-index: 700;
-      visibility: hidden;
-      opacity: 0;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .invoice-overlay.open { visibility: visible; opacity: 1; }
-    .invoice-card {
-      background: var(--surface);
-      max-width: 600px;
-      width: 100%;
-      margin: 20px;
-      padding: 32px 28px;
-      border-radius: var(--radius);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.15);
-      border: 1px solid var(--border);
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-    }
-    .invoice-card .close-invoice {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      color: var(--text-soft);
-      transition: var(--transition);
-    }
-    .invoice-card .close-invoice:hover { color: var(--text); }
-    .inv-logo { font-size: 1.8rem; font-weight: 700; color: var(--text); }
-    .inv-logo span { font-weight: 300; color: var(--gold); }
-    .inv-sub { color: var(--text-soft); font-size: 0.7rem; letter-spacing: 0.4px; margin-bottom: 16px; }
-    .inv-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
-    .inv-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.85rem; color: var(--text); }
-    .inv-row.total { font-weight: 700; font-size: 1.1rem; border-top: 2px solid var(--gold); padding-top: 12px; margin-top: 8px; color: var(--gold); }
-    .inv-items .item { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.8rem; border-bottom: 1px solid var(--border); color: var(--text); }
-    .inv-footer { margin-top: 20px; font-size: 0.7rem; color: var(--text-soft); text-align: center; border-top: 1px solid var(--border); padding-top: 14px; }
-    .inv-download-btn {
-      background: var(--gold);
-      color: #0b0a0a;
-      border: none;
-      padding: 12px;
-      border-radius: 60px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 12px;
-      transition: var(--transition);
-    }
-    .inv-download-btn:hover { background: #b8955e; }
+/* FORM */
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ig .fl{grid-column:1/-1}
+.ig label{display:block;font-weight:600;font-size:.68rem;color:var(--text-s);margin-bottom:3px}
+.ig input,.ig select,.ig textarea{width:100%;padding:9px 14px;border:1px solid var(--border);border-radius:var(--pill);background:var(--surface);color:var(--text);font-family:inherit;font-size:.8rem;transition:var(--tr);outline:none}
+.ig input:focus,.ig select:focus,.ig textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-l)}
+.ig textarea{border-radius:var(--rs);resize:vertical;min-height:48px}
+.rg{display:flex;gap:18px;padding-top:3px}
+.rg label{display:flex;align-items:center;gap:5px;font-weight:500;font-size:.8rem;color:var(--text);cursor:pointer}
+.rg input[type="radio"]{accent-color:var(--accent);width:15px;height:15px}
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 32px 0 28px;
-      border-top: 1px solid var(--border);
-      margin-top: 10px;
-      font-size: 0.75rem;
-      color: var(--text-soft);
-    }
-    footer a { color: var(--gold); font-weight: 500; }
+/* REVIEW */
+.rv-s{background:var(--bg);border-radius:var(--rs);padding:14px;border:1px solid var(--border);margin-bottom:12px}
+.rv-s h4{font-size:.8rem;font-weight:700;margin-bottom:8px;color:var(--accent)}
+.rv-c{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;font-size:.72rem}
+.rv-c .rr{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dashed var(--border)}
+.rv-c .rl{color:var(--text-s);font-weight:500}
+.rv-t{width:100%;border-collapse:collapse;font-size:.72rem;margin-top:12px}
+.rv-t th{background:var(--primary);color:var(--surface);padding:7px 5px;text-align:center;font-weight:700;font-size:.65rem;letter-spacing:.2px}
+[data-theme="dark"] .rv-t th{background:var(--accent);color:#fff}
+.rv-t td{padding:7px 5px;text-align:center;border-bottom:1px solid var(--border)}
+.rv-t tr:hover td{background:var(--accent-l)}
+.rv-t .gr td{font-weight:800;font-size:.9rem;background:var(--gold-l);border-top:2px solid var(--gold);color:var(--gold)}
 
-    /* Responsive */
-    @media (max-width: 720px) {
-      .navbar .container { flex-direction: column; align-items: stretch; }
-      .nav-actions { justify-content: center; }
-      .cart-panel { max-width: 100%; }
-      .hero h2 { font-size: 2rem; }
-      .products-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-    }
-    @media (max-width: 480px) {
-      .container { padding: 0 16px; }
-      .products-grid { grid-template-columns: 1fr; }
-      .login-panel { padding: 20px; margin: 10px; }
-      .invoice-card { padding: 20px; margin: 12px; }
-      .hero h2 { font-size: 1.6rem; }
-    }
-  </style>
+footer{text-align:center;padding:16px 0;border-top:1px solid var(--border);margin-top:12px;font-size:.6rem;color:var(--text-s);letter-spacing:.3px}
+footer a{color:var(--accent);font-weight:600}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--primary);color:var(--surface);padding:12px 28px;border-radius:var(--pill);font-size:.78rem;font-weight:600;z-index:9999;transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:0 8px 30px rgba(0,0,0,.2);max-width:520px;text-align:center;line-height:1.6;direction:rtl;white-space:normal;pointer-events:none}
+[data-theme="dark"] .toast{background:var(--surface);color:var(--text)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:700px){
+.nav .ctn{height:50px}.logo-mark{width:28px;height:28px;font-size:.75rem}.logo-t{font-size:1.05rem}
+.pr{grid-template-columns:1fr 1fr}.eg{grid-template-columns:1fr}
+.ig{grid-template-columns:1fr}.rv-c{grid-template-columns:1fr}
+.hero h2{font-size:1.3rem}.hero{padding:20px 0 8px}
+.sec{padding:20px 16px}.sn{flex-wrap:wrap;gap:6px}
+.b-co{margin-left:0;width:100%;justify-content:center}
+.pc-img{height:115px}
+.toast{max-width:90vw;font-size:.72rem;padding:10px 18px}
+}
+@media(max-width:420px){.pr{grid-template-columns:1fr}.ctn{padding:0 14px}.pc-img{height:130px}}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 </head>
 <body>
-
-<!-- Stars -->
-<div class="stars-container">
-  <div class="star"></div><div class="star"></div><div class="star"></div>
-  <div class="star"></div><div class="star"></div><div class="star"></div>
-  <div class="star"></div><div class="star"></div><div class="star"></div>
-  <div class="star"></div>
-</div>
-
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="container">
-    <div class="logo">
-      <h1>CURA <span>STORE</span></h1>
-      <p>4th Year · Clinical Collection</p>
-    </div>
-    <div class="nav-actions">
-      <a href="index.html" class="btn-home"><i class="fas fa-home"></i> Home</a>
-      <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i> <span id="themeLabel">Light</span></button>
-      <a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Group</a>
-      <button class="btn-login" id="loginBtn"><i class="fas fa-user"></i> Login</button>
-      <button class="cart-btn" id="cartBtn"><i class="fas fa-shopping-bag"></i> <span id="cartCountDisplay">0</span></button>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero container">
-  <h2>4th Year · <i>Clinical Excellence</i></h2>
-  <p>Professional-grade instruments and materials for real patient care — trusted by clinicians worldwide.</p>
-</section>
-
-<!-- Search -->
-<div class="container search-section">
-  <input type="text" class="search-bar" id="searchInput" placeholder="🔍 Search products by name or code..." />
-</div>
-
-<!-- Products -->
-<div class="container">
-  <div class="section-title"><i class="fas fa-tooth" style="color:var(--gold); margin-right:10px;"></i>Clinical Collection</div>
-  <div class="products-grid" id="productsGrid"></div>
-</div>
-
-<!-- FOOTER -->
-<footer class="container">
-  <p>Cura Store — Global Dental Excellence</p>
-  <p style="margin-top:4px;">4th Year · Clinical Collection</p>
-  <p style="margin-top:6px;">Designed by <a href="https://zead1254.github.io/Dr_zead/" target="_blank">The Boss</a></p>
-</footer>
-
-<!-- CART SIDEBAR -->
-<div class="cart-overlay" id="cartOverlay">
-  <div class="cart-panel">
-    <div class="cart-header"><h3><i class="fas fa-shopping-bag" style="color:var(--gold);"></i> Your Cart</h3><button class="close-cart" id="closeCartBtn"><i class="fas fa-times"></i></button></div>
-    <div class="cart-items-list" id="cartItemsContainer"></div>
-    <div class="cart-total" id="cartTotalArea">Total: 0 EGP</div>
-    <button class="checkout-trigger" id="showCheckoutBtn"><i class="fas fa-credit-card"></i> Proceed to Checkout</button>
-    <div class="checkout-form" id="checkoutForm">
-      <h4>📋 Customer Details</h4>
-      <div class="form-group"><label>Full Name *</label><input type="text" id="fullName" placeholder="Dr. Ahmed Mahmoud" /></div>
-      <div class="form-group"><label>Phone *</label><input type="tel" id="phoneNumber" placeholder="01xxxxxxxxx" /></div>
-      <div class="form-group"><label>Detailed Address *</label><input type="text" id="address" placeholder="Street, building, floor, clinic..." /></div>
-      <div class="form-group"><label>Gender *</label><div class="radio-group"><label><input type="radio" name="gender" value="Male" /> Male</label><label><input type="radio" name="gender" value="Female" /> Female</label></div></div>
-      <button class="submit-order" id="placeOrderBtn"><i class="fas fa-check-circle"></i> Place Order & Send</button>
-    </div>
-    <div class="whatsapp-footer"><a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank"><i class="fab fa-whatsapp"></i> Join WhatsApp Community</a></div>
-  </div>
-</div>
-
-<!-- LOGIN MODAL -->
-<div class="login-overlay" id="loginOverlay">
-  <div class="login-panel">
-    <button class="close-login" id="closeLoginBtn"><i class="fas fa-times"></i></button>
-    <h3><i class="fas fa-lock" style="color:var(--gold);"></i> Login / Sign Up</h3>
-    <p class="sub">Verify your phone to access premium shopping</p>
-    <div class="form-group">
-      <label>Phone Number *</label>
-      <div class="verify-row">
-        <input type="tel" id="loginPhone" placeholder="01xxxxxxxxx" />
-        <button class="verify-btn" id="sendVerificationBtn">Send Code</button>
-      </div>
-    </div>
-    <div class="form-group" id="verificationGroup" style="display:none;">
-      <label>Verification Code *</label>
-      <div class="verify-row">
-        <input type="text" id="verificationCode" placeholder="4-digit code" maxlength="4" />
-        <button class="verify-btn" id="verifyCodeBtn">Verify</button>
-      </div>
-      <div id="verifyStatus"></div>
-    </div>
-    <div class="form-group"><label>Full Name</label><input type="text" id="loginFullName" placeholder="Your full name" /></div>
-    <div class="form-group"><label>Detailed Address</label><input type="text" id="loginAddress" placeholder="Street, building, floor..." /></div>
-    <div class="form-group"><label>Gender</label><div class="radio-group"><label><input type="radio" name="loginGender" value="Male" /> Male</label><label><input type="radio" name="loginGender" value="Female" /> Female</label></div></div>
-    <button class="login-submit" id="completeLoginBtn"><i class="fas fa-check"></i> Complete Login</button>
-    <div id="loginStatus"></div>
-  </div>
-</div>
-
-<!-- INVOICE OVERLAY -->
-<div class="invoice-overlay" id="invoiceOverlay">
-  <div class="invoice-card" id="invoiceCard">
-    <button class="close-invoice" id="closeInvoiceBtn"><i class="fas fa-times"></i></button>
-    <div class="inv-logo">CURA <span>STORE</span></div>
-    <div class="inv-sub">Global Dental — Official Invoice</div>
-    <hr class="inv-divider" />
-    <div id="invoiceContent"></div>
-    <button class="inv-download-btn" id="downloadInvoiceBtn"><i class="fas fa-download"></i> Download Invoice (Image)</button>
-    <div class="inv-footer">Thank you for choosing Cura Store 🦷</div>
-  </div>
-</div>
+<nav class="nav"><div class="ctn">
+<div class="logo"><div class="logo-mark">C</div><div class="logo-t">CURA <span>STORE</span></div></div>
+<div class="nav-a">
+<button class="nb" id="themeBtn" onclick="toggleTheme()" aria-label="Theme"><i class="fas fa-moon" id="thIco"></i></button>
+<a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank" class="nb wa"><i class="fab fa-whatsapp"></i> Group</a>
+<button class="nb no" onclick="newOrder()" title="New Order"><i class="fas fa-rotate-right"></i> New</button>
+</div></div></nav>
+<div class="prog"><div class="ctn"><div class="prog-t"><div class="prog-f" id="pF"></div></div><div class="prog-l" id="pL">Step 1 / 14</div></div></div>
+<section class="hero ctn"><h2>Welcome to <em>Cura Store</em></h2><p>Build your dental package step by step. Choose what you need, and we'll prepare your invoice.</p></section>
+<main class="ctn" id="app"></main>
+<footer class="ctn"><p>CURA STORE — Premium Dental Supplies &nbsp;·&nbsp; Designed by <a href="https://zead1254.github.io/Dr_zead/" target="_blank">The Boss</a></p></footer>
+<div class="toast" id="toast"></div>
 
 <script>
-  // ============================================================
-  // PRODUCT DATA (4th Year) — All images with double dash: --001.jpg
-  // ============================================================
-  const PRODUCTS = [
-    { id: "RST-001", name: "Temporary Restoration", price: 200, image: "--001.jpg", code: "RST-001" },
-    { id: "DIA-001", name: "Articulating Paper", price: 180, image: "--002.jpg", code: "DIA-001" },
-    { id: "STE-001", name: "Alcohol", price: 120, image: "--003.jpg", code: "STE-001" },
-    { id: "MAT-001", name: "Catalyst", price: 250, image: "--004.jpg", code: "MAT-001" },
-    { id: "PPE-001", name: "Mask", price: 180, image: "--005.jpg", code: "PPE-001" },
-    { id: "EQU-001", name: "Adaptor", price: 150, image: "--006.jpg", code: "EQU-001" },
-    { id: "END-001", name: "MTA", price: 2000, image: "--007.jpg", code: "END-001" },
-    { id: "DIS-001", name: "Cotton Rolls", price: 120, image: "--008.jpg", code: "DIS-001" },
-    { id: "IMP-001", name: "Alginate Alginplus", price: 650, image: "--009.jpg", code: "IMP-001" },
-    { id: "IMP-002", name: "Alginate Tropicalgin", price: 700, image: "--010.jpg", code: "IMP-002" },
-    { id: "DIS-002", name: "Kidney Dish", price: 80, image: "--011.jpg", code: "DIS-002" },
-    { id: "PRS-001", name: "Retraction Cord", price: 350, image: "--012.jpg", code: "PRS-001" },
-    { id: "DIS-003", name: "Gauze", price: 150, image: "--013.jpg", code: "DIS-003" },
-    { id: "DIS-004", name: "Disposable Tray", price: 8, image: "--014.jpg", code: "DIS-004" },
-    { id: "EQU-002", name: "Contra Angle High-Speed Handpiece (8 Holes, LED)", price: 3800, image: "--015.jpg", code: "EQU-002" },
-    { id: "EQU-003", name: "Contra Angle High-Speed Handpiece (8 Holes, Without LED)", price: 2900, image: "--016.jpg", code: "EQU-003" },
-    { id: "RST-002", name: "Flowable Composite", price: 750, image: "--017.jpg", code: "RST-002" },
-    { id: "RST-003", name: "Resin Rings", price: 450, image: "--018.jpg", code: "RST-003" },
-    { id: "DIA-002", name: "Mouth Mirror Handle", price: 120, image: "--019.jpg", code: "DIA-002" },
-    { id: "PRS-002", name: "Pink Wax", price: 180, image: "--020.jpg", code: "PRS-002" },
-    { id: "END-002", name: "Resin Sealer", price: 900, image: "--021.jpg", code: "END-002" },
-    { id: "RST-004", name: "Plastic Wedges (1 pc)", price: 10, image: "--022.jpg", code: "RST-004" },
-    { id: "DIA-003", name: "Double-Sided Mouth Mirror", price: 90, image: "--023.jpg", code: "DIA-003" },
-    { id: "RST-005", name: "Beautifil A2 Packable Composite", price: 850, image: "--024.jpg", code: "RST-005" },
-    { id: "PRS-003", name: "Self-Adhesive Resin Cement", price: 1600, image: "--025.jpg", code: "PRS-003" },
-    { id: "IMP-003", name: "Green Stick Compound", price: 450, image: "--026.jpg", code: "IMP-003" },
-    { id: "RST-006", name: "Beautifil A2 Low-Shrinkage Packable Composite", price: 950, image: "--027.jpg", code: "RST-006" },
-    { id: "ORT-001", name: "Orthodontic Wire", price: 180, image: "--028.jpg", code: "ORT-001" },
-    { id: "DIS-005", name: "Wrapping Film", price: 300, image: "--029.jpg", code: "DIS-005" },
-    { id: "IMP-004", name: "Zetaplus Kit (Large)", price: 1200, image: "--030.jpg", code: "IMP-004" },
-    { id: "IMP-005", name: "Zetaplus Kit (Small)", price: 800, image: "--031.jpg", code: "IMP-005" },
-    { id: "RST-007", name: "Flex Dam", price: 350, image: "--032.jpg", code: "RST-007" },
-    { id: "END-003", name: "Endo Sponge", price: 180, image: "--033.jpg", code: "END-003" },
-    { id: "DIS-006", name: "Plastic Instrument Tray", price: 120, image: "--034.jpg", code: "DIS-006" },
-    { id: "DIS-007", name: "Plastic Cup", price: 2, image: "--035.jpg", code: "DIS-007" },
-    { id: "SUR-001", name: "Topical Anesthetic Gel", price: 250, image: "--036.jpg", code: "SUR-001" },
-    { id: "SUR-002", name: "Metal Syringe", price: 450, image: "--037.jpg", code: "SUR-002" },
-    { id: "RST-008", name: "Universal Bond 4 ml", price: 950, image: "--038.jpg", code: "RST-008" },
-    { id: "RST-009", name: "Universal Bond 0.5 ml", price: 180, image: "--039.jpg", code: "RST-009" },
-    { id: "SUR-003", name: "Anesthesia Carpules (Blue)", price: 450, image: "--040.jpg", code: "SUR-003" },
-    { id: "SUR-004", name: "Anesthesia Carpules (Red)", price: 450, image: "--041.jpg", code: "SUR-004" },
-    { id: "STE-002", name: "Sterilization Pouch (5×10)", price: 450, image: "--042.jpg", code: "STE-002" },
-    { id: "DIA-004", name: "Caries Detector", price: 450, image: "--043.jpg", code: "DIA-004" },
-    { id: "FIN-001", name: "Polishing Paste", price: 250, image: "--044.jpg", code: "FIN-001" },
-    { id: "INS-001", name: "Metal Sectional Tray", price: 350, image: "--045.jpg", code: "INS-001" },
-    { id: "INS-002", name: "Single-Sided Retractor", price: 280, image: "--046.jpg", code: "INS-002" },
-    { id: "FIN-002", name: "Polishing Brush Bur", price: 60, image: "--047.jpg", code: "FIN-002" },
-    { id: "PRS-004", name: "Temporary Crown (Han)", price: 450, image: "--048.jpg", code: "PRS-004" },
-    { id: "PRS-005", name: "Temporary Crown (Charm)", price: 500, image: "--049.jpg", code: "PRS-005" },
-    { id: "DIS-008", name: "Plastic Syringe (100 pcs)", price: 350, image: "--050.jpg", code: "DIS-008" },
-    { id: "RST-010", name: "Light Cure GIC Capsules", price: 1500, image: "--051.jpg", code: "RST-010" },
-    { id: "DIS-009", name: "Napkin", price: 120, image: "--052.jpg", code: "DIS-009" },
-    { id: "STE-003", name: "Sterilization Pouch (2.25×5)", price: 220, image: "--053.jpg", code: "STE-003" },
-    { id: "PPE-002", name: "Dental Floss", price: 120, image: "--054.jpg", code: "PPE-002" },
-    { id: "DIS-010", name: "Air-Water Plastic Tips", price: 250, image: "--055.jpg", code: "DIS-010" },
-    { id: "STE-004", name: "Sterilization Pouch (4.33×10)", price: 380, image: "--056.jpg", code: "STE-004" },
-    { id: "FIN-003", name: "Finishing Strip", price: 180, image: "--057.jpg", code: "FIN-003" },
-    { id: "SUR-005", name: "Injection Needle", price: 180, image: "--058.jpg", code: "SUR-005" },
-    { id: "STE-005", name: "Chlorhexidine", price: 180, image: "--059.jpg", code: "STE-005" },
-    { id: "PPE-003", name: "Gloves", price: 300, image: "--060.jpg", code: "PPE-003" },
-    { id: "PPE-004", name: "Dental Gown", price: 250, image: "--061.jpg", code: "PPE-004" },
-    { id: "PPE-005", name: "Over Gloves", price: 120, image: "--062.jpg", code: "PPE-005" },
-    { id: "RST-011", name: "Acid Etchant", price: 350, image: "--063.jpg", code: "RST-011" },
-    { id: "PRS-006", name: "Temporary Cement", price: 500, image: "--064.jpg", code: "PRS-006" },
-    { id: "RST-012", name: "Glass Ionomer Cement (GIC)", price: 750, image: "--065.jpg", code: "RST-012" },
-    { id: "RST-013", name: "TheraCal", price: 2200, image: "--066.jpg", code: "RST-013" },
-    { id: "RAD-001", name: "X-ray Film with Manual Processing Solution (100 pcs)", price: 2000, image: "--067.jpg", code: "RAD-001" },
-    { id: "RAD-002", name: "Auto-Processing X-ray Film (50 pcs)", price: 1500, image: "--068.jpg", code: "RAD-002" },
-    { id: "INS-003", name: "Double-Sided Retractor", price: 350, image: "--069.jpg", code: "INS-003" },
-    { id: "EQU-004", name: "Apple High-Speed Handpiece with LED", price: 3000, image: "--070.jpg", code: "EQU-004" },
-    { id: "EQU-005", name: "Apple High-Speed Handpiece without LED", price: 2300, image: "--071.jpg", code: "EQU-005" },
-    { id: "FIN-004", name: "Finishing Strip", price: 180, image: "--072.jpg", code: "FIN-004" },
-    { id: "EQU-006", name: "COXO High-Speed Handpiece with LED", price: 4500, image: "--073.jpg", code: "EQU-006" },
-    { id: "EQU-007", name: "COXO High-Speed Handpiece without LED", price: 3600, image: "--074.jpg", code: "EQU-007" },
-    { id: "DIS-011", name: "Plastic Suction Tips", price: 180, image: "--075.jpg", code: "DIS-011" },
-    { id: "RST-014", name: "Enamel Shade", price: 800, image: "--076.jpg", code: "RST-014" },
-    { id: "RST-015", name: "Dentin Shade", price: 800, image: "--077.jpg", code: "RST-015" },
-    { id: "INS-004", name: "Composite Applicator (Zeffiro)", price: 250, image: "--078.jpg", code: "INS-004" },
-    { id: "PPE-006", name: "Overhead", price: 300, image: "--079.jpg", code: "PPE-006" },
-    { id: "DIS-012", name: "Ear Sticks", price: 60, image: "--080.jpg", code: "DIS-012" },
-    { id: "INS-005", name: "Excavator (Zeffiro)", price: 220, image: "--081.jpg", code: "INS-005" },
-    { id: "RST-016", name: "Varnish", price: 350, image: "--082.jpg", code: "RST-016" },
-    { id: "INS-006", name: "Metal Scissors", price: 180, image: "--083.jpg", code: "INS-006" },
-    { id: "PRS-007", name: "Wax Carver", price: 180, image: "--084.jpg", code: "PRS-007" },
-    { id: "PRS-008", name: "Wax Knife", price: 180, image: "--085.jpg", code: "PRS-008" },
-    { id: "SUR-006", name: "Lancet Holder", price: 220, image: "--086.jpg", code: "SUR-006" },
-    { id: "SUR-007", name: "Lancet Blade No. 15", price: 150, image: "--087.jpg", code: "SUR-007" },
-    { id: "INS-007", name: "Plastic Spatula", price: 60, image: "--088.jpg", code: "INS-007" },
-    { id: "INS-008", name: "Metal Spatula", price: 120, image: "--089.jpg", code: "INS-008" },
-    { id: "END-004", name: "Endodontic Ruler", price: 180, image: "--090.jpg", code: "END-004" },
-    { id: "PRS-009", name: "Retraction Cord Applicator", price: 300, image: "--091.jpg", code: "PRS-009" },
-    { id: "IMP-006", name: "Dentulous Metal Tray Size 2", price: 350, image: "--092.jpg", code: "IMP-006" },
-    { id: "IMP-007", name: "Dentulous Metal Tray Size 3", price: 350, image: "--093.jpg", code: "IMP-007" },
-    { id: "END-005", name: "Gutta-Percha Medium (15–45)", price: 300, image: "--094.jpg", code: "END-005" },
-    { id: "END-006", name: "Gutta-Percha Medium (45–80)", price: 300, image: "--095.jpg", code: "END-006" },
-    { id: "STE-006", name: "Betadine", price: 120, image: "--096.jpg", code: "STE-006" },
-    { id: "IMP-008", name: "Medium Body Silicone (Silaxil)", price: 850, image: "--097.jpg", code: "IMP-008" },
-    { id: "END-007", name: "H-File (15–40)", price: 250, image: "--098.jpg", code: "END-007" },
-    { id: "END-008", name: "H-File (45–80)", price: 250, image: "--099.jpg", code: "END-008" },
-    { id: "END-009", name: "K-File (15–40)", price: 250, image: "--100.jpg", code: "END-009" },
-    { id: "END-010", name: "K-File (45–80)", price: 250, image: "--101.jpg", code: "END-010" },
-    { id: "RST-017", name: "EverX Composite", price: 2500, image: "--102.jpg", code: "RST-017" },
-    { id: "RST-018", name: "Celluloid Strip", price: 120, image: "--103.jpg", code: "RST-018" },
-    { id: "END-011", name: "K-File No. 10", price: 250, image: "--104.jpg", code: "END-011" },
-    { id: "END-012", name: "K-File No. 8", price: 250, image: "--105.jpg", code: "END-012" },
-    { id: "PER-001", name: "Scaling Kit (4 Instruments)", price: 1200, image: "--106.jpg", code: "PER-001" },
-    { id: "ORT-002", name: "Adams Pliers", price: 750, image: "--107.jpg", code: "ORT-002" },
-    { id: "ORT-003", name: "Orthodontic Wire", price: 180, image: "--108.jpg", code: "ORT-003" },
-    { id: "ORT-004", name: "Loop Former", price: 950, image: "--109.jpg", code: "ORT-004" },
-    { id: "ORT-005", name: "Cutter Pliers", price: 1200, image: "--110.jpg", code: "ORT-005" },
-    { id: "FIN-005", name: "Cutting Stones", price: 450, image: "--111.jpg", code: "FIN-005" },
-    { id: "FIN-006", name: "Finishing Stones", price: 450, image: "--112.jpg", code: "FIN-006" },
-    { id: "FIN-007", name: "Carbide Burs", price: 450, image: "--113.jpg", code: "FIN-007" },
-    { id: "IMP-009", name: "Addition Silicone (Silaxil)", price: 1200, image: "--114.jpg", code: "IMP-009" },
-    { id: "IMP-010", name: "Addition Silicone (Accusil)", price: 1500, image: "--115.jpg", code: "IMP-010" },
-    { id: "END-013", name: "Low-Speed Endo Z Bur", price: 250, image: "--116.jpg", code: "END-013" }
-  ];
+// Images are in the SAME folder as this HTML file
+const IP='';
 
-  // ============================================================
-  // STATE
-  // ============================================================
-  let cart = {};
-  let loggedInUser = null;
-  let verificationCodeStored = null;
-  let lastInvoiceHTML = '';
+// Arabic skip messages
+const SKIP_MSG={
+  contra:'✅ تمام، ما اخترتش أي Contra Angle Handpiece. يلا بينا على اللي بعده.',
+  alginate:'✅ تمام، مش محتاج Alginate دلوقتي. يلا بينا على اللي بعده.',
+  mirror:'✅ تمام، ما اخترتش Mouth Mirror. يلا بينا على اللي بعده.',
+  composite:'✅ تمام، ما اخترتش Composite. يلا بينا على اللي بعده.',
+  zeta:'✅ تمام، مش محتاج Zeta Plus. يلا بينا على اللي بعده.',
+  bond:'✅ تمام، ما اخترتش Bond. يلا بينا على اللي بعده.',
+  crown:'✅ تمام، ما اخترتش Temporary Crown. يلا بينا على اللي بعده.',
+  xray:'✅ تمام، مش محتاج X-Ray Films. يلا بينا على اللي بعده.',
+  silicone:'✅ تمام، ما اخترتش Addition Silicone. يلا بينا على اللي بعده.',
+  endo:'✅ تمام، مش محتاج Endo Z Bur. يلا بينا على اللي بعده.',
+  gloves:'✅ تمام، ما اخترتش Gloves. يلا بينا على الأدوات الأساسية.'
+};
 
-  // ============================================================
-  // DOM REFS
-  // ============================================================
-  const grid = document.getElementById('productsGrid');
-  const searchInput = document.getElementById('searchInput');
-  const cartCountDisplay = document.getElementById('cartCountDisplay');
-  const cartItemsContainer = document.getElementById('cartItemsContainer');
-  const cartTotalArea = document.getElementById('cartTotalArea');
-  const cartOverlay = document.getElementById('cartOverlay');
-  const checkoutForm = document.getElementById('checkoutForm');
-  const loginOverlay = document.getElementById('loginOverlay');
-  const invoiceOverlay = document.getElementById('invoiceOverlay');
+// Products — img = filename with -- prefix, e.g. "--015.jpg"
+const PD={
+contra:{title:'Contra Angle Handpieces',desc:'Select the handpiece that fits your practice.',items:[
+{id:'EQU-002',name:'Contra Angle High-Speed (8 Holes, LED)',img:'--015.jpg',desc:'8 holes, LED',price:2800},
+{id:'EQU-003',name:'Contra Angle High-Speed (8 Holes, No LED)',img:'--016.jpg',desc:'8 holes, no LED',price:1950},
+{id:'EQU-004',name:'Apple High-Speed with LED',img:'--070.jpg',desc:'High-speed LED',price:2825},
+{id:'EQU-005',name:'Apple High-Speed without LED',img:'--071.jpg',desc:'High-speed no LED',price:1670},
+{id:'EQU-006',name:'COXO High-Speed with LED',img:'--073.jpg',desc:'Premium LED',price:3925},
+{id:'EQU-007',name:'COXO High-Speed without LED',img:'--074.jpg',desc:'Premium no LED',price:2825}]},
+alginate:{title:'Alginate',desc:'Choose your preferred impression material.',items:[
+{id:'IMP-001',name:'Alginate Alginplus',img:'--009.jpg',desc:'Impression material',price:295},
+{id:'IMP-002',name:'Alginate Tropicalgin',img:'--010.jpg',desc:'Impression material',price:435}]},
+mirror:{title:'Mouth Mirror',desc:'Select the type you need.',items:[
+{id:'DIA-002',name:'Mouth Mirror Handle',img:'--019.jpg',desc:'Stainless steel',price:130},
+{id:'DIA-003',name:'Double-Sided Mouth Mirror',img:'--023.jpg',desc:'Dual-sided',price:85}]},
+composite:{title:'Beautifil Composite',desc:'Select the composite type.',items:[
+{id:'RST-005',name:'Beautifil A2 Packable Composite',img:'--024.jpg',desc:'A2 packable',price:900},
+{id:'RST-006',name:'Beautifil A2 Low-Shrinkage',img:'--027.jpg',desc:'Low shrinkage A2',price:1210}]},
+zeta:{title:'Zeta Plus',desc:'Choose your Zeta Plus kit size.',items:[
+{id:'IMP-004',name:'Zetaplus Kit (Large)',img:'--030.jpg',desc:'Large kit',price:1990},
+{id:'IMP-005',name:'Zetaplus Kit (Small)',img:'--031.jpg',desc:'Small kit',price:820}]},
+bond:{title:'Universal Bond',desc:'Select the bond size you need.',items:[
+{id:'RST-008',name:'Universal Bond 4 ml',img:'--038.jpg',desc:'4 ml bottle',price:2200},
+{id:'RST-009',name:'Universal Bond 0.5 ml',img:'--039.jpg',desc:'0.5 ml bottle',price:450}]},
+crown:{title:'Temporary Crown',desc:'Select the brand.',items:[
+{id:'PRS-004',name:'Temporary Crown (Han)',img:'--048.jpg',desc:'Han brand',price:1465},
+{id:'PRS-005',name:'Temporary Crown (Charm)',img:'--049.jpg',desc:'Charm brand',price:1490}]},
+xray:{title:'X-Ray Film',desc:'Select the processing type.',items:[
+{id:'RAD-001',name:'X-ray Manual Processing (100 pcs)',img:'--067.jpg',desc:'100 pcs, manual',price:1980},
+{id:'RAD-002',name:'X-ray Auto-Processing (50 pcs)',img:'--068.jpg',desc:'50 pcs, automatic',price:1860}]},
+silicone:{title:'Addition Silicone',desc:'Choose your addition silicone material.',items:[
+{id:'IMP-009',name:'Addition Silicone (Silaxil)',img:'--114.jpg',desc:'High precision',price:1400},
+{id:'IMP-010',name:'Addition Silicone (Accusil)',img:'--115.jpg',desc:'High precision',price:1100}]},
+endo:{title:'Endo Z Bur',desc:'Choose the quantity you need.',items:[
+{id:'END-013',name:'Low-Speed Endo Z Bur',img:'--116.jpg',desc:'Single piece',price:85}]}
+};
 
-  // ============================================================
-  // THEME
-  // ============================================================
-  let currentTheme = localStorage.getItem('cura_theme') || 'light';
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    document.getElementById('themeLabel').textContent = theme === 'dark' ? 'Dark' : 'Light';
-    document.getElementById('themeToggle').innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i> <span id="themeLabel">Light</span>' : '<i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>';
-    localStorage.setItem('cura_theme', theme);
-    currentTheme = theme;
-  }
-  document.getElementById('themeToggle').addEventListener('click', () => {
-    applyTheme(currentTheme === 'light' ? 'dark' : 'light');
+// Essentials [id, name, img, price, defaultQty, note]
+const ER=[
+['RST-001','Temporary Restoration','--001.jpg',75,1,''],['DIA-001','Articulating Paper 12pcs','--002.jpg',100,1,''],
+['STE-001','Alcohol','--003.jpg',50,1,''],['MAT-001','Catalyst','--004.jpg',525,1,''],
+['PPE-001','Mask','--005.jpg',50,1,''],['EQU-001','Adaptor','--006.jpg',800,1,''],
+['END-001','MTA','--007.jpg',45,1,''],['DIS-001','Cotton Rolls','--008.jpg',135,1,''],
+['DIS-002','Kidney Dish','--011.jpg',50,1,''],['PRS-001','Retraction Cord','--012.jpg',125,1,''],
+['DIS-003','Gauze','--013.jpg',40,1,''],['DIS-004','Disposable Tray','--014.jpg',275,1,''],
+['RST-002','Flowable Composite','--017.jpg',290,1,''],['RST-003','Resin Rings','--018.jpg',260,1,''],
+['PRS-002','Pink Wax','--020.jpg',450,1,''],['END-002','Resin Sealer','--021.jpg',320,1,''],
+['PRS-003','Self-Adhesive Resin Cement','--025.jpg',850,1,''],['IMP-003','Green Stick Compound','--026.jpg',285,1,''],
+['ORT-001','Orthodontic Wire','--028.jpg',5,10,'Per wire'],['DIS-005','Wrapping Film','--029.jpg',160,1,''],
+['RST-007','Flex Dam','--032.jpg',165,1,''],['END-003','Endo Sponge','--033.jpg',10,1,''],
+['DIS-006','Plastic Instrument Tray','--034.jpg',280,1,''],['DIS-007','Plastic Cup','--035.jpg',27,1,''],
+['SUR-001','Topical Anesthetic Gel','--036.jpg',35,1,''],['SUR-002','Metal Syringe','--037.jpg',185,1,''],
+['SUR-003','Anesthesia Carpules (Blue)','--040.jpg',970,1,''],
+['STE-002','Sterilization Pouch (5x10)','--042.jpg',160,1,'Size 9'],
+['DIA-004','Caries Detector','--043.jpg',240,1,''],['FIN-001','Polishing Paste','--044.jpg',75,1,''],
+['INS-001','Metal Sectional Tray','--045.jpg',15,1,''],['INS-002','Single-Sided Retractor','--046.jpg',18,1,''],
+['FIN-002','Polishing Brush Bur','--047.jpg',2.5,15,'15 pcs'],
+['DIS-008','Plastic Syringe (100 pcs)','--050.jpg',140,1,''],['RST-010','Light Cure GIC Capsules','--051.jpg',155,1,''],
+['DIS-009','Napkin','--052.jpg',80,1,''],['STE-003','Sterilization Pouch (2.25x5)','--053.jpg',30,1,'SMALL'],
+['PPE-002','Dental Floss','--054.jpg',30,1,''],['DIS-010','Air-Water Plastic Tips','--055.jpg',210,1,''],
+['STE-004','Sterilization Pouch (4.33x10)','--056.jpg',240,1,'Size 13'],
+['FIN-003','Finishing Strip','--057.jpg',85,1,''],['SUR-005','Injection Needle (Short)','--058.jpg',225,1,'Chinese'],
+['SUR-005L','Long Needle','--058.jpg',225,1,'Long needle'],['STE-005','Chlorhexidine','--059.jpg',30,1,''],
+['PPE-004','Dental Gown','--061.jpg',17,1,''],['PPE-005','Over Gloves','--062.jpg',12,1,''],
+['RST-011','Acid Etchant','--063.jpg',80,1,''],['PRS-006','Temporary Cement','--064.jpg',380,1,''],
+['RST-012','Glass Ionomer Cement','--065.jpg',550,1,''],['RST-013','TheraCal','--066.jpg',830,1,''],
+['INS-003','Double-Sided Retractor','--069.jpg',18,1,''],['FIN-004','Finishing Strip (Fine)','--072.jpg',85,1,''],
+['DIS-011','Plastic Suction Tips','--075.jpg',90,1,''],['RST-014','Enamel Shade','--076.jpg',170,1,''],
+['RST-015','Dentin Shade','--077.jpg',170,1,''],['PPE-006','Overhead (100 pcs)','--079.jpg',27,1,''],
+['INS-005','Excavator (Zeffiro)','--081.jpg',690,1,''],['RST-016','Varnish','--082.jpg',85,1,''],
+['INS-006','Metal Scissors','--083.jpg',55,1,''],['PRS-007','Wax Carver','--084.jpg',33,1,''],
+['PRS-008','Wax Knife','--085.jpg',33,1,''],['SUR-006','Lancet Holder','--086.jpg',30,1,''],
+['SUR-007','Lancet Blade No. 15','--087.jpg',2.5,1,'Per piece'],
+['END-004','Endodontic Ruler','--090.jpg',40,1,''],['PRS-009','Retraction Cord Applicator','--091.jpg',70,1,''],
+['IMP-006','Dentulous Metal Tray Size 2','--092.jpg',15,1,''],['IMP-007','Dentulous Metal Tray Size 3','--093.jpg',15,1,''],
+['END-005','Gutta-Percha (15-45)','--094.jpg',85,1,''],['END-006','Gutta-Percha (45-80)','--095.jpg',85,1,''],
+['IMP-008','Medium Body Silicone (Silaxil)','--097.jpg',530,1,''],
+['END-007','H-File (15-40)','--098.jpg',70,1,''],['END-008','H-File (45-80)','--099.jpg',70,1,''],
+['END-009','K-File (15-40)','--100.jpg',70,1,''],['END-010','K-File (45-80)','--101.jpg',70,1,''],
+['RST-017','EverX Composite','--102.jpg',205,1,''],['RST-018','Celluloid Strip','--103.jpg',12,1,''],
+['END-011','K-File No. 10','--104.jpg',70,1,''],['END-012','K-File No. 8','--105.jpg',70,1,''],
+['ORT-002','Adams Pliers','--107.jpg',195,1,''],['ORT-003','Orthodontic Wire (Round)','--108.jpg',5,1,''],
+['ORT-004','Loop Former','--109.jpg',195,1,''],['ORT-005','Cutter Pliers','--110.jpg',80,1,''],
+['FIN-005','Cutting Stones','--111.jpg',8,1,''],['FIN-006','Finishing Stones','--112.jpg',8,1,''],
+['FIN-007','Carbide Burs','--113.jpg',40,1,'']
+];
+const ES=ER.map(e=>({id:e[0],name:e[1],img:e[2],price:e[3],qty:e[4],note:e[5]}));
+
+// State
+const SO=['contra','alginate','mirror','composite','zeta','bond','crown','xray','silicone','endo','gloves','essentials','info','review'];
+const SL={contra:'Contra Angle',alginate:'Alginate',mirror:'Mouth Mirror',composite:'Composite',zeta:'Zeta Plus',bond:'Universal Bond',crown:'Temporary Crown',xray:'X-Ray Film',silicone:'Addition Silicone',endo:'Endo Z Bur',gloves:'Gloves',essentials:'Essential Supplies',info:'Shipping Info',review:'Order Review'};
+const SK='curaState';
+let sel={},ess={},gSz='',gSk=false,cur=0,cq={};
+ES.forEach(e=>{if(ess[e.id]===undefined)ess[e.id]=e.qty;});
+
+// Auto-save
+let _as;
+function autoSave(){clearTimeout(_as);_as=setTimeout(saveState,150);}
+function saveState(){try{localStorage.setItem(SK,JSON.stringify({sel,ess,gSz,gSk,cur,cq,form:getForm(),sq:document.getElementById('essSearch')?.value||'',scroll:window.scrollY}));}catch(e){}}
+function getForm(){const f={};['f-name','f-phone','f-alt','f-city','f-addr','f-land','f-notes'].forEach(id=>{const el=document.getElementById(id);if(el)f[id]=el.value;});const gv=document.getElementById('f-gov');if(gv)f['f-gov']=gv.value;const gn=document.querySelector('input[name="gender"]:checked');if(gn)f.gender=gn.value;return f;}
+function setForm(f){if(!f)return;Object.keys(f).forEach(k=>{if(k==='gender'){const r=document.querySelector(`input[name="gender"][value="${f[k]}"]`);if(r)r.checked=true;}else{const el=document.getElementById(k);if(el)el.value=f[k];}});}
+function restoreState(){const raw=localStorage.getItem(SK);if(!raw)return false;try{const s=JSON.parse(raw);sel=s.sel||{};ess=s.ess||{};gSz=s.gSz||'';gSk=s.gSk||false;cur=s.cur||0;cq=s.cq||{};ES.forEach(e=>{if(ess[e.id]===undefined)ess[e.id]=e.qty;});return s;}catch(e){return false;}}
+
+// Toast
+let _tt;
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>t.classList.remove('show'),1300);}
+
+// Build
+function buildApp(){
+  const app=document.getElementById('app');let n=0;
+  Object.keys(PD).forEach(sid=>{const s=PD[sid];n++;
+    app.innerHTML+=`<div class="sec${n===1?' on':''}" id="s-${sid}"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">${s.title}</div><div class="s-d">${s.desc}</div></div></div><div class="pr" id="${sid}G"></div><div class="st" id="st-${sid}"></div><div class="sn">${n>1?'<button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>':'<div></div>'}<button class="b-sk" onclick="skipSec('${sid}')">تخطي هذه الخطوة</button><button class="b-co" id="bc-${sid}" onclick="goNext('${sid}')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
   });
-  applyTheme(localStorage.getItem('cura_theme') || 'light');
+  n++;
+  app.innerHTML+=`<div class="sec" id="s-gloves"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Gloves</div><div class="s-d">Choose your glove size, or continue without adding.</div></div></div><div class="gl-w"><div class="gl-img"><img src="${IP}--060.jpg" alt="Gloves" onerror="this.style.display='none'"/></div><div class="gl-chips" id="gC">${['XS','S','M','L','XL'].map(sz=>`<div class="gl-ch" data-sz="${sz}" onclick="setGS('${sz}')">${sz}</div>`).join('')}</div><button class="gl-sk" id="gSkB" onclick="skipG()">تخطي (بدون إضافة جوانتي)</button></div><div class="st" id="st-gloves"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipG()">تخطي هذه الخطوة</button><button class="b-co" id="bc-gloves" onclick="goNext('gloves')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+  n++;
+  app.innerHTML+=`<div class="sec" id="s-essentials"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Essential Dental Supplies</div><div class="s-d">Pre-selected daily essentials. Adjust as needed.</div></div></div><div class="es-ban"><h4>Essential Supplies</h4><p>Commonly used daily supplies with the best brands pre-selected. Adjust quantities, remove items, or search by name or ID.</p></div><input type="text" class="sb" id="essSearch" placeholder="Search by name or ID..." oninput="renderEss()" aria-label="Search"/><div class="eg" id="essG"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+  n++;
+  app.innerHTML+=`<div class="sec" id="s-info"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Shipping Information</div><div class="s-d">Please enter your delivery details.</div></div></div><div class="ig"><div><label>Full Name *</label><input type="text" id="f-name" placeholder="Dr. Ahmed Mahmoud" oninput="autoSave()"/></div><div><label>Mobile Number *</label><input type="tel" id="f-phone" placeholder="01xxxxxxxxx" oninput="autoSave()"/></div><div><label>Alternative Mobile</label><input type="tel" id="f-alt" placeholder="01xxxxxxxxx" oninput="autoSave()"/></div><div><label>Gender *</label><div class="rg"><label><input type="radio" name="gender" value="Male" onchange="autoSave()"/> Male</label><label><input type="radio" name="gender" value="Female" onchange="autoSave()"/> Female</label></div></div><div><label>Governorate *</label><select id="f-gov" onchange="autoSave()"><option value="">Select</option>${['Cairo','Alexandria','Giza','Port Said','Suez','Luxor','Aswan','Asyut','Beheira','Beni Suef','Dakahlia','Damietta','Faiyum','Gharbia','Ismailia','Kafr El Sheikh','Matrouh','Minya','Monufia','New Valley','North Sinai','Qalyubia','Qena','Red Sea','Sharqia','Sohag','South Sinai'].map(g=>`<option value="${g}">${g}</option>`).join('')}</select></div><div><label>City *</label><input type="text" id="f-city" placeholder="City" oninput="autoSave()"/></div><div class="fl"><label>Full Address *</label><input type="text" id="f-addr" placeholder="Street, building, floor..." oninput="autoSave()"/></div><div class="fl"><label>Nearby Landmark</label><input type="text" id="f-land" placeholder="Landmark" oninput="autoSave()"/></div><div class="fl"><label>Notes</label><textarea id="f-notes" placeholder="Special instructions..." oninput="autoSave()"></textarea></div></div><div class="sn" style="margin-top:12px"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on" onclick="goNext('info')">Review Order <i class="fas fa-arrow-right"></i></button></div></div>`;
+  n++;
+  app.innerHTML+=`<div class="sec" id="s-review"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Order Review</div><div class="s-d">Verify your order before generating the invoice.</div></div></div><div id="revC"></div><div class="sn" style="margin-top:12px"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on pulse" onclick="genInvoice()" style="background:var(--accent)">Generate Invoice <i class="fas fa-file-invoice"></i></button></div></div>`;
 
-  // ============================================================
-  // RENDER
-  // ============================================================
-  function renderProducts(filter = '') {
-    const filtered = PRODUCTS.filter(p =>
-      p.name.toLowerCase().includes(filter.toLowerCase()) ||
-      p.code.toLowerCase().includes(filter.toLowerCase())
-    );
-    if (!filtered.length) {
-      grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px 0; color:var(--text-soft);">No products found.</div>`;
-      return;
-    }
-    grid.innerHTML = '';
-    filtered.forEach(p => {
-      const qty = cart[p.id] || 0;
-      const card = document.createElement('div');
-      card.className = 'product-card';
-      card.innerHTML = `
-        <div class="product-img"><img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/200x180?text=${encodeURIComponent(p.name)}'" /></div>
-        <div class="product-name">${p.name}</div>
-        <div class="product-code">${p.code}</div>
-        <div class="product-price">${p.price} EGP</div>
-        <div class="qty-selector">
-          <button class="qty-btn decr-btn" data-id="${p.id}">−</button>
-          <span class="qty-value" id="qty-val-${p.id}">${qty}</span>
-          <button class="qty-btn incr-btn" data-id="${p.id}">+</button>
-        </div>
-        <button class="add-to-cart" data-id="${p.id}"><i class="fas fa-plus"></i> Add to Cart</button>
-      `;
-      grid.appendChild(card);
-    });
+  Object.keys(PD).forEach(renderGrid);
+  renderEss();updateProg();
 
-    document.querySelectorAll('.decr-btn').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, -1)));
-    document.querySelectorAll('.incr-btn').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, 1)));
-    document.querySelectorAll('.add-to-cart').forEach(b => b.addEventListener('click', () => {
-      if (!loggedInUser?.verified) { alert('⚠️ Please login & verify first.'); openLoginModal(); return; }
-      addToCart(b.dataset.id, 1);
-    }));
-  }
+  const saved=restoreState();
+  if(saved){setTimeout(()=>{if(saved.form)setForm(saved.form);if(saved.sq){const el=document.getElementById('essSearch');if(el){el.value=saved.sq;renderEss();}}if(gSz){document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===gSz));updGSt();}if(gSk){document.getElementById('gSkB')?.classList.add('on');updGSt();}Object.keys(PD).forEach(renderGrid);showSec(cur);if(saved.scroll)setTimeout(()=>window.scrollTo({top:saved.scroll,behavior:'instant'}),80);},60);}
+}
 
-  // ============================================================
-  // CART
-  // ============================================================
-  function addToCart(id, n = 1) {
-    cart[id] = (cart[id] || 0) + n;
-    if (cart[id] <= 0) delete cart[id];
-    updateCartUI();
-    updateQtyDisplay();
-    saveCart();
-    const btn = document.querySelector(`.add-to-cart[data-id="${id}"]`);
-    if (btn) { const orig = btn.innerHTML; btn.innerHTML = '<i class="fas fa-check"></i> Added!'; setTimeout(() => btn.innerHTML = orig, 700); }
-  }
-  function changeQty(id, delta) {
-    const cur = cart[id] || 0;
-    const nv = cur + delta;
-    if (nv <= 0) delete cart[id]; else cart[id] = nv;
-    updateCartUI();
-    updateQtyDisplay();
-    saveCart();
-  }
-  function updateQtyDisplay() {
-    PRODUCTS.forEach(p => { const el = document.getElementById(`qty-val-${p.id}`); if (el) el.textContent = cart[p.id] || 0; });
-  }
-  function updateCartUI() {
-    const totalItems = Object.values(cart).reduce((s, q) => s + q, 0);
-    cartCountDisplay.textContent = totalItems;
-    if (totalItems === 0) {
-      cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Your cart is empty.</div>';
-      cartTotalArea.textContent = 'Total: 0 EGP';
-      return;
-    }
-    let html = '', total = 0;
-    for (let pid in cart) {
-      const qty = cart[pid];
-      if (qty <= 0) continue;
-      const p = PRODUCTS.find(x => x.id === pid);
-      if (!p) continue;
-      total += p.price * qty;
-      html += `
-        <div class="cart-item">
-          <div class="cart-item-info"><div class="cart-item-name">${p.name}</div><div class="cart-item-price">${p.price} EGP each</div></div>
-          <div class="cart-item-actions">
-            <button class="cart-qty-btn" data-id="${pid}" data-delta="-1">−</button>
-            <span style="min-width:28px;text-align:center;font-weight:600;">${qty}</span>
-            <button class="cart-qty-btn" data-id="${pid}" data-delta="+1">+</button>
-            <button class="cart-qty-btn" data-id="${pid}" data-delta="remove" style="background:rgba(200,0,0,0.08);">🗑</button>
-          </div>
-        </div>
-      `;
-    }
-    cartItemsContainer.innerHTML = html;
-    cartTotalArea.textContent = `Total: ${total} EGP`;
-    document.querySelectorAll('.cart-qty-btn').forEach(b => {
-      b.addEventListener('click', () => {
-        const id = b.dataset.id, delta = b.dataset.delta;
-        if (delta === 'remove') delete cart[id];
-        else { const cur = cart[id] || 0; const nv = cur + parseInt(delta); if (nv <= 0) delete cart[id]; else cart[id] = nv; }
-        updateCartUI(); updateQtyDisplay(); saveCart();
-      });
-    });
-  }
-  function saveCart() { localStorage.setItem('cura_cart', JSON.stringify(cart)); }
-  function loadCart() {
-    const s = localStorage.getItem('cura_cart');
-    if (s) try { cart = JSON.parse(s); } catch(e) {}
-    updateCartUI(); updateQtyDisplay();
-  }
+function showSec(i){if(i<0)i=0;if(i>=SO.length)i=SO.length-1;cur=i;document.querySelectorAll('.sec').forEach((el,j)=>{el.classList.toggle('on',j===i);});updateProg();}
 
-  // ============================================================
-  // LOGIN
-  // ============================================================
-  function openLoginModal() { loginOverlay.classList.add('open'); }
-  function closeLoginModal() { loginOverlay.classList.remove('open'); }
+function imgErr(el){el.style.display='none';const fb=el.parentElement.querySelector('.pc-fb');if(fb)fb.style.display='flex';}
+function eImgErr(el){el.style.display='none';const fb=el.parentElement.querySelector('.fb');if(fb)fb.style.display='flex';}
 
-  document.getElementById('sendVerificationBtn').addEventListener('click', function() {
-    const phone = document.getElementById('loginPhone').value.trim();
-    if (phone.length < 10) { document.getElementById('loginStatus').textContent = '❌ Enter valid phone.'; return; }
-    verificationCodeStored = Math.floor(1000 + Math.random() * 9000).toString();
-    document.getElementById('verificationGroup').style.display = 'block';
-    document.getElementById('verifyStatus').innerHTML = `📱 Code sent to ${phone} (demo: ${verificationCodeStored})`;
-    document.getElementById('loginStatus').textContent = '';
-    this.disabled = true; this.textContent = 'Code Sent';
+function renderGrid(sid){
+  const s=PD[sid],g=document.getElementById(sid+'G');if(!g)return;
+  let h='';
+  s.items.forEach(p=>{
+    const k=sid+'-'+p.id,q=cq[k]||1,isSel=sel[sid]?.pid===p.id;
+    h+=`<div class="pc${isSel?' sel':''}" onclick="selProd('${sid}','${p.id}')"><div class="pc-chk"><i class="fas fa-check"></i></div><div class="pc-img"><img src="${IP}${p.img}" alt="${p.name}" loading="lazy" onerror="imgErr(this)"/><div class="pc-fb"><i class="fas fa-image"></i><span>${p.img}</span></div></div><div class="pc-body"><div class="pc-id">${p.id}</div><div class="pc-nm">${p.name}</div><div class="pc-ds">${p.desc}</div><div class="pc-bot"><div class="pc-pr">${p.price.toLocaleString()} EGP</div><div class="pq" onclick="event.stopPropagation()"><button onclick="chgQ('${sid}','${p.id}',-1)">−</button><span id="cq-${k}">${q}</span><button onclick="chgQ('${sid}','${p.id}',1)">+</button></div></div></div></div>`;
   });
+  g.innerHTML=h;updSt(sid);
+}
 
-  document.getElementById('verifyCodeBtn').addEventListener('click', function() {
-    const code = document.getElementById('verificationCode').value.trim();
-    if (!verificationCodeStored) { document.getElementById('verifyStatus').textContent = '❌ Send code first.'; return; }
-    document.getElementById('verifyStatus').innerHTML = code === verificationCodeStored ? '✅ Verified!' : '❌ Invalid code.';
-  });
+function renderEss(){
+  const q=(document.getElementById('essSearch')?.value||'').toLowerCase();
+  const g=document.getElementById('essG');if(!g)return;
+  const f=ES.filter(e=>e.name.toLowerCase().includes(q)||e.id.toLowerCase().includes(q));
+  g.innerHTML=f.map(e=>{
+    const qt=ess[e.id]||0,rm=qt===0,nt=e.note?` — ${e.note}`:'';
+    return`<div class="ei${rm?' rm':''}"><div class="ei-im"><img src="${IP}${e.img}" alt="${e.name}" loading="lazy" onerror="eImgErr(this)"/><div class="fb"><i class="fas fa-image"></i></div></div><div class="ei-if"><div class="ei-id">${e.id}${nt}</div><div class="ei-nm">${e.name}</div><div class="ei-pr">${e.price.toLocaleString()} EGP</div></div><div class="ei-ac">${rm?`<button onclick="restE('${e.id}')" title="Add back"><i class="fas fa-plus"></i></button>`:`<button onclick="adjE('${e.id}',-1)">−</button><span class="ei-qt">${qt}</span><button onclick="adjE('${e.id}',1)">+</button><button class="ei-rm" onclick="rmE('${e.id}')" title="Remove"><i class="fas fa-xmark"></i></button>`}</div></div>`;
+  }).join('');
+}
 
-  document.getElementById('completeLoginBtn').addEventListener('click', function() {
-    const phone = document.getElementById('loginPhone').value.trim();
-    const name = document.getElementById('loginFullName').value.trim();
-    const address = document.getElementById('loginAddress').value.trim();
-    let gender = null;
-    document.querySelectorAll('input[name="loginGender"]').forEach(r => { if (r.checked) gender = r.value; });
-    if (phone.length < 10 || !name || !address || !gender) {
-      document.getElementById('loginStatus').textContent = '❌ Fill all fields.';
-      return;
-    }
-    if (!verificationCodeStored || document.getElementById('verifyStatus').innerHTML.indexOf('✅') === -1) {
-      document.getElementById('loginStatus').textContent = '❌ Verify phone first.';
-      return;
-    }
-    loggedInUser = { phone, name, address, gender, verified: true };
-    localStorage.setItem('cura_user', JSON.stringify(loggedInUser));
-    document.getElementById('loginStatus').textContent = '✅ Login successful!';
-    document.getElementById('loginBtn').innerHTML = `<i class="fas fa-user-check"></i> ${name}`;
-    document.getElementById('loginBtn').style.background = 'var(--gold)';
-    closeLoginModal();
-    document.getElementById('fullName').value = name;
-    document.getElementById('phoneNumber').value = phone;
-    document.getElementById('address').value = address;
-    document.querySelectorAll('input[name="gender"]').forEach(r => { if (r.value === gender) r.checked = true; });
-  });
+// Interactions
+function chgQ(sid,pid,d){const k=sid+'-'+pid;let v=(cq[k]||1)+d;if(v<1)v=1;if(v>99)v=99;cq[k]=v;const el=document.getElementById('cq-'+k);if(el)el.textContent=v;if(sel[sid]?.pid===pid)sel[sid].qty=v;autoSave();}
+function selProd(sid,pid){const k=sid+'-'+pid;sel[sid]={pid,qty:cq[k]||1,variation:''};renderGrid(sid);enCont(sid);autoSave();}
 
-  function loadUser() {
-    const s = localStorage.getItem('cura_user');
-    if (s) try {
-      loggedInUser = JSON.parse(s);
-      if (loggedInUser?.verified) {
-        document.getElementById('loginBtn').innerHTML = `<i class="fas fa-user-check"></i> ${loggedInUser.name}`;
-        document.getElementById('loginBtn').style.background = 'var(--gold)';
-        document.getElementById('fullName').value = loggedInUser.name || '';
-        document.getElementById('phoneNumber').value = loggedInUser.phone || '';
-        document.getElementById('address').value = loggedInUser.address || '';
-        if (loggedInUser.gender) document.querySelectorAll('input[name="gender"]').forEach(r => { if (r.value === loggedInUser.gender) r.checked = true; });
-      }
-    } catch(e) {}
-  }
+// Skip — toast + auto-advance
+function skipSec(sid){sel[sid]='skip';renderGrid(sid);autoSave();showToast(SKIP_MSG[sid]);setTimeout(()=>goNext(sid),1200);}
+function skipG(){gSz='';gSk=true;document.querySelectorAll('.gl-ch').forEach(c=>c.classList.remove('on'));document.getElementById('gSkB')?.classList.add('on');updGSt();autoSave();showToast(SKIP_MSG.gloves);setTimeout(()=>goNext('gloves'),1200);}
 
-  // ============================================================
-  // INVOICE
-  // ============================================================
-  function generateInvoiceHTML(name, phone, address, gender, items, total) {
-    const contact = gender === 'Male' ? '+20 10 31718103' : '+20 10 64112263';
-    let itemsHTML = items.map(i => `<div class="item"><span>${i.name} (x${i.qty})</span><span>${i.price * i.qty} EGP</span></div>`).join('');
-    return `
-      <div><div class="inv-row"><span>Customer</span><span>${name}</span></div>
-      <div class="inv-row"><span>Phone</span><span>${phone}</span></div>
-      <div class="inv-row"><span>Address</span><span>${address}</span></div>
-      <div class="inv-row"><span>Gender</span><span>${gender}</span></div>
-      <div class="inv-row"><span>Date</span><span>${new Date().toLocaleString('en-EG')}</span></div>
-      <div class="inv-row"><span>Contact</span><span>${contact}</span></div></div>
-      <hr class="inv-divider" />
-      <div class="inv-items">${itemsHTML}</div>
-      <div class="inv-row total"><span>Total</span><span>${total} EGP</span></div>
-    `;
-  }
-  function openInvoice(html) { lastInvoiceHTML = html; document.getElementById('invoiceContent').innerHTML = html; invoiceOverlay.classList.add('open'); }
-  function closeInvoice() { invoiceOverlay.classList.remove('open'); }
+function setGS(sz){gSz=sz;gSk=false;document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===sz));document.getElementById('gSkB')?.classList.remove('on');updGSt();enCont('gloves');autoSave();}
+function updGSt(){const el=document.getElementById('st-gloves');if(gSz)el.innerHTML=`<span class="ok"><i class="fas fa-check-circle"></i> Size: <strong>${gSz}</strong></span>`;else if(gSk)el.innerHTML=`<span class="sk">Skipped</span>`;else el.textContent='';}
+function adjE(id,d){let v=(ess[id]||1)+d;if(v<1)v=1;if(v>99)v=99;ess[id]=v;renderEss();autoSave();}
+function rmE(id){ess[id]=0;renderEss();autoSave();}
+function restE(id){ess[id]=1;renderEss();autoSave();}
+function updSt(sid){const el=document.getElementById('st-'+sid);if(!el)return;const s=sel[sid];if(s==='skip')el.innerHTML=`<span class="sk">Skipped</span>`;else if(s?.pid){const p=PD[sid].items.find(i=>i.id===s.pid);el.innerHTML=`<span class="ok"><i class="fas fa-check-circle"></i> ${p.id} (x${s.qty})</span>`;}else el.textContent='';}
+function enCont(sid){const b=document.getElementById('bc-'+sid);if(b)b.classList.add('on','pulse');}
 
-  document.getElementById('downloadInvoiceBtn').addEventListener('click', function() {
-    const card = document.getElementById('invoiceCard');
-    if (typeof html2canvas !== 'undefined') {
-      html2canvas(card, { scale: 2, backgroundColor: getComputedStyle(document.body).getPropertyValue('--surface').trim() || '#ffffff' })
-        .then(canvas => { const a = document.createElement('a'); a.download = 'Cura_Store_Invoice.png'; a.href = canvas.toDataURL('image/png'); a.click(); });
-    } else {
-      alert('📸 For image download, add html2canvas library or use Print (Ctrl+P) to save as PDF.');
-      window.print();
-    }
-  });
+// Navigation
+function goNext(sid){const idx=SO.indexOf(sid);if(idx<0)return;if(sid==='info'){const nm=document.getElementById('f-name').value.trim(),ph=document.getElementById('f-phone').value.trim(),gn=document.querySelector('input[name="gender"]:checked')?.value,gv=document.getElementById('f-gov').value,ct=document.getElementById('f-city').value.trim(),ad=document.getElementById('f-addr').value.trim();if(!nm||!ph||!gn||!gv||!ct||!ad){const el=document.getElementById('s-info');el.style.animation='none';el.offsetHeight;el.style.animation='shake .4s ease';setTimeout(()=>el.style.animation='',400);return;}}if(SO[idx+1]==='review')buildReview();showSec(idx+1);autoSave();window.scrollTo({top:0,behavior:'smooth'});}
+function goBack(){if(cur<=0)return;showSec(cur-1);autoSave();window.scrollTo({top:0,behavior:'smooth'});}
+function updateProg(){const p=((cur+1)/SO.length)*100;document.getElementById('pF').style.width=p+'%';document.getElementById('pL').textContent=`Step ${cur+1} / ${SO.length}  ·  ${SL[SO[cur]]}`;}
+function goReview(){buildReview();showSec(SO.indexOf('review'));document.getElementById('s-review')?.scrollIntoView({behavior:'smooth',block:'start'});}
 
-  // ============================================================
-  // CHECKOUT
-  // ============================================================
-  function placeOrder() {
-    if (!loggedInUser?.verified) { alert('⚠️ Please login & verify first.'); openLoginModal(); return; }
-    const name = document.getElementById('fullName').value.trim();
-    const phone = document.getElementById('phoneNumber').value.trim();
-    const address = document.getElementById('address').value.trim();
-    let gender = null;
-    document.querySelectorAll('input[name="gender"]').forEach(r => { if (r.checked) gender = r.value; });
-    if (!name || !phone || !address || !gender) { alert('❌ Fill all fields.'); return; }
-    const items = [];
-    for (let pid in cart) {
-      const qty = cart[pid];
-      if (qty <= 0) continue;
-      const p = PRODUCTS.find(x => x.id === pid);
-      if (p) items.push({ name: p.name, qty, price: p.price });
-    }
-    if (!items.length) { alert('Cart is empty.'); return; }
-    const totalPrice = items.reduce((s, i) => s + i.price * i.qty, 0);
-    const contact = gender === 'Male' ? '+20 10 31718103' : '+20 10 64112263';
-    const msg = `New Order - Cura Store (4th Year)\n\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\nGender: ${gender}\n\nItems:\n${items.map(i => `${i.name} (x${i.qty}) - ${i.price * i.qty} EGP`).join('\n')}\n\nTotal: ${totalPrice} EGP\nContact: ${contact}\nDate: ${new Date().toLocaleString('en-EG')}`;
-    const invoiceHTML = generateInvoiceHTML(name, phone, address, gender, items, totalPrice);
-    if (confirm('Confirm order & send via WhatsApp?')) {
-      window.open(`https://wa.me/${contact.replace(/[^0-9+]/g,'')}?text=${encodeURIComponent(msg)}`, '_blank');
-      openInvoice(invoiceHTML);
-      cart = {}; updateCartUI(); updateQtyDisplay(); saveCart(); closeCartSidebar(); checkoutForm.classList.remove('active');
-    }
-  }
+// Review
+function getItems(){const items=[];Object.keys(PD).forEach(sid=>{const s=sel[sid];if(s&&s!=='skip'&&s.pid){const p=PD[sid].items.find(i=>i.id===s.pid);if(p)items.push({id:p.id,name:p.name,price:p.price,qty:s.qty,variation:'',img:p.img});}});if(gSz&&!gSk)items.push({id:'PPE-003',name:'Gloves',price:190,qty:1,variation:'Size: '+gSz,img:'--060.jpg'});ES.forEach(e=>{const q=ess[e.id]||0;if(q>0)items.push({id:e.id,name:e.name,price:e.price,qty:q,variation:e.note?'('+e.note+')':'',img:e.img});});return items;}
 
-  // ============================================================
-  // SIDEBAR
-  // ============================================================
-  function openCartSidebar() { cartOverlay.classList.add('open'); checkoutForm.classList.remove('active'); }
-  function closeCartSidebar() { cartOverlay.classList.remove('open'); }
+function buildReview(){
+  const items=getItems(),total=items.reduce((s,i)=>s+i.price*i.qty,0);
+  const nm=document.getElementById('f-name')?.value.trim()||'—',ph=document.getElementById('f-phone')?.value.trim()||'—',aph=document.getElementById('f-alt')?.value.trim()||'—',gn=document.querySelector('input[name="gender"]:checked')?.value||'—',gv=document.getElementById('f-gov')?.value||'—',ct=document.getElementById('f-city')?.value.trim()||'—',ad=document.getElementById('f-addr')?.value.trim()||'—',lm=document.getElementById('f-land')?.value.trim()||'—';
+  let rows=items.map((it,i)=>`<tr><td>${i+1}</td><td style="text-align:left;font-weight:700;font-size:.65rem;color:var(--accent)">${it.id}</td><td style="text-align:left">${it.name}${it.variation?`<br><span style="font-size:.6rem;color:var(--text-s)">${it.variation}</span>`:''}</td><td>${it.qty}</td><td>${it.price.toLocaleString()}</td><td style="font-weight:700">${(it.price*it.qty).toLocaleString()}</td></tr>`).join('');
+  document.getElementById('revC').innerHTML=`<div class="rv-s"><h4><i class="fas fa-user"></i> Customer Information</h4><div class="rv-c"><div class="rr"><span class="rl">Name</span><span>${nm}</span></div><div class="rr"><span class="rl">Phone</span><span>${ph}</span></div><div class="rr"><span class="rl">Alt. Phone</span><span>${aph}</span></div><div class="rr"><span class="rl">Gender</span><span>${gn}</span></div><div class="rr"><span class="rl">Governorate</span><span>${gv}</span></div><div class="rr"><span class="rl">City</span><span>${ct}</span></div><div class="rr" style="grid-column:1/-1"><span class="rl">Address</span><span>${ad}${lm!=='—'?' — '+lm:''}</span></div></div></div><table class="rv-t"><thead><tr><th>#</th><th style="text-align:left">ID</th><th style="text-align:left">Product</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead><tbody>${rows}<tr class="gr"><td colspan="5" style="text-align:right">Grand Total (EGP)</td><td>${total.toLocaleString()}</td></tr></tbody></table>`;
+}
 
-  // ============================================================
-  // INIT
-  // ============================================================
-  document.addEventListener('DOMContentLoaded', () => {
-    renderProducts();
-    loadCart();
-    loadUser();
+// Generate Invoice
+function genInvoice(){const items=getItems(),total=items.reduce((s,i)=>s+i.price*i.qty,0);const invNum='CURA-'+Date.now().toString().slice(-6);const invDate=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});const customer={name:document.getElementById('f-name').value.trim(),phone:document.getElementById('f-phone').value.trim(),altPhone:document.getElementById('f-alt').value.trim(),gender:document.querySelector('input[name="gender"]:checked')?.value||'',governorate:document.getElementById('f-gov').value,city:document.getElementById('f-city').value.trim(),address:document.getElementById('f-addr').value.trim(),landmark:document.getElementById('f-land').value.trim(),notes:document.getElementById('f-notes').value.trim()};localStorage.setItem('curaInvoice',JSON.stringify({invoiceNumber:invNum,invoiceDate:invDate,customer,items,total}));window.location.href='invoice.html';}
 
-    searchInput.addEventListener('input', (e) => renderProducts(e.target.value));
-
-    document.getElementById('cartBtn').addEventListener('click', openCartSidebar);
-    document.getElementById('closeCartBtn').addEventListener('click', closeCartSidebar);
-    cartOverlay.addEventListener('click', e => { if (e.target === cartOverlay) closeCartSidebar(); });
-
-    document.getElementById('showCheckoutBtn').addEventListener('click', () => {
-      if (!Object.values(cart).reduce((s,q) => s+q, 0)) { alert('Cart is empty.'); return; }
-      if (!loggedInUser?.verified) { alert('⚠️ Login first.'); openLoginModal(); return; }
-      checkoutForm.classList.toggle('active');
-    });
-    document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
-
-    document.getElementById('loginBtn').addEventListener('click', openLoginModal);
-    document.getElementById('closeLoginBtn').addEventListener('click', closeLoginModal);
-    loginOverlay.addEventListener('click', e => { if (e.target === loginOverlay) closeLoginModal(); });
-    document.getElementById('closeInvoiceBtn').addEventListener('click', closeInvoice);
-    invoiceOverlay.addEventListener('click', e => { if (e.target === invoiceOverlay) closeInvoice(); });
-
-    if (loggedInUser?.verified) {
-      document.getElementById('loginPhone').value = loggedInUser.phone || '';
-      document.getElementById('loginFullName').value = loggedInUser.name || '';
-      document.getElementById('loginAddress').value = loggedInUser.address || '';
-      if (loggedInUser.gender) document.querySelectorAll('input[name="loginGender"]').forEach(r => { if (r.value === loggedInUser.gender) r.checked = true; });
-    }
-  });
+function newOrder(){if(!confirm('Start a new order? All current selections will be cleared.'))return;localStorage.removeItem(SK);localStorage.removeItem('curaInvoice');location.reload();}
+function toggleTheme(){const h=document.documentElement,d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');document.getElementById('thIco').className=d?'fas fa-moon':'fas fa-sun';localStorage.setItem('curaTheme',d?'light':'dark');}
+(function(){const s=localStorage.getItem('curaTheme');if(s==='dark'){document.documentElement.setAttribute('data-theme','dark');document.getElementById('thIco').className='fas fa-sun';}})();
+let _ss;window.addEventListener('scroll',()=>{clearTimeout(_ss);_ss=setTimeout(autoSave,400);});
+buildApp();
 </script>
 </body>
 </html>
