@@ -40,7 +40,6 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
 .ctn{max-width:960px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
 a{text-decoration:none;color:inherit}button{font-family:inherit}
-
 .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);border-bottom:1px solid var(--border);backdrop-filter:blur(28px) saturate(1.8);-webkit-backdrop-filter:blur(28px) saturate(1.8);transition:background .3s,border .3s}
 [data-theme="dark"] .nav{background:rgba(6,12,24,.92)}
 .nav .ctn{display:flex;justify-content:space-between;align-items:center;height:58px}
@@ -53,13 +52,11 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .nb:hover{border-color:var(--accent);background:var(--accent-l);box-shadow:var(--sh-xs)}
 .nb.wa{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;border-color:transparent;box-shadow:0 2px 10px rgba(34,197,94,.22)}.nb.wa:hover{box-shadow:0 4px 16px rgba(34,197,94,.32);transform:translateY(-1px)}
 .nb.no{color:var(--text-s);border-color:transparent;font-size:.65rem;padding:6px 10px}.nb.no:hover{color:var(--danger);background:var(--danger-l);border-color:transparent}
-
 .prog{position:sticky;top:58px;z-index:99;background:var(--surface);border-bottom:1px solid var(--border);transition:background .3s,border .3s}
 .prog .ctn{height:30px;display:flex;align-items:center;gap:14px}
 .prog-t{flex:1;height:3px;background:var(--border);border-radius:10px;overflow:hidden}
 .prog-f{height:100%;background:linear-gradient(90deg,var(--accent),#f59e0b);border-radius:10px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0;box-shadow:0 0 10px rgba(13,148,136,.3)}
 .prog-l{font-size:.58rem;font-weight:700;color:var(--text-s);white-space:nowrap;letter-spacing:.3px;text-transform:uppercase}
-
 .hero{padding:40px 0 16px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(13,148,136,.06),transparent 70%);pointer-events:none}
 .hero h2{font-size:1.7rem;font-weight:900;letter-spacing:-.5px;color:var(--text);position:relative}
@@ -67,7 +64,6 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .hero .hero-sub{font-size:.82rem;color:var(--text-s);max-width:440px;margin:8px auto 0;line-height:1.65;position:relative}
 .hero .hero-badge{display:inline-flex;align-items:center;gap:5px;margin-top:14px;padding:5px 14px;border-radius:var(--pill);background:var(--accent-l);border:1px solid var(--accent-m);font-size:.62rem;font-weight:600;color:var(--accent);letter-spacing:.2px;position:relative}
 .hero .hero-badge i{font-size:.55rem}
-
 .sec{display:none;background:var(--surface);border-radius:var(--r);padding:32px 28px;border:1px solid var(--border);box-shadow:var(--sh-m);margin-bottom:18px;transition:background .3s,border .3s,box-shadow .3s}
 .sec.on{display:block;animation:si .4s cubic-bezier(.4,0,.2,1) both}
 @keyframes si{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
@@ -75,7 +71,6 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .s-b{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;flex-shrink:0;background:linear-gradient(135deg,var(--accent),#0f766e);color:#fff;font-size:.68rem;font-weight:800;box-shadow:0 2px 8px rgba(13,148,136,.22)}
 .s-t{font-size:1.05rem;font-weight:800;color:var(--text);line-height:1.2;letter-spacing:-.2px}
 .s-d{font-size:.72rem;color:var(--text-s);margin-top:2px}
-
 .pr{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:18px}
 .pc{background:var(--surface);border-radius:var(--rs);border:1.5px solid var(--border);cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;position:relative;overflow:hidden}
 .pc:hover{border-color:rgba(13,148,136,.3);box-shadow:var(--sh-lg);transform:translateY(-3px)}
@@ -101,7 +96,6 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .pc-chk:hover{border-color:var(--accent);background:var(--accent-l);color:var(--accent);opacity:1}
 .pc.sel .pc-chk{background:var(--accent);border-color:var(--accent);color:#fff;opacity:0}
 .pc-brand{font-size:.52rem;color:var(--text-s);font-weight:500;margin-top:1px;opacity:.5}
-
 .pc-add{display:flex;align-items:center;justify-content:center;gap:5px;width:100%;padding:9px 12px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-s);font-size:.7rem;font-weight:700;cursor:pointer;transition:all .22s cubic-bezier(.4,0,.2,1);margin-top:4px}
 .pc-add:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-l)}
 .pc-add:active{transform:scale(.97)}
@@ -112,7 +106,6 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .pc-add-d{display:none;align-items:center;gap:4px}
 .pc-add-d i{font-size:.6rem;animation:apop .3s cubic-bezier(.22,1,.36,1)}
 @keyframes apop{from{transform:scale(0)}to{transform:scale(1)}}
-
 .sn{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;flex-wrap:wrap}
 .b-bk{padding:8px 16px;border-radius:var(--pill);border:1px solid var(--border);background:var(--surface);color:var(--text-s);font-weight:600;font-size:.75rem;cursor:pointer;transition:var(--tr);height:36px;display:inline-flex;align-items:center;gap:5px}
 .b-bk:hover{border-color:var(--text-s);color:var(--text);box-shadow:var(--sh-xs)}
@@ -127,7 +120,6 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 @keyframes bp{0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,.3)}50%{box-shadow:0 0 0 8px rgba(13,148,136,0)}}
 .top-co{display:flex;justify-content:flex-end;margin-bottom:16px}
 .top-co .b-co{margin-left:0}
-
 .sc-w{max-width:420px;margin:0 auto;text-align:center}
 .sc-img{height:180px;overflow:hidden;background:var(--bg);border-radius:var(--rs);margin-bottom:18px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
 .sc-img img{width:100%;height:100%;object-fit:contain;padding:16px}
@@ -137,16 +129,9 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .sc-pp{display:inline-flex;align-items:baseline;gap:4px;background:var(--accent-l);padding:6px 16px;border-radius:var(--pill);margin-bottom:16px;border:1px solid var(--accent-m)}
 .sc-pp-val{font-weight:900;font-size:.95rem;color:var(--gold)}
 .sc-pp-label{font-size:.68rem;font-weight:600;color:var(--text-s)}
-.sc-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:18px}
-.sc-chip{padding:14px 28px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--surface);cursor:pointer;transition:var(--tr);text-align:center;min-width:160px}
-.sc-chip:hover{border-color:var(--accent);background:var(--accent-l);box-shadow:var(--sh-s)}
-.sc-chip.on{border-color:var(--accent);background:linear-gradient(135deg,var(--accent),#0f766e);color:#fff;box-shadow:0 4px 20px rgba(13,148,136,.25)}
-.sc-chip-qty{font-weight:800;font-size:1.15rem;color:var(--text);display:block;margin-bottom:2px}
-.sc-chip.on .sc-chip-qty{color:#fff}
-.sc-chip-calc{font-size:.62rem;color:var(--text-s);display:block;margin-bottom:4px}
-.sc-chip.on .sc-chip-calc{color:rgba(255,255,255,.7)}
-.sc-chip-total{font-weight:900;font-size:.9rem;color:var(--gold);display:block}
-.sc-chip.on .sc-chip-total{color:#fff}
+.sc-add-btn{width:100%;padding:14px;border-radius:var(--pill);border:none;background:linear-gradient(135deg,var(--accent),#0f766e);color:#fff;font-weight:700;font-size:.88rem;cursor:pointer;transition:var(--tr);display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;box-shadow:0 4px 16px rgba(13,148,136,.25)}
+.sc-add-btn:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 24px rgba(13,148,136,.3)}
+.sc-add-btn.done{background:var(--surface);color:var(--accent);border:1.5px solid var(--accent);box-shadow:none;pointer-events:none}
 .sc-note{font-size:.7rem;color:var(--text-s);line-height:1.7;margin-bottom:16px;direction:rtl;text-align:right;background:var(--bg);border-radius:var(--rs);padding:14px 16px;border:1px solid var(--border)}
 .sc-note strong{color:var(--text)}
 .sc-advice{display:flex;align-items:center;gap:12px;direction:rtl;text-align:right;background:linear-gradient(135deg,var(--gold-l),rgba(245,158,11,.02));border:1.5px solid var(--gold);border-radius:var(--rs);padding:16px 18px;margin-bottom:16px;cursor:pointer;transition:var(--tr)}
@@ -156,7 +141,6 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .sc-advice-title{font-size:.82rem;font-weight:800;color:var(--gold);display:block;margin-bottom:3px}
 .sc-advice-desc{font-size:.66rem;color:var(--text-s);display:block;line-height:1.6}
 .sc-advice-arrow{color:var(--gold);font-size:.75rem;flex-shrink:0}
-
 .gl-w{max-width:300px;margin:0 auto}
 .gl-img{height:150px;overflow:hidden;background:var(--bg);border-radius:var(--rs);margin-bottom:16px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
 .gl-img img{width:100%;height:100%;object-fit:contain;padding:12px}
@@ -167,10 +151,8 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .gl-sk{display:block;margin:0 auto 12px;background:none;border:none;color:var(--text-s);font-size:.75rem;font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:2px;transition:var(--tr);font-family:inherit}
 .gl-sk:hover{color:var(--accent)}.gl-sk.on{color:var(--accent);text-decoration:none}
 .gl-price{text-align:center;margin-bottom:14px}
-
 .st{font-size:.68rem;font-weight:600;color:var(--text-s);margin-bottom:4px;min-height:15px}
 .st.ok{color:var(--accent)}.st.sk{color:var(--text-s);font-style:italic}
-
 .es-ban{background:linear-gradient(135deg,var(--accent-l),rgba(13,148,136,.02));border-radius:var(--rs);padding:20px 22px;margin-bottom:16px;border-left:3px solid var(--accent);direction:rtl;text-align:right}
 .es-ban .es-title{font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .es-ban .es-body{font-size:.76rem;color:var(--text-s);line-height:1.9}
@@ -186,7 +168,6 @@ a{text-decoration:none;color:inherit}button{font-family:inherit}
 .ei.rm{opacity:.3}.ei.rm:hover{opacity:.55}
 .ei-im{width:48px;height:48px;border-radius:8px;flex-shrink:0;overflow:hidden;background:var(--surface);position:relative;border:1px solid var(--border)}
 .ei-im img{width:100%;height:100%;object-fit:contain;padding:3px;display:block}
-.ei-im .fb{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:#c0c8d4;font-size:.9rem}
 .ei-if{flex:1;min-width:0}
 .ei-id{font-size:.46rem;font-weight:700;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
 .ei-nm{font-size:.68rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -239,13 +220,9 @@ footer a{color:var(--accent);font-weight:600}
 .det-back span{font-size:.82rem;font-weight:600;color:var(--text)}
 .det-img{width:100%;height:320px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;position:relative}
 .det-img img{max-width:100%;max-height:100%;object-fit:contain;padding:32px;transition:transform .3s}
-.det-img-fb{display:none;flex-direction:column;align-items:center;gap:4px;color:#c0c8d4}
-.det-img-fb i{font-size:2.5rem;opacity:.3}
 .det-info{padding:22px 24px 0;flex:1}
 .det-id{font-size:.6rem;font-weight:700;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
 .det-name{font-size:1.15rem;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:6px}
-.det-brand{font-size:.75rem;color:var(--text-s);margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.det-brand i{color:var(--accent);font-size:.65rem}
 .det-desc{font-size:.82rem;color:var(--text-s);line-height:1.65;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
 .det-price-row{display:flex;align-items:baseline;gap:6px;margin-bottom:20px}
 .det-price{font-size:1.6rem;font-weight:900;color:var(--gold)}
@@ -270,7 +247,6 @@ footer a{color:var(--accent);font-weight:600}
 .det-pn{max-width:100%}.det-img{height:240px}.det-img img{padding:20px}
 .det-info{padding:18px 18px 0}.det-acts{padding:0 18px 24px}
 .det-name{font-size:1.05rem}.det-price{font-size:1.35rem}
-.sc-chips{flex-direction:column;align-items:center}.sc-chip{min-width:0;width:100%}
 }
 @media(max-width:420px){.pr{grid-template-columns:1fr}.ctn{padding:0 14px}.pc-img{height:125px}}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
@@ -299,9 +275,9 @@ const GLOVE_PRICE=190;
 const SKIP_MSG={contra:'✅ تمام، ما اخترتش أي Contra Angle Handpiece. يلا بينا على اللي بعده.',scaling:'✅ تمام، نصيحتنا إنك تشتريها مستعملة. يلا بينا على اللي بعده.',alginate:'✅ تمام، مش محتاج Alginate دلوقتي. يلا بينا على اللي بعده.',mirror:'✅ تمام، ما اخترتش Mouth Mirror. يلا بينا على اللي بعده.',composite:'✅ تمام، ما اخترتش Composite. يلا بينا على اللي بعده.',zeta:'✅ تمام، مش محتاج Zeta Plus. يلا بينا على اللي بعده.',bond:'✅ تمام، ما اخترتش Bond. يلا بينا على اللي بعده.',crown:'✅ تمام، ما اخترتش Temporary Crown. يلا بينا على اللي بعده.',xray:'✅ تمام، مش محتاج X-Ray Films. يلا بينا على اللي بعده.',wax:'✅ تمام، ما اخترتش واكس. يلا بينا على اللي بعده.',silicone:'✅ تمام، ما اخترتش Addition Silicone. يلا بينا على اللي بعده.',endo:'✅ تمام، مش محتاج Endo Z Bur. يلا بينا على اللي بعده.',gloves:'✅ تمام، ما اخترتش Gloves. يلا بينا على الأدوات الأساسية.',wellbeing:'✅ تمام، ما اخترتش أي أدوات للرفاهية. يلا بينا على الأدوات الأساسية.'};
 const AR_DESC={contra:'اختار الـ Handpieces اللي تناسب شغلك. ممكن تختار أكتر من واحد.',alginate:'اختار الـ Alginate اللي بتفضله. ممكن تختار أكتر من نوع.',mirror:'اختار نوع الـ Mouth Mirror. ممكن تختار أكتر من نوع.',composite:'اختار نوع الـ Composite. ممكن تختار أكتر من نوع.',zeta:'اختار مقاس الـ Zeta Plus Kit. ممكن تختار أكتر من مقاس.',bond:'اختار حجم الـ Bond. ممكن تختار أكتر من حجم.',crown:'اختار ماركة الـ Temporary Crown. ممكن تختار أكتر من ماركة.',xray:'اختار نوع معالجة الأشعة. ممكن تختار أكتر من نوع.',wax:'اختار نوع الواكس: Pink Wax ولا Dentix.',silicone:'اختار نوع الـ Addition Silicone. ممكن تختار أكتر من نوع.',endo:'اختار عدد الـ Endo Z Bur: 2 قطعة ولا 4 قطع.',wellbeing:'اختار أدوات الرفاهية اللي تناسبك. دي أدوات بتخلي المريض مرتاح أكتر وبتحسن جودة الشغل.'};
 
-const PD={contra:{title:'Contra Angle Handpieces',desc:AR_DESC.contra,items:[{id:'EQU-002',name:'Dentist Contra Angle High-Speed (8 Holes, LED)',img:'--015.jpg',desc:'8 holes with built-in LED light.',price:2670,brand:''},{id:'EQU-003',name:'Dentist Contra Angle High-Speed (8 Holes, No LED)',img:'--016.jpg',desc:'8 holes standard high-speed handpiece.',price:1950,brand:''},{id:'EQU-004',name:'Apple High-Speed with LED',img:'--070.jpg',desc:'Apple brand high-speed with LED.',price:2800,brand:'Apple'},{id:'EQU-005',name:'Apple High-Speed without LED',img:'--071.jpg',desc:'Apple brand standard version.',price:1580,brand:'Apple'},{id:'EQU-006',name:'COXO High-Speed with LED',img:'--073.jpg',desc:'COXO premium with LED.',price:3750,brand:'COXO'},{id:'EQU-007',name:'COXO High-Speed without LED',img:'--074.jpg',desc:'COXO premium standard.',price:2800,brand:'COXO'}]},alginate:{title:'Alginate',desc:AR_DESC.alginate,items:[{id:'IMP-001',name:'Alginate Alginplus',img:'--009.jpg',desc:'Premium alginate impression material.',price:295,brand:'Alginplus'},{id:'IMP-002',name:'Alginate Tropicalgin',img:'--010.jpg',desc:'Tropicalgin with extended working time.',price:435,brand:'Tropicalgin'}]},mirror:{title:'Mouth Mirror',desc:AR_DESC.mirror,items:[{id:'DIA-002',name:'Mouth Mirror Handle',img:'--019.jpg',desc:'Stainless steel mirror handle.',price:130,brand:''},{id:'DIA-003',name:'Double-Sided Mouth Mirror',img:'--023.jpg',desc:'Double-sided mirror.',price:85,brand:''}]},composite:{title:'Beautifil Composite',desc:AR_DESC.composite,items:[{id:'RST-005',name:'Beautifil A2 Packable Composite',img:'--024.jpg',desc:'A2 packable composite for posterior.',price:900,brand:'Beautifil'},{id:'RST-006',name:'Beautifil A2 Low-Shrinkage',img:'--027.jpg',desc:'A2 low-shrinkage composite.',price:1210,brand:'Beautifil'}]},zeta:{title:'Zeta Plus',desc:AR_DESC.zeta,items:[{id:'IMP-004',name:'Zetaplus Kit (Large)',img:'--030.jpg',desc:'Large Zetaplus kit.',price:1990,brand:'Zetaplus'},{id:'IMP-005',name:'Zetaplus Kit (Small)',img:'--031.jpg',desc:'Small Zetaplus kit.',price:820,brand:'Zetaplus'}]},bond:{title:'Universal Bond',desc:AR_DESC.bond,items:[{id:'RST-008',name:'Universal Bond 4 ml',img:'--038.jpg',desc:'4 ml universal bonding agent.',price:2200,brand:''},{id:'RST-009',name:'Universal Bond 0.5 ml',img:'--039.jpg',desc:'0.5 ml universal bonding agent.',price:450,brand:''}]},crown:{title:'Temporary Crown',desc:AR_DESC.crown,items:[{id:'PRS-004',name:'Temporary Crown (Han)',img:'--048.jpg',desc:'Han brand temporary crown.',price:1400,brand:'Han'},{id:'PRS-005',name:'Temporary Crown (Charm)',img:'--049.jpg',desc:'Charm brand temporary crown.',price:1495,brand:'Charm'}]},xray:{title:'X-Ray Film',desc:AR_DESC.xray,items:[{id:'RAD-001',name:'X-ray Manual Processing (100 pcs)',img:'--067.jpg',desc:'100 films for manual processing.',price:1995,brand:''},{id:'RAD-002',name:'X-ray Auto-Processing (50 pcs)',img:'--068.jpg',desc:'50 films for auto processing.',price:1820,brand:''},{id:'RAD-003',name:'X-ray Auto-Processing (25 pcs)',img:'--068.jpg',desc:'25 films for auto processing.',price:930,brand:''}]},wax:{title:'Wax',desc:AR_DESC.wax,items:[{id:'PRS-002',name:'Pink Wax',img:'--020.jpg',desc:'Premium pink wax.',price:200,brand:'Pink Wax'},{id:'PRS-011',name:'Dentix',img:'Dentix.jpg',desc:'Dentix wax compound.',price:195,brand:'Dentix'}]},silicone:{title:'Addition Silicone',desc:AR_DESC.silicone,items:[{id:'IMP-009',name:'Addition Silicone (Silaxil)',img:'--114.jpg',desc:'Silaxil high-precision silicone.',price:1395,brand:'Silaxil'},{id:'IMP-010',name:'Addition Silicone (Accusil)',img:'--115.jpg',desc:'Accusil excellent detail.',price:1000,brand:'Accusil'}]},endo:{title:'Endo Z Bur',desc:AR_DESC.endo,items:[{id:'END-013',name:'Endo Z Bur — 2 Pieces',img:'--116.jpg',desc:'2 Endo Z burs.',price:170,brand:''},{id:'END-014',name:'Endo Z Bur — 4 Pieces',img:'--116.jpg',desc:'4 Endo Z burs.',price:340,brand:''}]},wellbeing:{title:'أدوات للرفاهية',desc:AR_DESC.wellbeing,items:[{id:'RST-003',name:'Resin Rings',img:'--018.jpg',desc:'حلقات ريزن لضبط شكل الكومبوزيت.',price:260,brand:''},{id:'STE-005',name:'Chlorhexidine',img:'--059.jpg',desc:'محلول كلورهيكسدين مطهر.',price:30,brand:''},{id:'RST-013',name:'TheraCal',img:'--066.jpg',desc:'TheraCal LC — حماية اللب.',price:850,brand:''},{id:'RST-017',name:'EverX Composite',img:'--102.jpg',desc:'EverX Posterior — كومبوزيت مقوى.',price:205,brand:''},{id:'RST-007',name:'Flex Dam',img:'--032.jpg',desc:'راف مطاطي لعزل الأسنان.',price:165,brand:''},{id:'RST-016',name:'Varnish',img:'--082.jpg',desc:'فارنيش فلورايد للحماية.',price:85,brand:''}]}};
+const PD={contra:{title:'Contra Angle Handpieces',desc:AR_DESC.contra,items:[{id:'EQU-002',name:'Dentist Contra Angle High-Speed (8 Holes, LED)',img:'--015.jpg',desc:'8 holes with built-in LED light.',price:2670,brand:''},{id:'EQU-003',name:'Dentist Contra Angle High-Speed (8 Holes, No LED)',img:'--016.jpg',desc:'8 holes standard high-speed handpiece.',price:1950,brand:''},{id:'EQU-004',name:'Apple High-Speed with LED',img:'--070.jpg',desc:'Apple brand high-speed with LED.',price:2800,brand:'Apple'},{id:'EQU-005',name:'Apple High-Speed without LED',img:'--071.jpg',desc:'Apple brand standard version.',price:1580,brand:'Apple'},{id:'EQU-006',name:'COXO High-Speed with LED',img:'--073.jpg',desc:'COXO premium with LED.',price:3750,brand:'COXO'},{id:'EQU-007',name:'COXO High-Speed without LED',img:'--074.jpg',desc:'COXO premium standard.',price:2800,brand:'COXO'}]},alginate:{title:'Alginate',desc:AR_DESC.alginate,items:[{id:'IMP-001',name:'Alginate Alginplus',img:'--009.jpg',desc:'Premium alginate impression material.',price:295,brand:'Alginplus'},{id:'IMP-002',name:'Alginate Tropicalgin',img:'--010.jpg',desc:'Tropicalgin with extended working time.',price:435,brand:'Tropicalgin'}]},mirror:{title:'Mouth Mirror',desc:AR_DESC.mirror,items:[{id:'DIA-002',name:'Mouth Mirror Handle',img:'--019.jpg',desc:'Stainless steel mirror handle.',price:130,brand:''},{id:'DIA-003',name:'Double-Sided Mouth Mirror',img:'--023.jpg',desc:'Double-sided mirror.',price:85,brand:''}]},composite:{title:'Beautifil Composite',desc:AR_DESC.composite,items:[{id:'RST-005',name:'Beautifil A2 Packable Composite',img:'--024.jpg',desc:'A2 packable composite for posterior.',price:900,brand:'Beautifil'},{id:'RST-006',name:'Beautifil A2 Low-Shrinkage',img:'--027.jpg',desc:'A2 low-shrinkage composite.',price:1210,brand:'Beautifil'}]},zeta:{title:'Zeta Plus',desc:AR_DESC.zeta,items:[{id:'IMP-004',name:'Zetaplus Kit (Large)',img:'--030.jpg',desc:'Large Zetaplus kit.',price:1990,brand:'Zetaplus'},{id:'IMP-005',name:'Zetaplus Kit (Small)',img:'--031.jpg',desc:'Small Zetaplus kit.',price:820,brand:'Zetaplus'}]},bond:{title:'Universal Bond',desc:AR_DESC.bond,items:[{id:'RST-008',name:'Universal Bond 4 ml',img:'--038.jpg',desc:'4 ml universal bonding agent.',price:2200,brand:''},{id:'RST-009',name:'Universal Bond 0.5 ml',img:'--039.jpg',desc:'0.5 ml universal bonding agent.',price:450,brand:''}]},crown:{title:'Temporary Crown',desc:AR_DESC.crown,items:[{id:'PRS-004',name:'Temporary Crown (Han)',img:'--048.jpg',desc:'Han brand temporary crown.',price:1400,brand:'Han'},{id:'PRS-005',name:'Temporary Crown (Charm)',img:'--049.jpg',desc:'Charm brand temporary crown.',price:1495,brand:'Charm'}]},xray:{title:'X-Ray Film',desc:AR_DESC.xray,items:[{id:'RAD-001',name:'X-ray Manual Processing (100 pcs)',img:'--067.jpg',desc:'100 films for manual processing.',price:1995,brand:''},{id:'RAD-002',name:'X-ray Auto-Processing (50 pcs)',img:'--068.jpg',desc:'50 films for auto processing.',price:1820,brand:''},{id:'RAD-003',name:'X-ray Auto-Processing (25 pcs)',img:'--068.jpg',desc:'25 films for auto processing.',price:930,brand:''}]},wax:{title:'Wax',desc:AR_DESC.wax,items:[{id:'PRS-002',name:'Pink Wax',img:'--020.jpg',desc:'Premium pink wax.',price:450,brand:'Pink Wax'},{id:'PRS-011',name:'Dentix',img:'Dentix.jpg',desc:'Dentix wax compound.',price:195,brand:'Dentix'}]},silicone:{title:'Addition Silicone',desc:AR_DESC.silicone,items:[{id:'IMP-009',name:'Addition Silicone (Silaxil)',img:'--114.jpg',desc:'Silaxil high-precision silicone.',price:1395,brand:'Silaxil'},{id:'IMP-010',name:'Addition Silicone (Accusil)',img:'--115.jpg',desc:'Accusil excellent detail.',price:1000,brand:'Accusil'}]},endo:{title:'Endo Z Bur',desc:AR_DESC.endo,items:[{id:'END-013',name:'Endo Z Bur — 2 Pieces',img:'--116.jpg',desc:'2 Endo Z burs.',price:170,brand:''},{id:'END-014',name:'Endo Z Bur — 4 Pieces',img:'--116.jpg',desc:'4 Endo Z burs.',price:340,brand:''}]},wellbeing:{title:'أدوات للرفاهية',desc:AR_DESC.wellbeing,items:[{id:'RST-003',name:'Resin Rings',img:'--018.jpg',desc:'حلقات ريزن لضبط شكل الكومبوزيت.',price:260,brand:''},{id:'STE-005',name:'Chlorhexidine',img:'--059.jpg',desc:'محلول كلورهيكسدين مطهر.',price:30,brand:''},{id:'RST-013',name:'TheraCal',img:'--066.jpg',desc:'TheraCal LC — حماية اللب.',price:850,brand:''},{id:'RST-017',name:'EverX Composite',img:'--102.jpg',desc:'EverX Posterior — كومبوزيت مقوى.',price:205,brand:''},{id:'RST-007',name:'Flex Dam',img:'--032.jpg',desc:'راف مطاطي لعزل الأسنان.',price:165,brand:''},{id:'RST-016',name:'Varnish',img:'--082.jpg',desc:'فارنيش فلورايد للحماية.',price:85,brand:''}]}};
 
-const ER=[['RST-001','Temporary Restoration','--001.jpg',75,1,''],['DIA-001','Articulating Paper 12pcs','--002.jpg',100,1,''],['STE-001','Alcohol','--003.jpg',50,1,''],['MAT-001','Catalyst','--004.jpg',525,1,''],['PPE-001','Mask','--005.jpg',50,1,''],['EQU-001','Adaptor','--006.jpg',800,1,''],['END-001','MTA','--007.jpg',45,1,''],['DIS-001','Cotton Rolls','Cotton Rolls.jpg',17,1,''],['DIS-002','Kidney Dish','--011.jpg',50,1,''],['DIS-003','Gauze','--008.jpg',40,1,''],['DIS-004','Disposable Tray','--014.jpg',275,1,''],['RST-002','Flowable Composite','--017.jpg',290,1,''],['END-002','Resin Sealer','--021.jpg',305,1,''],['PRS-003','Self-Adhesive Resin Cement','--025.jpg',850,1,''],['IMP-003','Green Stick Compound','--026.jpg',285,1,''],['ORT-001','Orthodontic Wire','--028.jpg',5,10,'Per wire'],['DIS-005','Wrapping Film','--029.jpg',160,1,''],['END-003','Endo Sponge','--033.jpg',10,1,''],['DIS-006','Plastic Instrument Tray','--034.jpg',280,1,''],['DIS-007','Plastic Cup','--035.jpg',27,1,''],['SUR-001','Topical Anesthetic Gel','--036.jpg',35,1,''],['SUR-002','Metal Syringe','--037.jpg',185,1,''],['SUR-003','Anesthesia Carpules (Blue)','--040.jpg',970,1,''],['STE-002','Sterilization Pouch (5x10)','--042.jpg',160,1,'Size 9'],['DIA-004','Caries Detector','--043.jpg',240,1,''],['FIN-001','Polishing Paste','--044.jpg',75,1,''],['INS-001','Metal Sectional Tray','--045.jpg',15,1,''],['INS-002','Single-Sided Retractor','--046.jpg',18,1,''],['FIN-002','Polishing Brush Bur','--047.jpg',2.5,15,'15 pcs'],['DIS-008','Plastic Syringe (100 pcs)','--050.jpg',140,1,''],['RST-010','Light Cure GIC Capsules','--051.jpg',155,1,''],['DIS-009','Napkin','--052.jpg',80,1,''],['STE-003','Sterilization Pouch (2.25x5)','--053.jpg',30,1,'SMALL'],['PPE-002','Dental Floss','--054.jpg',30,1,''],['DIS-010','Air-Water Plastic Tips','--055.jpg',210,1,''],['STE-004','Sterilization Pouch (4.33x10)','--056.jpg',240,1,'Size 13'],['FIN-003','Finishing Strip','--057.jpg',85,1,''],['SUR-005','Injection Needle (Short)','--058.jpg',225,1,'Chinese'],['SUR-005L','Long Needle','--058.jpg',225,1,'Long needle'],['PPE-004','Dental Gown','--061.jpg',17,1,''],['PPE-005','Over Gloves','--062.jpg',12,1,''],['RST-011','Acid Etchant','--063.jpg',80,1,''],['PRS-006','Temporary Cement','--064.jpg',380,1,''],['RST-012','Glass Ionomer Cement','--065.jpg',550,1,''],['INS-003','Double-Sided Retractor','--069.jpg',18,1,''],['DIS-011','Plastic Suction Tips','--075.jpg',90,1,''],['RST-014','Enamel Shade','--076.jpg',165,1,''],['RST-015','Dentin Shade','--077.jpg',165,1,''],['PPE-006','Overhead (100 pcs)','--079.jpg',35,1,''],['INS-005','Excavator (Zeffiro)','--081.jpg',690,1,''],['INS-006','Metal Scissors','--083.jpg',55,1,''],['PRS-007','Wax Carver','--084.jpg',33,1,''],['PRS-008','Wax Knife','--085.jpg',33,1,''],['SUR-006','Lancet Holder','--086.jpg',30,1,''],['SUR-007','Lancet Blade No. 15','--087.jpg',2.5,1,'Per piece'],['INS-007','Tweezer','--088.jpg',35,3,'3 pieces'],['END-004','Endodontic Ruler','--090.jpg',40,1,''],['PRS-009','Retraction Cord Applicator','--091.jpg',70,1,''],['IMP-006','Dentulous Metal Tray Size 2','--092.jpg',15,1,''],['IMP-007','Dentulous Metal Tray Size 3','--093.jpg',15,1,''],['END-005','Gutta-Percha (15-45)','--094.jpg',85,1,''],['END-006','Gutta-Percha (45-80)','--095.jpg',85,1,''],['IMP-008','Medium Body Silicone (Silaxil)','--097.jpg',530,1,''],['END-007','H-File (15-40)','--098.jpg',70,1,''],['END-008','H-File (45-80)','--099.jpg',70,1,''],['END-009','K-File (15-40)','--100.jpg',70,1,''],['END-010','K-File (45-80)','--101.jpg',70,1,''],['RST-018','Celluloid Strip','--103.jpg',12,1,''],['END-011','K-File No. 10','--104.jpg',70,1,''],['END-012','K-File No. 8','--105.jpg',70,1,''],['ORT-002','Adams Pliers','--107.jpg',195,1,''],['ORT-004','Loop Former','--109.jpg',195,1,''],['ORT-005','Cutter Pliers','--110.jpg',80,1,''],['FIN-005','Cutting Stones','--111.jpg',8,5,''],['FIN-006','Finishing Stones','--112.jpg',8,5,''],['FIN-007','Carbide Burs','--113.jpg',40,8,''],['STE-006','Gas','--013.jpg',47,1,'']];
+const ER=[['RST-001','Temporary Restoration','--001.jpg',75,1,''],['DIA-001','Articulating Paper 12pcs','--002.jpg',100,1,''],['STE-001','Alcohol','--003.jpg',50,1,''],['MAT-001','Catalyst','--004.jpg',525,1,''],['PPE-001','Mask','--005.jpg',50,1,''],['EQU-001','Adaptor','--006.jpg',800,1,''],['END-001','MTA','--007.jpg',45,1,''],['DIS-001','Cotton Rolls','--008.jpg',17,1,''],['DIS-002','Kidney Dish','--011.jpg',50,1,''],['PRS-001','Retraction Cord','--012.jpg',125,1,''],['DIS-003','Gauze','--013.jpg',40,1,''],['DIS-004','Disposable Tray','--014.jpg',275,1,''],['RST-002','Flowable Composite','--017.jpg',290,1,''],['END-002','Resin Sealer','--021.jpg',305,1,''],['PRS-003','Self-Adhesive Resin Cement','--025.jpg',850,1,''],['IMP-003','Green Stick Compound','--026.jpg',285,1,''],['ORT-001','Orthodontic Wire','--028.jpg',5,10,'Per wire'],['DIS-005','Wrapping Film','--029.jpg',160,1,''],['END-003','Endo Sponge','--033.jpg',10,1,''],['DIS-006','Plastic Instrument Tray','--034.jpg',280,1,''],['DIS-007','Plastic Cup','--035.jpg',27,1,''],['SUR-001','Topical Anesthetic Gel','--036.jpg',35,1,''],['SUR-002','Metal Syringe','--037.jpg',185,1,''],['SUR-003','Anesthesia Carpules (Blue)','--040.jpg',970,1,''],['STE-002','Sterilization Pouch (5x10)','--042.jpg',160,1,'Size 9'],['DIA-004','Caries Detector','--043.jpg',240,1,''],['FIN-001','Polishing Paste','--044.jpg',75,1,''],['INS-001','Metal Sectional Tray','--045.jpg',15,1,''],['INS-002','Single-Sided Retractor','--046.jpg',18,1,''],['FIN-002','Polishing Brush Bur','--047.jpg',2.5,15,'15 pcs'],['DIS-008','Plastic Syringe (100 pcs)','--050.jpg',140,1,''],['RST-010','Light Cure GIC Capsules','--051.jpg',155,1,''],['DIS-009','Napkin','--052.jpg',80,1,''],['STE-003','Sterilization Pouch (2.25x5)','--053.jpg',30,1,'SMALL'],['PPE-002','Dental Floss','--054.jpg',30,1,''],['DIS-010','Air-Water Plastic Tips','--055.jpg',210,1,''],['STE-004','Sterilization Pouch (4.33x10)','--056.jpg',240,1,'Size 13'],['FIN-003','Finishing Strip','--057.jpg',85,1,''],['SUR-005','Injection Needle (Short)','--058.jpg',225,1,'Chinese'],['SUR-005L','Long Needle','--058.jpg',225,1,'Long needle'],['PPE-004','Dental Gown','--061.jpg',17,1,''],['PPE-005','Over Gloves','--062.jpg',12,1,''],['RST-011','Acid Etchant','--063.jpg',80,1,''],['PRS-006','Temporary Cement','--064.jpg',380,1,''],['RST-012','Glass Ionomer Cement (GIC)','--065.jpg',550,1,''],['INS-003','Double-Sided Retractor','--069.jpg',18,1,''],['FIN-004','Finishing Strip','--072.jpg',85,1,''],['DIS-011','Plastic Suction Tips','--075.jpg',90,1,''],['RST-014','Enamel Shade','--076.jpg',165,1,''],['RST-015','Dentin Shade','--077.jpg',165,1,''],['PPE-006','Overhead (100 pcs)','--079.jpg',35,1,''],['INS-005','Excavator (Zeffiro)','--081.jpg',690,1,''],['INS-006','Metal Scissors','--083.jpg',55,1,''],['PRS-007','Wax Carver','--084.jpg',33,1,''],['PRS-008','Wax Knife','--085.jpg',33,1,''],['SUR-006','Lancet Holder','--086.jpg',30,1,''],['SUR-007','Lancet Blade No. 15','--087.jpg',2.5,1,'Per piece'],['END-004','Endodontic Ruler','--090.jpg',40,1,''],['PRS-009','Retraction Cord Applicator','--091.jpg',70,1,''],['IMP-006','Dentulous Metal Tray Size 2','--092.jpg',15,1,''],['IMP-007','Dentulous Metal Tray Size 3','--093.jpg',15,1,''],['END-005','Gutta-Percha (15-45)','--094.jpg',85,1,''],['END-006','Gutta-Percha (45-80)','--095.jpg',85,1,''],['IMP-008','Medium Body Silicone (Silaxil)','--097.jpg',530,1,''],['END-007','H-File (15-40)','--098.jpg',70,1,''],['END-008','H-File (45-80)','--099.jpg',70,1,''],['END-009','K-File (15-40)','--100.jpg',70,1,''],['END-010','K-File (45-80)','--101.jpg',70,1,''],['RST-018','Celluloid Strip','--103.jpg',12,1,''],['END-011','K-File No. 10','--104.jpg',70,1,''],['END-012','K-File No. 8','--105.jpg',70,1,''],['ORT-002','Adams Pliers','--107.jpg',195,1,''],['ORT-003','Orthodontic Wire','--108.jpg',5,10,'Per wire'],['ORT-004','Loop Former','--109.jpg',195,1,''],['ORT-005','Cutter Pliers','--110.jpg',80,1,''],['FIN-005','Cutting Stones','--111.jpg',8,5,''],['FIN-006','Finishing Stones','--112.jpg',8,5,''],['FIN-007','Carbide Burs','--113.jpg',40,8,''],['INS-007','Tweezer','Tweezer.jpg',35,3,'3 pieces']];
 
 const ES=ER.map(e=>({id:e[0],name:e[1],img:e[2],price:e[3],qty:e[4],note:e[5]}));
 const SO=['contra','scaling','alginate','mirror','composite','zeta','bond','crown','xray','wax','silicone','endo','gloves','wellbeing','essentials','info','review'];
@@ -322,17 +298,18 @@ function buildApp(){
 const app=document.getElementById('app');app.innerHTML='';let n=0;
 function secHTML(sid,num,title,desc,gridId,skippable){return `<div class="sec" id="s-${sid}"><div class="s-hdr"><div class="s-b">${num}</div><div><div class="s-t">${title}</div><div class="s-d">${desc}</div></div></div><div class="pr" id="${gridId}"></div><div class="st" id="st-${sid}"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>${skippable?`<button class="b-sk" onclick="skipSec('${sid}')">تخطي هذه الخطوة</button>`:''}<button class="b-co" id="bc-${sid}" onclick="goNext('${sid}')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;}
 n++;app.innerHTML+=secHTML('contra',n,PD.contra.title,PD.contra.desc,'contraG',true);
-n++;app.innerHTML+=`<div class="sec" id="s-scaling"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Scaling Kit</div><div class="s-d">هل أنت محتاج Scaling Kit جديدة؟</div></div></div><div class="sc-w"><div class="sc-img"><img src="${IP}--106.jpg" alt="Scaling Kit" onerror="this.style.display='none'"/></div><div class="sc-info"><div class="sc-id">PER-001</div><div class="sc-name">Scaling Kit (4 Instruments)</div><div class="sc-pp"><span class="sc-pp-val">${SC_PP.toLocaleString()}</span><span class="sc-pp-label">EGP / قطعة</span></div></div><div class="sc-chips" id="scChips"><div class="sc-chip" data-qty="4" onclick="setSC(4)"><span class="sc-chip-qty">4 قطع</span><span class="sc-chip-calc">${SC_PP} × 4</span><span class="sc-chip-total">${(SC_PP*4).toLocaleString()} EGP</span></div></div><div class="sc-note"><strong>ملاحظة:</strong> الكيت بيتكون من 4 قطع بسعر ${(SC_PP*4).toLocaleString()} جنيه.</div><div class="sc-advice" onclick="skipSC()"><div class="sc-advice-icon"><i class="fas fa-lightbulb"></i></div><div class="sc-advice-text"><span class="sc-advice-title">ننصحك: اشتريها مستعملة</span><span class="sc-advice-desc">الـ Scaling Kit بتستخدم مرة واحدة بس للعميل، فالأفضل تشتريها مستعملة وتوفر فلوسك — دوس هنا لتخطي</span></div><div class="sc-advice-arrow"><i class="fas fa-arrow-left"></i></div></div></div><div class="st" id="st-scaling"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co" id="bc-scaling" onclick="goNext('scaling')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+n++;const scAdded=sel['scaling']&&sel['scaling']!=='skip';
+app.innerHTML+=`<div class="sec" id="s-scaling"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Scaling Kit</div><div class="s-d">هل أنت محتاج Scaling Kit جديدة؟</div></div></div><div class="sc-w"><div class="sc-img"><img src="${IP}--106.jpg" alt="Scaling Kit" onerror="this.style.display='none'"/></div><div class="sc-info"><div class="sc-id">PER-001</div><div class="sc-name">Scaling Kit (4 Instruments)</div><div class="sc-pp"><span class="sc-pp-val">${SC_PP.toLocaleString()}</span><span class="sc-pp-label">EGP / قطعة</span></div></div><button class="sc-add-btn${scAdded?' done':''}" id="scAddBtn" onclick="addSC()">${scAdded?'<i class="fas fa-check-circle"></i> Added to Package':'<i class="fas fa-plus-circle"></i> Add to Package'}</button><div class="sc-note"><strong>ملاحظة:</strong> الكيت بيتكون من 4 قطع بسعر ${(SC_PP*4).toLocaleString()} جنيه.</div><div class="sc-advice" onclick="skipSC()"><div class="sc-advice-icon"><i class="fas fa-lightbulb"></i></div><div class="sc-advice-text"><span class="sc-advice-title">ننصحك: اشتريها مستعملة</span><span class="sc-advice-desc">الـ Scaling Kit بتستخدم مرة واحدة بس للعميل، فالأفضل تشتريها مستعملة وتوفر فلوسك — دوس هنا لتخطي</span></div><div class="sc-advice-arrow"><i class="fas fa-arrow-left"></i></div></div></div><div class="st" id="st-scaling"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipSC()">تخطي هذه الخطوة</button><button class="b-co on" id="bc-scaling" onclick="goNext('scaling')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
 ['alginate','mirror','composite','zeta','bond','crown','xray','wax','silicone','endo'].forEach(sid=>{n++;app.innerHTML+=secHTML(sid,n,PD[sid].title,PD[sid].desc,sid+'G',true);});
 n++;app.innerHTML+=`<div class="sec" id="s-gloves"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Gloves</div><div class="s-d">اختار مقاس الجوانتي المناسب، أو تخطي الخطوة.</div></div></div><div class="gl-w"><div class="gl-img"><img src="${IP}--060.jpg" alt="Gloves" onerror="this.style.display='none'"/></div><div class="gl-chips" id="gC">${['XS','S','M','L','XL'].map(sz=>`<div class="gl-ch" data-sz="${sz}" onclick="setGS('${sz}')">${sz}</div>`).join('')}</div><div class="gl-price"><span style="font-weight:800;font-size:.92rem;color:var(--gold)">${GLOVE_PRICE.toLocaleString()}</span><span style="font-size:.72rem;font-weight:600;color:var(--text-s);margin-left:3px">EGP</span></div><button class="gl-sk" id="gSkB" onclick="skipG()">تخطي (بدون إضافة جوانتي)</button></div><div class="st" id="st-gloves"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipG()">تخطي هذه الخطوة</button><button class="b-co" id="bc-gloves" onclick="goNext('gloves')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
 n++;app.innerHTML+=`<div class="sec" id="s-wellbeing"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">أدوات للرفاهية</div><div class="s-d">أدوات بتروق على المريض وبتحسن جودة الشغل</div></div></div><div class="wb-ban"><div class="wb-title">✨ أدوات للرفاهية</div><div class="wb-body">الأدوات دي مش أساسية بس بتفرق جداً في راحة المريض وجودة الشغل النهائي. اختار اللي يناسبك:<ul><li>Resin Rings — لضبط شكل الكومبوزيت بدقة</li><li>Chlorhexidine — مطهر وتعقيم منطقة العمل</li><li>TheraCal — حماية اللب والتغطية المباشرة</li><li>EverX Composite — كومبوزيت مقوى للأماكن اللي بتتحمل ضغط</li><li>Flex Dam — عزل تام أثناء العمل</li><li>Varnish — حماية ما بعد العلاج وتقليل الحساسية</li></ul>ممكن تختار اللي محتاجه بس، أو تخطي الخطوة كلها.</div></div><div class="pr" id="wellbeingG"></div><div class="st" id="st-wellbeing"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipSec('wellbeing')">تخطي هذه الخطوة</button><button class="b-co" id="bc-wellbeing" onclick="goNext('wellbeing')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
 n++;const preCount=ES.length;
-app.innerHTML+=`<div class="sec" id="s-essentials"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Essential Dental Supplies</div><div class="s-d">الأدوات الأساسية اليومية</div></div></div><div class="es-ban"><div class="es-title">📦 الأدوات الأساسية</div><div class="es-body">الأدوات دي أغلب الدكاترة بيحتاجوها بشكل يومي.<br><br>كل المنتجات دي متحددة تلقائيًا.<br><br>لو كل حاجة مناسبة، دوس <strong>Continue</strong>.<br><br>ولو حابب تعدل، براحتك:<ul><li>شيل أي منتج.</li><li>زود أو قلل الكمية.</li></ul><div class="es-count">${preCount} منتج محدد تلقائيًا</div></div></div><div class="top-co"><button class="b-co on" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div><input type="text" class="sb" id="essSearch" placeholder="Search by name or ID..." oninput="renderEss()" aria-label="Search"/><div class="eg" id="essG"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+app.innerHTML+=`<div class="sec" id="s-essentials"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Essential Dental Supplies</div><div class="s-d">الأدوات الأساسية اليومية</div></div></div><div class="es-ban"><div class="es-title">📦 الأدوات الأساسية</div><div class="es-body">دي أدوات أنت كده كده هتشتريها — مفيش فرق في البراندات، إحنا مختارين أحسن البراندات بأفضل الأسعار.<br><br>كل المنتجات دي متحددة تلقائيًا. لو كل حاجة مناسبة، دوس <strong>Continue</strong>.<br><br>ولو حابب تعدل، براحتك:<ul><li>شيل أي منتج.</li><li>زود أو قلل الكمية.</li></ul><div class="es-count">${preCount} منتج محدد تلقائيًا</div></div></div><div class="top-co"><button class="b-co on" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div><input type="text" class="sb" id="essSearch" placeholder="Search by name or ID..." oninput="renderEss()" aria-label="Search"/><div class="eg" id="essG"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
 n++;app.innerHTML+=`<div class="sec" id="s-info"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Shipping Information</div><div class="s-d">دلوقتي احنا محتاجين بيانات الشحن بتاعتك.</div></div></div><div class="ig"><div><label>Full Name *</label><input type="text" id="f-name" placeholder="Dr. Ahmed Mahmoud" oninput="autoSave()"/></div><div><label>Mobile Number *</label><input type="tel" id="f-phone" placeholder="01xxxxxxxxx" oninput="autoSave()"/></div><div><label>Alternative Mobile</label><input type="tel" id="f-alt" placeholder="01xxxxxxxxx" oninput="autoSave()"/></div><div><label>Gender *</label><div class="rg"><label><input type="radio" name="gender" value="Male" onchange="autoSave()"/> Male</label><label><input type="radio" name="gender" value="Female" onchange="autoSave()"/> Female</label></div></div><div><label>Governorate *</label><select id="f-gov" onchange="autoSave()"><option value="">Select</option>${['Cairo','Alexandria','Giza','Port Said','Suez','Luxor','Aswan','Asyut','Beheira','Beni Suef','Dakahlia','Damietta','Faiyum','Gharbia','Ismailia','Kafr El Sheikh','Matrouh','Minya','Monufia','New Valley','North Sinai','Qalyubia','Qena','Red Sea','Sharqia','Sohag','South Sinai'].map(g=>`<option value="${g}">${g}</option>`).join('')}</select></div><div><label>City *</label><input type="text" id="f-city" placeholder="City" oninput="autoSave()"/></div><div class="fl"><label>Full Address *</label><input type="text" id="f-addr" placeholder="Street, building, floor..." oninput="autoSave()"/></div><div class="fl"><label>Nearby Landmark</label><input type="text" id="f-land" placeholder="Landmark" oninput="autoSave()"/></div><div class="fl"><label>Notes</label><textarea id="f-notes" placeholder="Special instructions..." oninput="autoSave()"></textarea></div></div><div class="sn" style="margin-top:14px"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on" onclick="goNext('info')">Review Order <i class="fas fa-arrow-right"></i></button></div></div>`;
 n++;app.innerHTML+=`<div class="sec" id="s-review"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Order Review</div><div class="s-d">راجع الأوردر قبل ما تعمل الفاتورة.</div></div></div><div id="revC"></div><div class="sn" style="margin-top:14px"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div></div><button class="b-co on pulse" onclick="genInvoice()" style="background:linear-gradient(135deg,var(--accent),#0f766e)">Generate Invoice <i class="fas fa-file-invoice"></i></button></div></div>`;
 Object.keys(PD).forEach(renderGrid);renderEss();updateProg();
 const saved=restoreState();
-if(saved){setTimeout(()=>{if(saved.form)setForm(saved.form);if(saved.sq){const el=document.getElementById('essSearch');if(el){el.value=saved.sq;renderEss();}}if(gSz){document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===gSz));updGSt();}if(gSk){document.getElementById('gSkB')?.classList.add('on');updGSt();}if(sel['scaling']&&sel['scaling']!=='skip'){document.querySelectorAll('.sc-chip').forEach(c=>c.classList.toggle('on',c.dataset.qty===String(sel['scaling'])));updSCSt();}else if(sel['scaling']==='skip'){updSCSt();}Object.keys(PD).forEach(renderGrid);showSec(cur);if(saved.scroll)setTimeout(()=>window.scrollTo({top:saved.scroll,behavior:'instant'}),80);},60);}else{showSec(0);}
+if(saved){setTimeout(()=>{if(saved.form)setForm(saved.form);if(saved.sq){const el=document.getElementById('essSearch');if(el){el.value=saved.sq;renderEss();}}if(gSz){document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===gSz));updGSt();}if(gSk){document.getElementById('gSkB')?.classList.add('on');updGSt();}if(sel['scaling']&&sel['scaling']!=='skip'){updSCSt();}else if(sel['scaling']==='skip'){updSCSt();}Object.keys(PD).forEach(renderGrid);showSec(cur);if(saved.scroll)setTimeout(()=>window.scrollTo({top:saved.scroll,behavior:'instant'}),80);},60);}else{showSec(0);}
 }
 
 function showSec(i){if(i<0)i=0;if(i>=SO.length)i=SO.length-1;cur=i;document.querySelectorAll('.sec').forEach((el,j)=>{el.classList.toggle('on',j===i);});updateProg();if(SO[i]==='review')populateReview();}
@@ -340,6 +317,13 @@ function goNext(sid){const i=SO.indexOf(sid);if(i<SO.length-1)showSec(i+1);autoS
 function goBack(){if(cur>0)showSec(cur-1);autoSave();setTimeout(()=>window.scrollTo({top:0,behavior:'smooth'}),50);}
 function skipSec(sid){sel[sid]='skip';showToast(SKIP_MSG[sid]||'✅ تم التخطي');updSt(sid);autoSave();setTimeout(()=>goNext(sid),400);}
 function updateProg(){const f=document.getElementById('pF'),l=document.getElementById('pL');if(!f||!l)return;const pct=((cur+1)/SO.length)*100;f.style.width=pct+'%';l.textContent=`Step ${cur+1} / ${SO.length}`;}
+
+function addSC(){
+sel['scaling']=4;
+const btn=document.getElementById('scAddBtn');
+if(btn){btn.classList.add('done');btn.innerHTML='<i class="fas fa-check-circle"></i> Added to Package';}
+updSCSt();autoSave();showToast('✅ Scaling Kit added!');
+}
 
 function renderGrid(sid){
 const grid=document.getElementById(sid+'G');if(!grid)return;
@@ -350,7 +334,7 @@ const isSel=sArr&&Array.isArray(sArr)&&sArr.some(s=>s.id===it.id);
 const q=isSel?sArr.find(s=>s.id===it.id).qty||1:1;
 return `<div class="pc${isSel?' sel':''}" onclick="toggleSel('${sid}','${it.id}')">
 <div class="pc-chk"><i class="fas fa-check"></i></div>
-<div class="pc-img"><img src="${IP}${it.img}" alt="${it.name}" onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex';"/><div class="pc-fb"><i class="fas fa-image"></i><span>${it.name}</span></div></div>
+<div class="pc-img"><img src="${IP}${it.img}" alt="${it.name}" onerror="this.parentElement.style.display='none'"/><div class="pc-fb"><i class="fas fa-image"></i><span>${it.name}</span></div></div>
 <div class="pc-body">
 <div class="pc-id">${it.id}</div>
 <div class="pc-nm">${it.name}</div>
@@ -412,14 +396,10 @@ else if(gSz){el.className='st ok';el.textContent=`✓ مقاس ${gSz} — ${GLOV
 else{el.className='st';el.textContent='';if(bc)bc.classList.remove('on');}
 }
 
-function setSC(q){
-sel['scaling']=q;
-document.querySelectorAll('.sc-chip').forEach(c=>c.classList.toggle('on',c.dataset.qty===String(q)));
-updSCSt();autoSave();
-}
 function skipSC(){
 sel['scaling']='skip';
-document.querySelectorAll('.sc-chip').forEach(c=>c.classList.remove('on'));
+const btn=document.getElementById('scAddBtn');
+if(btn){btn.classList.remove('done');btn.innerHTML='<i class="fas fa-plus-circle"></i> Add to Package';}
 updSCSt();autoSave();showToast(SKIP_MSG.scaling);
 setTimeout(()=>goNext('scaling'),400);
 }
@@ -440,7 +420,6 @@ const filtered=ES.filter(e=>!sq||e.name.toLowerCase().includes(sq)||e.id.toLower
 grid.innerHTML=filtered.map(e=>{
 const rm=ess[e.id]===0;
 const q=rm?0:ess[e.id];
-const tp=e.price*q;
 return `<div class="ei${rm?' rm':''}" onclick="toggleEss('${e.id}')">
 <div class="ei-im"><img src="${IP}${e.img}" alt="${e.name}" onerror="this.style.display='none'"/></div>
 <div class="ei-if"><div class="ei-id">${e.id}</div><div class="ei-nm">${e.name}</div><div class="ei-pr">${e.price.toLocaleString()} EGP${e.note?' · '+e.note:''}</div></div>
@@ -464,18 +443,17 @@ if(sel['scaling']&&sel['scaling']!=='skip'){items.push({id:'PER-001',name:'Scali
 if(gSz&&!gSk){items.push({id:'PPE-003',name:`Gloves (${gSz})`,price:GLOVE_PRICE,qty:1,cat:'gloves',img:'--060.jpg'});total+=GLOVE_PRICE;}
 ES.forEach(e=>{if(ess[e.id]>0){items.push({...e,qty:ess[e.id],cat:'essentials'});total+=e.price*ess[e.id];}});
 
-let shipInfo='';
 const nm=document.getElementById('f-name')?.value||'';
 const ph=document.getElementById('f-phone')?.value||'';
 const alt=document.getElementById('f-alt')?.value||'';
+const gn=document.querySelector('input[name="gender"]:checked')?.value||'';
 const gv=document.getElementById('f-gov')?.value||'';
 const ct=document.getElementById('f-city')?.value||'';
 const ad=document.getElementById('f-addr')?.value||'';
 const ld=document.getElementById('f-land')?.value||'';
 const nt=document.getElementById('f-notes')?.value||'';
-const gn=document.querySelector('input[name="gender"]:checked')?.value||'';
 
-shipInfo=`<div class="rv-s"><h4>Shipping Info</h4><div class="rv-c">
+let shipInfo=`<div class="rv-s"><h4>Shipping Info</h4><div class="rv-c">
 <div class="rr"><span class="rl">Name</span><span>${nm}</span></div>
 <div class="rr"><span class="rl">Gender</span><span>${gn}</span></div>
 <div class="rr"><span class="rl">Phone</span><span>${ph}</span></div>
@@ -488,7 +466,7 @@ shipInfo=`<div class="rv-s"><h4>Shipping Info</h4><div class="rv-c">
 </div></div>`;
 
 let tbl=`<table class="rv-t"><thead><tr><th>#</th><th>ID</th><th>Product</th><th>Price</th><th>Qty</th><th>Total</th></tr></thead><tbody>`;
-items.forEach((it,i)=>{tbl+=`<tr><td>${i+1}</td><td>${it.id}</td><td>${it.name}</td><td>${it.price.toLocaleString()}</td><td>${it.qty}</td><td>${(it.price*it.qty).toLocaleString()}</td></tr>`;});
+items.forEach((it,i)=>{tbl+=`<tr><td>${i+1}</td><td>${it.id}</td><td>${it.name}${it.note||it.brand?' ('+(it.note||it.brand)+')':''}</td><td>${it.price.toLocaleString()}</td><td>${it.qty}</td><td>${(it.price*it.qty).toLocaleString()}</td></tr>`;});
 tbl+=`<tr class="gr"><td></td><td></td><td>Total</td><td></td><td>${items.reduce((s,it)=>s+it.qty,0)}</td><td>${total.toLocaleString()} EGP</td></tr></tbody></table>`;
 
 rc.innerHTML=shipInfo+tbl;
@@ -499,28 +477,42 @@ populateReview();
 let items=[],total=0;
 Object.keys(PD).forEach(sid=>{
 if(sel[sid]&&Array.isArray(sel[sid])){
-sel[sid].forEach(x=>{const it=PD[sid].items.find(i=>i.id===x.id);if(it){items.push({id:it.id,name:it.name,price:it.price,qty:x.qty});total+=it.price*x.qty;}});
+sel[sid].forEach(x=>{const it=PD[sid].items.find(i=>i.id===x.id);if(it){
+let variation=it.brand||'';
+if(sid==='endo')variation=x.qty===2?'2 Pieces':'4 Pieces';
+items.push({id:it.id,name:it.name,price:it.price,qty:x.qty,variation});
+total+=it.price*x.qty;
+}});
 }
 });
-if(sel['scaling']&&sel['scaling']!=='skip'){items.push({id:'PER-001',name:'Scaling Kit (4 Instruments)',price:SC_PP,qty:sel['scaling']});total+=SC_PP*sel['scaling'];}
-if(gSz&&!gSk){items.push({id:'PPE-003',name:`Gloves (${gSz})`,price:GLOVE_PRICE,qty:1});total+=GLOVE_PRICE;}
-ES.forEach(e=>{if(ess[e.id]>0){items.push({id:e.id,name:e.name,price:e.price,qty:ess[e.id]});total+=e.price*ess[e.id];}});
+if(sel['scaling']&&sel['scaling']!=='skip'){items.push({id:'PER-001',name:'Scaling Kit (4 Instruments)',price:SC_PP,qty:sel['scaling'],variation:''});total+=SC_PP*sel['scaling'];}
+if(gSz&&!gSk){items.push({id:'PPE-003',name:'Gloves',price:GLOVE_PRICE,qty:1,variation:'Size '+gSz});total+=GLOVE_PRICE;}
+ES.forEach(e=>{if(ess[e.id]>0){items.push({id:e.id,name:e.name,price:e.price,qty:ess[e.id],variation:e.note||''});total+=e.price*ess[e.id];}});
 
 const nm=document.getElementById('f-name')?.value||'N/A';
 const ph=document.getElementById('f-phone')?.value||'N/A';
+const alt=document.getElementById('f-alt')?.value||'';
 const gv=document.getElementById('f-gov')?.value||'N/A';
 const ct=document.getElementById('f-city')?.value||'N/A';
 const ad=document.getElementById('f-addr')?.value||'N/A';
+const ld=document.getElementById('f-land')?.value||'';
+const nt=document.getElementById('f-notes')?.value||'';
+const gn=document.querySelector('input[name="gender"]:checked')?.value||'';
 
-let msg=`🦷 *CURA STORE — Invoice*\n\n📋 *Customer:* ${nm}\n📱 *Phone:* ${ph}\n📍 *Address:* ${gv}, ${ct} — ${ad}\n\n━━━━━━━━━━━━━━\n`;
-items.forEach(it=>{msg+=`▸ ${it.name}\n  ${it.price.toLocaleString()} × ${it.qty} = ${(it.price*it.qty).toLocaleString()} EGP\n\n`;});
-msg+=`━━━━━━━━━━━━━━\n💰 *Total: ${total.toLocaleString()} EGP*\n\n🙏 Thanks for choosing Cura Store!`;
+const invNum='CS-'+Date.now().toString(36).toUpperCase();
+const invDate=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
 
-const waUrl=`https://wa.me/2010123456789?text=${encodeURIComponent(msg)}`;
-window.open(waUrl,'_blank');
+const invoiceData={
+invoiceNumber:invNum,
+invoiceDate:invDate,
+customer:{name:nm,phone:ph,altPhone:alt,gender:gn,governorate:gv,city:ct,address:ad,landmark:ld,notes:nt},
+items:items,
+total:total
+};
 
-try{localStorage.setItem(INVOICE_KEY,JSON.stringify({items,total,date:new Date().toISOString(),name:nm,phone:ph}));}catch(e){}
+try{localStorage.setItem(INVOICE_KEY,JSON.stringify(invoiceData));}catch(e){}
 try{localStorage.removeItem(SK);}catch(e){}
+window.location.href='invoice.html';
 }
 
 function newOrder(){
@@ -544,19 +536,6 @@ try{localStorage.setItem('curaTheme',isDark?'light':'dark');}catch(e){}
 const saved=localStorage.getItem('curaTheme');
 if(saved==='dark'){document.body.setAttribute('data-theme','dark');document.getElementById('thIco').className='fas fa-sun';}
 })();
-
-function openDetail(it){
-const ov=document.getElementById('detOv');const pn=document.getElementById('detPn');
-pn.innerHTML=`<div class="det-back" onclick="closeDetail()"><i class="fas fa-arrow-right"></i><span>Back</span></div>
-<div class="det-img"><img src="${IP}${it.img}" alt="${it.name}" onerror="this.style.display='none'"/></div>
-<div class="det-info"><div class="det-id">${it.id}</div><div class="det-name">${it.name}</div>
- ${it.brand?`<div class="det-brand"><i class="fas fa-tag"></i> ${it.brand}</div>`:''}
-<div class="det-desc">${it.desc||''}</div>
-<div class="det-price-row"><span class="det-price">${it.price.toLocaleString()}</span><span class="det-price-cur">EGP</span></div></div>
-<div class="det-acts"><div class="det-qty-row"><span class="det-qty-label">Quantity</span><div class="pq pq-lg"><button onclick="detQtyCh(-1)">−</button><span id="detQ">1</span><button onclick="detQtyCh(1)">+</button></div></div>
-<button class="det-btn add" onclick="detAdd()"><i class="fas fa-plus"></i> Add to Package</button></div>`;
-ov.classList.add('open');
-}
 
 function closeDetail(){document.getElementById('detOv').classList.remove('open');}
 
