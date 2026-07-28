@@ -49,37 +49,26 @@ html{scroll-behavior:smooth}body{font-family:'Inter',-apple-system,BlinkMacSyste
 .rv-s{background:var(--bg);border-radius:var(--rs);padding:16px;border:1px solid var(--border);margin-bottom:14px}.rv-s h4{font-size:.82rem;font-weight:700;margin-bottom:10px;color:var(--accent);letter-spacing:.2px}.rv-c{display:grid;grid-template-columns:1fr 1fr;gap:3px 18px;font-size:.72rem}.rv-c .rr{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed var(--border)}.rv-c .rl{color:var(--text-s);font-weight:500}.rv-t{width:100%;border-collapse:collapse;font-size:.72rem;margin-top:14px}.rv-t th{background:var(--primary);color:var(--surface);padding:8px 6px;text-align:center;font-weight:700;font-size:.64rem;letter-spacing:.3px;text-transform:uppercase}[data-theme="dark"] .rv-t th{background:var(--accent);color:#fff}.rv-t td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--border)}.rv-t tr:hover td{background:var(--accent-l)}.rv-t .gr td{font-weight:800;font-size:.92rem;background:var(--gold-l);border-top:2px solid var(--gold);color:var(--gold)}
 footer{text-align:center;padding:18px 0;border-top:1px solid var(--border);margin-top:14px;font-size:.6rem;color:var(--text-s);letter-spacing:.4px}footer a{color:var(--accent);font-weight:600}
 .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--primary);color:var(--surface);padding:14px 30px;border-radius:var(--pill);font-size:.78rem;font-weight:600;z-index:9999;transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:var(--sh-xl);max-width:520px;text-align:center;line-height:1.6;direction:rtl;white-space:normal;pointer-events:none}[data-theme="dark"] .toast{background:var(--surface);color:var(--text)}.toast.show{transform:translateX(-50%) translateY(0)}
+.chk-ov{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(15,23,42,.6);backdrop-filter:blur(8px);padding:20px}.chk-ov.open{display:flex;animation:si .3s ease}.chk-box{background:var(--surface);border-radius:var(--r);padding:32px 24px;max-width:400px;width:100%;text-align:center;box-shadow:var(--sh-xl)}.chk-icon{width:70px;height:70px;border-radius:50%;background:var(--accent-l);display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--accent);margin:0 auto 18px}.chk-icon.wa{background:rgba(37,211,102,.1);color:#25D366}.chk-title{font-size:1.2rem;font-weight:800;margin-bottom:10px}.chk-desc{font-size:.85rem;color:var(--text-s);margin-bottom:25px;line-height:1.6}.chk-btn{width:100%;padding:14px;border-radius:var(--pill);font-weight:700;font-size:.9rem;cursor:pointer;border:none;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px;transition:var(--tr)}.chk-btn-print{background:var(--primary);color:var(--surface)}[data-theme="dark"] .chk-btn-print{background:var(--accent)}.chk-btn-print:hover{opacity:.9;transform:translateY(-1px)}.chk-btn-wa{background:#25D366;color:#fff}.chk-btn-wa:hover{background:#1da851;transform:translateY(-1px)}.chk-btn-skip{background:transparent;color:var(--text-s);font-size:.78rem;text-decoration:underline;margin-top:5px}.chk-btn-skip:hover{color:var(--danger)}
 .det-ov{position:fixed;inset:0;z-index:200;display:flex;opacity:0;pointer-events:none;transition:opacity .3s ease}.det-ov.open{opacity:1;pointer-events:auto}.det-bd{position:absolute;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.det-pn{position:relative;width:100%;max-width:480px;margin-left:auto;background:var(--surface);overflow-y:auto;transform:translateX(100%);transition:transform .38s cubic-bezier(.32,.72,.24,1.02);display:flex;flex-direction:column;max-height:100vh;box-shadow:-8px 0 40px rgba(15,23,42,.12)}.det-ov.open .det-pn{transform:translateX(0)}
 .det-back{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:8px;padding:14px 20px;background:var(--surface);border-bottom:1px solid var(--border);cursor:pointer;transition:var(--tr);flex-shrink:0}.det-back:hover{background:var(--accent-l)}.det-back i{font-size:.85rem;color:var(--accent)}.det-back span{font-size:.82rem;font-weight:600;color:var(--text)}
 .det-img{width:100%;height:300px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;position:relative}.det-img img{max-width:100%;max-height:100%;object-fit:contain;padding:24px;transition:transform .3s}.det-img-fb{display:none;flex-direction:column;align-items:center;gap:6px;color:#94a3b8}.det-img-fb i{font-size:2.5rem;opacity:.3}.det-img-fb span{font-size:.8rem;font-weight:600;opacity:.5}
 .det-info{padding:20px 24px 0;flex:1}.det-id{font-size:.6rem;font-weight:700;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}.det-name{font-size:1.12rem;font-weight:800;color:var(--text);line-height:1.3;margin-bottom:6px}.det-brand{font-size:.75rem;color:var(--text-s);margin-bottom:10px;display:flex;align-items:center;gap:6px}.det-brand i{color:var(--accent);font-size:.65rem}.det-desc{font-size:.82rem;color:var(--text-s);line-height:1.65;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}.det-price-row{display:flex;align-items:baseline;gap:6px;margin-bottom:20px}.det-price{font-size:1.5rem;font-weight:900;color:var(--gold)}.det-price-cur{font-size:.82rem;font-weight:600;color:var(--text-s)}.det-oos-tag{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:var(--pill);background:var(--danger);color:#fff;font-size:.68rem;font-weight:700;box-shadow:0 2px 10px rgba(220,38,38,.2)}
 .det-acts{padding:0 24px 28px;flex-shrink:0}.det-qty-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding:12px 16px;background:var(--bg);border-radius:var(--rs);border:1px solid var(--border)}.det-qty-label{font-size:.78rem;font-weight:600;color:var(--text-s)}.det-btn{width:100%;padding:14px;border-radius:var(--pill);border:none;font-weight:700;font-size:.88rem;cursor:pointer;transition:var(--tr);display:flex;align-items:center;justify-content:center;gap:8px}.det-btn.add{background:linear-gradient(135deg,var(--accent),#0f766e);color:#fff}.det-btn.add:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 24px rgba(13,148,136,.3)}.det-btn.remove{background:var(--surface);color:var(--danger);border:1.5px solid var(--danger)}.det-btn.remove:hover{background:var(--danger-l)}.det-btn.restore{background:var(--surface);color:var(--accent);border:1.5px solid var(--accent)}.det-btn.restore:hover{background:var(--accent-l)}
 .det-oos-box{background:var(--danger-l);border-radius:var(--rs);padding:20px;border:1px solid rgba(220,38,38,.12);direction:rtl;text-align:right;margin-bottom:8px}.det-oos-box .det-oos-icon{font-size:1.5rem;color:var(--danger);margin-bottom:10px;display:block}.det-oos-box .det-oos-text{font-size:.88rem;font-weight:800;color:var(--danger);margin-bottom:8px}.det-oos-box .det-oos-sub{font-size:.72rem;color:var(--text-s);line-height:1.8}
-.rv-actions{display:flex;gap:10px;flex-wrap:wrap;width:100%;margin-top:5px}
-.rv-actions .b-co{margin-left:0;width:100%;justify-content:center;font-size:.9rem;height:46px}
-@media(max-width:700px){
-  .nav .ctn{height:56px}.logo-mark{width:30px;height:30px;font-size:.78rem}.logo-t{font-size:1.1rem}
-  .hero h2{font-size:1.5rem}.hero .hero-sub{font-size:.85rem}.hero{padding:28px 0 10px}
-  .sec{padding:24px 18px}.s-t{font-size:1.15rem}.s-d{font-size:.8rem}
-  .pr{grid-template-columns:1fr 1fr;gap:12px}.eg{grid-template-columns:1fr}.ig{grid-template-columns:1fr}.rv-c{grid-template-columns:1fr}
-  .pc-top{height:130px}.pc-nm{font-size:.9rem}.pc-ds{font-size:.72rem}.pc-pr{font-size:1rem}.pc-add{font-size:.8rem;padding:12px}
-  .ig input,.ig select,.ig textarea{font-size:16px} /* Prevents auto-zoom on iOS */
-  .sn{flex-wrap:wrap;gap:6px}.b-co{margin-left:0;width:100%;justify-content:center;height:44px;font-size:.85rem}.b-bk{height:40px;font-size:.8rem}.b-sk{height:40px;font-size:.78rem}
-  .ei-nm{font-size:.75rem}.ei-pr{font-size:.7rem}
-  .toast{max-width:90vw;font-size:.78rem;padding:12px 20px}
-  .det-pn{max-width:100%}.det-img{height:240px}.det-img img{padding:20px}.det-info{padding:18px 18px 0}.det-acts{padding:0 18px 24px}.det-name{font-size:1.1rem}.det-price{font-size:1.4rem}
-}
+@media(max-width:700px){.nav .ctn{height:56px}.logo-mark{width:30px;height:30px;font-size:.78rem}.logo-t{font-size:1.1rem}.hero h2{font-size:1.5rem}.hero .hero-sub{font-size:.85rem}.hero{padding:28px 0 10px}.sec{padding:24px 18px}.s-t{font-size:1.15rem}.s-d{font-size:.8rem}.pr{grid-template-columns:1fr 1fr;gap:12px}.eg{grid-template-columns:1fr}.ig{grid-template-columns:1fr}.rv-c{grid-template-columns:1fr}.pc-top{height:130px}.pc-nm{font-size:.9rem}.pc-ds{font-size:.72rem}.pc-pr{font-size:1rem}.pc-add{font-size:.8rem;padding:12px}.ig input,.ig select,.ig textarea{font-size:16px}.sn{flex-wrap:wrap;gap:6px}.b-co{margin-left:0;width:100%;justify-content:center;height:44px;font-size:.85rem}.b-bk{height:40px;font-size:.8rem}.b-sk{height:40px;font-size:.78rem}.ei-nm{font-size:.75rem}.ei-pr{font-size:.7rem}.toast{max-width:90vw;font-size:.78rem;padding:12px 20px}.det-pn{max-width:100%}.det-img{height:240px}.det-img img{padding:20px}.det-info{padding:18px 18px 0}.det-acts{padding:0 18px 24px}.det-name{font-size:1.1rem}.det-price{font-size:1.4rem}}
 @media(max-width:420px){.pr{grid-template-columns:1fr}.ctn{padding:0 14px}.pc-top{height:140px}}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
 <nav class="nav"><div class="ctn"><div class="logo"><div class="logo-mark">C</div><div class="logo-t">CURA <span>STORE</span></div></div><div class="nav-a"><button class="nb" id="themeBtn" onclick="toggleTheme()" aria-label="Theme"><i class="fas fa-moon" id="thIco"></i></button><a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank" class="nb wa"><i class="fab fa-whatsapp"></i> Group</a><button class="nb no" onclick="newOrder()" title="New Order"><i class="fas fa-rotate-right"></i> New</button></div></div></nav>
-<div class="prog"><div class="ctn"><div class="prog-t"><div class="prog-f" id="pF"></div></div><div class="prog-l" id="pL">Step 1 / 19</div></div></div>
+<div class="prog"><div class="ctn"><div class="prog-t"><div class="prog-f" id="pF"></div></div><div class="prog-l" id="pL">Step 1 / 20</div></div></div>
 <section class="hero ctn"><h2>Welcome to <em>Cura Store</em></h2><p class="hero-sub">Build your dental package step by step. Choose what you need, and we'll prepare your invoice.</p><div class="hero-badge"><i class="fas fa-shield-check"></i> Trusted by 500+ Dentists</div></section>
 <main class="ctn" id="app"></main>
 <footer class="ctn"><p>CURA STORE — Premium Dental Supplies &nbsp;·&nbsp; Designed by <a href="https://zead1254.github.io/Dr_zead/" target="_blank">The Boss</a></p></footer>
 <div class="toast" id="toast"></div>
+<div class="chk-ov" id="chkOv"><div class="chk-box" id="chkBox"></div></div>
 <div class="det-ov" id="detOv"><div class="det-bd" onclick="closeDetail()"></div><div class="det-pn" id="detPn"></div></div>
 
 <script>
@@ -89,243 +78,253 @@ const GLOVE_PRICE=190;
 const SKIP_MSG={intro:'تم تخطي المقدمة.',contra:'✅ تمام، ما اخترتش أي Contra Angle Handpiece.',scaling:'✅ تمام، مش محتاج Scaling Kit.',alginate:'✅ تمام، مش محتاج Alginate.',mirror:'✅ تمام، ما اخترتش Mouth Mirror.',composite:'✅ تمام، ما اخترتش Composite.',zeta:'✅ تمام، مش محتاج Zeta Plus.',bond:'✅ تمام، ما اخترتش Bond.',crown:'✅ تمام، ما اخترتش Temporary Crown.',xray:'✅ تمام، مش محتاج X-Ray Films.',wax:'✅ تمام، ما اخترتش واكس.',silicone:'✅ تمام، ما اخترتش Addition Silicone.',endo:'✅ تمام، مش محتاج Endo Z Bur.',gloves:'✅ تمام، ما اخترتش Gloves.',wellbeing:'✅ تمام، ما اخترتش أدوات رفاهية.',surgicalgown:'✅ تمام، ما اخترتش Surgical Gown.',anesthesia:'✅ تمام، ما اخترتش Anesthesia.'};
 const AR_DESC={contra:'اختار الـ Handpieces اللي تناسب شغلك.',alginate:'اختار الـ Alginate اللي بتفضله.',mirror:'اختار نوع الـ Mouth Mirror.',composite:'اختار نوع الـ Composite.',zeta:'اختار مقاس الـ Zeta Plus Kit.',bond:'اختار حجم الـ Bond.',crown:'اختار ماركة الـ Temporary Crown.',xray:'اختار نوع معالجة الأشعة.',wax:'اختار نوع الواكس: Pink Wax ولا Dentix.',silicone:'اختار نوع الـ Addition Silicone.',endo:'اختار الـ Endo Z Bur.',wellbeing:'اختار أدوات الرفاهية اللي تناسبك.'};
 
-const PD={contra:{title:'Contra Angle Handpieces',desc:AR_DESC.contra,items:[{id:'EQU-002',name:'Dentist Contra Angle (8 Holes, LED)',img:'--015.jpg',desc:'8 holes with built-in LED light.',price:2670,brand:''},{id:'EQU-003',name:'Dentist Contra Angle (8 Holes, No LED)',img:'--016.jpg',desc:'8 holes standard high-speed.',price:1950,brand:''},{id:'EQU-004',name:'Apple High-Speed with LED',img:'--070.jpg',desc:'Apple brand high-speed with LED.',price:2800,brand:'Apple'},{id:'EQU-005',name:'Apple High-Speed without LED',img:'--071.jpg',desc:'Apple brand standard version.',price:1580,brand:'Apple'},{id:'EQU-006',name:'COXO High-Speed with LED',img:'--073.jpg',desc:'COXO premium with LED.',price:3750,brand:'COXO'},{id:'EQU-007',name:'COXO High-Speed without LED',img:'--074.jpg',desc:'COXO premium standard.',price:2800,brand:'COXO'}]},
-scaling:{title:'Scaling Kit',desc:'اختار Scaling Kit جديدة لو محتاج. (سعر الكيت 2780 جنيه)',items:[{id:'PER-001',name:'Scaling Kit (4 Instruments)',img:'--106.jpg',desc:'كيت يتكون من 4 قطع.',price:2780,brand:''}]},
-alginate:{title:'Alginate',desc:AR_DESC.alginate,items:[{id:'IMP-001',name:'Alginate Alginplus',img:'--009.jpg',desc:'Premium alginate impression material.',price:295,brand:'Alginplus'},{id:'IMP-002',name:'Alginate Tropicalgin',img:'--010.jpg',desc:'Tropicalgin with extended working time.',price:435,brand:'Tropicalgin'}]},
-mirror:{title:'Mouth Mirror',desc:AR_DESC.mirror,items:[{id:'DIA-002',name:'Mouth Mirror Handle',img:'--019.jpg',desc:'Stainless steel mirror handle.',price:130,brand:''},{id:'DIA-003',name:'Double-Sided Mouth Mirror',img:'--023.jpg',desc:'Double-sided mirror.',price:85,brand:''}]},
-composite:{title:'Beautifil Composite',desc:AR_DESC.composite,items:[{id:'RST-005',name:'Beautifil A2 Packable Composite',img:'--024.jpg',desc:'A2 packable composite for posterior.',price:900,brand:'Beautifil'},{id:'RST-006',name:'Beautifil A2 Low-Shrinkage',img:'--027.jpg',desc:'A2 low-shrinkage composite.',price:1210,brand:'Beautifil'}]},
-zeta:{title:'Zeta Plus',desc:AR_DESC.zeta,items:[{id:'IMP-004',name:'Zetaplus Kit (Large)',img:'--030.jpg',desc:'Large Zetaplus kit.',price:1990,brand:'Zetaplus'},{id:'IMP-005',name:'Zetaplus Kit (Small)',img:'--031.jpg',desc:'Small Zetaplus kit.',price:820,brand:'Zetaplus'}]},
-bond:{title:'Universal Bond',desc:AR_DESC.bond,items:[{id:'RST-008',name:'Universal Bond 4 ml',img:'--038.jpg',desc:'4 ml universal bonding agent.',price:2200,brand:''},{id:'RST-009',name:'Universal Bond 0.5 ml',img:'--039.jpg',desc:'0.5 ml universal bonding agent.',price:450,brand:''}]},
-crown:{title:'Temporary Crown',desc:AR_DESC.crown,items:[{id:'PRS-004',name:'Temporary Crown (Han)',img:'--048.jpg',desc:'Han brand temporary crown.',price:1400,brand:'Han'},{id:'PRS-005',name:'Temporary Crown (Charm)',img:'--049.jpg',desc:'Charm brand temporary crown.',price:1495,brand:'Charm'}]},
-xray:{title:'X-Ray Film',desc:AR_DESC.xray,items:[{id:'RAD-001',name:'X-ray Manual Processing (100 pcs)',img:'--067.jpg',desc:'100 films for manual processing.',price:1995,brand:''},{id:'RAD-002',name:'X-ray Auto-Processing (50 pcs)',img:'--068.jpg',desc:'50 films for auto processing.',price:1820,brand:''},{id:'RAD-003',name:'X-ray Auto-Processing (25 pcs)',img:'--068.jpg',desc:'25 films for auto processing.',price:930,brand:''}]},
-wax:{title:'Wax',desc:AR_DESC.wax,items:[{id:'PRS-002',name:'Pink Wax',img:'--020.jpg',desc:'Premium pink wax.',price:450,brand:'Pink Wax'},{id:'PRS-011',name:'Dentix',img:'dentix.jpg',desc:'Dentix wax compound.',price:195,brand:'Dentix'}]},
-silicone:{title:'Addition Silicone',desc:AR_DESC.silicone,items:[{id:'IMP-009',name:'Addition Silicone (Silaxil)',img:'--114.jpg',desc:'Silaxil high-precision silicone.',price:1395,brand:'Silaxil'},{id:'IMP-010',name:'Addition Silicone (Accusil)',img:'--115.jpg',desc:'Accusil excellent detail.',price:1000,brand:'Accusil'}]},
-endo:{title:'Endo Z Bur',desc:AR_DESC.endo,items:[{id:'END-013',name:'Endo Z Bur',img:'--116.jpg',desc:'Endo Z Bur — قطعة واحدة بسعر 85 جنيه.',price:85,brand:''}]},
-wellbeing:{title:'أدوات للرفاهية',desc:AR_DESC.wellbeing,items:[{id:'RST-003',name:'Resin Rings',img:'--018.jpg',desc:'حلقات ريزن لضبط شكل الكومبوزيت.',price:260,brand:''},{id:'STE-005',name:'Chlorhexidine',img:'--059.jpg',desc:'محلول كلورهيكسدين مطهر.',price:30,brand:''},{id:'RST-013',name:'TheraCal',img:'--066.jpg',desc:'TheraCal LC — حماية اللب.',price:850,brand:''},{id:'RST-017',name:'EverX Composite',img:'--102.jpg',desc:'EverX Posterior — كومبوزيت مقوى.',price:205,brand:''},{id:'RST-007',name:'Flex Dam',img:'--032.jpg',desc:'راف مطاطي لعزل الأسنان.',price:165,brand:''},{id:'RST-016',name:'Varnish',img:'--082.jpg',desc:'فارنيش فلورايد للحماية.',price:85,brand:''}]},
-surgicalgown:{title:'Surgical Gown',desc:'Gown للعمليات — القطعة بسعر 17 جنيه.',items:[{id:'PPE-004',name:'Surgical Gown',img:'--061.jpg',desc:'Surgical Gown للعمليات الجراحية.',price:17,brand:'',defQty:15}]},
-anesthesia:{title:'Anesthesia',desc:'اختار نوع التخدير. 🔵 الأزرق متوفر، 🔴 الأحمر غير متوفر.',items:[{id:'SUR-003',name:'Anesthesia Carpules (Blue)',img:'--040.jpg',desc:'Blue anesthesia carpules — متوفر.',price:970,brand:'',available:true},{id:'SUR-004',name:'Anesthesia Carpules (Red)',img:'--041.jpg',desc:'Red anesthesia carpules — غير متوفر.',price:970,brand:'',available:false}]}
-};
+const PD={contra:{title:'Contra Angle Handpieces',desc:AR_DESC.contra,items:[{id:'EQU-002',name:'Dentist Contra Angle (8 Holes, LED)',img:'--015.jpg',desc:'8 holes with built-in LED light.',price:2670,brand:''},{id:'EQU-003',name:'Dentist Contra Angle (8 Holes, No LED)',img:'--016.jpg',desc:'8 holes standard high-speed.',price:1950,brand:''},{id:'EQU-004',name:'Apple High-Speed with LED',img:'--070.jpg',desc:'Apple brand high-speed with LED.',price:2800,brand:'Apple'},{id:'EQU-005',name:'Apple High-Speed without LED',img:'--071.jpg',desc:'Apple brand standard version.',price:1580,brand:'Apple'},{id:'EQU-006',name:'COXO High-Speed with LED',img:'--073.jpg',desc:'COXO premium with LED.',price:3750,brand:'COXO'},{id:'EQU-007',name:'COXO High-Speed without LED',img:'--074.jpg',desc:'COXO premium standard.',price:2800,brand:'COXO'}]},scaling:{title:'Scaling Kit',desc:'اختار Scaling Kit جديدة لو محتاج. (سعر الكيت 2780 جنيه)',items:[{id:'PER-001',name:'Scaling Kit (4 Instruments)',img:'--106.jpg',desc:'كيت يتكون من 4 قطع.',price:2780,brand:''}]},alginate:{title:'Alginate',desc:AR_DESC.alginate,items:[{id:'IMP-001',name:'Alginate Alginplus',img:'--009.jpg',desc:'Premium alginate impression material.',price:295,brand:'Alginplus'},{id:'IMP-002',name:'Alginate Tropicalgin',img:'--010.jpg',desc:'Tropicalgin with extended working time.',price:435,brand:'Tropicalgin'}]},mirror:{title:'Mouth Mirror',desc:AR_DESC.mirror,items:[{id:'DIA-002',name:'Mouth Mirror Handle',img:'--019.jpg',desc:'Stainless steel mirror handle.',price:130,brand:''},{id:'DIA-003',name:'Double-Sided Mouth Mirror',img:'--023.jpg',desc:'Double-sided mirror.',price:85,brand:''}]},composite:{title:'Beautifil Composite',desc:AR_DESC.composite,items:[{id:'RST-005',name:'Beautifil A2 Packable Composite',img:'--024.jpg',desc:'A2 packable composite for posterior.',price:900,brand:'Beautifil'},{id:'RST-006',name:'Beautifil A2 Low-Shrinkage',img:'--027.jpg',desc:'A2 low-shrinkage composite.',price:1210,brand:'Beautifil'}]},zeta:{title:'Zeta Plus',desc:AR_DESC.zeta,items:[{id:'IMP-004',name:'Zetaplus Kit (Large)',img:'--030.jpg',desc:'Large Zetaplus kit.',price:1990,brand:'Zetaplus'},{id:'IMP-005',name:'Zetaplus Kit (Small)',img:'--031.jpg',desc:'Small Zetaplus kit.',price:820,brand:'Zetaplus'}]},bond:{title:'Universal Bond',desc:AR_DESC.bond,items:[{id:'RST-008',name:'Universal Bond 4 ml',img:'--038.jpg',desc:'4 ml universal bonding agent.',price:2200,brand:''},{id:'RST-009',name:'Universal Bond 0.5 ml',img:'--039.jpg',desc:'0.5 ml universal bonding agent.',price:450,brand:''}]},crown:{title:'Temporary Crown',desc:AR_DESC.crown,items:[{id:'PRS-004',name:'Temporary Crown (Han)',img:'--048.jpg',desc:'Han brand temporary crown.',price:1400,brand:'Han'},{id:'PRS-005',name:'Temporary Crown (Charm)',img:'--049.jpg',desc:'Charm brand temporary crown.',price:1495,brand:'Charm'}]},xray:{title:'X-Ray Film',desc:AR_DESC.xray,items:[{id:'RAD-001',name:'X-ray Manual Processing (100 pcs)',img:'--067.jpg',desc:'100 films for manual processing.',price:1995,brand:''},{id:'RAD-002',name:'X-ray Auto-Processing (50 pcs)',img:'--068.jpg',desc:'50 films for auto processing.',price:1820,brand:''},{id:'RAD-003',name:'X-ray Auto-Processing (25 pcs)',img:'--068.jpg',desc:'25 films for auto processing.',price:930,brand:''}]},wax:{title:'Wax',desc:AR_DESC.wax,items:[{id:'PRS-002',name:'Pink Wax',img:'--020.jpg',desc:'Premium pink wax.',price:450,brand:'Pink Wax'},{id:'PRS-011',name:'Dentix',img:'dentix.jpg',desc:'Dentix wax compound.',price:195,brand:'Dentix'}]},silicone:{title:'Addition Silicone',desc:AR_DESC.silicone,items:[{id:'IMP-009',name:'Addition Silicone (Silaxil)',img:'--114.jpg',desc:'Silaxil high-precision silicone.',price:1395,brand:'Silaxil'},{id:'IMP-010',name:'Addition Silicone (Accusil)',img:'--115.jpg',desc:'Accusil excellent detail.',price:1000,brand:'Accusil'}]},endo:{title:'Endo Z Bur',desc:AR_DESC.endo,items:[{id:'END-013',name:'Endo Z Bur',img:'--116.jpg',desc:'Endo Z Bur — قطعة واحدة بسعر 85 جنيه.',price:85,brand:''}]},wellbeing:{title:'أدوات للرفاهية',desc:AR_DESC.wellbeing,items:[{id:'RST-003',name:'Resin Rings',img:'--018.jpg',desc:'حلقات ريزن لضبط شكل الكومبوزيت.',price:260,brand:''},{id:'STE-005',name:'Chlorhexidine',img:'--059.jpg',desc:'محلول كلورهيكسدين مطهر.',price:30,brand:''},{id:'RST-013',name:'TheraCal',img:'--066.jpg',desc:'TheraCal LC — حماية اللب.',price:850,brand:''},{id:'RST-017',name:'EverX Composite',img:'--102.jpg',desc:'EverX Posterior — كومبوزيت مقوى.',price:205,brand:''},{id:'RST-007',name:'Flex Dam',img:'--032.jpg',desc:'راف مطاطي لعزل الأسنان.',price:165,brand:''},{id:'RST-016',name:'Varnish',img:'--082.jpg',desc:'فارنيش فلورايد للحماية.',price:85,brand:''}]},surgicalgown:{title:'Surgical Gown',desc:'Gown للعمليات — القطعة بسعر 17 جنيه.',items:[{id:'PPE-004',name:'Surgical Gown',img:'--061.jpg',desc:'Surgical Gown للعمليات الجراحية.',price:17,brand:'',defQty:15}]},anesthesia:{title:'Anesthesia',desc:'اختار نوع التخدير. 🔵 الأزرق متوفر، 🔴 الأحمر غير متوفر.',items:[{id:'SUR-003',name:'Anesthesia Carpules (Blue)',img:'--040.jpg',desc:'Blue anesthesia carpules — متوفر.',price:970,brand:'',available:true},{id:'SUR-004',name:'Anesthesia Carpules (Red)',img:'--041.jpg',desc:'Red anesthesia carpules — غير متوفر.',price:970,brand:'',available:false}]}};
 
-const ER=[['RST-001','Temporary Restoration','--001.jpg',75,1,''],['DIA-001','Articulating Paper 12pcs','--002.jpg',100,1,''],['STE-001','Alcohol','--003.jpg',50,1,''],['MAT-001','Catalyst','--004.jpg',525,1,''],['PPE-001','Mask','--005.jpg',50,1,''],['EQU-001','Adaptor','--006.jpg',800,1,''],['END-001','MTA','--007.jpg',45,1,''],['DIS-001','Cotton Rolls','Cotton Rolls.jpg',17,1,''],['DIS-002','Kidney Dish','--011.jpg',50,1,''],['PRS-001','Retraction Cord','--012.jpg',125,1,''],['DIS-003','Gauze','--008.jpg',40,1,''],['DIS-004','Disposable Tray','--014.jpg',275,1,''],['RST-002','Flowable Composite','--017.jpg',290,1,''],['END-002','Resin Sealer','--021.jpg',305,1,''],['PRS-003','Self-Adhesive Resin Cement','--025.jpg',850,1,''],['IMP-003','Green Stick Compound','--026.jpg',285,1,''],['DIS-005','Wrapping Film','--029.jpg',160,1,''],['END-003','Endo Sponge','--033.jpg',10,1,''],['DIS-006','Plastic Instrument Tray','--034.jpg',280,1,''],['DIS-007','Plastic Cup','--035.jpg',27,1,''],['SUR-001','Topical Anesthetic Gel','--036.jpg',35,1,''],['SUR-002','Metal Syringe','--037.jpg',185,1,''],['STE-002','Sterilization Pouch (5x10)','--042.jpg',160,1,'Size 9'],['DIA-004','Caries Detector','--043.jpg',240,1,''],['FIN-001','Polishing Paste','--044.jpg',75,1,''],['INS-001','Metal Sectional Tray','--045.jpg',15,1,''],['INS-002','Single-Sided Retractor','--046.jpg',18,1,''],['FIN-002','Polishing Brush Bur','--047.jpg',2.5,15,'15 pcs'],['DIS-008','Plastic Syringe (100 pcs)','--050.jpg',140,1,''],['RST-010','Light Cure GIC Capsules','--051.jpg',155,1,''],['DIS-009','Napkin','--052.jpg',80,1,''],['STE-003','Sterilization Pouch (2.25x5)','--053.jpg',30,1,'SMALL'],['PPE-002','Dental Floss','--054.jpg',30,1,''],['DIS-010','Air-Water Plastic Tips','--055.jpg',210,1,''],['STE-004','Sterilization Pouch (4.33x10)','--056.jpg',240,1,'Size 13'],['SUR-005','Injection Needle (Short)','--058.jpg',225,1,'Chinese'],['SUR-005L','Long Needle','--058.jpg',225,1,'Long needle'],['PPE-005','Over Gloves','--062.jpg',12,1,''],['RST-011','Acid Etchant','--063.jpg',80,1,''],['PRS-006','Temporary Cement','--064.jpg',380,1,''],['RST-012','Glass Ionomer Cement (GIC)','--065.jpg',550,1,''],['INS-003','Double-Sided Retractor','--069.jpg',18,1,''],['FIN-004','Finishing Strip','--072.jpg',85,1,''],['DIS-011','Plastic Suction Tips','--075.jpg',90,1,''],['RST-014','Enamel Shade','--076.jpg',165,1,''],['RST-015','Dentin Shade','--077.jpg',165,1,''],['PPE-006','Overhead (100 pcs)','--079.jpg',35,1,''],['INS-005','Excavator (Zeffiro)','--081.jpg',690,1,''],['INS-006','Metal Scissors','--083.jpg',55,1,''],['PRS-007','Wax Carver','--084.jpg',33,1,''],['PRS-008','Wax Knife','--085.jpg',33,1,''],['SUR-006','Lancet Holder','--086.jpg',30,1,''],['SUR-007','Lancet Blade No. 15','--087.jpg',2.5,1,'Per piece'],['INS-007','Tweezer','tweezer.jpg',35,3,'3 pieces'],['END-004','Endodontic Ruler','--090.jpg',40,1,''],['PRS-009','Retraction Cord Applicator','--091.jpg',70,1,''],['IMP-006','Dentulous Metal Tray Size 2','--092.jpg',15,1,''],['IMP-007','Dentulous Metal Tray Size 3','--093.jpg',15,1,''],['END-005','Gutta-Percha (15-45)','--094.jpg',85,1,''],['END-006','Gutta-Percha (45-80)','--095.jpg',85,1,''],['IMP-008','Medium Body Silicone (Silaxil)','--097.jpg',530,1,''],['END-007','H-File (15-40)','--098.jpg',70,1,''],['END-008','H-File (45-80)','--099.jpg',70,1,''],['END-009','K-File (15-40)','--100.jpg',70,1,''],['END-010','K-File (45-80)','--101.jpg',70,1,''],['RST-018','Celluloid Strip','--103.jpg',12,1,''],['END-011','K-File No. 10','--104.jpg',70,1,''],['END-012','K-File No. 8','--105.jpg',70,1,''],['ORT-002','Adams Pliers','--107.jpg',195,1,''],['ORT-003','Orthodontic Wire','--108.jpg',5,10,'Per wire'],['ORT-004','Loop Former','--109.jpg',195,1,''],['ORT-005','Cutter Pliers','--110.jpg',80,1,''],['FIN-005','Cutting Stones','--111.jpg',8,5,''],['FIN-006','Finishing Stones','--112.jpg',8,5,''],['FIN-007','Carbide Burs','--113.jpg',40,8,''],['STE-006','Gas','--013.jpg',47,1,''],
-['RST-019','Gold Composite Applicator','Gold Composite Applicator.jpg',420,1,''],
-['INS-008','Zeffiro Periodontal Probe','Zeffiro Periodontal Probe.jpg',690,1,'']
-];
+const ER=[['RST-001','Temporary Restoration','--001.jpg',75,1,''],['DIA-001','Articulating Paper 12pcs','--002.jpg',100,1,''],['STE-001','Alcohol','--003.jpg',50,1,''],['MAT-001','Catalyst','--004.jpg',525,1,''],['PPE-001','Mask','--005.jpg',50,1,''],['EQU-001','Adaptor','--006.jpg',800,1,''],['END-001','MTA','--007.jpg',45,1,''],['DIS-001','Cotton Rolls','Cotton Rolls.jpg',17,1,''],['DIS-002','Kidney Dish','--011.jpg',50,1,''],['PRS-001','Retraction Cord','--012.jpg',125,1,''],['DIS-003','Gauze','--008.jpg',40,1,''],['DIS-004','Disposable Tray','--014.jpg',275,1,''],['RST-002','Flowable Composite','--017.jpg',290,1,''],['END-002','Resin Sealer','--021.jpg',305,1,''],['PRS-003','Self-Adhesive Resin Cement','--025.jpg',850,1,''],['IMP-003','Green Stick Compound','--026.jpg',285,1,''],['DIS-005','Wrapping Film','--029.jpg',160,1,''],['END-003','Endo Sponge','--033.jpg',10,1,''],['DIS-006','Plastic Instrument Tray','--034.jpg',280,1,''],['DIS-007','Plastic Cup','--035.jpg',27,1,''],['SUR-001','Topical Anesthetic Gel','--036.jpg',35,1,''],['SUR-002','Metal Syringe','--037.jpg',185,1,''],['STE-002','Sterilization Pouch (5x10)','--042.jpg',160,1,'Size 9'],['DIA-004','Caries Detector','--043.jpg',240,1,''],['FIN-001','Polishing Paste','--044.jpg',75,1,''],['INS-001','Metal Sectional Tray','--045.jpg',15,1,''],['INS-002','Single-Sided Retractor','--046.jpg',18,1,''],['FIN-002','Polishing Brush Bur','--047.jpg',2.5,15,'15 pcs'],['DIS-008','Plastic Syringe (100 pcs)','--050.jpg',140,1,''],['RST-010','Light Cure GIC Capsules','--051.jpg',155,1,''],['DIS-009','Napkin','--052.jpg',80,1,''],['STE-003','Sterilization Pouch (2.25x5)','--053.jpg',30,1,'SMALL'],['PPE-002','Dental Floss','--054.jpg',30,1,''],['DIS-010','Air-Water Plastic Tips','--055.jpg',210,1,''],['STE-004','Sterilization Pouch (4.33x10)','--056.jpg',240,1,'Size 13'],['SUR-005','Injection Needle (Short)','--058.jpg',225,1,'Chinese'],['SUR-005L','Long Needle','--058.jpg',225,1,'Long needle'],['PPE-005','Over Gloves','--062.jpg',12,1,''],['RST-011','Acid Etchant','--063.jpg',80,1,''],['PRS-006','Temporary Cement','--064.jpg',380,1,''],['RST-012','Glass Ionomer Cement (GIC)','--065.jpg',550,1,''],['INS-003','Double-Sided Retractor','--069.jpg',18,1,''],['FIN-004','Finishing Strip','--072.jpg',85,1,''],['DIS-011','Plastic Suction Tips','--075.jpg',90,1,''],['RST-014','Enamel Shade','--076.jpg',165,1,''],['RST-015','Dentin Shade','--077.jpg',165,1,''],['PPE-006','Overhead (100 pcs)','--079.jpg',35,1,''],['INS-005','Excavator (Zeffiro)','--081.jpg',690,1,''],['INS-006','Metal Scissors','--083.jpg',55,1,''],['PRS-007','Wax Carver','--084.jpg',33,1,''],['PRS-008','Wax Knife','--085.jpg',33,1,''],['SUR-006','Lancet Holder','--086.jpg',30,1,''],['SUR-007','Lancet Blade No. 15','--087.jpg',2.5,1,'Per piece'],['INS-007','Tweezer','tweezer.jpg',35,3,'3 pieces'],['END-004','Endodontic Ruler','--090.jpg',40,1,''],['PRS-009','Retraction Cord Applicator','--091.jpg',70,1,''],['IMP-006','Dentulous Metal Tray Size 2','--092.jpg',15,1,''],['IMP-007','Dentulous Metal Tray Size 3','--093.jpg',15,1,''],['END-005','Gutta-Percha (15-45)','--094.jpg',85,1,''],['END-006','Gutta-Percha (45-80)','--095.jpg',85,1,''],['IMP-008','Medium Body Silicone (Silaxil)','--097.jpg',530,1,''],['END-007','H-File (15-40)','--098.jpg',70,1,''],['END-008','H-File (45-80)','--099.jpg',70,1,''],['END-009','K-File (15-40)','--100.jpg',70,1,''],['END-010','K-File (45-80)','--101.jpg',70,1,''],['RST-018','Celluloid Strip','--103.jpg',12,1,''],['END-011','K-File No. 10','--104.jpg',70,1,''],['END-012','K-File No. 8','--105.jpg',70,1,''],['ORT-002','Adams Pliers','--107.jpg',195,1,''],['ORT-003','Orthodontic Wire','--108.jpg',5,10,'Per wire'],['ORT-004','Loop Former','--109.jpg',195,1,''],['ORT-005','Cutter Pliers','--110.jpg',80,1,''],['FIN-005','Cutting Stones','--111.jpg',8,5,''],['FIN-006','Finishing Stones','--112.jpg',8,5,''],['FIN-007','Carbide Burs','--113.jpg',40,8,''],['STE-006','Gas','--013.jpg',47,1,''],['RST-019','Gold Composite Applicator','Gold Composite Applicator.jpg',420,1,''],['INS-008','Zeffiro Periodontal Probe','Zeffiro Periodontal Probe.jpg',690,1,'']];
 
 const ES=ER.map(e=>({id:e[0],name:e[1],img:e[2],price:e[3],qty:e[4],note:e[5]}));
 const SO=['intro','contra','scaling','alginate','mirror','composite','zeta','bond','crown','xray','wax','silicone','endo','gloves','wellbeing','surgicalgown','anesthesia','essentials','info','review'];
-const SK='curaState_v5'; // Updated to avoid old cache issues
-let sel={},ess={},gSz='',gSk=false,cur=0,cq={};
-ES.forEach(e=>{if(ess[e.id]===undefined)ess[e.id]=e.qty;});
+const SK='curaState_v6'; 
+
+let state = { cur: 0, sel: {}, ess: {}, gSz: '', gSk: false, form: {}, sq: '' };
+ES.forEach(e => { if (state.ess[e.id] === undefined) state.ess[e.id] = e.qty; });
+
 let _as;
-function autoSave(){clearTimeout(_as);_as=setTimeout(saveState,50);}
-function saveState(){try{localStorage.setItem(SK,JSON.stringify({sel,ess,gSz,gSk,cur,cq,form:getForm(),sq:document.getElementById('essSearch')?.value||'',scroll:window.scrollY}));}catch(e){}}
-function getForm(){const f={};['f-name','f-phone','f-alt','f-city','f-addr','f-land','f-notes'].forEach(id=>{const el=document.getElementById(id);if(el)f[id]=el.value;});const gv=document.getElementById('f-gov');if(gv)f['f-gov']=gv.value;const gn=document.querySelector('input[name="gender"]:checked');if(gn)f.gender=gn.value;return f;}
-function setForm(f){if(!f)return;Object.keys(f).forEach(k=>{if(k==='gender'){const r=document.querySelector(`input[name="gender"][value="${f[k]}"]`);if(r)r.checked=true;}else{const el=document.getElementById(k);if(el)el.value=f[k];}});}
-function restoreState(){const raw=localStorage.getItem(SK);if(!raw)return false;try{const s=JSON.parse(raw);sel=s.sel||{};ess=s.ess||{};gSz=s.gSz||'';gSk=s.gSk||false;cur=s.cur||0;cq=s.cq||{};ES.forEach(e=>{if(ess[e.id]===undefined)ess[e.id]=e.qty;});return s;}catch(e){return false;}}
+function autoSave() { clearTimeout(_as); _as = setTimeout(saveState, 100); }
+function saveState() { try { state.form = getForm(); state.sq = document.getElementById('essSearch')?.value || ''; localStorage.setItem(SK, JSON.stringify(state)); } catch (e) {} }
+function getForm() {
+    const f = {};
+    ['f-name', 'f-phone', 'f-alt', 'f-city', 'f-addr', 'f-land', 'f-notes'].forEach(id => { const el = document.getElementById(id); if (el) f[id] = el.value; });
+    const gv = document.getElementById('f-gov'); if (gv) f['f-gov'] = gv.value;
+    const gn = document.querySelector('input[name="gender"]:checked'); if (gn) f.gender = gn.value;
+    return f;
+}
+function setForm(f) { if (!f) return; Object.keys(f).forEach(k => { if (k === 'gender') { const r = document.querySelector(`input[name="gender"][value="${f[k]}"]`); if (r) r.checked = true; } else { const el = document.getElementById(k); if (el) el.value = f[k]; } }); }
+function restoreState() { const raw = localStorage.getItem(SK); if (!raw) return false; try { const s = JSON.parse(raw); state = { ...state, ...s }; ES.forEach(e => { if (state.ess[e.id] === undefined) state.ess[e.id] = e.qty; }); return true; } catch (e) { return false; } }
+
 let _tt;
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>t.classList.remove('show'),1800);}
+function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(_tt); _tt = setTimeout(() => t.classList.remove('show'), 1800); }
 
-function openDetail(item,type,sid){
-const pn=document.getElementById('detPn');const ov=document.getElementById('detOv');
-let h=`<div class="det-back" onclick="closeDetail()"><i class="fas fa-arrow-right"></i><span>Back</span></div>`;
-h+=`<div class="det-img"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="det-img-fb" style="display:none"><i class="fas fa-image"></i><span>${item.name}</span></div></div>`;
-h+=`<div class="det-info"><div class="det-id">${item.id}</div><div class="det-name">${item.name}</div>`;
-if(item.brand)h+=`<div class="det-brand"><i class="fas fa-tag"></i> ${item.brand}</div>`;
-h+=`<div class="det-desc">${item.desc||''}</div>`;
-if(type==='oos'){
-h+=`<div class="det-oos-tag"><i class="fas fa-box-open"></i> Out of Stock</div>`;
-h+=`<div class="det-price-row"><span class="det-price" style="text-decoration:line-through;color:var(--text-s)">${item.price.toLocaleString()}</span><span class="det-price-cur">EGP</span></div></div>`;
-h+=`<div class="det-acts"><div class="det-oos-box"><span class="det-oos-icon"><i class="fas fa-truck-ramp-box"></i></span><div class="det-oos-text">المنتج ده مش متوفر في السوق دلوقتي</div><div class="det-oos-sub"><strong>أول ما يتم توفيره هنعرفكم!</strong><br>هنتواصل معاك فور توفر المنتج.</div></div></div>`;
-}else{
-h+=`<div class="det-price-row"><span class="det-price">${item.price.toLocaleString()}</span><span class="det-price-cur">EGP${item.note?' · '+item.note:''}</span></div></div>`;
-h+=`<div class="det-acts">`;
-if(type==='pd'){
-const isSel=sel[sid]&&Array.isArray(sel[sid])&&sel[sid].some(s=>s.id===item.id);
-const q=isSel?sel[sid].find(s=>s.id===item.id).qty||1:1;
-if(isSel){
-h+=`<div class="det-qty-row"><span class="det-qty-label">Quantity</span><div class="pq pq-lg"><button onclick="detCqPd('${sid}','${item.id}',-1)">−</button><span id="detQ">${q}</span><button onclick="detCqPd('${sid}','${item.id}',1)">+</button></div></div>`;
-h+=`<button class="det-btn remove" onclick="toggleSel('${sid}','${item.id}');closeDetail()"><i class="fas fa-trash"></i> Remove from Package</button>`;
-}else{
-h+=`<button class="det-btn add" onclick="toggleSel('${sid}','${item.id}');closeDetail()"><i class="fas fa-plus"></i> Add to Package</button>`;
+function openDetail(item, type, sid) {
+    const pn = document.getElementById('detPn'); const ov = document.getElementById('detOv');
+    let h = `<div class="det-back" onclick="closeDetail()"><i class="fas fa-arrow-right"></i><span>Back</span></div>`;
+    h += `<div class="det-img"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="det-img-fb" style="display:none"><i class="fas fa-image"></i><span>${item.name}</span></div></div>`;
+    h += `<div class="det-info"><div class="det-id">${item.id}</div><div class="det-name">${item.name}</div>`;
+    if (item.brand) h += `<div class="det-brand"><i class="fas fa-tag"></i> ${item.brand}</div>`;
+    h += `<div class="det-desc">${item.desc || ''}</div>`;
+    if (type === 'oos') {
+        h += `<div class="det-oos-tag"><i class="fas fa-box-open"></i> Out of Stock</div>`;
+        h += `<div class="det-price-row"><span class="det-price" style="text-decoration:line-through;color:var(--text-s)">${item.price.toLocaleString()}</span><span class="det-price-cur">EGP</span></div></div>`;
+        h += `<div class="det-acts"><div class="det-oos-box"><span class="det-oos-icon"><i class="fas fa-truck-ramp-box"></i></span><div class="det-oos-text">المنتج ده مش متوفر في السوق دلوقتي</div><div class="det-oos-sub"><strong>أول ما يتم توفيره هنعرفكم!</strong><br>هنتواصل معاك فور توفر المنتج.</div></div></div>`;
+    } else {
+        h += `<div class="det-price-row"><span class="det-price">${item.price.toLocaleString()}</span><span class="det-price-cur">EGP${item.note ? ' · ' + item.note : ''}</span></div></div>`;
+        h += `<div class="det-acts">`;
+        if (type === 'pd') {
+            const isSel = state.sel[sid] && Array.isArray(state.sel[sid]) && state.sel[sid].some(s => s.id === item.id);
+            const q = isSel ? state.sel[sid].find(s => s.id === item.id).qty || 1 : 1;
+            if (isSel) {
+                h += `<div class="det-qty-row"><span class="det-qty-label">Quantity</span><div class="pq pq-lg"><button onclick="detCqPd('${sid}','${item.id}',-1)">−</button><span id="detQ">${q}</span><button onclick="detCqPd('${sid}','${item.id}',1)">+</button></div></div>`;
+                h += `<button class="det-btn remove" onclick="toggleSel('${sid}','${item.id}');closeDetail()"><i class="fas fa-trash"></i> Remove from Package</button>`;
+            } else {
+                h += `<button class="det-btn add" onclick="toggleSel('${sid}','${item.id}');closeDetail()"><i class="fas fa-plus"></i> Add to Package</button>`;
+            }
+        } else if (type === 'ess') {
+            const q = state.ess[item.id] || 0; const isRm = q === 0;
+            if (isRm) {
+                h += `<button class="det-btn restore" onclick="state.ess['${item.id}']=ES.find(e=>e.id==='${item.id}')?.qty||1;renderEss();autoSave();closeDetail()"><i class="fas fa-plus"></i> Restore Item</button>`;
+            } else {
+                h += `<div class="det-qty-row"><span class="det-qty-label">Quantity</span><div class="pq pq-lg"><button onclick="detEssCh('${item.id}',-1)">−</button><span id="detQ">${q}</span><button onclick="detEssCh('${item.id}',1)">+</button></div></div>`;
+                h += `<button class="det-btn remove" onclick="state.ess['${item.id}']=0;renderEss();autoSave();closeDetail()"><i class="fas fa-trash"></i> Remove from Essentials</button>`;
+            }
+        }
+        h += `</div>`;
+    }
+    pn.innerHTML = h; ov.classList.add('open');
 }
-}else if(type==='ess'){
-const q=ess[item.id]||0;const isRm=q===0;
-if(isRm){
-h+=`<button class="det-btn restore" onclick="ess['${item.id}']=ES.find(e=>e.id==='${item.id}')?.qty||1;renderEss();autoSave();closeDetail()"><i class="fas fa-plus"></i> Restore Item</button>`;
-}else{
-h+=`<div class="det-qty-row"><span class="det-qty-label">Quantity</span><div class="pq pq-lg"><button onclick="detEssCh('${item.id}',-1)">−</button><span id="detQ">${q}</span><button onclick="detEssCh('${item.id}',1)">+</button></div></div>`;
-h+=`<button class="det-btn remove" onclick="ess['${item.id}']=0;renderEss();autoSave();closeDetail()"><i class="fas fa-trash"></i> Remove from Essentials</button>`;
-}
-}
-h+=`</div>`;
-}
-pn.innerHTML=h;ov.classList.add('open');
-}
-function detCqPd(sid,id,d){if(!sel[sid]||!Array.isArray(sel[sid]))return;const it=sel[sid].find(x=>x.id===id);if(!it)return;it.qty=Math.max(1,it.qty+d);const qEl=document.getElementById('detQ');if(qEl)qEl.textContent=it.qty;renderGrid(sid);autoSave();}
-function detEssCh(id,d){if(!ess[id]||ess[id]<=0)return;ess[id]=Math.max(1,ess[id]+d);const qEl=document.getElementById('detQ');if(qEl)qEl.textContent=ess[id];renderEss();autoSave();}
-function closeDetail(){document.getElementById('detOv').classList.remove('open');}
+function detCqPd(sid, id, d) { if (!state.sel[sid] || !Array.isArray(state.sel[sid])) return; const it = state.sel[sid].find(x => x.id === id); if (!it) return; it.qty = Math.max(1, it.qty + d); const qEl = document.getElementById('detQ'); if (qEl) qEl.textContent = it.qty; renderGrid(sid); autoSave(); }
+function detEssCh(id, d) { if (!state.ess[id] || state.ess[id] <= 0) return; state.ess[id] = Math.max(1, state.ess[id] + d); const qEl = document.getElementById('detQ'); if (qEl) qEl.textContent = state.ess[id]; renderEss(); autoSave(); }
+function closeDetail() { document.getElementById('detOv').classList.remove('open'); }
 
-function buildApp(){
-const app=document.getElementById('app');app.innerHTML='';let n=0;
-function secHTML(sid,num,title,desc,gridId,skippable){return `<div class="sec" id="s-${sid}"><div class="s-hdr"><div class="s-b">${num}</div><div><div class="s-t">${title}</div><div class="s-d">${desc}</div></div></div><div class="pr" id="${gridId}"></div><div class="st" id="st-${sid}"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>${skippable?`<button class="b-sk" onclick="skipSec('${sid}')">تخطي هذه الخطوة</button>`:''}<button class="b-co" id="bc-${sid}" onclick="goNext('${sid}')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;}
+function buildApp() {
+    const app = document.getElementById('app'); app.innerHTML = ''; let n = 0;
+    function secHTML(sid, num, title, desc, gridId, skippable) {
+        return `<div class="sec" id="s-${sid}"><div class="s-hdr"><div class="s-b">${num}</div><div><div class="s-t">${title}</div><div class="s-d">${desc}</div></div></div><div class="pr" id="${gridId}"></div><div class="st" id="st-${sid}"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button>${skippable ? `<button class="b-sk" onclick="skipSec('${sid}')">تخطي هذه الخطوة</button>` : ''}<button class="b-co" id="bc-${sid}" onclick="goNext('${sid}')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+    }
 
-n++;app.innerHTML+=`<div class="sec on" id="s-intro"><div class="intro-w"><h2>أهلاً بك في Cura Store</h2><p>إليك كيف يعمل الموقع في خطوات بسيطة:</p><div class="intro-steps"><div class="intro-step"><i class="fas fa-hand-pointer"></i><h4>1. اختر الأدوات</h4><p>تصفح الأقسام واختر الأدوات اللي تحتاجها.</p></div><div class="intro-step"><i class="fas fa-sort-numeric-up"></i><h4>2. حدد الكميات</h4><p>اضغط على الأداة لزيادة أو تقليل الكمية.</p></div><div class="intro-step"><i class="fas fa-truck-fast"></i><h4>3. أدخل بياناتك</h4><p>اكتب بيانات التوصيل بشكل صحيح علشان نوصل لك.</p></div><div class="intro-step"><i class="fas fa-file-invoice-dollar"></i><h4>4. استلم الفاتورة</h4><p>اطبع فاتورتك أو ابعتها لنا مباشرة عبر واتساب.</p></div></div><div class="sn"><button class="b-co on" style="width:100%;justify-content:center" onclick="goNext('intro')">ابدأ الآن <i class="fas fa-arrow-left"></i></button></div></div></div>`;
+    n++; app.innerHTML += `<div class="sec" id="s-intro"><div class="intro-w"><h2>أهلاً بك في Cura Store</h2><p>إليك كيف يعمل الموقع في خطوات بسيطة:</p><div class="intro-steps"><div class="intro-step"><i class="fas fa-hand-pointer"></i><h4>1. اختر الأدوات</h4><p>تصفح الأقسام واختر الأدوات اللي تحتاجها.</p></div><div class="intro-step"><i class="fas fa-sort-numeric-up"></i><h4>2. حدد الكميات</h4><p>اضغط على الأداة لزيادة أو تقليل الكمية.</p></div><div class="intro-step"><i class="fas fa-truck-fast"></i><h4>3. أدخل بياناتك</h4><p>اكتب بيانات التوصيل بشكل صحيح علشان نوصل لك.</p></div><div class="intro-step"><i class="fas fa-file-invoice-dollar"></i><h4>4. استلم الفاتورة</h4><p>هتنتقل لصفحة الفاتورة النهائية لتأكيد طلبك وطباعته.</p></div></div><div class="sn"><button class="b-co on" style="width:100%;justify-content:center" onclick="goNext('intro')">ابدأ الآن <i class="fas fa-arrow-left"></i></button></div></div></div>`;
 
-n++;app.innerHTML+=secHTML('contra',n,PD.contra.title,PD.contra.desc,'contraG',true);
-n++;app.innerHTML+=secHTML('scaling',n,PD.scaling.title,PD.scaling.desc,'scalingG',true);
-['alginate','mirror','composite','zeta','bond','crown','xray','wax','silicone','endo'].forEach(sid=>{n++;app.innerHTML+=secHTML(sid,n,PD[sid].title,PD[sid].desc,sid+'G',true);});
-n++;app.innerHTML+=`<div class="sec" id="s-gloves"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Gloves</div><div class="s-d">اختار مقاس الجوانتي المناسب، أو تخطي الخطوة.</div></div></div><div class="gl-w"><div class="gl-img"><img src="${IP}--060.jpg" alt="Gloves" onerror="this.style.display='none'"/></div><div class="gl-chips" id="gC">${['XS','S','M','L','XL'].map(sz=>`<div class="gl-ch" data-sz="${sz}" onclick="setGS('${sz}')">${sz}</div>`).join('')}</div><div class="gl-price"><span style="font-weight:800;font-size:.92rem;color:var(--gold)">${GLOVE_PRICE.toLocaleString()}</span><span style="font-size:.72rem;font-weight:600;color:var(--text-s);margin-left:3px">EGP</span></div><button class="gl-sk" id="gSkB" onclick="skipG()">تخطي (بدون إضافة جوانتي)</button></div><div class="st" id="st-gloves"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipG()">تخطي هذه الخطوة</button><button class="b-co" id="bc-gloves" onclick="goNext('gloves')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
-n++;app.innerHTML+=`<div class="sec" id="s-wellbeing"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">أدوات للرفاهية</div><div class="s-d">أدوات بتروق على المريض وبتحسن جودة الشغل</div></div></div><div class="pr" id="wellbeingG"></div><div class="st" id="st-wellbeing"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipSec('wellbeing')">تخطي هذه الخطوة</button><button class="b-co" id="bc-wellbeing" onclick="goNext('wellbeing')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
-n++;app.innerHTML+=`<div class="sec" id="s-surgicalgown"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Surgical Gown</div><div class="s-d">Gown للعمليات — القطعة بسعر 17 جنيه.</div></div></div><div class="pr" id="surgicalgownG"></div><div class="sc-note" style="margin-top:10px"><strong>ملحوظة:</strong> أنت غالبًا هتحتاج كمية كبيرة، لذلك العدد الافتراضي هو 15. ولو محتاج تزود أو تقلل، تقدر تعدل العدد بكل سهولة.</div><div class="st" id="st-surgicalgown"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipSec('surgicalgown')">تخطي هذه الخطوة</button><button class="b-co" id="bc-surgicalgown" onclick="goNext('surgicalgown')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
-n++;app.innerHTML+=secHTML('anesthesia',n,PD.anesthesia.title,PD.anesthesia.desc,'anesthesiaG',true);
+    n++; app.innerHTML += secHTML('contra', n, PD.contra.title, PD.contra.desc, 'contraG', true);
+    n++; app.innerHTML += secHTML('scaling', n, PD.scaling.title, PD.scaling.desc, 'scalingG', true);
+    ['alginate', 'mirror', 'composite', 'zeta', 'bond', 'crown', 'xray', 'wax', 'silicone', 'endo'].forEach(sid => { n++; app.innerHTML += secHTML(sid, n, PD[sid].title, PD[sid].desc, sid + 'G', true); });
+    n++; app.innerHTML += `<div class="sec" id="s-gloves"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Gloves</div><div class="s-d">اختار مقاس الجوانتي المناسب، أو تخطي الخطوة.</div></div></div><div class="gl-w"><div class="gl-img"><img src="${IP}--060.jpg" alt="Gloves" onerror="this.style.display='none'"/></div><div class="gl-chips" id="gC">${['XS', 'S', 'M', 'L', 'XL'].map(sz => `<div class="gl-ch" data-sz="${sz}" onclick="setGS('${sz}')">${sz}</div>`).join('')}</div><div class="gl-price"><span style="font-weight:800;font-size:.92rem;color:var(--gold)">${GLOVE_PRICE.toLocaleString()}</span><span style="font-size:.72rem;font-weight:600;color:var(--text-s);margin-left:3px">EGP</span></div><button class="gl-sk" id="gSkB" onclick="skipG()">تخطي (بدون إضافة جوانتي)</button></div><div class="st" id="st-gloves"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipG()">تخطي هذه الخطوة</button><button class="b-co" id="bc-gloves" onclick="goNext('gloves')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+    n++; app.innerHTML += `<div class="sec" id="s-wellbeing"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">أدوات للرفاهية</div><div class="s-d">أدوات بتروق على المريض وبتحسن جودة الشغل</div></div></div><div class="pr" id="wellbeingG"></div><div class="st" id="st-wellbeing"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipSec('wellbeing')">تخطي هذه الخطوة</button><button class="b-co" id="bc-wellbeing" onclick="goNext('wellbeing')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+    n++; app.innerHTML += `<div class="sec" id="s-surgicalgown"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">Surgical Gown</div><div class="s-d">Gown للعمليات — القطعة بسعر 17 جنيه.</div></div></div><div class="pr" id="surgicalgownG"></div><div class="sc-note" style="margin-top:10px"><strong>ملحوظة:</strong> أنت غالبًا هتحتاج كمية كبيرة، لذلك العدد الافتراضي هو 15. ولو محتاج تزود أو تقلل، تقدر تعدل العدد بكل سهولة.</div><div class="st" id="st-surgicalgown"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-sk" onclick="skipSec('surgicalgown')">تخطي هذه الخطوة</button><button class="b-co" id="bc-surgicalgown" onclick="goNext('surgicalgown')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+    n++; app.innerHTML += secHTML('anesthesia', n, PD.anesthesia.title, PD.anesthesia.desc, 'anesthesiaG', true);
 
-n++;app.innerHTML+=`<div class="sec" id="s-essentials"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">الأدوات الأساسية</div><div class="s-d">دي 80% من احتياجاتك اليومية. اتأكد إنك اختارت الكميات المظبوطة.</div></div></div><div class="es-ban"><div class="es-title"><i class="fas fa-clipboard-check"></i> الأدوات الأساسية</div><div class="es-body">دي الأدوات اللي بتستخدمها كل يوم.<ul><li>الكمية الافتراضية مظبوطة لأغلب الأطباء، بس ممكن تزود أو تقلل على حسب إنت.</li><li>في أداة مش هتحتاجها؟ امسحها بكل بساطة.</li><li>دوست على أي أداة عشان تشوف صورة وتفاصيل أكتر.</li></ul></div></div><input type="text" class="sb" id="essSearch" placeholder="🔍 ابحث عن أداة..." oninput="renderEss()"/><div class="eg" id="essG"></div><div class="st" id="st-essentials"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-co on" id="bc-essentials" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+    n++; app.innerHTML += `<div class="sec" id="s-essentials"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">الأدوات الأساسية</div><div class="s-d">دي 80% من احتياجاتك اليومية. اتأكد إنك اختارت الكميات المظبوطة.</div></div></div><div class="es-ban"><div class="es-title"><i class="fas fa-clipboard-check"></i> الأدوات الأساسية</div><div class="es-body">دي الأدوات اللي بتستخدمها كل يوم.<ul><li>الكمية الافتراضية مظبوطة لأغلب الأطباء، بس ممكن تزود أو تقلل على حسب إنت.</li><li>في أداة مش هتحتاجها؟ امسحها بكل بساطة.</li><li>دوست على أي أداة عشان تشوف صورة وتفاصيل أكتر.</li></ul></div></div><input type="text" class="sb" id="essSearch" placeholder="🔍 ابحث عن أداة..." oninput="renderEss();autoSave()"/><div class="eg" id="essG"></div><div class="st" id="st-essentials"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-co on" id="bc-essentials" onclick="goNext('essentials')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
 
-n++;app.innerHTML+=`<div class="sec" id="s-info"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">بيانات التوصيل</div><div class="s-d">عيّ علشان نقدر نوصلك طلبك.</div></div></div><div class="ig"><div class="fl"><label for="f-name">الاسم بالكامل *</label><input type="text" id="f-name" placeholder="مثال: د. أحمد محمد" oninput="autoSave();updateStepState('info')"/></div><div class="fl"><label for="f-phone">رقم الموبايل *</label><input type="tel" id="f-phone" placeholder="01XXXXXXXXX" oninput="autoSave();updateStepState('info')"/></div><div><label for="f-alt">رقم موبايل احتياطي</label><input type="tel" id="f-alt" placeholder="01XXXXXXXXX" oninput="autoSave()"/></div><div><label for="f-gov">المحافظة *</label><select id="f-gov" onchange="autoSave();updateStepState('info')"><option value="" disabled selected>اختار المحافظة</option><option value="Cairo">القاهرة</option><option value="Giza">الجيزة</option><option value="Alexandria">الإسكندرية</option><option value="Dakahlia">الدقهلية</option><option value="Red Sea">البحر الأحمر</option><option value="Beheira">البحيرة</option><option value="Faiyum">الفيوم</option><option value="Gharbia">الغربية</option><option value="Ismailia">الإسماعيلية</option><option value="Menoufia">المنوفية</option><option value="Minya">المنيا</option><option value="Qalyubia">القليوبية</option><option value="New Valley">الوادي الجديد</option><option value="Suez">السويس</option><option value="Aswan">أسوان</option><option value="Asyut">أسيوط</option><option value="Beni Suef">بني سويف</option><option value="Port Said">بورسعيد</option><option value="Damietta">دمياط</option><option value="Sharkia">الشرقية</option><option value="South Sinai">جنوب سيناء</option><option value="Kafr El Sheikh">كفر الشيخ</option><option value="Matrouh">مطروح</option><option value="Luxor">الأقصر</option><option value="Qena">قنا</option><option value="North Sinai">شمال سيناء</option><option value="Sohag">سوهاج</option></select></div><div class="fl"><label for="f-addr">العنوان بالتفصيل *</label><input type="text" id="f-addr" placeholder="اسم الشارع، رقم العمارة، الدور..." oninput="autoSave();updateStepState('info')"/></div><div class="rg"><label><input type="radio" name="gender" value="male" checked onclick="autoSave()"/> ذكر</label><label><input type="radio" name="gender" value="female" onclick="autoSave()"/> أنثي</label></div><div class="fl"><label for="f-land">علامة مميزة</label><input type="text" id="f-land" placeholder="أقرب مكان مميز يساعد المندوب" oninput="autoSave()"/></div><div class="fl"><label for="f-notes">ملاحظات إضافية</label><textarea id="f-notes" placeholder="لو عندك أي طلب خاص اكتبه هنا..." oninput="autoSave()"></textarea></div></div><div class="st" id="st-info"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-co" id="bc-info" onclick="goNext('info')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
+    n++; app.innerHTML += `<div class="sec" id="s-info"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">بيانات التوصيل</div><div class="s-d">عيّ علشان نقدر نوصلك طلبك.</div></div></div><div class="ig"><div class="fl"><label for="f-name">الاسم بالكامل *</label><input type="text" id="f-name" placeholder="مثال: د. أحمد محمد" oninput="autoSave();updateStepState('info')"/></div><div class="fl"><label for="f-phone">رقم الموبايل *</label><input type="tel" id="f-phone" placeholder="01XXXXXXXXX" oninput="autoSave();updateStepState('info')"/></div><div><label for="f-alt">رقم موبايل احتياطي</label><input type="tel" id="f-alt" placeholder="01XXXXXXXXX" oninput="autoSave()"/></div><div><label for="f-gov">المحافظة *</label><select id="f-gov" onchange="autoSave();updateStepState('info')"><option value="" disabled selected>اختار المحافظة</option><option value="Cairo">القاهرة</option><option value="Giza">الجيزة</option><option value="Alexandria">الإسكندرية</option><option value="Dakahlia">الدقهلية</option><option value="Red Sea">البحر الأحمر</option><option value="Beheira">البحيرة</option><option value="Faiyum">الفيوم</option><option value="Gharbia">الغربية</option><option value="Ismailia">الإسماعيلية</option><option value="Menoufia">المنوفية</option><option value="Minya">المنيا</option><option value="Qalyubia">القليوبية</option><option value="New Valley">الوادي الجديد</option><option value="Suez">السويس</option><option value="Aswan">أسوان</option><option value="Asyut">أسيوط</option><option value="Beni Suef">بني سويف</option><option value="Port Said">بورسعيد</option><option value="Damietta">دمياط</option><option value="Sharkia">الشرقية</option><option value="South Sinai">جنوب سيناء</option><option value="Kafr El Sheikh">كفر الشيخ</option><option value="Matrouh">مطروح</option><option value="Luxor">الأقصر</option><option value="Qena">قنا</option><option value="North Sinai">شمال سيناء</option><option value="Sohag">سوهاج</option></select></div><div class="fl"><label for="f-addr">العنوان بالتفصيل *</label><input type="text" id="f-addr" placeholder="اسم الشارع، رقم العمارة، الدور..." oninput="autoSave();updateStepState('info')"/></div><div class="rg"><label><input type="radio" name="gender" value="male" checked onclick="autoSave()"/> ذكر</label><label><input type="radio" name="gender" value="female" onclick="autoSave()"/> أنثي</label></div><div class="fl"><label for="f-land">علامة مميزة</label><input type="text" id="f-land" placeholder="أقرب مكان مميز يساعد المندوب" oninput="autoSave()"/></div><div class="fl"><label for="f-notes">ملاحظات إضافية</label><textarea id="f-notes" placeholder="لو عندك أي طلب خاص اكتبه هنا..." oninput="autoSave()"></textarea></div></div><div class="st" id="st-info"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><button class="b-co" id="bc-info" onclick="goNext('info')">Continue <i class="fas fa-arrow-right"></i></button></div></div>`;
 
-n++;app.innerHTML+=`<div class="sec" id="s-review"><div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">مراجعة الطلب</div><div class="s-d">اتأكد إن كل حاجة تمام قبل ما تبعت الطلب.</div></div></div><div class="rv-s"><h4>بيانات التوصيل</h4><div class="rv-c" id="rvInfo"></div></div><div class="rv-s"><h4>الأدوات والكميات</h4><table class="rv-t" id="rvItems"></table></div><div class="st" id="st-review"></div><div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button><div class="rv-actions"><button class="b-co on" id="bc-review" onclick="completeOrder()"><i class="fas fa-file-invoice-dollar"></i> استلام الفاتورة وإتمام الطلب</button></div></div></div>`;
+    n++; app.innerHTML += `<div class="sec" id="s-review">
+        <div class="s-hdr"><div class="s-b">${n}</div><div><div class="s-t">مراجعة الطلب</div><div class="s-d">اتأكد إن كل حاجة تمام قبل ما تبعت الطلب.</div></div></div>
+        <div class="top-co" style="margin-bottom:20px;">
+            <button class="b-co on" id="bc-review" onclick="initiateCheckout()"><i class="fas fa-file-invoice-dollar"></i> استلام الفاتورة وإتمام الطلب</button>
+        </div>
+        <div class="rv-s"><h4>بيانات التوصيل</h4><div class="rv-c" id="rvInfo"></div></div>
+        <div class="rv-s"><h4>الأدوات والكميات</h4><table class="rv-t" id="rvItems"></table></div>
+        <div class="st" id="st-review"></div>
+        <div class="sn"><button class="b-bk" onclick="goBack()"><i class="fas fa-arrow-left"></i></button></div>
+    </div>`;
 
-SO.forEach(sid=>{if(PD[sid])renderGrid(sid);});
-renderEss();
-}
-
-function renderGrid(sid){
-const grid=document.getElementById(sid+'G');if(!grid)return;let h='';
-PD[sid].items.forEach(item=>{
-const isSel=sel[sid]&&Array.isArray(sel[sid])&&sel[sid].some(s=>s.id===item.id);
-const q=isSel?sel[sid].find(s=>s.id===item.id).qty||1:0;
-if(sid==='anesthesia' && item.available===false){
-h+=`<div class="pc oos-card"><div class="pc-top"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pc-top-fb" style="display:none"><i class="fas fa-image"></i><span>${item.name}</span></div><span class="oos-badge">Out of Stock</span></div><div class="pc-body"><div class="pc-id">${item.id}</div><div class="pc-nm">${item.name}</div><div class="pc-ds">${item.desc||''}</div><div class="pc-bot"><span class="pc-pr">${item.price.toLocaleString()} EGP</span></div></div></div>`;
-}else{
-h+=`<div class="pc ${isSel?'sel':''}" onclick="openDetail({...item}, 'pd', '${sid}')"><div class="pc-top"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pc-top-fb" style="display:none"><i class="fas fa-image"></i><span>${item.name}</span></div></div><div class="pc-chk"><i class="fas fa-check"></i></div><div class="pc-body"><div class="pc-id">${item.id}</div><div class="pc-nm">${item.name}</div><div class="pc-ds">${item.desc||''}</div>${item.brand?`<div class="pc-brand">${item.brand}</div>`:''}<div class="pc-bot"><span class="pc-pr">${item.price.toLocaleString()} EGP</span>${isSel?`<div class="pq"><button onclick="event.stopPropagation();cqPd('${sid}','${item.id}',-1)">−</button><span>${q}</span><button onclick="event.stopPropagation();cqPd('${sid}','${item.id}',1)">+</button></div>`:''}</div></div><button class="pc-add" onclick="event.stopPropagation();toggleSel('${sid}','${item.id}')"><span class="pc-add-n"><i class="fas fa-plus"></i> Add</span><span class="pc-add-d"><i class="fas fa-check"></i> Added</span></button></div>`;
-}
-});
-grid.innerHTML=h;
+    SO.forEach(sid => { if (PD[sid]) renderGrid(sid); });
+    renderEss();
 }
 
-function toggleSel(sid,id){
-if(!sel[sid]||!Array.isArray(sel[sid]))sel[sid]=[];
-const idx=sel[sid].findIndex(s=>s.id===id);
-if(idx>-1){sel[sid].splice(idx,1);}
-else{
-const item=PD[sid].items.find(i=>i.id===id);
-const defQty=item.defQty||1;
-sel[sid].push({id:id,qty:defQty});
-showToast(`✅ تمت إضافة: ${item.name}`);
-}
-renderGrid(sid);updateStepState(sid);autoSave();
-}
-function cqPd(sid,id,d){if(!sel[sid]||!Array.isArray(sel[sid]))return;const it=sel[sid].find(x=>x.id===id);if(!it)return;it.qty=Math.max(1,it.qty+d);const item=PD[sid].items.find(i=>i.id===id);if(d>0)showToast(`➕ تم زيادة كمية: ${item.name} (${it.qty})`);renderGrid(sid);autoSave();}
-
-function renderEss(){
-const grid=document.getElementById('essG');if(!grid)return;let h='';
-const search=(document.getElementById('essSearch')?.value||'').toLowerCase();
-ES.forEach(item=>{
-if(search&&!item.name.toLowerCase().includes(search))return;
-const q=ess[item.id]||0;const isRm=q===0;
-h+=`<div class="ei ${isRm?'rm':''}" onclick="openDetail({...item,qty:ess['${item.id}']||0}, 'ess', '${item.id}')"><div class="ei-im"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none'"/></div><div class="ei-if"><div class="ei-id">${item.id}</div><div class="ei-nm">${item.name}</div><div class="ei-pr">${item.price.toLocaleString()} EGP</div></div><div class="ei-ac" onclick="event.stopPropagation()">${isRm?`<button class="ei-rm" onclick="ess['${item.id}']=ES.find(e=>e.id==='${item.id}')?.qty||1;renderEss();autoSave()"><i class="fas fa-rotate-left"></i></button>`:`<button onclick="essCh('${item.id}',-1)">−</button><span class="ei-qt">${q}</span><button onclick="essCh('${item.id}',1)">+</button><button class="ei-rm" onclick="ess['${item.id}']=0;renderEss();autoSave()"><i class="fas fa-xmark"></i></button>`}</div></div>`;
-});
-grid.innerHTML=h;
-}
-function essCh(id,d){if(!ess[id]||ess[id]<=0)return;ess[id]=Math.max(1,ess[id]+d);const item=ES.find(e=>e.id===id);if(d>0)showToast(`✅ تمت إضافة: ${item.name} (${ess[id]} قطعة)`);renderEss();autoSave();}
-
-function setGS(sz){gSz=sz;gSk=false;document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===sz));document.getElementById('gSkB').classList.remove('on');updateStepState('gloves');autoSave();}
-function skipG(){gSk=true;gSz='';document.querySelectorAll('.gl-ch').forEach(c=>c.classList.remove('on'));document.getElementById('gSkB').classList.add('on');showToast(SKIP_MSG.gloves);goNext('gloves');}
-function skipSec(sid){sel[sid]='skip';showToast(SKIP_MSG[sid]||'تم تخطي الخطوة');goNext(sid);}
-
-function updateStepState(sid){
-if(sid==='intro')return;
-const bc=document.getElementById('bc-'+sid);if(!bc)return;let ok=false;
-if(sid==='info'){
-const v=e=>e&&e.trim();
-ok=v(document.getElementById('f-name')?.value) && v(document.getElementById('f-phone')?.value) && v(document.getElementById('f-gov')?.value) && v(document.getElementById('f-addr')?.value);
-}
-else if(sid==='gloves'){ok=gSk||gSz!=='';}
-else if(sid==='essentials'){ok=true;}
-else{ok=sel[sid]&&Array.isArray(sel[sid])&&sel[sid].length>0;}
-bc.classList.toggle('on',ok);
-const stEl=document.getElementById('st-'+sid);if(stEl){stEl.textContent=ok?'✅ تم الاختيار':'لم تقم بالاختيار بعد';stEl.className='st '+(ok?'ok':'');}
+function renderGrid(sid) {
+    const grid = document.getElementById(sid + 'G'); if (!grid) return; let h = '';
+    PD[sid].items.forEach(item => {
+        const isSel = state.sel[sid] && Array.isArray(state.sel[sid]) && state.sel[sid].some(s => s.id === item.id);
+        const q = isSel ? state.sel[sid].find(s => s.id === item.id).qty || 1 : 0;
+        if (sid === 'anesthesia' && item.available === false) {
+            h += `<div class="pc oos-card"><div class="pc-top"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pc-top-fb" style="display:none"><i class="fas fa-image"></i><span>${item.name}</span></div><span class="oos-badge">Out of Stock</span></div><div class="pc-body"><div class="pc-id">${item.id}</div><div class="pc-nm">${item.name}</div><div class="pc-ds">${item.desc || ''}</div><div class="pc-bot"><span class="pc-pr">${item.price.toLocaleString()} EGP</span></div></div></div>`;
+        } else {
+            h += `<div class="pc ${isSel ? 'sel' : ''}" onclick="openDetail({...item}, 'pd', '${sid}')"><div class="pc-top"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pc-top-fb" style="display:none"><i class="fas fa-image"></i><span>${item.name}</span></div></div><div class="pc-chk"><i class="fas fa-check"></i></div><div class="pc-body"><div class="pc-id">${item.id}</div><div class="pc-nm">${item.name}</div><div class="pc-ds">${item.desc || ''}</div>${item.brand ? `<div class="pc-brand">${item.brand}</div>` : ''}<div class="pc-bot"><span class="pc-pr">${item.price.toLocaleString()} EGP</span>${isSel ? `<div class="pq"><button onclick="event.stopPropagation();cqPd('${sid}','${item.id}',-1)">−</button><span>${q}</span><button onclick="event.stopPropagation();cqPd('${sid}','${item.id}',1)">+</button></div>` : ''}</div></div><button class="pc-add" onclick="event.stopPropagation();toggleSel('${sid}','${item.id}')"><span class="pc-add-n"><i class="fas fa-plus"></i> Add</span><span class="pc-add-d"><i class="fas fa-check"></i> Added</span></button></div>`;
+        }
+    });
+    grid.innerHTML = h;
 }
 
-function goNext(sid){
-const idx=SO.indexOf(sid);if(idx===-1)return;
-document.getElementById('s-'+sid).classList.remove('on');
-const next=SO[idx+1];if(!next)return;
-document.getElementById('s-'+next).classList.add('on');
-cur=idx+1;updateProgress();autoSave();
-window.scrollTo({top:0,behavior:'smooth'});
-if(next==='review')renderReview();
+function toggleSel(sid, id) {
+    if (!state.sel[sid] || !Array.isArray(state.sel[sid])) state.sel[sid] = [];
+    const idx = state.sel[sid].findIndex(s => s.id === id);
+    if (idx > -1) { state.sel[sid].splice(idx, 1); } else {
+        const item = PD[sid].items.find(i => i.id === id); const defQty = item.defQty || 1;
+        state.sel[sid].push({ id: id, qty: defQty }); showToast(`✅ تمت إضافة: ${item.name}`);
+    }
+    renderGrid(sid); updateStepState(sid); autoSave();
 }
-function goBack(){
-const idx=SO.indexOf(SO.find(s=>document.getElementById('s-'+s)?.classList.contains('on')));if(idx<=0)return;
-document.getElementById('s-'+SO[idx]).classList.remove('on');
-document.getElementById('s-'+SO[idx-1]).classList.add('on');
-cur=idx-1;updateProgress();autoSave();
-window.scrollTo({top:0,behavior:'smooth'});
+function cqPd(sid, id, d) { if (!state.sel[sid] || !Array.isArray(state.sel[sid])) return; const it = state.sel[sid].find(x => x.id === id); if (!it) return; it.qty = Math.max(1, it.qty + d); const item = PD[sid].items.find(i => i.id === id); if (d > 0) showToast(`➕ تم زيادة كمية: ${item.name} (${it.qty})`); renderGrid(sid); autoSave(); }
+
+function renderEss() {
+    const grid = document.getElementById('essG'); if (!grid) return; let h = '';
+    const search = (document.getElementById('essSearch')?.value || '').toLowerCase();
+    ES.forEach(item => {
+        if (search && !item.name.toLowerCase().includes(search)) return;
+        const q = state.ess[item.id] || 0; const isRm = q === 0;
+        h += `<div class="ei ${isRm ? 'rm' : ''}" onclick="openDetail({...item,qty:state.ess['${item.id}']||0}, 'ess', '${item.id}')"><div class="ei-im"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none'"/></div><div class="ei-if"><div class="ei-id">${item.id}</div><div class="ei-nm">${item.name}</div><div class="ei-pr">${item.price.toLocaleString()} EGP</div></div><div class="ei-ac" onclick="event.stopPropagation()">${isRm ? `<button class="ei-rm" onclick="state.ess['${item.id}']=ES.find(e=>e.id==='${item.id}')?.qty||1;renderEss();autoSave()"><i class="fas fa-rotate-left"></i></button>` : `<button onclick="essCh('${item.id}',-1)">−</button><span class="ei-qt">${q}</span><button onclick="essCh('${item.id}',1)">+</button><button class="ei-rm" onclick="state.ess['${item.id}']=0;renderEss();autoSave()"><i class="fas fa-xmark"></i></button>`}</div></div>`;
+    });
+    grid.innerHTML = h;
 }
-function updateProgress(){
-const pF=document.getElementById('pF');const pL=document.getElementById('pL');
-const p=((cur+1)/SO.length)*100;pF.style.width=p+'%';pL.textContent=`Step ${cur+1} / ${SO.length}`;
-}
-function renderReview(){
-const rvInfo=document.getElementById('rvInfo');rvInfo.innerHTML='';
-const f=getForm();
-rvInfo.innerHTML=`<div class="rr"><span class="rl">الاسم</span><span>${f['f-name']||'-'}</span></div><div class="rr"><span class="rl">الموبايل</span><span>${f['f-phone']||'-'}</span></div><div class="rr"><span class="rl">المحافظة</span><span>${f['f-gov']||'-'}</span></div><div class="rr"><span class="rl">العنوان</span><span>${f['f-addr']||'-'}</span></div>`;
-const rvItems=document.getElementById('rvItems');let h=`<tr><th>الصنف</th><th>الكمية</th><th>السعر</th><th>الإجمالي</th></tr>`;
-let total=0;
-SO.forEach(sid=>{
-if(sid==='gloves'&&gSz){h+=`<tr><td>Gloves (${gSz})</td><td>1</td><td>${GLOVE_PRICE}</td><td>${GLOVE_PRICE}</td></tr>`;total+=GLOVE_PRICE;}
-else if(sel[sid]&&Array.isArray(sel[sid])){
-sel[sid].forEach(s=>{
-let name=s.id,price=0;
-if(PD[sid]){const item=PD[sid].items.find(i=>i.id===s.id);if(item){name=item.name;price=item.price;}}
-h+=`<tr><td>${name}</td><td>${s.qty}</td><td>${price}</td><td>${price*s.qty}</td></tr>`;total+=price*s.qty;
-});
-}
-});
-ES.forEach(e=>{if(ess[e.id]>0){h+=`<tr><td>${e.name}</td><td>${ess[e.id]}</td><td>${e.price}</td><td>${e.price*ess[e.id]}</td></tr>`;total+=e.price*ess[e.id];}});
-h+=`<tr class="gr"><td colspan="3">الإجمالي</td><td>${total.toLocaleString()} EGP</td></tr>`;
-rvItems.innerHTML=h;
+function essCh(id, d) { if (!state.ess[id] || state.ess[id] <= 0) return; state.ess[id] = Math.max(1, state.ess[id] + d); const item = ES.find(e => e.id === id); if (d > 0) showToast(`✅ تمت إضافة: ${item.name} (${state.ess[id]} قطعة)`); renderEss(); autoSave(); }
+
+function setGS(sz) { state.gSz = sz; state.gSk = false; document.querySelectorAll('.gl-ch').forEach(c => c.classList.toggle('on', c.dataset.sz === sz)); document.getElementById('gSkB').classList.remove('on'); updateStepState('gloves'); autoSave(); }
+function skipG() { state.gSk = true; state.gSz = ''; document.querySelectorAll('.gl-ch').forEach(c => c.classList.remove('on')); document.getElementById('gSkB').classList.add('on'); showToast(SKIP_MSG.gloves); goNext('gloves'); }
+function skipSec(sid) { state.sel[sid] = 'skip'; showToast(SKIP_MSG[sid] || 'تم تخطي الخطوة'); goNext(sid); }
+
+function updateStepState(sid) {
+    if (sid === 'intro' || sid === 'review') return; // intro and review buttons are always active
+    const bc = document.getElementById('bc-' + sid); if (!bc) return; let ok = false;
+    if (sid === 'info') { const v = e => e && e.trim(); ok = v(document.getElementById('f-name')?.value) && v(document.getElementById('f-phone')?.value) && v(document.getElementById('f-gov')?.value) && v(document.getElementById('f-addr')?.value); } 
+    else if (sid === 'gloves') { ok = state.gSk || state.gSz !== ''; } 
+    else if (sid === 'essentials') { ok = true; } 
+    else { ok = state.sel[sid] && Array.isArray(state.sel[sid]) && state.sel[sid].length > 0; }
+    bc.classList.toggle('on', ok);
+    const stEl = document.getElementById('st-' + sid); if (stEl) { stEl.textContent = ok ? '✅ تم الاختيار' : 'لم تقم بالاختيار بعد'; stEl.className = 'st ' + (ok ? 'ok' : ''); }
 }
 
-// Function to send data directly to your static invoice.html
-function completeOrder(){
-const f=getForm();
-let total=0;const items=[];
-SO.forEach(sid=>{
-if(sid==='gloves'&&gSz){items.push({name:`Gloves (${gSz})`,qty:1,price:GLOVE_PRICE,total:GLOVE_PRICE});total+=GLOVE_PRICE;}
-else if(sel[sid]&&Array.isArray(sel[sid])){
-sel[sid].forEach(s=>{
-let name=s.id,price=0;
-if(PD[sid]){const item=PD[sid].items.find(i=>i.id===s.id);if(item){name=item.name;price=item.price;}}
-items.push({name,qty:s.qty,price,total:price*s.qty});total+=price*s.qty;
-});
-}
-});
-ES.forEach(e=>{if(ess[e.id]>0){items.push({name:e.name,qty:ess[e.id],price:e.price,total:e.price*ess[e.id]});total+=e.price*ess[e.id];}});
-
-const invoiceData={customer:f,items:items,total:total};
-localStorage.setItem('curaInvoice',JSON.stringify(invoiceData));
-window.location.href='invoice.html'; // Redirects directly to invoice.html
+function showStep(index) {
+    document.querySelectorAll('.sec').forEach(el => el.classList.remove('on'));
+    const sid = SO[index]; if (sid) { const el = document.getElementById('s-' + sid); if (el) el.classList.add('on'); }
+    window.scrollTo({ top: 0, behavior: 'smooth' }); if (sid === 'review') renderReview();
 }
 
-function toggleTheme(){const c=document.documentElement.getAttribute('data-theme');if(c==='dark'){document.documentElement.removeAttribute('data-theme');document.getElementById('thIco').className='fas fa-moon';}else{document.documentElement.setAttribute('data-theme','dark');document.getElementById('thIco').className='fas fa-sun';}localStorage.setItem('curaTheme',document.documentElement.getAttribute('data-theme')||'light');}
-function initTheme(){const t=localStorage.getItem('curaTheme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');document.getElementById('thIco').className='fas fa-sun';}}
-function newOrder(){if(confirm('هل أنت متأكد من بدء طلب جديد؟ سيتم مسح كل البيانات الحالية.')){localStorage.removeItem(SK);location.reload();}}
+function goNext(sid) { const idx = SO.indexOf(sid); if (idx === -1 || idx === SO.length - 1) return; state.cur = idx + 1; autoSave(); showStep(state.cur); updateProgress(); }
+function goBack() { if (state.cur === 0) return; state.cur--; autoSave(); showStep(state.cur); updateProgress(); }
+function updateProgress() { const pF = document.getElementById('pF'); const pL = document.getElementById('pL'); const p = ((state.cur + 1) / SO.length) * 100; pF.style.width = p + '%'; pL.textContent = `Step ${state.cur + 1} / ${SO.length}`; }
+
+function renderReview() {
+    const rvInfo = document.getElementById('rvInfo'); rvInfo.innerHTML = '';
+    const f = getForm();
+    rvInfo.innerHTML = `<div class="rr"><span class="rl">الاسم</span><span>${f['f-name'] || '-'}</span></div><div class="rr"><span class="rl">الموبايل</span><span>${f['f-phone'] || '-'}</span></div><div class="rr"><span class="rl">المحافظة</span><span>${f['f-gov'] || '-'}</span></div><div class="rr"><span class="rl">العنوان</span><span>${f['f-addr'] || '-'}</span></div>`;
+    const rvItems = document.getElementById('rvItems'); let h = `<tr><th>الصنف</th><th>الكمية</th><th>السعر</th><th>الإجمالي</th></tr>`;
+    let total = 0;
+    SO.forEach(sid => {
+        if (sid === 'gloves' && state.gSz) { h += `<tr><td>Gloves (${state.gSz})</td><td>1</td><td>${GLOVE_PRICE}</td><td>${GLOVE_PRICE}</td></tr>`; total += GLOVE_PRICE; } 
+        else if (state.sel[sid] && Array.isArray(state.sel[sid])) { state.sel[sid].forEach(s => { let name = s.id, price = 0; if (PD[sid]) { const item = PD[sid].items.find(i => i.id === s.id); if (item) { name = item.name; price = item.price; } } h += `<tr><td>${name}</td><td>${s.qty}</td><td>${price}</td><td>${price * s.qty}</td></tr>`; total += price * s.qty; }); }
+    });
+    ES.forEach(e => { if (state.ess[e.id] > 0) { h += `<tr><td>${e.name}</td><td>${state.ess[e.id]}</td><td>${e.price}</td><td>${e.price * state.ess[e.id]}</td></tr>`; total += e.price * state.ess[e.id]; } });
+    h += `<tr class="gr"><td colspan="3">الإجمالي</td><td>${total.toLocaleString()} EGP</td></tr>`;
+    rvItems.innerHTML = h;
+}
+
+function initiateCheckout() {
+    document.getElementById('chkOv').classList.add('open');
+    document.getElementById('chkBox').innerHTML = `
+        <div class="chk-icon"><i class="fas fa-file-pdf"></i></div>
+        <div class="chk-title">طباعة الفاتورة</div>
+        <div class="chk-desc">أنت دلوقتي هتطبع الفاتورة وتعمل لها تنزيل كـ PDF. دوس على الزرار ده علشان تفتح الفاتورة وتطبعتها.</div>
+        <button class="chk-btn chk-btn-print" onclick="printInvoice()"><i class="fas fa-print"></i> طباعة وتنزيل الفاتورة</button>
+        <button class="chk-btn chk-btn-skip" onclick="closeCheckout()">رجوع</button>
+    `;
+}
+
+function printInvoice() {
+    const f = getForm(); let total = 0; const items = [];
+    SO.forEach(sid => {
+        if (sid === 'gloves' && state.gSz) { items.push({ name: `Gloves (${state.gSz})`, qty: 1, price: GLOVE_PRICE, total: GLOVE_PRICE }); total += GLOVE_PRICE; } 
+        else if (state.sel[sid] && Array.isArray(state.sel[sid])) { state.sel[sid].forEach(s => { let name = s.id, price = 0; if (PD[sid]) { const item = PD[sid].items.find(i => i.id === s.id); if (item) { name = item.name; price = item.price; } } items.push({ name, qty: s.qty, price, total: price * s.qty }); total += price * s.qty; }); }
+    });
+    ES.forEach(e => { if (state.ess[e.id] > 0) { items.push({ name: e.name, qty: state.ess[e.id], price: e.price, total: e.price * state.ess[e.id] }); total += e.price * state.ess[e.id]; } });
+
+    const invoiceData = { customer: f, items: items, total: total };
+    localStorage.setItem('curaInvoice', JSON.stringify(invoiceData));
+    window.open('invoice.html', '_blank'); 
+
+    document.getElementById('chkBox').innerHTML = `
+        <div class="chk-icon wa"><i class="fab fa-whatsapp"></i></div>
+        <div class="chk-title">تأكيد الطلب</div>
+        <div class="chk-desc">دلوقتي باقي بس تتأكد من الأوردر وتتواصل مع مسؤول التأكيد. دوس على الزرار ده علشان نبعتلك كل التفاصيل على واتساب.</div>
+        <button class="chk-btn chk-btn-wa" onclick="goToWhatsApp()"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب للتأكيد</button>
+        <button class="chk-btn chk-btn-skip" onclick="closeCheckout()">تم بنجاح</button>
+    `;
+}
+
+function goToWhatsApp() {
+    let msg = '🌟 *طلب جديد من Cura Store* 🌟\n\n';
+    SO.forEach(sid => {
+        if (sid === 'gloves' && state.gSz) { msg += `🧤 Gloves (${state.gSz}) - 1 قطعة - ${GLOVE_PRICE} EGP\n`; } 
+        else if (state.sel[sid] && Array.isArray(state.sel[sid])) {
+            msg += `\n*${PD[sid]?.title || ''}:*\n`;
+            state.sel[sid].forEach(s => { let name = s.id, price = 0; if (PD[sid]) { const item = PD[sid].items.find(i => i.id === s.id); if (item) { name = item.name; price = item.price; } } msg += `▪️ ${name} (${s.qty}x) - ${price * s.qty} EGP\n`; });
+        }
+    });
+    let essAdded = false; ES.forEach(e => { if (state.ess[e.id] > 0) { if (!essAdded) { msg += '\n*الأدوات الأساسية:*\n'; essAdded = true; } msg += `▪️ ${e.name} (${state.ess[e.id]}x) - ${e.price * state.ess[e.id]} EGP\n`; } });
+    const f = getForm();
+    msg += `\n*بيانات التوصيل:*\n👤 الاسم: ${f['f-name'] || '-'}\n📱 الموبايل: ${f['f-phone'] || '-'}\n📍 المحافظة: ${f['f-gov'] || '-'}\n🏠 العنوان: ${f['f-addr'] || '-'}\n`;
+    window.open(`https://wa.me/201000000000?text=${encodeURIComponent(msg)}`, '_blank');
+    closeCheckout();
+}
+
+function closeCheckout() { document.getElementById('chkOv').classList.remove('open'); }
+
+function toggleTheme() { const c = document.documentElement.getAttribute('data-theme'); if (c === 'dark') { document.documentElement.removeAttribute('data-theme'); document.getElementById('thIco').className = 'fas fa-moon'; } else { document.documentElement.setAttribute('data-theme', 'dark'); document.getElementById('thIco').className = 'fas fa-sun'; } localStorage.setItem('curaTheme', document.documentElement.getAttribute('data-theme') || 'light'); }
+function initTheme() { const t = localStorage.getItem('curaTheme'); if (t === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); document.getElementById('thIco').className = 'fas fa-sun'; } }
+function newOrder() { if (confirm('هل أنت متأكد من بدء طلب جديد؟ سيتم مسح كل البيانات الحالية.')) { localStorage.removeItem(SK); location.reload(); } }
 
 initTheme();
-const restored=restoreState();
+const restored = restoreState();
 buildApp();
-if(restored){
-setForm(restored.form);
-if(restored.sq&&document.getElementById('essSearch'))document.getElementById('essSearch').value=restored.sq;
-SO.forEach(sid=>updateStepState(sid));
-document.getElementById('s-'+SO[cur]).classList.add('on');
-updateProgress();
-}else{
-document.getElementById('s-intro').classList.add('on');
-updateProgress();
+
+if (restored && state.cur > 0) {
+    setForm(state.form);
+    if (state.sq && document.getElementById('essSearch')) document.getElementById('essSearch').value = state.sq;
+    SO.forEach(sid => updateStepState(sid));
+    showStep(state.cur);
+} else {
+    state.cur = 0;
+    showStep(0);
 }
+updateProgress();
 </script>
 </body>
 </html>
