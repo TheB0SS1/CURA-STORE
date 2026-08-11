@@ -88,6 +88,7 @@
     .inv-tbl tbody tr:nth-child(even) td{background:#fafbfc}
     .inv-tbl tbody tr:last-child td{border-bottom:none}
     .inv-var{display:block;font-size:.58rem;color:#8a9ab0;margin-top:1px}
+    .inv-brand{display:inline-block;font-size:.56rem;color:#8a9ab0;background:#f0f3f8;padding:2px 8px;border-radius:20px;margin-top:3px;font-weight:600}
 
     .gt-box{margin-top:16px;background:linear-gradient(135deg,#0a1628 0%,#0d2137 40%,#132e4a 100%);border-radius:12px;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 8px 32px rgba(13,33,55,.2);position:relative;overflow:hidden}
     .gt-box::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(26,138,125,.08);pointer-events:none}
@@ -220,7 +221,7 @@ function buildFileName(ext) {
   var c = INV_DATA.customer;
   var name = (c.name || 'Customer').trim();
   name = name.replace(/[^\w\s\u0600-\u06FF.-]/g, '').replace(/\s+/g, '_');
-  var gov = (c.governorate || '').trim().replace(/[^\w\s\u0600-\u06FF.-]/g, '').replace(/\s+/g, '_');
+  var gov = (c.gov || '').trim().replace(/[^\w\s\u0600-\u06FF.-]/g, '').replace(/\s+/g, '_');
   if (!name) name = 'Customer';
   if (gov) return name + '_(' + gov + ').' + ext;
   return name + '.' + ext;
@@ -240,14 +241,14 @@ function buildFileName(ext) {
   var d = JSON.parse(raw);
   INV_DATA = d;
 
-  var inum = d.invoiceNumber;
-  var idate = d.invoiceDate;
-  var c = d.customer;
-  var items = d.items;
-  var total = d.total;
+  var inum = d.invoiceNumber || 'CURA-00000';
+  var idate = d.invoiceDate || new Date().toLocaleDateString('ar-EG');
+  var c = d.customer || {};
+  var items = d.items || [];
+  var total = d.total || 0;
 
   /* Dynamic phone based on gender */
-  if (c.gender === 'Female') {
+  if (c.gender === 'female') {
     CONFIRM_PHONE = '+20 106 411 2263';
     WA_PHONE_URL = 'https://wa.me/201064112263';
   } else {
@@ -256,13 +257,13 @@ function buildFileName(ext) {
   }
 
   var custRows = [
-    ['Name', c.name],
-    ['Phone', c.phone],
-    ['Alt. Phone', c.altPhone || '\u2014'],
-    ['Gender', c.gender || '\u2014'],
-    ['Governorate', c.governorate || '\u2014'],
-    ['City', c.city || '\u2014'],
-    ['Address', c.address || '\u2014']
+    ['Name', c.name || '—'],
+    ['Phone', c.phone || '—'],
+    ['Alt. Phone', c.altPhone || '—'],
+    ['Gender', c.gender || '—'],
+    ['Governorate', c.gov || '—'],
+    ['City', c.city || '—'],
+    ['Address', c.address || '—']
   ];
   if (c.landmark) custRows.push(['Landmark', c.landmark]);
 
@@ -270,7 +271,7 @@ function buildFileName(ext) {
     return '<div class="inv-col-row"><span class="inv-col-label">' + row[0] + '</span><span class="inv-col-val">' + row[1] + '</span></div>';
   }).join('');
 
-  var itemCount = items.reduce(function(s, it) { return s + it.qty; }, 0);
+  var itemCount = items.reduce(function(s, it) { return s + (it.qty || 0); }, 0);
   var orderRows = [
     ['Invoice #', inum],
     ['Date', idate],
@@ -293,9 +294,10 @@ function buildFileName(ext) {
   var rn = 0;
   var tRows = items.map(function(it) {
     rn++;
-    var lt = it.price * it.qty;
-    var vr = it.variation ? '<span class="inv-var">' + it.variation + '</span>' : '';
-    return '<tr><td>' + rn + '</td><td>' + it.id + '</td><td>' + it.name + vr + '</td><td>' + it.qty + '</td><td>' + it.price.toLocaleString() + '</td><td>' + lt.toLocaleString() + '</td></tr>';
+    var lt = (it.price || 0) * (it.qty || 0);
+    var brandHTML = it.brand ? '<span class="inv-brand"><i class="fas fa-tag" style="margin-right:3px;font-size:.5rem"></i>' + it.brand + '</span>' : '';
+    var categoryHTML = it.category ? '<span class="inv-var">' + it.category + '</span>' : '';
+    return '<tr><td>' + rn + '</td><td>' + (it.id || '—') + '</td><td>' + it.name + brandHTML + categoryHTML + '</td><td>' + it.qty + '</td><td>' + (it.price || 0).toLocaleString() + '</td><td>' + lt.toLocaleString() + '</td></tr>';
   }).join('');
 
   document.getElementById('invArea').innerHTML =
@@ -370,7 +372,7 @@ function buildFileName(ext) {
 function setupWALink(gender) {
   var waLink = document.getElementById('waLink');
   var waText = document.getElementById('waText');
-  if (gender === 'Female') {
+  if (gender === 'female') {
     waLink.href = 'https://wa.me/201064112263';
     waText.textContent = '\u062A\u0648\u0627\u0635\u0644 \u0645\u0639 \u0631\u0646\u064A\u0645 \u2014 \u0645\u0633\u0624\u0648\u0644\u0629 \u062A\u0623\u0643\u064A\u062F \u0627\u0644\u0637\u0644\u0628\u0627\u062A';
   } else {
