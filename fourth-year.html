@@ -516,14 +516,45 @@ footer a{color:var(--accent);font-weight:600}
 ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-h);border-radius:var(--r-pill);border:2px solid var(--bg)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--r-s)}
+/* ═══ CELEBRATION CONFETTI ═══ */
+.confetti-piece{position:fixed;top:-12px;width:10px;height:14px;z-index:10001;pointer-events:none;animation:confettiFall linear forwards}
+.confetti-piece.round{width:9px;height:9px;border-radius:50%}
+.confetti-piece.star{width:12px;height:12px;background:none!important;font-size:12px;color:var(--gold);font-family:'Font Awesome 6 Free';font-weight:900}
+@keyframes confettiFall{0%{transform:translateY(0) rotate(0deg) rotateX(0);opacity:1}85%{opacity:1}100%{transform:translateY(105vh) rotate(720deg) rotateX(360deg);opacity:0}}
+/* ═══ CURA POINTS (GAMIFICATION) ═══ */
+.xp-pill{display:inline-flex;align-items:center;gap:8px;padding:0 16px;border-radius:var(--r-pill);background:linear-gradient(135deg,var(--gold-s),transparent);border:1px solid var(--gold-sh);box-shadow:var(--shadow-s);height:40px;cursor:default;transition:all var(--tr)}
+.xp-pill:hover{transform:translateY(-1px);box-shadow:var(--shadow-m)}
+.xp-pill i{color:var(--gold);font-size:.85rem}
+.xp-pill .xp-lv{font-family:var(--font-mono);font-size:.68rem;font-weight:800;color:var(--gold);letter-spacing:.5px}
+.xp-pill .xp-pts{font-family:var(--font-mono);font-size:.78rem;font-weight:700;color:var(--ink)}
+.xp-float{position:fixed;z-index:10002;font-family:var(--font-mono);font-weight:800;color:var(--gold);pointer-events:none;animation:xpFloat 1s var(--ease-out) forwards;text-shadow:0 2px 8px rgba(217,119,6,.35);font-size:.95rem}
+@keyframes xpFloat{0%{opacity:0;transform:translateY(6px) scale(.7)}20%{opacity:1;transform:translateY(-4px) scale(1.15)}100%{opacity:0;transform:translateY(-46px) scale(1)}}
+@media(max-width:560px){.xp-pill .xp-pts{display:none}.xp-pill{padding:0 12px}}
+/* ═══ 3D TILT ON PRODUCT CARDS ═══ */
+.pr{perspective:1200px}
+.pc{transform-style:preserve-3d}
+.pc:hover{transform:translateY(-6px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))!important}
+.pc:active{transform:translateY(-2px) scale(.98)!important}
+/* ═══ XP PROGRESS BAR + ACHIEVEMENT POPUPS ═══ */
+.xp-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--gold));z-index:600;width:0%;transition:width 600ms var(--ease-out);box-shadow:0 0 12px rgba(217,119,6,.55);pointer-events:none}
+.ach-pop{position:fixed;top:84px;right:20px;z-index:10003;display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:var(--r-l);background:var(--surface);border:1px solid var(--gold-sh);box-shadow:var(--shadow-xl);animation:achIn 500ms var(--ease-spring);max-width:330px;direction:rtl}
+.ach-pop .ach-ico{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold-s),var(--gold-sh));display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.05rem;flex-shrink:0}
+.ach-pop b{display:block;font-size:.85rem;color:var(--ink)}
+.ach-pop small{font-size:.72rem;color:var(--ink-s)}
+@keyframes achIn{from{opacity:0;transform:translateX(60px) scale(.9)}to{opacity:1;transform:translateX(0) scale(1)}}
+.ach-pop.out{animation:achOut 400ms var(--ease) forwards}
+@keyframes achOut{to{opacity:0;transform:translateX(60px) scale(.9)}}
+#bgFx{position:fixed;inset:0;z-index:1;pointer-events:none}
 </style>
 </head>
 <body>
+<div class="xp-bar" id="xpBar"></div>
 <div id="storeView">
 <nav class="nav"><div class="ctn">
 <div class="logo"><img class="logo-img" src="logo.jpg" alt="Cura Store"/><div class="logo-t"><span class="logo-t-main">Cura</span><span class="logo-t-sub">Store</span></div></div>
 <div class="nav-a">
 <button class="nb" id="themeBtn" onclick="toggleTheme()" aria-label="Theme"><i class="fas fa-moon" id="thIco"></i></button>
+<div class="xp-pill" id="xpPill" title="Cura Points — اجمع نقاط مع كل اختيار"><i class="fas fa-bolt"></i><span class="xp-lv" id="xpLv">LV 1</span><span class="xp-pts" id="xpPts">0 pts</span></div>
 <div class="cart-pill empty" id="cartPill"><span class="cart-pill-count" id="cartCount">0</span><span class="cart-pill-total" id="cartTotal">EGP 0</span><span class="cart-pill-badge"><i class="fas fa-bag-shopping"></i></span></div>
 <a href="https://chat.whatsapp.com/Iv19tg6MsIPIIeSSNsZd9W" target="_blank" class="nb wa"><i class="fab fa-whatsapp"></i><span class="nb-text">Group</span></a>
 <button class="nb no" onclick="newOrder()" title="New Order"><i class="fas fa-rotate-right"></i><span class="nb-text">New</span></button>
@@ -543,6 +574,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-r
 <div class="pas" id="pas" onclick="if(event.target===this)this.classList.remove('open')"><div class="pas-card"><h4 id="pasName"></h4><div class="pas-sub" id="pasNum"></div><button class="pa-btn c" id="pasCall"><i class="fas fa-phone"></i><span class="pa-label">Call<small>Direct voice call</small></span></button><button class="pa-btn w" id="pasWa"><i class="fab fa-whatsapp"></i><span class="pa-label">WhatsApp<small>Quick text chat</small></span></button><button class="inv-ov-btn skip" style="margin-top:4px" onclick="document.getElementById('pas').classList.remove('open')">Cancel</button></div></div>
 <div class="inv-err" id="invErr"></div>
 </div>
+<script src="bg-fx.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
@@ -560,7 +592,7 @@ contra:{title:'Contra Angle Handpieces',desc:'Choose the handpieces that fit you
 {id:'EQU-004',name:'Apple High-Speed with LED',img:'--070.jpg',desc:'Apple brand high-speed with LED.',price:2800,brand:'Apple'},
 {id:'EQU-005',name:'Apple High-Speed without LED',img:'--071.jpg',desc:'Apple brand standard version.',price:1580,brand:'Apple'},
 {id:'EQU-006',name:'COXO High-Speed with LED',img:'--073.jpg',desc:'COXO premium with LED.',price:3750,brand:'COXO'},
-{id:'EQU-007',name:'COXO High-Speed without LED',img:'--074.jpg',desc:'COXO premium standard.',price:2800,brand:'COXO'}]},
+{id:'EQU-007',name:'COXO High-Speed without LED',img:'--074.jpg',desc:'COXO premium standard.',price:2650,brand:'COXO'}]},
 scaling:{title:'Scaling Kit',desc:'Choose a new scaling kit if needed. (2780 EGP)',items:[
 {id:'PER-001',name:'Scaling Kit (4 Instruments)',img:'--106.jpg',desc:'Kit of 4 pieces.',price:2780,brand:''}]},
 alginate:{title:'Alginate',desc:'Choose your preferred alginate.',items:[
@@ -603,6 +635,7 @@ wellbeing:{title:'Wellbeing Tools',desc:'Tools that comfort patients and improve
 surgicalgown:{title:'Surgical Gown',desc:'Surgical gown — 17 EGP per piece.',items:[
 {id:'PPE-004',name:'Surgical Gown',img:'--061.jpg',desc:'Surgical gown for operations.',price:17,brand:'',defQty:15}]},
 anesthesia:{title:'Anesthesia',desc:'Choose anesthesia type. Blue available, Red out of stock.',items:[
+{id:'SUR-008',name:'Dental Anesthetic 10 Cartridges / Pack (Blue)',img:'7878.jpeg',desc:'Dental Anesthetic Blue —.',price:180,brand:'',available:true},
 {id:'SUR-003',name:'Anesthesia Carpules (Blue)',img:'--040.jpg',desc:'Blue anesthesia carpules — available.',price:970,brand:'',available:true},
 {id:'SUR-004',name:'Anesthesia Carpules (Red)',img:'--041.jpg',desc:'Red anesthesia carpules — out of stock.',price:970,brand:'',available:false}]}
 };
@@ -699,6 +732,56 @@ function playClickSound(){
   }catch(e){}
 }
 
+function playSuccessSound(){
+  if(!soundEnabled)return;
+  try{
+    const ctx=getAudioCtx();if(!ctx)return;
+    const now=ctx.currentTime;
+    // Victory arpeggio: C5 → E5 → G5 → C6
+    [[523.25,0],[659.25,.09],[783.99,.18],[1046.5,.27]].forEach(([f,t])=>{
+      const osc=ctx.createOscillator();const gain=ctx.createGain();
+      osc.connect(gain);gain.connect(ctx.destination);
+      osc.type='triangle';osc.frequency.setValueAtTime(f,now+t);
+      gain.gain.setValueAtTime(.001,now+t);
+      gain.gain.exponentialRampToValueAtTime(.13,now+t+.02);
+      gain.gain.exponentialRampToValueAtTime(.001,now+t+.34);
+      osc.start(now+t);osc.stop(now+t+.36);
+    });
+  }catch(e){}
+}
+function celebrate(){
+  playSuccessSound();
+  const colors=['#0891b2','#d97706','#10b981','#f59e0b','#8b5cf6','#ef4444','#22d3ee'];
+  const icons=['\f005','\f164','\f0eb'];
+  for(let i=0;i<90;i++){
+    const p=document.createElement('div');
+    const kind=Math.random();
+    if(kind<.15){p.className='confetti-piece star';p.textContent=icons[Math.floor(Math.random()*icons.length)];}
+    else if(kind<.35){p.className='confetti-piece round';p.style.background=colors[Math.floor(Math.random()*colors.length)];}
+    else{p.className='confetti-piece';p.style.background=colors[Math.floor(Math.random()*colors.length)];}
+    p.style.left=(Math.random()*100)+'vw';
+    p.style.animationDuration=(2.4+Math.random()*2.2)+'s';
+    p.style.animationDelay=(Math.random()*.5)+'s';
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),5600);
+  }
+}
+/* ═══ CURA POINTS ENGINE + ACHIEVEMENTS ═══ */
+function xpLevel(xp){return Math.floor((xp||0)/100)+1;}
+function updateXPUI(){const lv=document.getElementById('xpLv');const pts=document.getElementById('xpPts');const bar=document.getElementById('xpBar');if(lv)lv.textContent='LV '+xpLevel(state.xp);if(pts)pts.textContent=(state.xp||0)+' pts';if(bar)bar.style.width=((state.xp||0)%100)+'%';}
+const ACH={
+first_item:{icon:'fa-check-circle',title:'أول خطوة!',desc:'أضفت أول منتج ليك في الباكدج'},
+ten_items:{icon:'fa-layer-group',title:'جامع محترف',desc:'10 منتجات مختلفة في نفس الطلب'},
+level3:{icon:'fa-rocket',title:'صاعد بسرعة',desc:'وصلت للمستوى 3 في نقاط كيورا'},
+big_order:{icon:'fa-crown',title:'طلب الملوك',desc:'فاتورتك عدت 10,000 جنيه'},
+checkout:{icon:'fa-flag-checkered',title:'وصلت لخط النهاية',desc:'أكملت الطلب وطلعت الفاتورة'}};
+function unlockAch(id){if(!ACH[id])return;if(!state.ach)state.ach={};if(state.ach[id])return;state.ach[id]=true;playSuccessSound();const p=document.createElement('div');p.className='ach-pop';p.innerHTML=`<div class="ach-ico"><i class="fas ${ACH[id].icon}"></i></div><div><b>🏆 إنجاز جديد: ${ACH[id].title}</b><small>${ACH[id].desc}</small></div>`;document.body.appendChild(p);setTimeout(()=>{p.classList.add('out');setTimeout(()=>p.remove(),400);},3200);autoSave();}
+function selCount(){let c=0;SO.forEach(sid=>{if(state.sel[sid]&&Array.isArray(state.sel[sid]))c+=state.sel[sid].length;});return c;}
+function checkAch(){if(selCount()>=1)unlockAch('first_item');if(selCount()>=10)unlockAch('ten_items');if(xpLevel(state.xp||0)>=3)unlockAch('level3');}
+let _lastXP=0,_comboN=0;
+function addXP(n){const now=Date.now();if(now-_lastXP<2000)_comboN++;else _comboN=0;_lastXP=now;const before=xpLevel(state.xp);state.xp=(state.xp||0)+n;updateXPUI();const cart=document.getElementById('cartPill');let fx=window.innerWidth/2,fy=130;if(cart){const r=cart.getBoundingClientRect();fx=r.left+r.width/2-16;fy=r.top+r.height/2;}const f=document.createElement('div');f.className='xp-float';f.textContent='+'+n+' pts';f.style.left=fx+'px';f.style.top=fy+'px';document.body.appendChild(f);setTimeout(()=>f.remove(),1100);const after=xpLevel(state.xp);if(after>before){playSuccessSound();showToast('🎉 مبروك! وصلت للمستوى '+after+' — كمّل كده!');}else if(_comboN>=2){showToast('🔥 كومبو x'+(_comboN+1)+' — إيدك طول العين!');}checkAch();autoSave();}
+/* ═══ 3D TILT ENGINE ═══ */
+document.addEventListener('pointermove',e=>{const c=e.target.closest?e.target.closest('.pc'):null;if(!c||c.classList.contains('oos-card'))return;const r=c.getBoundingClientRect();const ry=((e.clientX-r.left)/r.width-.5)*10;const rx=-((e.clientY-r.top)/r.height-.5)*10;c.style.setProperty('--rx',rx.toFixed(2)+'deg');c.style.setProperty('--ry',ry.toFixed(2)+'deg');},{passive:true});
 function toggleSound(){
   soundEnabled=!soundEnabled;
   localStorage.setItem('curaSound',soundEnabled?'on':'off');
@@ -795,7 +878,7 @@ function setForm(f){if(!f)return;Object.keys(f).forEach(k=>{if(k==='gender'){con
 function autoSave(){clearTimeout(_autoSaveTimer);_autoSaveTimer=setTimeout(saveState,100);}
 function saveState(){try{state.form=getForm();const ess=document.getElementById('essSearch');state.sq=ess?ess.value:'';localStorage.setItem(SK,JSON.stringify(state));updateCartPill();}catch(e){}}
 function restoreState(){const raw=localStorage.getItem(SK);if(!raw)return false;try{const s=JSON.parse(raw);state={...state,...s};if(state.catAns===undefined)state.catAns='';ES.forEach(e=>{if(state.ess[e.id]===undefined)state.ess[e.id]=e.qty;});return true;}catch(e){return false;}}
-function updateCartPill(){const cart=document.getElementById('cartPill');const countEl=document.getElementById('cartCount');const totalEl=document.getElementById('cartTotal');if(!cart||!countEl||!totalEl)return;let count=0,total=0;SO.forEach(sid=>{if(sid==='gloves'&&state.gSz){count+=1;total+=GLOVE_PRICE;}else if(state.sel[sid]&&Array.isArray(state.sel[sid])){state.sel[sid].forEach(s=>{count+=s.qty;const item=PD[sid]&&PD[sid].items.find(i=>i.id===s.id);if(item)total+=item.price*s.qty;});}});if(state.essLive){ES.forEach(e=>{if(state.ess[e.id]>0){count+=state.ess[e.id];total+=e.price*state.ess[e.id];}});}countEl.textContent=count;totalEl.textContent='EGP '+total.toLocaleString();cart.classList.toggle('empty',count===0);}
+function updateCartPill(){const cart=document.getElementById('cartPill');const countEl=document.getElementById('cartCount');const totalEl=document.getElementById('cartTotal');if(!cart||!countEl||!totalEl)return;let count=0,total=0;SO.forEach(sid=>{if(sid==='gloves'&&state.gSz){count+=1;total+=GLOVE_PRICE;}else if(state.sel[sid]&&Array.isArray(state.sel[sid])){state.sel[sid].forEach(s=>{count+=s.qty;const item=PD[sid]&&PD[sid].items.find(i=>i.id===s.id);if(item)total+=item.price*s.qty;});}});if(state.essLive){ES.forEach(e=>{if(state.ess[e.id]>0){count+=state.ess[e.id];total+=e.price*state.ess[e.id];}});}countEl.textContent=count;totalEl.textContent='EGP '+total.toLocaleString();cart.classList.toggle('empty',count===0);updateXPUI();}
 
 /* ═══ FLYING ANIMATION WITH PARTICLES + SOUND ═══ */
 function flyToCart(sourceEl){
@@ -863,11 +946,11 @@ SO.forEach(sid=>{if(PD[sid])renderGrid(sid);});renderEss();updateCartPill();}
 /* ═══ RENDER FUNCTIONS ═══ */
 function renderGrid(sid){const grid=document.getElementById(sid+'G');if(!grid)return;let h='';PD[sid].items.forEach(item=>{const isSel=state.sel[sid]&&Array.isArray(state.sel[sid])&&state.sel[sid].some(s=>s.id===item.id);const q=isSel?state.sel[sid].find(s=>s.id===item.id).qty||1:0;if(sid==='anesthesia'&&item.available===false){h+=`<div class="pc oos-card"><div class="pc-top"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pc-top-fb" style="display:none"><i class="fas fa-image"></i><span>${item.name}</span></div><span class="oos-badge">Out of Stock</span></div><div class="pc-body"><div class="pc-id">${item.id}</div><div class="pc-nm">${item.name}</div><div class="pc-ds">${item.desc||''}</div><div class="pc-bot"><span class="pc-pr">${item.price.toLocaleString()}<span class="pc-pr-cur">EGP</span></span></div></div></div>`;}else{h+=`<div class="pc ${isSel?'sel':''}" onclick="handleAdd('${sid}','${item.id}',this)"><div class="pc-top"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pc-top-fb" style="display:none"><i class="fas fa-image"></i><span>${item.name}</span></div></div><div class="pc-chk"><i class="fas fa-check"></i></div><div class="pc-body"><div class="pc-id">${item.id}</div><div class="pc-nm">${item.name}</div><div class="pc-ds">${item.desc||''}</div>${item.brand?`<div class="pc-brand">${item.brand}</div>`:''}<div class="pc-bot"><span class="pc-pr">${item.price.toLocaleString()}<span class="pc-pr-cur">EGP</span></span>${isSel?`<div class="pq"><button onclick="event.stopPropagation();cqPd('${sid}','${item.id}',-1)">−</button><span>${q}</span><button onclick="event.stopPropagation();cqPd('${sid}','${item.id}',1)">+</button></div>`:''}</div></div><button class="pc-add"><span class="pc-add-n"><i class="fas fa-plus"></i> Add to Package</span><span class="pc-add-d"><i class="fas fa-check"></i> Added</span></button></div>`;}});grid.innerHTML=h;}
 function handleAdd(sid,id,card){const wasSelected=state.sel[sid]&&Array.isArray(state.sel[sid])&&state.sel[sid].some(s=>s.id===id);if(!wasSelected&&card)flyToCart(card);else if(wasSelected)playRemoveSound();toggleSel(sid,id);}
-function toggleSel(sid,id){if(!state.sel[sid]||!Array.isArray(state.sel[sid]))state.sel[sid]=[];const idx=state.sel[sid].findIndex(s=>s.id===id);if(idx>-1){state.sel[sid].splice(idx,1);}else{const item=PD[sid].items.find(i=>i.id===id);const defQty=item.defQty||1;state.sel[sid].push({id:id,qty:defQty});showToast('✅ تمت إضافة: '+item.name);}renderGrid(sid);updateStepState(sid);autoSave();updateCartPill();}
+function toggleSel(sid,id){if(!state.sel[sid]||!Array.isArray(state.sel[sid]))state.sel[sid]=[];const idx=state.sel[sid].findIndex(s=>s.id===id);if(idx>-1){state.sel[sid].splice(idx,1);}else{const item=PD[sid].items.find(i=>i.id===id);const defQty=item.defQty||1;state.sel[sid].push({id:id,qty:defQty});showToast('✅ تمت إضافة: '+item.name);addXP(10);}renderGrid(sid);updateStepState(sid);autoSave();updateCartPill();}
 function cqPd(sid,id,d){if(!state.sel[sid]||!Array.isArray(state.sel[sid]))return;const it=state.sel[sid].find(x=>x.id===id);if(!it)return;it.qty=Math.max(1,it.qty+d);const item=PD[sid].items.find(i=>i.id===id);if(d>0)showToast('➕ تم زيادة كمية: '+item.name+' ('+it.qty+')');renderGrid(sid);autoSave();updateCartPill();}
 function renderEss(){const grid=document.getElementById('essG');if(!grid)return;let h='';const essInput=document.getElementById('essSearch');const search=(essInput?essInput.value:'').toLowerCase();let i=0;ES.forEach(item=>{if(search&&!item.name.toLowerCase().includes(search))return;const q=state.ess[item.id]||0;const isRm=q===0;const safeItem=JSON.stringify(item).replace(/"/g,'&quot;');h+=`<div class="ei ${isRm?'rm':''}" style="--d:${i*22}ms" onclick="openDetail(${safeItem},'ess','${item.id}')"><div class="ei-im"><img src="${IP}${item.img}" alt="${item.name}" onerror="this.style.display='none'"/></div><div class="ei-if"><div class="ei-id">${item.id}</div><div class="ei-nm">${item.name}</div><div class="ei-pr">${item.price.toLocaleString()} EGP</div></div><div class="ei-ac" onclick="event.stopPropagation()">${isRm?`<button class="ei-rm" onclick="event.stopPropagation();restoreEssItem('${item.id}')"><i class="fas fa-rotate-left"></i></button>`:`<button onclick="event.stopPropagation();essCh('${item.id}',-1)">−</button><span class="ei-qt">${q}</span><button onclick="event.stopPropagation();essCh('${item.id}',1)">+</button><button class="ei-rm" onclick="event.stopPropagation();removeEssItem('${item.id}')"><i class="fas fa-xmark"></i></button>`}</div></div>`;i++;});grid.innerHTML=h;updateCartPill();}
-function essCh(id,d){if(!state.ess[id]||state.ess[id]<=0)return;state.ess[id]=Math.max(1,state.ess[id]+d);const item=ES.find(e=>e.id===id);if(d>0)showToast('✅ تمت إضافة: '+item.name+' ('+state.ess[id]+' قطعة)');renderEss();autoSave();}
-function setGS(sz){playClickSound();state.gSz=sz;state.gSk=false;document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===sz));const b=document.getElementById('gSkB');if(b)b.classList.remove('on');updateStepState('gloves');autoSave();}
+function essCh(id,d){if(!state.ess[id]||state.ess[id]<=0)return;state.ess[id]=Math.max(1,state.ess[id]+d);const item=ES.find(e=>e.id===id);if(d>0)showToast('✅ تمت إضافة: '+item.name+' ('+state.ess[id]+' قطعة)');if(d>0)addXP(2);renderEss();autoSave();}
+function setGS(sz){playClickSound();state.gSz=sz;state.gSk=false;document.querySelectorAll('.gl-ch').forEach(c=>c.classList.toggle('on',c.dataset.sz===sz));const b=document.getElementById('gSkB');if(b)b.classList.remove('on');updateStepState('gloves');addXP(10);autoSave();}
 function skipG(){state.gSk=true;state.gSz='';document.querySelectorAll('.gl-ch').forEach(c=>c.classList.remove('on'));const b=document.getElementById('gSkB');if(b)b.classList.add('on');showToast(SKIP_MSG.gloves);goNext('gloves');}
 function skipSec(sid){state.sel[sid]='skip';showToast(SKIP_MSG[sid]||'تم تخطي الخطوة');goNext(sid);}
 /* ═══ CATALYST STEP LOGIC ═══ */
@@ -884,7 +967,7 @@ function renderReview(){const rvInfo=document.getElementById('rvInfo');if(!rvInf
 /* ═══ CHECKOUT ═══ */
 function initiateCheckout(){const ov=document.getElementById('chkOv');const box=document.getElementById('chkBox');if(!ov||!box)return;ov.classList.add('open');box.innerHTML=`<div class="chk-icon"><i class="fas fa-file-pdf"></i></div><div class="chk-title">طباعة الفاتورة</div><div class="chk-desc">أنت دلوقتي هتطبع الفاتورة وتعمل لها تنزيل كـ PDF. دوس على الزرار ده علشان تفتح الفاتورة وتطبعتها.</div><button class="chk-btn chk-btn-print" onclick="printInvoice()"><i class="fas fa-print"></i> طباعة وتنزيل الفاتورة</button><button class="chk-btn chk-btn-skip" onclick="closeCheckout()">رجوع</button>`;}
 function closeCheckout(){const ov=document.getElementById('chkOv');if(ov)ov.classList.remove('open');}
-function printInvoice(){const f=getForm();let total=0;const items=[];const invoiceCounter=(parseInt(localStorage.getItem('curaInvoiceCounter')||'0')+1);localStorage.setItem('curaInvoiceCounter',invoiceCounter.toString());const invoiceNumber='CURA-'+invoiceCounter.toString().padStart(5,'0');const invoiceDate=new Date().toLocaleString('ar-EG',{year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});SO.forEach(sid=>{if(sid==='gloves'&&state.gSz){items.push({id:'GLV-'+state.gSz,category:'Gloves',name:`Gloves (Size: ${state.gSz})`,variation:state.gSz,qty:1,price:GLOVE_PRICE,total:GLOVE_PRICE,brand:''});total+=GLOVE_PRICE;}else if(state.sel[sid]&&Array.isArray(state.sel[sid])){state.sel[sid].forEach(s=>{let name=s.id,price=0,brand='';if(PD[sid]){const item=PD[sid].items.find(i=>i.id===s.id);if(item){name=item.name;price=item.price;brand=item.brand||'';}}items.push({id:s.id,category:PD[sid]?PD[sid].title:sid,name,variation:'',qty:s.qty,price,total:price*s.qty,brand});total+=price*s.qty;});}});ES.forEach(e=>{if(state.ess[e.id]>0){items.push({id:e.id,category:'الأدوات الأساسية',name:e.name,variation:e.note||'',qty:state.ess[e.id],price:e.price,total:e.price*state.ess[e.id],brand:''});total+=e.price*state.ess[e.id];}});const invoiceData={invoiceNumber,invoiceDate,isoDate:new Date().toISOString(),customer:{name:f['f-name']||'',phone:f['f-phone']||'',altPhone:f['f-alt']||'',gender:f.gender||'',gov:f['f-gov']||'',city:f['f-city']||'',address:f['f-addr']||'',landmark:f['f-land']||'',notes:f['f-notes']||''},items,itemsCount:items.length,pieces:items.reduce((s,i)=>s+i.qty,0),subtotal:total,total,currency:'EGP',generatedAt:new Date().toISOString()};localStorage.setItem('curaInvoice',JSON.stringify(invoiceData));window.open(location.pathname+'?view=invoice','_blank');const box=document.getElementById('chkBox');if(box){box.innerHTML=`<div class="chk-icon wa"><i class="fab fa-whatsapp"></i></div><div class="chk-title">تأكيد الطلب</div><div class="chk-desc">دلوقتي باقي بس تتأكد من الأوردر وتتواصل مع مسؤول التأكيد. دوس على الزرار ده علشان نبعتلك كل التفاصيل على واتساب.</div><button class="chk-btn chk-btn-wa" onclick="goToWhatsApp()"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب للتأكيد</button><button class="chk-btn chk-btn-skip" onclick="closeCheckout()">تم بنجاح</button>`;}}
+function printInvoice(){const f=getForm();let total=0;const items=[];const invoiceCounter=(parseInt(localStorage.getItem('curaInvoiceCounter')||'0')+1);localStorage.setItem('curaInvoiceCounter',invoiceCounter.toString());const invoiceNumber='CURA-'+invoiceCounter.toString().padStart(5,'0');const invoiceDate=new Date().toLocaleString('ar-EG',{year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});SO.forEach(sid=>{if(sid==='gloves'&&state.gSz){items.push({id:'GLV-'+state.gSz,category:'Gloves',name:`Gloves (Size: ${state.gSz})`,variation:state.gSz,qty:1,price:GLOVE_PRICE,total:GLOVE_PRICE,brand:''});total+=GLOVE_PRICE;}else if(state.sel[sid]&&Array.isArray(state.sel[sid])){state.sel[sid].forEach(s=>{let name=s.id,price=0,brand='';if(PD[sid]){const item=PD[sid].items.find(i=>i.id===s.id);if(item){name=item.name;price=item.price;brand=item.brand||'';}}items.push({id:s.id,category:PD[sid]?PD[sid].title:sid,name,variation:'',qty:s.qty,price,total:price*s.qty,brand});total+=price*s.qty;});}});ES.forEach(e=>{if(state.ess[e.id]>0){items.push({id:e.id,category:'الأدوات الأساسية',name:e.name,variation:e.note||'',qty:state.ess[e.id],price:e.price,total:e.price*state.ess[e.id],brand:''});total+=e.price*state.ess[e.id];}});const invoiceData={invoiceNumber,invoiceDate,isoDate:new Date().toISOString(),customer:{name:f['f-name']||'',phone:f['f-phone']||'',altPhone:f['f-alt']||'',gender:f.gender||'',gov:f['f-gov']||'',city:f['f-city']||'',address:f['f-addr']||'',landmark:f['f-land']||'',notes:f['f-notes']||''},items,itemsCount:items.length,pieces:items.reduce((s,i)=>s+i.qty,0),subtotal:total,total,currency:'EGP',generatedAt:new Date().toISOString()};localStorage.setItem('curaInvoice',JSON.stringify(invoiceData));window.open(location.pathname+'?view=invoice','_blank');celebrate();unlockAch('checkout');if(total>=10000)unlockAch('big_order');const box=document.getElementById('chkBox');if(box){box.innerHTML=`<div class="chk-icon wa"><i class="fab fa-whatsapp"></i></div><div class="chk-title">تأكيد الطلب</div><div class="chk-desc">دلوقتي باقي بس تتأكد من الأوردر وتتواصل مع مسؤول التأكيد. دوس على الزرار ده علشان نبعتلك كل التفاصيل على واتساب.</div><button class="chk-btn chk-btn-wa" onclick="goToWhatsApp()"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب للتأكيد</button><button class="chk-btn chk-btn-skip" onclick="closeCheckout()">تم بنجاح</button>`;}}
 function goToWhatsApp(){let msg='🌟 *طلب جديد من Cura Store* 🌟\n\n';const invoiceCounter=parseInt(localStorage.getItem('curaInvoiceCounter')||'0');const invoiceNumber='CURA-'+invoiceCounter.toString().padStart(5,'0');msg+=`🧾 *رقم الفاتورة:* ${invoiceNumber}\n\n`;SO.forEach(sid=>{if(sid==='gloves'&&state.gSz){msg+=`🧤 Gloves (${state.gSz}) - 1 قطعة - ${GLOVE_PRICE} EGP\n`;}else if(state.sel[sid]&&Array.isArray(state.sel[sid])){msg+=`\n*${PD[sid]?PD[sid].title:''}:*\n`;state.sel[sid].forEach(s=>{let name=s.id,price=0;if(PD[sid]){const item=PD[sid].items.find(i=>i.id===s.id);if(item){name=item.name;price=item.price;}}msg+=`▪️ ${name} (${s.qty}x) - ${price*s.qty} EGP\n`;});}});let essAdded=false;ES.forEach(e=>{if(state.ess[e.id]>0){if(!essAdded){msg+='\n*الأدوات الأساسية:*\n';essAdded=true;}msg+=`▪️ ${e.name} (${state.ess[e.id]}x) - ${e.price*state.ess[e.id]} EGP\n`;}});const f=getForm();msg+=`\n*بيانات التوصيل:*\n👤 الاسم: ${f['f-name']||'-'}\n📱 الموبايل: ${f['f-phone']||'-'}\n📍 المحافظة: ${f['f-gov']||'-'}\n🏠 العنوان: ${f['f-addr']||'-'}\n`;window.open(`https://wa.me/201000000000?text=${encodeURIComponent(msg)}`,'_blank');closeCheckout();}
 
 /* ═══════════════════════════════════════════
@@ -1006,8 +1089,8 @@ if(c.landmark)custData.push(['Landmark',trunc(c.landmark,25)]);
 custData.forEach(r=>{
 doc.setFontSize(8);doc.setTextColor(100,116,139);setFont(doc,'normal',false);
 doc.text(r[0]+':',M+5,cy);
-doc.setTextColor(10,15,30);setFont(doc,'bold',false);
-doc.text(String(r[1]),M+colW-5,cy,{align:'right'});
+doc.setTextColor(10,15,30);setFont(doc,'bold',useAr);
+arText(doc,String(r[1]),M+colW-5,cy,{align:'right'},useAr);
 cy+=5.5;
 });
 doc.setFillColor(250,250,249);doc.roundedRect(M+colW+8,y,colW,boxH,3,3,'F');
