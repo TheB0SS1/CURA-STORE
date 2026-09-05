@@ -423,7 +423,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-r
 <div class="loading-progress"><div class="loading-progress-bar" id="loadingBar"></div></div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 const IP='';
 const GLOVE_PRICE=180;
@@ -504,7 +504,7 @@ excavator:{title:'Excavator',icon:'fa-screwdriver',items:[
 }}
 };
 const ER=[
-['RST-001','Temporary Restoration','--001.jpg',75,1,''],['DIA-001','Articulating Paper 12pcs','--002.jpg',100,1,''],['STE-001','Alcohol','--003.jpg',50,1,''],['MAT-001','Catalyst','--004.jpg',525,1,''],['PPE-001','Mask','--005.jpg',50,1,''],['EQU-001','Adaptor','--006.jpg',800,1,''],['END-001','MTA','--007.jpg',45,1,''],['DIS-001','Cotton Rolls','Cotton Rolls.jpg',17,1,''],['DIS-002','Kidney Dish','--011.jpg',50,1,''],['PRS-001','Retraction Cord','--012.jpg',125,1,''],['DIS-003','Gauze','--008.jpg',40,1,''],['DIS-004','Disposable Tray','--014.jpg',275,1,''],['RST-002','Flowable Composite','--017.jpg',290,1,''],['END-002','Resin Sealer','--021.jpg',305,1,''],['PRS-003','Self-Adhesive Resin Cement','--025.jpg',990,1,''],['IMP-003','Green Stick Compound','--026.jpg',285,1,''],['DIS-005','Wrapping Film','--029.jpg',160,1,''],['END-003','Endo Sponge','--033.jpg',10,1,''],['DIS-006','Plastic Instrument Tray','--034.jpg',280,1,''],['DIS-007','Plastic Cup','--035.jpg',27,1,''],['SUR-001','Topical Anesthetic Gel','--036.jpg',35,1,''],['SUR-002','Metal Syringe','--037.jpg',185,1,''],['STE-002','Sterilization Pouch (5x10)','--042.jpg',230,1,'Size 9'],['DIA-004','Caries Detector','--043.jpg',240,1,''],['FIN-001','Polishing Paste','--044.jpg',75,1,''],['INS-001','Metal Sectional Tray','--045.jpg',15,1,''],['INS-002','Single-Sided Retractor','--046.jpg',18,1,''],['FIN-002','Polishing Brush Bur','--047.jpg',2.5,15,'15 pcs'],['DIS-008','Plastic Syringe (100 pcs)','--050.jpg',140,1,''],['RST-010','Light Cure GIC Capsules','--051.jpg',155,1,''],['DIS-009','Napkin','--052.jpg',71,1,''],['STE-003','Sterilization Pouch (2.25x5)','--053.jpg',85,1,'SMALL'],['PPE-002','Dental Floss','--054.jpg',30,1,''],['DIS-010','Air-Water Plastic Tips','--055.jpg',210,1,''],['STE-004','Sterilization Pouch (4.33x10)','--056.jpg',220,1,'Size 13'],['SUR-005','Injection Needle (Short)','--058.jpg',225,1,'Chinese'],['SUR-005L','Long Needle','--058.jpg',225,1,'Long needle'],['PPE-005','Over Gloves','--062.jpg',12,1,''],['RST-011','Acid Etchant','--063.jpg',80,1,''],['PRS-006','Temporary Cement','--064.jpg',380,1,''],['RST-012','Glass Ionomer Cement (GIC)','--065.jpg',550,1,''],['FIN-004','Finishing Strip','--072.jpg',85,1,''],['DIS-011','Plastic Suction Tips','--075.jpg',90,1,''],['RST-014','Enamel Shade','--076.jpg',145,1,''],['RST-015','Dentin Shade','--077.jpg',155,1,''],['PPE-006','Overhead (100 pcs)','--079.jpg',35,1,''],['INS-006','Metal Scissors','--083.jpg',55,1,''],['PRS-007','Wax Carver','--084.jpg',33,1,''],['PRS-008','Wax Knife','--085.jpg',33,1,''],['SUR-006','Lancet Holder','--086.jpg',30,1,''],['SUR-007','Lancet Blade No. 15','--087.jpg',2.5,1,'Per piece'],['INS-007','Tweezer','tweezer.jpg',45,3,'3 pieces'],['END-004','Endodontic Ruler','--090.jpg',40,1,''],['PRS-009','Retraction Cord Applicator','--091.jpg',70,1,''],['IMP-006','Dentulous Metal Tray Size 2','--092.jpg',15,1,''],['IMP-007','Dentulous Metal Tray Size 3','--093.jpg',15,1,''],['END-005','Gutta-Percha (15-45)','--094.jpg',110,1,''],['END-006','Gutta-Percha (45-80)','--095.jpg',110,1,''],['IMP-008','Medium Body Silicone (Silaxil)','--097.jpg',530,1,''],['END-007','H-File (15-40)','--098.jpg',70,1,''],['END-008','H-File (45-80)','--099.jpg',70,1,''],['END-009','K-File (15-40)','--100.jpg',70,1,''],['END-010','K-File (45-80)','--101.jpg',70,1,''],['RST-018','Celluloid Strip','--103.jpg',12,1,''],['END-011','K-File No. 10','--104.jpg',70,1,''],['END-012','K-File No. 8','--105.jpg',70,1,''],['ORT-002','Adams Pliers','--107.jpg',190,1,''],['ORT-003','Orthodontic Wire','--108.jpg',5,10,'Per wire'],['ORT-004','Loop Former','--109.jpg',190,1,''],['ORT-005','Cutter Pliers','--110.jpg',80,1,''],['FIN-005','Cutting Stones','--111.jpg',8,5,''],['FIN-006','Finishing Stones','--112.jpg',8,5,''],['FIN-007','Carbide Burs','--113.jpg',40,8,''],['STE-006','Gas','--013.jpg',48,1,''],
+['RST-001','Temporary Restoration','--001.jpg',75,1,''],['DIA-001','Articulating Paper 12pcs','--002.jpg',100,1,''],['STE-001','Alcohol','--003.jpg',50,1,''],['MAT-001','Catalyst','--004.jpg',525,1,''],['PPE-001','Mask','--005.jpg',50,1,''],['EQU-001','Adaptor','--006.jpg',800,1,''],['END-001','MTA','--007.jpg',45,1,''],['DIS-001','Cotton Rolls','Cotton Rolls.jpg',17,1,''],['DIS-002','Kidney Dish','--011.jpg',50,1,''],['PRS-001','Retraction Cord','--012.jpg',125,1,''],['DIS-003','Gauze','--008.jpg',40,1,''],['DIS-004','Disposable Tray','--014.jpg',275,1,''],['RST-002','Flowable Composite','--017.jpg',290,1,''],['END-002','Resin Sealer','--021.jpg',305,1,''],['PRS-003','Self-Adhesive Resin Cement','--025.jpg',850,1,''],['IMP-003','Green Stick Compound','--026.jpg',285,1,''],['DIS-005','Wrapping Film','--029.jpg',160,1,''],['END-003','Endo Sponge','--033.jpg',10,1,''],['DIS-006','Plastic Instrument Tray','--034.jpg',280,1,''],['DIS-007','Plastic Cup','--035.jpg',27,1,''],['SUR-001','Topical Anesthetic Gel','--036.jpg',35,1,''],['SUR-002','Metal Syringe','--037.jpg',185,1,''],['STE-002','Sterilization Pouch (5x10)','--042.jpg',230,1,'Size 9'],['DIA-004','Caries Detector','--043.jpg',240,1,''],['FIN-001','Polishing Paste','--044.jpg',75,1,''],['INS-001','Metal Sectional Tray','--045.jpg',15,1,''],['INS-002','Single-Sided Retractor','--046.jpg',18,1,''],['FIN-002','Polishing Brush Bur','--047.jpg',2.5,15,'15 pcs'],['DIS-008','Plastic Syringe (100 pcs)','--050.jpg',140,1,''],['RST-010','Light Cure GIC Capsules','--051.jpg',155,1,''],['DIS-009','Napkin','--052.jpg',71,1,''],['STE-003','Sterilization Pouch (2.25x5)','--053.jpg',85,1,'SMALL'],['PPE-002','Dental Floss','--054.jpg',30,1,''],['DIS-010','Air-Water Plastic Tips','--055.jpg',210,1,''],['STE-004','Sterilization Pouch (4.33x10)','--056.jpg',220,1,'Size 13'],['SUR-005','Injection Needle (Short)','--058.jpg',225,1,'Chinese'],['SUR-005L','Long Needle','--058.jpg',225,1,'Long needle'],['PPE-005','Over Gloves','--062.jpg',12,1,''],['RST-011','Acid Etchant','--063.jpg',80,1,''],['PRS-006','Temporary Cement','--064.jpg',380,1,''],['RST-012','Glass Ionomer Cement (GIC)','--065.jpg',550,1,''],['FIN-004','Finishing Strip','--072.jpg',85,1,''],['DIS-011','Plastic Suction Tips','--075.jpg',90,1,''],['RST-014','Enamel Shade','--076.jpg',145,1,''],['RST-015','Dentin Shade','--077.jpg',155,1,''],['PPE-006','Overhead (100 pcs)','--079.jpg',35,1,''],['INS-006','Metal Scissors','--083.jpg',55,1,''],['PRS-007','Wax Carver','--084.jpg',33,1,''],['PRS-008','Wax Knife','--085.jpg',33,1,''],['SUR-006','Lancet Holder','--086.jpg',30,1,''],['SUR-007','Lancet Blade No. 15','--087.jpg',2.5,1,'Per piece'],['INS-007','Tweezer','tweezer.jpg',45,3,'3 pieces'],['END-004','Endodontic Ruler','--090.jpg',40,1,''],['PRS-009','Retraction Cord Applicator','--091.jpg',70,1,''],['IMP-006','Dentulous Metal Tray Size 2','--092.jpg',15,1,''],['IMP-007','Dentulous Metal Tray Size 3','--093.jpg',15,1,''],['END-005','Gutta-Percha (15-45)','--094.jpg',110,1,''],['END-006','Gutta-Percha (45-80)','--095.jpg',110,1,''],['IMP-008','Medium Body Silicone (Silaxil)','--097.jpg',530,1,''],['END-007','H-File (15-40)','--098.jpg',70,1,''],['END-008','H-File (45-80)','--099.jpg',70,1,''],['END-009','K-File (15-40)','--100.jpg',70,1,''],['END-010','K-File (45-80)','--101.jpg',70,1,''],['RST-018','Celluloid Strip','--103.jpg',12,1,''],['END-011','K-File No. 10','--104.jpg',70,1,''],['END-012','K-File No. 8','--105.jpg',70,1,''],['ORT-002','Adams Pliers','--107.jpg',190,1,''],['ORT-003','Orthodontic Wire','--108.jpg',5,10,'Per wire'],['ORT-004','Loop Former','--109.jpg',190,1,''],['ORT-005','Cutter Pliers','--110.jpg',80,1,''],['FIN-005','Cutting Stones','--111.jpg',8,5,''],['FIN-006','Finishing Stones','--112.jpg',8,5,''],['FIN-007','Carbide Burs','--113.jpg',40,8,''],['STE-006','Gas','--013.jpg',48,1,''],
 ['END-013','Endo Z Bur — Low Speed','--116.jpg',85,1,''],['END-014','Endo Z Bur — High Speed','--116.jpg',35,1,'']
 ];
 const ES=ER.map(e=>({id:e[0],name:e[1],img:e[2],price:e[3],qty:e[4],note:e[5]}));
@@ -518,7 +518,6 @@ state.ess['END-013']=1;
 state.ess['END-014']=1;
 let _toastTimer,_autoSaveTimer;
 let _pdfBlob=null,_pdfFileName='';
-let _arabicFontLoaded=false,_arabicFontBase64=null;
 
 function showToast(msg){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');clearTimeout(_toastTimer);_toastTimer=setTimeout(()=>t.classList.remove('show'),2400);}
 function newOrder(){if(confirm('Start a new order? All current data will be cleared.')){localStorage.removeItem(SK);location.reload();}}
@@ -582,90 +581,6 @@ state.cur=idx+1;autoSave();showStep(state.cur);buildMissionMap();}
 function goBack(){if(state.cur===0)return;state.cur--;autoSave();showStep(state.cur);buildMissionMap();}
 function renderReview(){const rvInfo=document.getElementById('rvInfo');if(!rvInfo)return;rvInfo.innerHTML='';const f=getForm();rvInfo.innerHTML=`<div class="rr"><span class="rl">الاسم</span><span class="rv">${f['f-name']||'-'}</span></div><div class="rr"><span class="rl">رقم الموبايل</span><span class="rv">${f['f-phone']||'-'}</span></div><div class="rr"><span class="rl">موبايل بديل</span><span class="rv">${f['f-alt']||'-'}</span></div><div class="rr"><span class="rl">المحافظة</span><span class="rv">${GOV_AR[f['f-gov']]||f['f-gov']||'-'}</span></div><div class="rr"><span class="rl">المدينة</span><span class="rv">${f['f-city']||'-'}</span></div><div class="rr"><span class="rl">العنوان</span><span class="rv">${f['f-addr']||'-'}</span></div>${f['f-land']?`<div class="rr"><span class="rl">علامة مميزة</span><span class="rv">${f['f-land']}</span></div>`:''}${f['f-notes']?`<div class="rr"><span class="rl">ملاحظات</span><span class="rv">${f['f-notes']}</span></div>`:''}`;const rvItems=document.getElementById('rvItems');if(!rvItems)return;let h=`<thead><tr><th>#</th><th style="text-align:right">Item</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead><tbody>`;let total=0;let rn=0;SO.forEach(sid=>{if(sid==='gloves'&&state.gSz){rn++;h+=`<tr><td>${rn}</td><td class="item-name">Gloves (${state.gSz})</td><td>1</td><td>${GLOVE_PRICE}</td><td>${GLOVE_PRICE}</td></tr>`;total+=GLOVE_PRICE;}else if(state.sel[sid]&&Array.isArray(state.sel[sid])){state.sel[sid].forEach(s=>{rn++;let name=s.id,price=0;const item=findItemById(sid,s.id);if(item){name=item.name;price=item.price;}h+=`<tr><td>${rn}</td><td class="item-name">${name}</td><td>${s.qty}</td><td>${price.toLocaleString()}</td><td>${(price*s.qty).toLocaleString()}</td></tr>`;total+=price*s.qty;});}});ES.forEach(e=>{if(state.ess[e.id]>0){rn++;h+=`<tr><td>${rn}</td><td class="item-name">${e.name}</td><td>${state.ess[e.id]}</td><td>${e.price.toLocaleString()}</td><td>${(e.price*state.ess[e.id]).toLocaleString()}</td></tr>`;total+=e.price*state.ess[e.id];}});h+=`<tr class="gr"><td colspan="4">Grand Total</td><td>${total.toLocaleString()} EGP</td></tr></tbody>`;rvItems.innerHTML=h;}
 
-/* ===================== ARABIC RESHAPER ===================== */
-function reshapeArabic(text) {
-  if (!text) return text;
-  const ARABIC_CHARS = {
-    '\u0621':[\uFE80,\uFE80,\uFE80,\uFE80],'\u0622':[\uFE81,\uFE81,\uFE82,\uFE82],
-    '\u0623':[\uFE83,\uFE83,\uFE84,\uFE84],'\u0624':[\uFE85,\uFE85,\uFE86,\uFE86],
-    '\u0625':[\uFE87,\uFE87,\uFE88,\uFE88],'\u0626':[\uFE89,\uFE8A,\uFE8B,\uFE8C],
-    '\u0627':[\uFE8D,\uFE8E,\uFE8D,\uFE8E],'\u0628':[\uFE8F,\uFE90,\uFE91,\uFE92],
-    '\u0629':[\uFE93,\uFE94,\uFE93,\uFE94],'\u062A':[\uFE95,\uFE96,\uFE97,\uFE98],
-    '\u062B':[\uFE99,\uFE9A,\uFE9B,\uFE9C],'\u062C':[\uFE9D,\uFE9E,\uFE9F,\uFEA0],
-    '\u062D':[\uFEA1,\uFEA2,\uFEA3,\uFEA4],'\u062E':[\uFEA5,\uFEA6,\uFEA7,\uFEA8],
-    '\u062F':[\uFEA9,\uFEAA,\uFEA9,\uFEAA],'\u0630':[\uFEAB,\uFEAC,\uFEAB,\uFEAC],
-    '\u0631':[\uFEAD,\uFEAE,\uFEAD,\uFEAE],'\u0632':[\uFEAF,\uFEB0,\uFEAF,\uFEB0],
-    '\u0633':[\uFEB1,\uFEB2,\uFEB3,\uFEB4],'\u0634':[\uFEB5,\uFEB6,\uFEB7,\uFEB8],
-    '\u0635':[\uFEB9,\uFEBA,\uFEBB,\uFEBC],'\u0636':[\uFEBD,\uFEBE,\uFEBF,\uFEC0],
-    '\u0637':[\uFEC1,\uFEC2,\uFEC3,\uFEC4],'\u0638':[\uFEC5,\uFEC6,\uFEC7,\uFEC8],
-    '\u0639':[\uFEC9,\uFECA,\uFECB,\uFECC],'\u063A':[\uFECD,\uFECE,\uFECF,\uFED0],
-    '\u0640':[\u0640,\u0640,\u0640,\u0640],
-    '\u0641':[\uFED1,\uFED2,\uFED3,\uFED4],'\u0642':[\uFED5,\uFED6,\uFED7,\uFED8],
-    '\u0643':[\uFED9,\uFEDA,\uFEDB,\uFEDC],'\u0644':[\uFEDD,\uFEDE,\uFEDF,\uFEE0],
-    '\u0645':[\uFEE1,\uFEE2,\uFEE3,\uFEE4],'\u0646':[\uFEE5,\uFEE6,\uFEE7,\uFEE8],
-    '\u0647':[\uFEE9,\uFEEA,\uFEEB,\uFEEC],'\u0648':[\uFEED,\uFEEE,\uFEED,\uFEEE],
-    '\u0649':[\uFEEF,\uFEF0,\uFEEF,\uFEF0],'\u064A':[\uFEF1,\uFEF2,\uFEF3,\uFEF4],
-    '\u0624':[\uFE85,\uFE85,\uFE86,\uFE86],'\u0629':[\uFE93,\uFE94,\uFE93,\uFE94]
-  };
-  const NON_CONNECTING = new Set([
-    '\u0622','\u0623','\u0624','\u0625','\u0627','\u062F','\u0630','\u0631','\u0632',
-    '\u0648','\u0649','\u0621'
-  ]);
-  function isArabic(ch) {
-    const code = ch.charCodeAt(0);
-    return (code >= 0x0621 && code <= 0x064A) || code === 0x0640;
-  }
-  function canConnectBefore(ch) {
-    return isArabic(ch) && !NON_CONNECTING.has(ch);
-  }
-  function canConnectAfter(ch) {
-    return isArabic(ch);
-  }
-  let result = '';
-  const chars = Array.from(text);
-  for (let i = 0; i < chars.length; i++) {
-    const ch = chars[i];
-    if (!isArabic(ch)) { result += ch; continue; }
-    const forms = ARABIC_CHARS[ch];
-    if (!forms) { result += ch; continue; }
-    const prev = i > 0 ? chars[i-1] : '';
-    const next = i < chars.length - 1 ? chars[i+1] : '';
-    const prevConnects = canConnectBefore(prev);
-    const nextConnects = canConnectAfter(next) && !NON_CONNECTING.has(ch);
-    let formIdx;
-    if (prevConnects && nextConnects) formIdx = 3;
-    else if (prevConnects) formIdx = 1;
-    else if (nextConnects) formIdx = 2;
-    else formIdx = 0;
-    result += String.fromCharCode(forms[formIdx]);
-  }
-  return result.split('').reverse().join('');
-}
-
-/* ===================== ARABIC FONT LOADER ===================== */
-async function loadArabicFont() {
-  if (_arabicFontLoaded && _arabicFontBase64) return _arabicFontBase64;
-  const fontUrls = [
-    'https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/amiri/Amiri-Regular.ttf',
-    'https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/amiri@master/Amiri-Regular.ttf',
-    'https://fonts.gstatic.com/s/amiri/v27/J7aRnpd8CGxBHqUpvrIw76BL.ttf'
-  ];
-  for (const url of fontUrls) {
-    try {
-      const resp = await fetch(url, { mode: 'cors' });
-      if (!resp.ok) continue;
-      const buf = await resp.arrayBuffer();
-      const bytes = new Uint8Array(buf);
-      let binary = '';
-      for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
-      _arabicFontBase64 = btoa(binary);
-      _arabicFontLoaded = true;
-      return _arabicFontBase64;
-    } catch(e) { continue; }
-  }
-  throw new Error('Could not load Arabic font from any CDN');
-}
-
 /* ===================== INVOICE DATA BUILDER ===================== */
 let INV_DATA=null, INV_OFFICER=null;
 
@@ -725,420 +640,256 @@ function getOfficer(invData) {
   }
 }
 
-/* ===================== PDF GENERATION (jsPDF + AutoTable) ===================== */
-async function generateProfessionalPDF() {
-  if (!INV_DATA) throw new Error('No invoice data');
-  if (!window.jspdf) throw new Error('jsPDF not loaded');
-  if (!window.jspdf.jsPDF) throw new Error('jsPDF constructor not found');
-
-  const bar = document.getElementById('loadingBar');
-  const setProgress = (p) => { if(bar) bar.style.width = p+'%'; };
-  setProgress(10);
-
+/* ===================== INVOICE HTML BUILDER ===================== */
+function createInvoiceHTML() {
   const d = INV_DATA;
   const c = d.customer;
   const govAr = GOV_AR[c.gov] || c.gov || '—';
   const officer = INV_OFFICER;
 
-  // Load Arabic font
-  let arabicFont = null;
+  let itemsHTML = '';
+  d.items.forEach((it, i) => {
+    const nameStr = it.brand ? `${it.name} [${it.brand}]` : it.name;
+    const variationStr = it.variation ? `<br><small style="color:#64748b;font-size:9px">${it.variation}</small>` : '';
+    itemsHTML += `
+      <tr>
+        <td style="text-align:center;padding:6px 4px;border-bottom:1px solid #e2e8f0;font-size:10px;color:#64748b">${i+1}</td>
+        <td style="padding:6px 8px;border-bottom:1px solid #e2e8f0;font-size:11px;font-weight:500">${nameStr}${variationStr}</td>
+        <td style="text-align:center;padding:6px 4px;border-bottom:1px solid #e2e8f0;font-size:11px;font-weight:600;color:#0891b2">${it.qty}</td>
+        <td style="text-align:center;padding:6px 4px;border-bottom:1px solid #e2e8f0;font-size:11px">${it.price.toLocaleString()}</td>
+        <td style="text-align:right;padding:6px 8px;border-bottom:1px solid #e2e8f0;font-size:11px;font-weight:700">${it.total.toLocaleString()}</td>
+      </tr>
+    `;
+  });
+
+  return `
+    <div style="font-family:'Cairo',sans-serif;direction:rtl;width:794px;background:white;padding:20px;box-sizing:border-box">
+      <!-- Top Accent Bar -->
+      <div style="height:4px;background:linear-gradient(90deg,#0891b2,#d97706);margin:-20px -20px 20px"></div>
+      
+      <!-- Header -->
+      <div style="background:linear-gradient(135deg,#f0fdfa,#ffffff);border:1px solid #ccfbf1;border-radius:12px;padding:16px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:40px;height:40px;background:#0891b2;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:18px">C</div>
+          <div>
+            <div style="font-size:18px;font-weight:bold;color:#0f172a">CURA STORE</div>
+            <div style="font-size:9px;color:#64748b;letter-spacing:1px">PREMIUM DENTAL SUPPLIES</div>
+          </div>
+        </div>
+        <div style="text-align:left">
+          <div style="font-size:8px;color:#64748b;font-weight:600">DENTAL KIT INVOICE</div>
+          <div style="font-size:16px;font-weight:bold;color:#0f172a">#${d.invoiceNumber}</div>
+          <div style="font-size:9px;color:#475569">${d.orderDate} | ${d.orderTime}</div>
+          <div style="display:inline-block;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:20px;padding:2px 12px;margin-top:4px;font-size:8px;font-weight:600;color:#059669">ORDER CONFIRMED</div>
+        </div>
+      </div>
+
+      <!-- Customer & Order Info -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+        <!-- Customer Info -->
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px">
+          <div style="font-size:11px;font-weight:700;color:#0891b2;margin-bottom:10px;text-align:right">بيانات العميل</div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">الاسم</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">${c.name || '—'}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">رقم الهاتف</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">${c.phone || '—'}</span>
+            </div>
+            ${c.altPhone ? `<div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px"><span style="font-size:10px;color:#64748b">هاتف بديل</span><span style="font-size:11px;font-weight:600;color:#0f172a">${c.altPhone}</span></div>` : ''}
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">المحافظة</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">${govAr}</span>
+            </div>
+            ${c.city ? `<div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px"><span style="font-size:10px;color:#64748b">المدينة</span><span style="font-size:11px;font-weight:600;color:#0f172a">${c.city}</span></div>` : ''}
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">العنوان</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">${c.address || '—'}</span>
+            </div>
+            ${c.landmark ? `<div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#64748b">علامة مميزة</span><span style="font-size:11px;font-weight:600;color:#0f172a">${c.landmark}</span></div>` : ''}
+          </div>
+        </div>
+
+        <!-- Order Info -->
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px">
+          <div style="font-size:11px;font-weight:700;color:#0891b2;margin-bottom:10px;text-align:right">بيانات الطلب</div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">رقم الفاتورة</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.invoiceNumber}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">التاريخ</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.orderDate}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">الوقت</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.orderTime}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">عدد المنتجات</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.items.length} منتج</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">إجمالي القطع</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.pieces} قطعة</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
+              <span style="font-size:10px;color:#64748b">طريقة الدفع</span>
+              <span style="font-size:11px;font-weight:600;color:#0f172a">عند الاستلام</span>
+            </div>
+            <div style="display:flex;justify-content:space-between">
+              <span style="font-size:10px;color:#64748b">الحالة</span>
+              <span style="font-size:11px;font-weight:600;color:#059669">مؤكد ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      ${c.notes ? `
+      <!-- Notes -->
+      <div style="background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin-bottom:16px;text-align:right">
+        <div style="font-size:10px;font-weight:700;color:#713f12">ملاحظات: ${c.notes}</div>
+      </div>
+      ` : ''}
+
+      <!-- Products Table -->
+      <div style="margin-bottom:16px">
+        <table style="width:100%;border-collapse:collapse;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden">
+          <thead>
+            <tr style="background:#f1f5f9">
+              <th style="padding:8px 4px;text-align:center;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">#</th>
+              <th style="padding:8px;text-align:right;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">Product</th>
+              <th style="padding:8px 4px;text-align:center;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">Qty</th>
+              <th style="padding:8px 4px;text-align:center;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">Unit Price</th>
+              <th style="padding:8px 8px;text-align:right;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${itemsHTML}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Grand Total Banner -->
+      <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:2px solid #d97706;border-radius:10px;padding:14px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
+        <div style="text-align:right">
+          <div style="font-size:13px;font-weight:700;color:#0f172a">الإجمالي الكلي (${d.pieces} قطعة)</div>
+          <div style="font-size:9px;color:#78350f;margin-top:2px">جنيه مصري — الدفع عند الاستلام</div>
+        </div>
+        <div style="text-align:left">
+          <div style="font-size:22px;font-weight:700;color:#d97706">${d.total.toLocaleString()}</div>
+          <div style="font-size:10px;color:#78350f;font-weight:600">EGP</div>
+        </div>
+      </div>
+
+      ${officer ? `
+      <!-- Team Member -->
+      <div style="background:white;border:1px solid #e2e8f0;border-radius:10px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:14px;border-right:3px solid #0891b2">
+        <div style="width:36px;height:36px;background:#0891b2;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;flex-shrink:0">${officer.initial || '?'}</div>
+        <div style="flex:1">
+          <div style="font-size:12px;font-weight:700;color:#0f172a">${officer.name}</div>
+          <div style="font-size:8px;color:#0891b2;font-weight:700;letter-spacing:0.5px">${officer.role || 'DENTIST'}</div>
+        </div>
+        <div style="text-align:left">
+          <div style="font-size:8px;color:#64748b">مسؤول تأكيد الأوردر</div>
+          <div style="font-size:11px;font-weight:600;color:#0f172a">${officer.phone || ''}</div>
+        </div>
+      </div>
+      ` : ''}
+
+      <!-- Footer -->
+      <div style="border-top:1px solid #e2e8f0;padding-top:12px;margin-top:12px">
+        <div style="display:flex;justify-content:space-between;font-size:8px;color:#64748b">
+          <span>CURA STORE — Premium Dental Supplies</span>
+          <span>Electronic Invoice — Valid without signature or stamp</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:7px;color:#94a3b8;margin-top:4px">
+          <span>Generated: ${new Date().toISOString().slice(0,19).replace('T',' ')}</span>
+          <span style="font-weight:700;color:#059669">VERIFIED ORDER ✓</span>
+        </div>
+      </div>
+
+      <!-- Bottom Accent Bar -->
+      <div style="height:3px;background:#d97706;margin:12px -20px -20px"></div>
+    </div>
+  `;
+}
+
+/* ===================== PDF GENERATION (html2canvas + jsPDF) ===================== */
+async function generateProfessionalPDF() {
+  if (!INV_DATA) throw new Error('No invoice data');
+  if (!window.html2canvas) throw new Error('html2canvas not loaded');
+  if (!window.jspdf) throw new Error('jsPDF not loaded');
+
+  const bar = document.getElementById('loadingBar');
+  const setProgress = (p) => { if(bar) bar.style.width = p+'%'; };
+  setProgress(10);
+
+  // Create temporary container for invoice HTML
+  const container = document.createElement('div');
+  container.style.cssText = 'position:fixed;left:-9999px;top:0;width:794px;background:white;z-index:-1;';
+  container.innerHTML = createInvoiceHTML();
+  document.body.appendChild(container);
+
   try {
-    arabicFont = await loadArabicFont();
-  } catch(e) {
-    console.warn('Arabic font load failed, using fallback:', e);
-  }
-  setProgress(30);
+    setProgress(30);
 
-  const pdf = new window.jspdf.jsPDF({
-    unit: 'mm',
-    format: 'a4',
-    orientation: 'portrait',
-    compress: true
-  });
+    // Convert HTML to canvas
+    const canvas = await html2canvas(container, {
+      scale: 2,
+      useCORS: true,
+      logging: false,
+      backgroundColor: '#ffffff',
+      width: 794,
+      windowWidth: 794
+    });
 
-  const pageW = 210;
-  const pageH = 297;
-  const margin = 10;
-  const contentW = pageW - margin * 2;
+    setProgress(60);
 
-  // Register Arabic font if loaded
-  let useArabicFont = false;
-  if (arabicFont) {
-    try {
-      pdf.addFileToVFS('Amiri-Regular.ttf', arabicFont);
-      pdf.addFont('Amiri-Regular.ttf', 'Amiri', 'normal');
-      useArabicFont = true;
-    } catch(e) {
-      console.warn('Font registration failed:', e);
+    // Create PDF
+    const pdf = new window.jspdf.jsPDF({
+      unit: 'mm',
+      format: 'a4',
+      orientation: 'portrait',
+      compress: true
+    });
+
+    const pdfWidth = 210;
+    const pdfHeight = 297;
+    const imgData = canvas.toDataURL('image/jpeg', 0.95);
+    
+    // Calculate dimensions to fit on one page
+    const imgWidth = pdfWidth;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    
+    // If content is taller than page, scale it down
+    const scale = imgHeight > pdfHeight ? pdfHeight / imgHeight : 1;
+    const finalWidth = imgWidth * scale;
+    const finalHeight = imgHeight * scale;
+
+    pdf.addImage(imgData, 'JPEG', 0, 0, finalWidth, finalHeight);
+
+    setProgress(90);
+
+    // Verify PDF has content
+    const pdfOutput = pdf.output('blob');
+    if (!pdfOutput || pdfOutput.size === 0) {
+      throw new Error('Generated PDF is empty');
     }
+
+    _pdfBlob = pdfOutput;
+    _pdfFileName = 'Dental-Kit-Invoice-' + INV_DATA.invoiceNumber + '.pdf';
+
+    setProgress(100);
+    return _pdfBlob;
+
+  } finally {
+    // Clean up
+    document.body.removeChild(container);
   }
-  setProgress(40);
-
-  // Helper: Arabic text (reshaped if font available)
-  function ar(text) {
-    if (!text) return '';
-    if (useArabicFont) return reshapeArabic(text);
-    return text;
-  }
-
-  // Dynamic sizing based on item count
-  const itemCount = d.items.length;
-  let bodyFontSize, headFontSize, rowPadding, sectionFontSize;
-  if (itemCount > 70) { bodyFontSize=6; headFontSize=5.5; rowPadding=1.5; sectionFontSize=7; }
-  else if (itemCount > 50) { bodyFontSize=6.5; headFontSize=6; rowPadding=2; sectionFontSize=7.5; }
-  else if (itemCount > 35) { bodyFontSize=7; headFontSize=6.5; rowPadding=2.5; sectionFontSize=8; }
-  else if (itemCount > 20) { bodyFontSize=7.5; headFontSize=7; rowPadding=2.8; sectionFontSize=8.5; }
-  else { bodyFontSize=8; headFontSize=7.5; rowPadding=3; sectionFontSize=9; }
-
-  /* ===== HEADER ===== */
-  // Top accent bar
-  pdf.setFillColor(8, 145, 178);
-  pdf.rect(0, 0, pageW, 3, 'F');
-
-  // Header background
-  let y = 8;
-  pdf.setFillColor(240, 253, 250);
-  pdf.roundedRect(margin, y, contentW, 28, 2, 2, 'F');
-  pdf.setDrawColor(204, 251, 241);
-  pdf.roundedRect(margin, y, contentW, 28, 2, 2, 'S');
-
-  // Logo area
-  pdf.setFillColor(8, 145, 178);
-  pdf.roundedRect(margin+4, y+4, 10, 10, 1.5, 1.5, 'F');
-  pdf.setTextColor(255, 255, 255);
-  pdf.setFontSize(8);
-  pdf.setFont('helvetica','bold');
-  pdf.text('C', margin+9, y+11, {align:'center'});
-
-  pdf.setTextColor(15, 23, 42);
-  pdf.setFontSize(14);
-  pdf.setFont('helvetica','bold');
-  pdf.text('CURA STORE', margin+17, y+10);
-
-  pdf.setFontSize(5.5);
-  pdf.setFont('helvetica','normal');
-  pdf.setTextColor(100, 116, 139);
-  pdf.text('PREMIUM DENTAL SUPPLIES', margin+17, y+14.5);
-
-  // Invoice number (right side)
-  pdf.setFontSize(5);
-  pdf.setFont('helvetica','bold');
-  pdf.setTextColor(100, 116, 139);
-  pdf.text('DENTAL KIT INVOICE', pageW-margin-4, y+5, {align:'right'});
-
-  pdf.setFontSize(12);
-  pdf.setFont('helvetica','bold');
-  pdf.setTextColor(15, 23, 42);
-  pdf.text('#'+d.invoiceNumber, pageW-margin-4, y+11, {align:'right'});
-
-  pdf.setFontSize(6);
-  pdf.setFont('helvetica','normal');
-  pdf.setTextColor(71, 85, 105);
-  pdf.text(d.orderDate + ' | ' + d.orderTime, pageW-margin-4, y+15.5, {align:'right'});
-
-  // Status badge
-  pdf.setFillColor(236, 253, 245);
-  pdf.setDrawColor(167, 243, 208);
-  const badgeW = 32;
-  pdf.roundedRect(pageW-margin-4-badgeW, y+18, badgeW, 6, 3, 3, 'FD');
-  pdf.setFontSize(5);
-  pdf.setFont('helvetica','bold');
-  pdf.setTextColor(5, 150, 105);
-  pdf.text('ORDER CONFIRMED', pageW-margin-4-badgeW/2, y+22, {align:'center'});
-
-  y += 33;
-
-  /* ===== CUSTOMER & ORDER INFO ===== */
-  const infoH = 38;
-  const halfW = (contentW - 4) / 2;
-
-  // Customer info box
-  pdf.setFillColor(248, 250, 252);
-  pdf.setDrawColor(226, 232, 240);
-  pdf.roundedRect(margin, y, halfW, infoH, 2, 2, 'FD');
-
-  const arFontName = useArabicFont ? 'Amiri' : 'helvetica';
-  const sectionLabelSize = sectionFontSize - 1;
-
-  // Customer section title
-  pdf.setFontSize(sectionLabelSize);
-  pdf.setFont(arFontName, 'bold');
-  pdf.setTextColor(8, 145, 178);
-  pdf.text(ar('بيانات العميل'), margin+halfW-4, y+5, {align:'right'});
-
-  // Customer fields
-  const custFields = [
-    [ar('الاسم'), c.name],
-    [ar('رقم الهاتف'), c.phone],
-  ];
-  if (c.altPhone) custFields.push([ar('هاتف بديل'), c.altPhone]);
-  custFields.push([ar('المحافظة'), ar(govAr)]);
-  if (c.city) custFields.push([ar('المدينة'), ar(c.city)]);
-  custFields.push([ar('العنوان'), ar(c.address)]);
-  if (c.landmark) custFields.push([ar('علامة مميزة'), ar(c.landmark)]);
-
-  let fieldY = y + 9;
-  custFields.forEach(([label, value]) => {
-    if (fieldY > y + infoH - 2) return;
-    pdf.setDrawColor(231, 229, 228);
-    pdf.setLineWidth(0.1);
-    pdf.line(margin+3, fieldY+2.5, margin+halfW-3, fieldY+2.5);
-
-    pdf.setFontSize(6);
-    pdf.setFont(arFontName, 'normal');
-    pdf.setTextColor(100, 116, 139);
-    pdf.text(label, margin+halfW-4, fieldY, {align:'right'});
-
-    pdf.setFontSize(6.5);
-    pdf.setFont('helvetica', 'bold');
-    pdf.setTextColor(15, 23, 42);
-    pdf.text(String(value||'—'), margin+4, fieldY, {align:'left', maxWidth: halfW*0.55});
-    fieldY += 4.2;
-  });
-
-  // Order info box
-  const orderX = margin + halfW + 4;
-  pdf.setFillColor(248, 250, 252);
-  pdf.setDrawColor(226, 232, 240);
-  pdf.roundedRect(orderX, y, halfW, infoH, 2, 2, 'FD');
-
-  pdf.setFontSize(sectionLabelSize);
-  pdf.setFont(arFontName, 'bold');
-  pdf.setTextColor(8, 145, 178);
-  pdf.text(ar('بيانات الطلب'), orderX+halfW-4, y+5, {align:'right'});
-
-  const orderFields = [
-    [ar('رقم الفاتورة'), d.invoiceNumber],
-    [ar('التاريخ'), d.orderDate],
-    [ar('الوقت'), d.orderTime],
-    [ar('عدد المنتجات'), d.items.length + ' منتج'],
-    [ar('إجمالي القطع'), d.pieces + ' قطعة'],
-    [ar('طريقة الدفع'), ar('عند الاستلام')],
-    [ar('الحالة'), ar('مؤكد')]
-  ];
-
-  fieldY = y + 9;
-  orderFields.forEach(([label, value]) => {
-    if (fieldY > y + infoH - 2) return;
-    pdf.setDrawColor(231, 229, 228);
-    pdf.setLineWidth(0.1);
-    pdf.line(orderX+3, fieldY+2.5, orderX+halfW-3, fieldY+2.5);
-
-    pdf.setFontSize(6);
-    pdf.setFont(arFontName, 'normal');
-    pdf.setTextColor(100, 116, 139);
-    pdf.text(label, orderX+halfW-4, fieldY, {align:'right'});
-
-    pdf.setFontSize(6.5);
-    pdf.setFont('helvetica', 'bold');
-    pdf.setTextColor(15, 23, 42);
-    pdf.text(String(value||'—'), orderX+4, fieldY, {align:'left', maxWidth: halfW*0.55});
-    fieldY += 4.2;
-  });
-
-  y += infoH + 4;
-
-  /* ===== NOTES ===== */
-  if (c.notes) {
-    pdf.setFillColor(254, 252, 232);
-    pdf.setDrawColor(253, 230, 138);
-    const noteH = 8;
-    pdf.roundedRect(margin, y, contentW, noteH, 1.5, 1.5, 'FD');
-    pdf.setFontSize(6.5);
-    pdf.setFont(arFontName, 'bold');
-    pdf.setTextColor(113, 63, 18);
-    pdf.text(ar('ملاحظات: ') + ar(c.notes), margin+4, y+5, {align:'right', maxWidth: contentW-8});
-    y += noteH + 3;
-  }
-
-  /* ===== PRODUCTS TABLE ===== */
-  const tableBody = d.items.map((it, i) => {
-    const nameStr = it.brand ? it.name + ' [' + it.brand + ']' : it.name;
-    return [
-      {content: String(i+1), styles:{halign:'center', cellWidth:10}},
-      {content: nameStr + (it.variation ? '\n' + it.variation : ''), styles:{halign:'right'}},
-      {content: String(it.qty), styles:{halign:'center', cellWidth:14}},
-      {content: it.price.toLocaleString(), styles:{halign:'center', cellWidth:22}},
-      {content: it.total.toLocaleString(), styles:{halign:'right', cellWidth:24, fontStyle:'bold'}}
-    ];
-  });
-
-  pdf.autoTable({
-    startY: y,
-    margin: {left: margin, right: margin},
-    head: [[
-      {content:'#', styles:{halign:'center'}},
-      {content:'Product', styles:{halign:'right', fontStyle:'bold'}},
-      {content:'Qty', styles:{halign:'center'}},
-      {content:'Unit Price', styles:{halign:'center'}},
-      {content:'Total', styles:{halign:'right', fontStyle:'bold'}}
-    ]],
-    body: tableBody,
-    theme: 'grid',
-    tableWidth: contentW,
-    styles: {
-      fontSize: bodyFontSize,
-      cellPadding: rowPadding,
-      lineColor: [226, 232, 240],
-      lineWidth: 0.1,
-      textColor: [15, 23, 42],
-      halign: 'center',
-      overflow: 'linebreak',
-      font: 'helvetica'
-    },
-    headStyles: {
-      fillColor: [241, 245, 249],
-      textColor: [15, 23, 42],
-      fontSize: headFontSize,
-      fontStyle: 'bold',
-      lineColor: [226, 232, 240],
-      lineWidth: 0.2,
-      cellPadding: rowPadding + 1
-    },
-    alternateRowStyles: {
-      fillColor: [255, 255, 255]
-    },
-    columnStyles: {
-      0: {cellWidth: 10, halign:'center', textColor:[100,116,139]},
-      1: {halign:'right'},
-      2: {cellWidth: 14, halign:'center', textColor:[8,145,178], fontStyle:'bold'},
-      3: {cellWidth: 22, halign:'center', textColor:[71,85,105]},
-      4: {cellWidth: 24, halign:'right', fontStyle:'bold'}
-    },
-    didDrawPage: function(data) {
-      // Prevent page overflow - we want everything on one page
-    }
-  });
-
-  y = pdf.lastAutoTable.finalY + 2;
-
-  /* ===== TOTALS ===== */
-  // Grand total row
-  pdf.setFillColor(254, 243, 199);
-  pdf.setDrawColor(217, 119, 6);
-  pdf.setLineWidth(0.4);
-  const totalRowH = 10;
-  pdf.rect(margin, y, contentW, totalRowH, 'FD');
-
-  pdf.setFontSize(bodyFontSize + 2);
-  pdf.setFont(arFontName, 'bold');
-  pdf.setTextColor(15, 23, 42);
-  pdf.text(ar('الإجمالي الكلي') + ' (' + d.pieces + ' ' + ar('قطعة') + ')', margin + contentW - 6, y + totalRowH/2 + 1, {align:'right'});
-
-  pdf.setFontSize(bodyFontSize + 3);
-  pdf.setFont('helvetica', 'bold');
-  pdf.setTextColor(217, 119, 6);
-  pdf.text(d.total.toLocaleString() + ' EGP', margin + contentW - 6, y + totalRowH/2 + 1, {align:'left'});
-
-  y += totalRowH + 5;
-
-  /* ===== GRAND TOTAL BANNER ===== */
-  const bannerH = 14;
-  pdf.setFillColor(240, 253, 250);
-  pdf.setDrawColor(204, 251, 241);
-  pdf.setLineWidth(0.2);
-  pdf.roundedRect(margin, y, contentW, bannerH, 2, 2, 'FD');
-
-  // Left side - label
-  pdf.setFontSize(6);
-  pdf.setFont('helvetica','bold');
-  pdf.setTextColor(100, 116, 139);
-  pdf.text('GRAND TOTAL', margin + 6, y + 6);
-  pdf.setFontSize(5);
-  pdf.setFont(arFontName, 'normal');
-  pdf.text(ar('جنيه مصري — الدفع عند الاستلام'), margin + 6, y + 10);
-
-  // Right side - amount
-  pdf.setFontSize(16);
-  pdf.setFont('helvetica','bold');
-  pdf.setTextColor(15, 23, 42);
-  pdf.text(d.total.toLocaleString(), pageW - margin - 18, y + 9, {align:'right'});
-  pdf.setFontSize(7);
-  pdf.setTextColor(217, 119, 6);
-  pdf.text('EGP', pageW - margin - 6, y + 9, {align:'right'});
-
-  y += bannerH + 5;
-
-  /* ===== TEAM MEMBER ===== */
-  if (officer) {
-    const teamH = 14;
-    pdf.setFillColor(255, 255, 255);
-    pdf.setDrawColor(226, 232, 240);
-    pdf.setLineWidth(0.2);
-    pdf.roundedRect(margin, y, contentW, teamH, 2, 2, 'FD');
-
-    // Left accent bar
-    pdf.setFillColor(8, 145, 178);
-    pdf.rect(margin, y, 1, teamH, 'F');
-
-    // Avatar circle
-    pdf.setFillColor(8, 145, 178);
-    pdf.circle(margin + 9, y + teamH/2, 4.5, 'F');
-    pdf.setFontSize(9);
-    pdf.setFont('helvetica','bold');
-    pdf.setTextColor(255, 255, 255);
-    pdf.text(officer.initial || '?', margin + 9, y + teamH/2 + 1, {align:'center'});
-
-    // Name & role
-    pdf.setFontSize(8);
-    pdf.setFont('helvetica','bold');
-    pdf.setTextColor(15, 23, 42);
-    pdf.text(officer.name, margin + 16, y + 5.5);
-
-    pdf.setFontSize(5.5);
-    pdf.setFont('helvetica','bold');
-    pdf.setTextColor(8, 145, 178);
-    pdf.text(officer.role || 'DENTIST', margin + 16, y + 9.5);
-
-    // Phone
-    pdf.setFontSize(7);
-    pdf.setFont('helvetica','normal');
-    pdf.setTextColor(15, 23, 42);
-    pdf.text(officer.phone || '', pageW - margin - 6, y + teamH/2 + 1, {align:'right'});
-
-    // Label
-    pdf.setFontSize(5);
-    pdf.setFont(arFontName, 'normal');
-    pdf.setTextColor(100, 116, 139);
-    pdf.text(ar('مسؤول تأكيد الأوردر'), pageW - margin - 6, y + 5, {align:'right'});
-
-    y += teamH + 4;
-  }
-
-  /* ===== FOOTER ===== */
-  pdf.setDrawColor(226, 232, 240);
-  pdf.setLineWidth(0.1);
-  pdf.line(margin, y, pageW - margin, y);
-  y += 4;
-
-  pdf.setFontSize(5.5);
-  pdf.setFont('helvetica','normal');
-  pdf.setTextColor(100, 116, 139);
-  pdf.text('CURA STORE — Premium Dental Supplies', margin, y);
-  pdf.text('Electronic Invoice — Valid without signature or stamp', pageW - margin, y, {align:'right'});
-
-  y += 4;
-  pdf.setFontSize(5);
-  pdf.text('Generated: ' + new Date().toISOString().slice(0,19).replace('T',' '), margin, y);
-  pdf.text('VERIFIED ORDER', pageW - margin, y, {align:'right'});
-
-  // Bottom accent bar
-  pdf.setFillColor(217, 119, 6);
-  pdf.rect(0, pageH - 2, pageW, 2, 'F');
-
-  setProgress(90);
-
-  // Verify PDF has content
-  const pdfOutput = pdf.output('blob');
-  if (!pdfOutput || pdfOutput.size === 0) {
-    throw new Error('Generated PDF is empty');
-  }
-
-  _pdfBlob = pdfOutput;
-  _pdfFileName = 'Dental-Kit-Invoice-' + d.invoiceNumber + '.pdf';
-
-  setProgress(100);
-  return _pdfBlob;
 }
 
 /* ===================== ORDER INITIATION ===================== */
@@ -1214,13 +965,13 @@ async function initiateOrder() {
       btn.disabled = true;
     }
 
-    // Show success
+    // Show success message
     showOrderSuccess();
 
     // Auto open WhatsApp after a short delay
     setTimeout(() => {
       openWhatsAppConfirm();
-    }, 1200);
+    }, 1500);
 
   } catch(err) {
     console.error('PDF Generation Error:', err);
@@ -1252,8 +1003,12 @@ function showOrderSuccess() {
 
   area.innerHTML = `<div class="success-box">
     <div class="success-icon-wrap"><i class="fas fa-circle-check"></i></div>
-    <div class="success-title">🎉 ORDER COMPLETED ✓</div>
-    <div class="success-sub">Your Dental Kit is ready. خلصنا ✓<br/>تم تجهيز الفاتورة وتنزيلها ✓<br/>واتساب جاهز لإرسال تفاصيل الأوردر.</div>
+    <div class="success-title">🎉 تم بنجاح ✓</div>
+    <div class="success-sub">
+      <strong>تم تجهيز الفاتورة وتنزيلها بنجاح ✓</strong><br/>
+      واتساب جاهز لإرسال تفاصيل الأوردر لمسؤول التأكيد.<br/>
+      <span style="color:#059669;font-weight:600">برجاء التواصل مع المسؤول لإتمام الطلب</span>
+    </div>
     <div class="success-officer">
       <div class="success-officer-avatar">${officerInitial}</div>
       <div class="success-officer-info">
@@ -1262,11 +1017,11 @@ function showOrderSuccess() {
         <div class="success-officer-phone num">${officerPhone}</div>
       </div>
     </div>
-    <button class="success-wa-btn" onclick="openWhatsAppConfirm()"><i class="fab fa-whatsapp"></i>Contact Confirmation Officer on WhatsApp</button>
-    <div class="success-note"><i class="fas fa-file-pdf"></i> الفاتورة اتحمّلت ✓ — واتساب اتفتح، ابعت الفاتورة مع الرسالة</div>
+    <button class="success-wa-btn" onclick="openWhatsAppConfirm()"><i class="fab fa-whatsapp"></i>تواصل مع مسؤول التأكيد عبر WhatsApp</button>
+    <div class="success-note"><i class="fas fa-info-circle"></i> الفاتورة اتحمّلت ✓ — ابعت الفاتورة مع الرسالة على واتساب</div>
     <div class="success-actions">
-      <button class="b-bk" onclick="downloadPDFAgain()"><i class="fas fa-download"></i> Download Invoice Again</button>
-      <button class="b-bk" onclick="newOrder()"><i class="fas fa-rotate-right"></i> New Order</button>
+      <button class="b-bk" onclick="downloadPDFAgain()"><i class="fas fa-download"></i> تنزيل الفاتورة مرة أخرى</button>
+      <button class="b-bk" onclick="newOrder()"><i class="fas fa-rotate-right"></i> طلب جديد</button>
     </div>
   </div>`;
   setTimeout(() => { area.scrollIntoView({behavior:'smooth', block:'center'}); }, 300);
@@ -1313,7 +1068,6 @@ function downloadPDFAgain() {
     setTimeout(() => URL.revokeObjectURL(url), 5000);
     showToast('✅ تم تنزيل الفاتورة مرة أخرى');
   } else {
-    // Regenerate
     if (!INV_DATA) { showToast('⚠️ No invoice data'); return; }
     generateProfessionalPDF().then(() => {
       if (_pdfBlob) {
