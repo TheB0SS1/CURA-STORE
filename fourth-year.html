@@ -640,180 +640,191 @@ function getOfficer(invData) {
   }
 }
 
-/* ===================== INVOICE HTML BUILDER ===================== */
+/* ===================== PREMIUM RECEIPT INVOICE HTML ===================== */
 function createInvoiceHTML() {
   const d = INV_DATA;
   const c = d.customer;
   const govAr = GOV_AR[c.gov] || c.gov || '—';
   const officer = INV_OFFICER;
 
+  // Build items rows
   let itemsHTML = '';
   d.items.forEach((it, i) => {
-    const nameStr = it.brand ? `${it.name} [${it.brand}]` : it.name;
-    const variationStr = it.variation ? `<br><small style="color:#64748b;font-size:9px">${it.variation}</small>` : '';
+    const nameStr = it.brand ? `${it.name} <span style="color:#0891b2;font-size:8px;font-weight:600">[${it.brand}]</span>` : it.name;
+    const variationStr = it.variation ? `<div style="font-size:7px;color:#94a3b8;margin-top:1px">${it.variation}</div>` : '';
     itemsHTML += `
-      <tr>
-        <td style="text-align:center;padding:6px 4px;border-bottom:1px solid #e2e8f0;font-size:10px;color:#64748b">${i+1}</td>
-        <td style="padding:6px 8px;border-bottom:1px solid #e2e8f0;font-size:11px;font-weight:500">${nameStr}${variationStr}</td>
-        <td style="text-align:center;padding:6px 4px;border-bottom:1px solid #e2e8f0;font-size:11px;font-weight:600;color:#0891b2">${it.qty}</td>
-        <td style="text-align:center;padding:6px 4px;border-bottom:1px solid #e2e8f0;font-size:11px">${it.price.toLocaleString()}</td>
-        <td style="text-align:right;padding:6px 8px;border-bottom:1px solid #e2e8f0;font-size:11px;font-weight:700">${it.total.toLocaleString()}</td>
+      <tr style="border-bottom:1px solid #f1f5f9">
+        <td style="padding:8px 6px;text-align:center;font-size:9px;color:#94a3b8;font-weight:600">${i+1}</td>
+        <td style="padding:8px 6px;font-size:10px;color:#0f172a;font-weight:500;line-height:1.3">
+          ${nameStr}${variationStr}
+        </td>
+        <td style="padding:8px 6px;text-align:center;font-size:10px;color:#0891b2;font-weight:700">${it.qty}</td>
+        <td style="padding:8px 6px;text-align:right;font-size:10px;color:#475569;font-weight:500">${it.price.toLocaleString()}</td>
+        <td style="padding:8px 6px;text-align:right;font-size:10px;color:#0f172a;font-weight:700">${it.total.toLocaleString()}</td>
       </tr>
     `;
   });
 
   return `
-    <div style="font-family:'Cairo',sans-serif;direction:rtl;width:794px;background:white;padding:20px;box-sizing:border-box">
-      <!-- Top Accent Bar -->
-      <div style="height:4px;background:linear-gradient(90deg,#0891b2,#d97706);margin:-20px -20px 20px"></div>
+    <div style="font-family:'Cairo','Inter',sans-serif;direction:rtl;width:378px;background:linear-gradient(180deg,#ffffff 0%,#fafbfc 100%);padding:0;box-sizing:border-box;margin:0 auto">
+      <!-- Top Gradient Bar -->
+      <div style="height:6px;background:linear-gradient(90deg,#0891b2 0%,#06b6d4 50%,#d97706 100%);margin:0"></div>
       
-      <!-- Header -->
-      <div style="background:linear-gradient(135deg,#f0fdfa,#ffffff);border:1px solid #ccfbf1;border-radius:12px;padding:16px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
-        <div style="display:flex;align-items:center;gap:12px">
-          <div style="width:40px;height:40px;background:#0891b2;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:18px">C</div>
-          <div>
-            <div style="font-size:18px;font-weight:bold;color:#0f172a">CURA STORE</div>
-            <div style="font-size:9px;color:#64748b;letter-spacing:1px">PREMIUM DENTAL SUPPLIES</div>
+      <!-- Header Section -->
+      <div style="padding:20px 18px 16px;background:linear-gradient(135deg,#f0fdfa 0%,#ffffff 100%);border-bottom:2px solid #e0f2fe">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,#0891b2,#06b6d4);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px;box-shadow:0 4px 12px rgba(8,145,178,0.3)">C</div>
+          <div style="flex:1">
+            <div style="font-size:18px;font-weight:800;color:#0f172a;letter-spacing:-0.5px">CURA STORE</div>
+            <div style="font-size:8px;color:#64748b;letter-spacing:1.5px;font-weight:600;margin-top:1px">PREMIUM DENTAL SUPPLIES</div>
           </div>
         </div>
-        <div style="text-align:left">
-          <div style="font-size:8px;color:#64748b;font-weight:600">DENTAL KIT INVOICE</div>
-          <div style="font-size:16px;font-weight:bold;color:#0f172a">#${d.invoiceNumber}</div>
-          <div style="font-size:9px;color:#475569">${d.orderDate} | ${d.orderTime}</div>
-          <div style="display:inline-block;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:20px;padding:2px 12px;margin-top:4px;font-size:8px;font-weight:600;color:#059669">ORDER CONFIRMED</div>
+        
+        <div style="background:white;border:1px solid #e0f2fe;border-radius:8px;padding:10px 12px;box-shadow:0 2px 8px rgba(8,145,178,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <div style="font-size:9px;color:#64748b;font-weight:600">INVOICE</div>
+            <div style="background:linear-gradient(135deg,#059669,#10b981);color:white;font-size:7px;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:0.5px">CONFIRMED ✓</div>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:#0f172a;letter-spacing:-0.3px">#${d.invoiceNumber}</div>
+          <div style="font-size:8px;color:#64748b;margin-top:3px;font-weight:500">${d.orderDate} • ${d.orderTime}</div>
         </div>
       </div>
 
-      <!-- Customer & Order Info -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
-        <!-- Customer Info -->
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px">
-          <div style="font-size:11px;font-weight:700;color:#0891b2;margin-bottom:10px;text-align:right">بيانات العميل</div>
-          <div style="display:flex;flex-direction:column;gap:6px">
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">الاسم</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">${c.name || '—'}</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">رقم الهاتف</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">${c.phone || '—'}</span>
-            </div>
-            ${c.altPhone ? `<div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px"><span style="font-size:10px;color:#64748b">هاتف بديل</span><span style="font-size:11px;font-weight:600;color:#0f172a">${c.altPhone}</span></div>` : ''}
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">المحافظة</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">${govAr}</span>
-            </div>
-            ${c.city ? `<div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px"><span style="font-size:10px;color:#64748b">المدينة</span><span style="font-size:11px;font-weight:600;color:#0f172a">${c.city}</span></div>` : ''}
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">العنوان</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">${c.address || '—'}</span>
-            </div>
-            ${c.landmark ? `<div style="display:flex;justify-content:space-between"><span style="font-size:10px;color:#64748b">علامة مميزة</span><span style="font-size:11px;font-weight:600;color:#0f172a">${c.landmark}</span></div>` : ''}
-          </div>
+      <!-- Customer Information -->
+      <div style="padding:16px 18px;background:#ffffff;border-bottom:1px solid #e2e8f0">
+        <div style="font-size:10px;font-weight:700;color:#0891b2;margin-bottom:10px;display:flex;align-items:center;gap:6px">
+          <span style="width:3px;height:12px;background:linear-gradient(180deg,#0891b2,#06b6d4);border-radius:2px"></span>
+          بيانات العميل
         </div>
-
-        <!-- Order Info -->
-        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px">
-          <div style="font-size:11px;font-weight:700;color:#0891b2;margin-bottom:10px;text-align:right">بيانات الطلب</div>
-          <div style="display:flex;flex-direction:column;gap:6px">
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">رقم الفاتورة</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.invoiceNumber}</span>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 12px">
+            <div>
+              <div style="font-size:7px;color:#94a3b8;font-weight:600;margin-bottom:2px">الاسم</div>
+              <div style="font-size:10px;color:#0f172a;font-weight:700">${c.name || '—'}</div>
             </div>
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">التاريخ</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.orderDate}</span>
+            <div>
+              <div style="font-size:7px;color:#94a3b8;font-weight:600;margin-bottom:2px">رقم الهاتف</div>
+              <div style="font-size:10px;color:#0f172a;font-weight:700;direction:ltr;text-align:right">${c.phone || '—'}</div>
             </div>
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">الوقت</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.orderTime}</span>
+            ${c.altPhone ? `
+            <div>
+              <div style="font-size:7px;color:#94a3b8;font-weight:600;margin-bottom:2px">هاتف بديل</div>
+              <div style="font-size:10px;color:#0f172a;font-weight:700;direction:ltr;text-align:right">${c.altPhone}</div>
             </div>
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">عدد المنتجات</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.items.length} منتج</span>
+            ` : ''}
+            <div>
+              <div style="font-size:7px;color:#94a3b8;font-weight:600;margin-bottom:2px">المحافظة</div>
+              <div style="font-size:10px;color:#0f172a;font-weight:700">${govAr}</div>
             </div>
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">إجمالي القطع</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">${d.pieces} قطعة</span>
+            ${c.city ? `
+            <div>
+              <div style="font-size:7px;color:#94a3b8;font-weight:600;margin-bottom:2px">المدينة</div>
+              <div style="font-size:10px;color:#0f172a;font-weight:700">${c.city}</div>
             </div>
-            <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #e5e7eb;padding-bottom:4px">
-              <span style="font-size:10px;color:#64748b">طريقة الدفع</span>
-              <span style="font-size:11px;font-weight:600;color:#0f172a">عند الاستلام</span>
+            ` : ''}
+            <div style="grid-column:1/-1">
+              <div style="font-size:7px;color:#94a3b8;font-weight:600;margin-bottom:2px">العنوان</div>
+              <div style="font-size:10px;color:#0f172a;font-weight:700;line-height:1.4">${c.address || '—'}</div>
             </div>
-            <div style="display:flex;justify-content:space-between">
-              <span style="font-size:10px;color:#64748b">الحالة</span>
-              <span style="font-size:11px;font-weight:600;color:#059669">مؤكد ✓</span>
+            ${c.landmark ? `
+            <div style="grid-column:1/-1">
+              <div style="font-size:7px;color:#94a3b8;font-weight:600;margin-bottom:2px">علامة مميزة</div>
+              <div style="font-size:10px;color:#0f172a;font-weight:700">${c.landmark}</div>
             </div>
+            ` : ''}
           </div>
         </div>
       </div>
 
       ${c.notes ? `
       <!-- Notes -->
-      <div style="background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;margin-bottom:16px;text-align:right">
-        <div style="font-size:10px;font-weight:700;color:#713f12">ملاحظات: ${c.notes}</div>
+      <div style="padding:12px 18px;background:linear-gradient(135deg,#fefce8,#fef3c7);border-bottom:1px solid #fde68a">
+        <div style="font-size:8px;font-weight:700;color:#713f12;display:flex;align-items:center;gap:4px">
+          <span style="font-size:10px">📝</span> ملاحظات: ${c.notes}
+        </div>
       </div>
       ` : ''}
 
       <!-- Products Table -->
-      <div style="margin-bottom:16px">
-        <table style="width:100%;border-collapse:collapse;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden">
-          <thead>
-            <tr style="background:#f1f5f9">
-              <th style="padding:8px 4px;text-align:center;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">#</th>
-              <th style="padding:8px;text-align:right;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">Product</th>
-              <th style="padding:8px 4px;text-align:center;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">Qty</th>
-              <th style="padding:8px 4px;text-align:center;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">Unit Price</th>
-              <th style="padding:8px 8px;text-align:right;font-size:9px;font-weight:700;color:#0f172a;border-bottom:2px solid #e2e8f0">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${itemsHTML}
-          </tbody>
-        </table>
+      <div style="padding:16px 18px;background:#ffffff">
+        <div style="font-size:10px;font-weight:700;color:#0891b2;margin-bottom:10px;display:flex;align-items:center;gap:6px">
+          <span style="width:3px;height:12px;background:linear-gradient(180deg,#0891b2,#06b6d4);border-radius:2px"></span>
+          المنتجات (${d.items.length} منتج • ${d.pieces} قطعة)
+        </div>
+        
+        <div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:white;box-shadow:0 2px 8px rgba(0,0,0,0.04)">
+          <!-- Table Header -->
+          <div style="background:linear-gradient(135deg,#f1f5f9,#e2e8f0);padding:8px 6px;border-bottom:2px solid #cbd5e1">
+            <table style="width:100%;border-collapse:collapse">
+              <tr>
+                <th style="width:8%;text-align:center;font-size:8px;font-weight:700;color:#475569;padding:0">#</th>
+                <th style="width:42%;text-align:right;font-size:8px;font-weight:700;color:#475569;padding:0">Product</th>
+                <th style="width:12%;text-align:center;font-size:8px;font-weight:700;color:#475569;padding:0">Qty</th>
+                <th style="width:18%;text-align:right;font-size:8px;font-weight:700;color:#475569;padding:0">Price</th>
+                <th style="width:20%;text-align:right;font-size:8px;font-weight:700;color:#475569;padding:0">Total</th>
+              </tr>
+            </table>
+          </div>
+          
+          <!-- Table Body -->
+          <div style="max-height:none">
+            <table style="width:100%;border-collapse:collapse">
+              ${itemsHTML}
+            </table>
+          </div>
+        </div>
       </div>
 
-      <!-- Grand Total Banner -->
-      <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:2px solid #d97706;border-radius:10px;padding:14px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
-        <div style="text-align:right">
-          <div style="font-size:13px;font-weight:700;color:#0f172a">الإجمالي الكلي (${d.pieces} قطعة)</div>
-          <div style="font-size:9px;color:#78350f;margin-top:2px">جنيه مصري — الدفع عند الاستلام</div>
-        </div>
-        <div style="text-align:left">
-          <div style="font-size:22px;font-weight:700;color:#d97706">${d.total.toLocaleString()}</div>
-          <div style="font-size:10px;color:#78350f;font-weight:600">EGP</div>
+      <!-- Grand Total Section -->
+      <div style="padding:16px 18px;background:linear-gradient(135deg,#fffbeb,#fef3c7);border-top:2px solid #fbbf24;border-bottom:2px solid #fbbf24">
+        <div style="background:white;border:2px solid #d97706;border-radius:12px;padding:16px;box-shadow:0 4px 16px rgba(217,119,6,0.15)">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-size:11px;font-weight:700;color:#0f172a;margin-bottom:4px">الإجمالي الكلي</div>
+              <div style="font-size:8px;color:#78350f;font-weight:600">${d.pieces} قطعة • الدفع عند الاستلام</div>
+            </div>
+            <div style="text-align:left">
+              <div style="font-size:24px;font-weight:800;color:#d97706;letter-spacing:-0.5px;line-height:1">${d.total.toLocaleString()}</div>
+              <div style="font-size:9px;color:#78350f;font-weight:700;margin-top:2px">EGP</div>
+            </div>
+          </div>
         </div>
       </div>
 
       ${officer ? `
-      <!-- Team Member -->
-      <div style="background:white;border:1px solid #e2e8f0;border-radius:10px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:14px;border-right:3px solid #0891b2">
-        <div style="width:36px;height:36px;background:#0891b2;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;flex-shrink:0">${officer.initial || '?'}</div>
-        <div style="flex:1">
-          <div style="font-size:12px;font-weight:700;color:#0f172a">${officer.name}</div>
-          <div style="font-size:8px;color:#0891b2;font-weight:700;letter-spacing:0.5px">${officer.role || 'DENTIST'}</div>
+      <!-- Team Member / Officer -->
+      <div style="padding:14px 18px;background:#ffffff;border-bottom:1px solid #e2e8f0">
+        <div style="font-size:9px;font-weight:700;color:#0891b2;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+          <span style="width:3px;height:12px;background:linear-gradient(180deg,#0891b2,#06b6d4);border-radius:2px"></span>
+          مسؤول تأكيد الأوردر
         </div>
-        <div style="text-align:left">
-          <div style="font-size:8px;color:#64748b">مسؤول تأكيد الأوردر</div>
-          <div style="font-size:11px;font-weight:600;color:#0f172a">${officer.phone || ''}</div>
+        <div style="background:linear-gradient(135deg,#f0fdfa,#ecfeff);border:1px solid #a5f3fc;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;background:linear-gradient(135deg,#0891b2,#06b6d4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;flex-shrink:0;box-shadow:0 2px 8px rgba(8,145,178,0.3)">${officer.initial || '?'}</div>
+          <div style="flex:1">
+            <div style="font-size:11px;font-weight:700;color:#0f172a">${officer.name}</div>
+            <div style="font-size:7px;color:#0891b2;font-weight:700;letter-spacing:0.5px;margin-top:1px">${officer.role || 'DENTIST'}</div>
+          </div>
+          <div style="text-align:left">
+            <div style="font-size:10px;font-weight:700;color:#0f172a;direction:ltr">${officer.phone || ''}</div>
+          </div>
         </div>
       </div>
       ` : ''}
 
       <!-- Footer -->
-      <div style="border-top:1px solid #e2e8f0;padding-top:12px;margin-top:12px">
-        <div style="display:flex;justify-content:space-between;font-size:8px;color:#64748b">
-          <span>CURA STORE — Premium Dental Supplies</span>
-          <span>Electronic Invoice — Valid without signature or stamp</span>
+      <div style="padding:14px 18px;background:linear-gradient(180deg,#f8fafc,#f1f5f9);border-top:1px solid #e2e8f0">
+        <div style="text-align:center;margin-bottom:8px">
+          <div style="font-size:8px;color:#64748b;font-weight:600;margin-bottom:3px">CURA STORE — Premium Dental Supplies</div>
+          <div style="font-size:7px;color:#94a3b8">Electronic Invoice — Valid without signature or stamp</div>
         </div>
-        <div style="display:flex;justify-content:space-between;font-size:7px;color:#94a3b8;margin-top:4px">
-          <span>Generated: ${new Date().toISOString().slice(0,19).replace('T',' ')}</span>
-          <span style="font-weight:700;color:#059669">VERIFIED ORDER ✓</span>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #e2e8f0">
+          <div style="font-size:6px;color:#94a3b8">Generated: ${new Date().toISOString().slice(0,19).replace('T',' ')}</div>
+          <div style="font-size:7px;color:#059669;font-weight:700">VERIFIED ORDER ✓</div>
         </div>
       </div>
 
-      <!-- Bottom Accent Bar -->
-      <div style="height:3px;background:#d97706;margin:12px -20px -20px"></div>
+      <!-- Bottom Gradient Bar -->
+      <div style="height:4px;background:linear-gradient(90deg,#d97706 0%,#06b6d4 50%,#0891b2 100%);margin:0"></div>
     </div>
   `;
 }
@@ -830,47 +841,45 @@ async function generateProfessionalPDF() {
 
   // Create temporary container for invoice HTML
   const container = document.createElement('div');
-  container.style.cssText = 'position:fixed;left:-9999px;top:0;width:794px;background:white;z-index:-1;';
+  container.style.cssText = 'position:fixed;left:-9999px;top:0;width:378px;background:white;z-index:-1;';
   container.innerHTML = createInvoiceHTML();
   document.body.appendChild(container);
 
   try {
     setProgress(30);
 
-    // Convert HTML to canvas
+    // Wait for fonts to load
+    await document.fonts.ready;
+
+    // Convert HTML to canvas with high quality
     const canvas = await html2canvas(container, {
-      scale: 2,
+      scale: 3, // High resolution for sharp printing
       useCORS: true,
       logging: false,
       backgroundColor: '#ffffff',
-      width: 794,
-      windowWidth: 794
+      width: 378,
+      windowWidth: 378
     });
 
     setProgress(60);
 
-    // Create PDF
+    // Calculate PDF dimensions (10cm width, dynamic height)
+    const receiptWidthMM = 100; // 10cm = 100mm
+    const canvasAspectRatio = canvas.height / canvas.width;
+    const receiptHeightMM = receiptWidthMM * canvasAspectRatio;
+
+    // Create PDF with custom size
     const pdf = new window.jspdf.jsPDF({
       unit: 'mm',
-      format: 'a4',
+      format: [receiptWidthMM, receiptHeightMM],
       orientation: 'portrait',
       compress: true
     });
 
-    const pdfWidth = 210;
-    const pdfHeight = 297;
-    const imgData = canvas.toDataURL('image/jpeg', 0.95);
+    const imgData = canvas.toDataURL('image/jpeg', 0.98);
     
-    // Calculate dimensions to fit on one page
-    const imgWidth = pdfWidth;
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-    
-    // If content is taller than page, scale it down
-    const scale = imgHeight > pdfHeight ? pdfHeight / imgHeight : 1;
-    const finalWidth = imgWidth * scale;
-    const finalHeight = imgHeight * scale;
-
-    pdf.addImage(imgData, 'JPEG', 0, 0, finalWidth, finalHeight);
+    // Add image to PDF - full width, calculated height
+    pdf.addImage(imgData, 'JPEG', 0, 0, receiptWidthMM, receiptHeightMM);
 
     setProgress(90);
 
@@ -881,7 +890,11 @@ async function generateProfessionalPDF() {
     }
 
     _pdfBlob = pdfOutput;
-    _pdfFileName = 'Dental-Kit-Invoice-' + INV_DATA.invoiceNumber + '.pdf';
+    
+    // Generate filename: CustomerName (Governorate).pdf
+    const customerName = INV_DATA.customer.name || 'Customer';
+    const governorate = GOV_AR[INV_DATA.customer.gov] || INV_DATA.customer.gov || 'Unknown';
+    _pdfFileName = `${customerName} (${governorate}).pdf`;
 
     setProgress(100);
     return _pdfBlob;
