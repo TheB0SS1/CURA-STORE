@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M Group — Dental Supplies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+    --primary: #0A6E5C;
+    --primary-light: #E8F5F1;
+    --primary-dark: #074D40;
+    --bg: #F7F9FA;
+    --surface: #FFFFFF;
+    --border: #E8ECF0;
+    --text: #1A202C;
+    --text-2: #4A5568;
+    --text-3: #8B95A5;
+    --success: #10B981;
+    --error: #EF4444;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+    --radius: 10px;
+    --radius-lg: 14px;
+}
+body {
+    font-family: 'Inter', 'Cairo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+img { max-width:100%; display:block; }
+button { cursor:pointer; border:none; background:none; font-family:inherit; }
+a { text-decoration:none; color:inherit; }
+input, select, textarea { font-family:inherit; font-size:inherit; }
+
+/* ============ HEADER ============ */
+.header {
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+}
+.header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+.logo img { height: 40px; width: auto; }
+.logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+.logo-text span { color: var(--text); }
+
+/* Search */
+.search-box {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+}
+.search-input {
+    width: 100%;
+    padding: 11px 16px 11px 42px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 30px;
+    font-size: 14px;
+    color: var(--text);
+    transition: all .2s;
+}
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--surface);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-3);
+    width: 16px;
+    height: 16px;
+}
+
+/* Search Results Dropdown */
+.search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    max-height: 420px;
+    overflow-y: auto;
+    display: none;
+    z-index: 200;
+}
+.search-results.active { display: block; }
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: background .15s;
+    border-bottom: 1px solid var(--border);
+}
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover { background: var(--bg); }
+.search-result-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: var(--bg);
+    object-fit: contain;
+    padding: 4px;
+    flex-shrink: 0;
+}
+.search-result-info { flex: 1; min-width: 0; }
+.search-result-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.search-result-cat {
+    font-size: 11px;
+    color: var(--text-3);
+    margin-top: 2px;
+}
+.search-result-price {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+.search-result-add {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+.search-empty {
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--text-3);
+    font-size: 13px;
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+.cart-btn {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    transition: background .2s;
+}
+.cart-btn:hover { background: var(--bg); }
+.cart-btn svg { width: 22px; height: 22px; }
+.cart-count {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    min-width: 18px;
+    height: 18px;
+    background: var(--primary);
+    color: white;
+    border-radius: 9px;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+}
+.cart-count:empty { display: none; }
+
+/* ============ MAIN ============ */
+.main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ============ CATEGORIES ============ */
+.categories {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    scrollbar-width: none;
+}
+.categories::-webkit-scrollbar { display: none; }
+.cat-chip {
+    padding: 8px 16px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-2);
+    white-space: nowrap;
+    transition: all .2s;
+    flex-shrink: 0;
+}
+.cat-chip:hover { border-color: var(--primary); color: var(--primary); }
+.cat-chip.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+/* ============ PRODUCTS GRID ============ */
+.products-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.products-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+}
+.products-count {
+    font-size: 13px;
+    color: var(--text-3);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+}
+.product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all .2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.product-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+.product-img-wrap {
+    aspect-ratio: 1;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    overflow: hidden;
+}
+.product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .3s;
+}
+.product-card:hover .product-img-wrap img {
+    transform: scale(1.05);
+}
+.product-info {
+    padding: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.product-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 35px;
+}
+.product-cat {
+    font-size: 11px;
+    color: var(--text-3);
+    margin-bottom: 10px;
+}
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+}
+.product-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--primary);
+}
+.product-price small {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-3);
+}
+.add-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s;
+    flex-shrink: 0;
+}
+.add-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+.add-btn svg { width: 16px; height: 16px; }
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-3);
+}
+.empty-state-icon { font-size: 48px; margin-bottom: 12px; opacity: .5; }
+.empty-state-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+.empty-state-text { font-size: 13px; margin-bottom: 16px; }
+
+/* ============ CART SIDEBAR ============ */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 300;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .25s;
+}
+.overlay.active { opacity: 1; visibility: visible; }
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    max-width: 100%;
+    height: 100%;
+    background: var(--surface);
+    z-index: 301;
+    transform: translateX(100%);
+    transition: transform .3s;
+    display: flex;
+    flex-direction: column;
+}
+.cart-sidebar.active { transform: translateX(0); }
+.cart-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cart-title { font-size: 17px; font-weight: 700; }
+.cart-close {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-2);
+}
+.cart-close:hover { background: var(--bg); }
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 20px;
+}
+.cart-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background: var(--bg);
+    object-fit: contain;
+    padding: 4px;
+    flex-shrink: 0;
+}
+.cart-item-info { flex: 1; min-width: 0; }
+.cart-item-name {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cart-item-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+.cart-qty {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.cart-qty button {
+    width: 26px;
+    height: 26px;
+    color: var(--text-2);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-qty button:hover { background: var(--bg); color: var(--primary); }
+.cart-qty span {
+    width: 28px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+.cart-item-remove {
+    align-self: flex-start;
+    color: var(--text-3);
+    padding: 4px;
+    font-size: 18px;
+}
+.cart-item-remove:hover { color: var(--error); }
+
+.cart-footer {
+    padding: 18px 20px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--text-2);
+}
+.cart-total-row.grand {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+}
+.cart-total-row.grand span:last-child { color: var(--primary); }
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all .2s;
+    width: 100%;
+    margin-top: 12px;
+}
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+}
+.btn-outline:hover { background: var(--primary-light); }
+
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 40px 20px;
+}
+.cart-empty-icon { font-size: 48px; margin-bottom: 12px; opacity: .4; }
+.cart-empty-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.cart-empty-text {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-bottom: 20px;
+}
+
+/* ============ PRODUCT DETAIL ============ */
+.detail-page { display: none; }
+.detail-page.active { display: block; }
+.detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-2);
+    margin-bottom: 16px;
+}
+.detail-back:hover { border-color: var(--primary); color: var(--primary); }
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+}
+.detail-img-wrap {
+    aspect-ratio: 1;
+    background: var(--bg);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+.detail-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.detail-cat {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 8px;
+}
+.detail-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+.detail-brand {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-bottom: 16px;
+}
+.detail-price {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+.detail-price small {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-3);
+}
+.detail-notes {
+    background: var(--primary-light);
+    border-left: 3px solid var(--primary);
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--text-2);
+}
+.detail-notes strong { color: var(--primary); display: block; margin-bottom: 4px; }
+.qty-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.qty-label { font-size: 13px; font-weight: 500; color: var(--text-2); }
+.qty-ctrl {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+}
+.qty-ctrl button {
+    width: 34px;
+    height: 34px;
+    color: var(--text);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.qty-ctrl button:hover { background: var(--bg); color: var(--primary); }
+.qty-ctrl input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    font-size: 14px;
+}
+.detail-actions { display: flex; gap: 10px; }
+.detail-actions .btn { flex: 1; margin-top: 0; }
+.detail-meta {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.detail-meta div {
+    font-size: 13px;
+    color: var(--text-2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.detail-meta strong { color: var(--text); font-weight: 600; }
+.stock-ok { color: var(--success); font-weight: 600; }
+
+/* ============ CHECKOUT ============ */
+.checkout-page { display: none; }
+.checkout-page.active { display: block; }
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+    align-items: start;
+}
+.checkout-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    margin-bottom: 16px;
+}
+.checkout-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.step-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.form-row.full { grid-template-columns: 1fr; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-2);
+}
+.form-label .req { color: var(--error); }
+.form-input, .form-select {
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    font-size: 14px;
+    color: var(--text);
+    transition: all .2s;
+}
+.form-input:focus, .form-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--surface);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+textarea.form-input { resize: vertical; min-height: 70px; }
+
+.order-summary {
+    position: sticky;
+    top: 80px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+}
+.order-summary h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.order-items {
+    max-height: 260px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+}
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+.order-item-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: var(--bg);
+    object-fit: contain;
+    padding: 3px;
+}
+.order-item-name { flex: 1; }
+.order-item-qty { color: var(--text-3); font-size: 12px; }
+.order-item-price { font-weight: 600; }
+.order-totals {
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+}
+.order-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: var(--text-2);
+}
+.order-row.grand {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid var(--border);
+}
+
+/* ============ CONFIRMATION ============ */
+.confirm-page { display: none; text-align: center; padding: 40px 20px; }
+.confirm-page.active { display: block; }
+.confirm-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #ECFDF5;
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    margin: 0 auto 20px;
+}
+.confirm-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+.confirm-sub {
+    font-size: 14px;
+    color: var(--text-2);
+    margin-bottom: 24px;
+}
+.confirm-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    max-width: 560px;
+    margin: 0 auto 24px;
+    text-align: left;
+}
+.confirm-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+.confirm-row:last-child { border-bottom: none; }
+.confirm-row span:first-child { color: var(--text-3); }
+.confirm-row span:last-child { font-weight: 600; }
+.confirm-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 560px;
+    margin: 0 auto;
+}
+.confirm-actions .btn { flex: 1; min-width: 150px; margin-top: 0; }
+
+/* ============ TOAST ============ */
+.toast-container {
+    position: fixed;
+    top: 80px;
+    right: 16px;
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.toast {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--success);
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: var(--shadow-lg);
+    min-width: 260px;
+    max-width: 320px;
+    animation: slideIn .3s;
+    font-size: 13px;
+}
+.toast.error { border-left-color: var(--error); }
+.toast-title { font-weight: 600; margin-bottom: 2px; }
+.toast-msg { color: var(--text-2); font-size: 12px; }
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ============ WHATSAPP FLOAT ============ */
+.wa-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #25D366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+    z-index: 90;
+    transition: transform .2s;
+}
+.wa-float:hover { transform: scale(1.1); }
+.wa-float svg { width: 28px; height: 28px; }
+
+/* ============ FOOTER ============ */
+.footer {
+    background: #1A202C;
+    color: white;
+    padding: 30px 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+.footer-logo {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+.footer-logo span { color: var(--primary); }
+.footer-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 12px;
+}
+.footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+    .header-inner { padding: 10px 14px; gap: 10px; }
+    .logo img { height: 34px; }
+    .logo-text { font-size: 17px; }
+    .search-input { padding: 9px 14px 9px 38px; font-size: 13px; }
+    .main { padding: 14px; }
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .product-info { padding: 10px; }
+    .product-name { font-size: 12px; min-height: 32px; }
+    .product-price { font-size: 14px; }
+    .add-btn { width: 28px; height: 28px; }
+    .add-btn svg { width: 14px; height: 14px; }
+    .detail-grid { grid-template-columns: 1fr; gap: 20px; padding: 16px; }
+    .detail-name { font-size: 20px; }
+    .detail-price { font-size: 24px; }
+    .checkout-grid { grid-template-columns: 1fr; }
+    .order-summary { position: static; }
+    .form-row { grid-template-columns: 1fr; }
+    .cart-sidebar { width: 100%; }
+    .wa-float { width: 48px; height: 48px; bottom: 14px; left: 14px; }
+    .wa-float svg { width: 24px; height: 24px; }
+    .confirm-actions { flex-direction: column; }
+    .confirm-actions .btn { min-width: 100%; }
+}
+@media (max-width: 380px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .product-img-wrap { padding: 10px; }
+    .product-info { padding: 8px; }
+    .product-name { font-size: 11px; min-height: 30px; }
+    .product-price { font-size: 13px; }
+}
+
+/* Print Invoice */
+@media print {
+    body * { visibility: hidden; }
+    #printInvoice, #printInvoice * { visibility: visible; }
+    #printInvoice {
+        display: block !important;
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%;
+        padding: 30px;
+        background: white;
+        color: black;
+    }
+}
+#printInvoice { display: none; }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+    <div class="header-inner">
+        <a href="#" class="logo" onclick="goHome();return false;">
+            <img src="LOGG.jpg" alt="M Group" onerror="this.outerHTML='<span class=\'logo-text\'><span>M</span> Group</span>'">
+        </a>
+        <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search for any dental product..." autocomplete="off">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+        <div class="header-actions">
+            <button class="cart-btn" onclick="openCart()" aria-label="Cart">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+                <span class="cart-count" id="cartCount"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ============ MAIN ============ -->
+<main class="main">
+
+    <!-- HOME / SHOP -->
+    <div id="homePage">
+        <div class="categories" id="categories"></div>
+        <div class="products-header">
+            <div class="products-title" id="productsTitle">All Products</div>
+            <div class="products-count" id="productsCount"></div>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+        <div class="empty-state" id="emptyState" style="display:none">
+            <div class="empty-state-icon">🔍</div>
+            <div class="empty-state-title">No products found</div>
+            <div class="empty-state-text">Try a different search or category</div>
+            <button class="btn btn-outline" style="width:auto;padding:10px 20px" onclick="clearFilter()">Show All Products</button>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL -->
+    <div class="detail-page" id="detailPage">
+        <button class="detail-back" onclick="goHome()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+        </button>
+        <div class="detail-grid" id="detailContent"></div>
+    </div>
+
+    <!-- CHECKOUT -->
+    <div class="checkout-page" id="checkoutPage">
+        <button class="detail-back" onclick="goHome()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to shop
+        </button>
+        <h2 style="font-size:22px;font-weight:800;margin-bottom:20px">Checkout</h2>
+        <div class="checkout-grid">
+            <div>
+                <div class="checkout-card">
+                    <h3><span class="step-num">1</span> Your Information</h3>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label class="form-label">Full Name <span class="req">*</span></label>
+                            <input type="text" class="form-input" id="cName" placeholder="Your full name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Mobile <span class="req">*</span></label>
+                            <input type="tel" class="form-input" id="cPhone" placeholder="01xxxxxxxxx">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">WhatsApp</label>
+                            <input type="tel" class="form-input" id="cWhatsapp" placeholder="Same as mobile">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-card">
+                    <h3><span class="step-num">2</span> Delivery Address</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Governorate <span class="req">*</span></label>
+                            <select class="form-select" id="cGov" onchange="updateShipping()"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">City <span class="req">*</span></label>
+                            <input type="text" class="form-input" id="cCity" placeholder="City name">
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label class="form-label">Full Address <span class="req">*</span></label>
+                            <textarea class="form-input" id="cAddress" placeholder="Street, building, floor, apartment..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label class="form-label">Notes (optional)</label>
+                            <input type="text" class="form-input" id="cNotes" placeholder="Any special instructions">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-card">
+                    <h3><span class="step-num">3</span> Payment</h3>
+                    <label style="display:flex;align-items:center;gap:12px;padding:14px;border:1.5px solid var(--primary);border-radius:10px;background:var(--primary-light);cursor:pointer">
+                        <input type="radio" name="pay" checked style="accent-color:var(--primary)">
+                        <div>
+                            <div style="font-weight:600;font-size:14px">Cash on Delivery</div>
+                            <div style="font-size:12px;color:var(--text-3)">Pay when you receive your order</div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div class="order-items" id="checkoutItems"></div>
+                <div class="order-totals">
+                    <div class="order-row">
+                        <span>Subtotal</span>
+                        <span id="coSubtotal">0 EGP</span>
+                    </div>
+                    <div class="order-row">
+                        <span>Shipping</span>
+                        <span id="coShipping">—</span>
+                    </div>
+                    <div class="order-row grand">
+                        <span>Total</span>
+                        <span id="coTotal">0 EGP</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="placeOrder()">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONFIRMATION -->
+    <div class="confirm-page" id="confirmPage">
+        <div class="confirm-icon">✓</div>
+        <h2 class="confirm-title">Order Confirmed!</h2>
+        <p class="confirm-sub">تم استلام طلبك بنجاح — Thank you for shopping with M Group</p>
+        <div class="confirm-card" id="confirmCard"></div>
+        <div class="confirm-actions">
+            <button class="btn btn-primary" onclick="printInvoice()">📄 Download Invoice</button>
+            <button class="btn btn-outline" onclick="sendWhatsApp()" style="border-color:#25D366;color:#25D366">💬 Confirm via WhatsApp</button>
+            <button class="btn btn-outline" onclick="goHome()">Continue Shopping</button>
+        </div>
+    </div>
+
+</main>
+
+<!-- ============ CART SIDEBAR ============ -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <div class="cart-title">Your Cart</div>
+        <button class="cart-close" onclick="closeCart()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-total-row">
+            <span>Subtotal</span>
+            <span id="cartSubtotal">0 EGP</span>
+        </div>
+        <button class="btn btn-primary" onclick="closeCart();showCheckout()">Checkout</button>
+        <button class="btn btn-outline" onclick="closeCart()">Continue Shopping</button>
+    </div>
+</aside>
+
+<!-- Toast -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/201220459975" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-logo"><span>M</span> Group</div>
+    <div class="footer-text">Premium Dental Supplies — Delivery Across Egypt</div>
+    <div class="footer-text">📱 WhatsApp: +20 12 20459975</div>
+    <div class="footer-copy">© 2026 M Group. All rights reserved.</div>
+</footer>
+
+<!-- Print Invoice -->
+<div id="printInvoice"></div>
+
+<script>
+// ============ PRODUCTS DATA ============
+const PRODUCTS = [
+    {id:1,name:"Apple High-Speed with LED",price:2380,image:"--070.jpg",category:"Handpieces",brand:"Apple"},
+    {id:2,name:"Apple High-Speed without LED",price:1343,image:"--071.jpg",category:"Handpieces",brand:"Apple"},
+    {id:3,name:"COXO High-Speed with LED",price:3188,image:"--073.jpg",category:"Handpieces",brand:"COXO"},
+    {id:4,name:"COXO High-Speed without LED",price:2253,image:"--074.jpg",category:"Handpieces",brand:"COXO"},
+    {id:5,name:"Strong High-Speed Handpiece",price:2805,image:"ss.jpeg",category:"Handpieces",brand:"Strong"},
+    {id:6,name:"Motor (Strong B350) + Contra",price:7208,image:"t-01.jpg",category:"Handpieces",brand:"Strong"},
+    {id:7,name:"Contra Strong Low Speed",price:2635,image:"t-08.jpg",category:"Handpieces",brand:"Strong"},
+    {id:8,name:"Adaptor",price:680,image:"--006.jpg",category:"Handpieces"},
+    {id:9,name:"Light Cure (RTA)",price:1658,image:"t-36.jpg",category:"Light Curing",brand:"RTA"},
+    {id:10,name:"Light Curing (LED B)",price:1573,image:"t-37.jpg",category:"Light Curing"},
+    {id:11,name:"Light Cure (Coxo)",price:2380,image:"t-38.jpg",category:"Light Curing",brand:"COXO"},
+    {id:12,name:"Alginate Alginplus",price:251,image:"--009.jpg",category:"Impression",brand:"Alginplus"},
+    {id:13,name:"Alginate Tropicalgin",price:370,image:"--010.jpg",category:"Impression",brand:"Tropicalgin"},
+    {id:14,name:"Zetaplus Kit (Large)",price:1692,image:"--030.jpg",category:"Impression",brand:"Zetaplus"},
+    {id:15,name:"Zetaplus Kit (Small)",price:697,image:"--031.jpg",category:"Impression",brand:"Zetaplus"},
+    {id:16,name:"Addition Silicone (Silaxil)",price:1186,image:"--114.jpg",category:"Impression",brand:"Silaxil"},
+    {id:17,name:"Addition Silicone (Accusil)",price:850,image:"--115.jpg",category:"Impression",brand:"Accusil"},
+    {id:18,name:"Medium Body Silicone (Silaxil)",price:451,image:"--097.jpg",category:"Impression",brand:"Silaxil"},
+    {id:19,name:"Green Stick Compound",price:242,image:"--026.jpg",category:"Impression"},
+    {id:20,name:"Rubber Base Silaxil Kit (Small)",price:616,image:"t-44.jpg",category:"Impression",brand:"Silaxil"},
+    {id:21,name:"Gun Rubber Base",price:272,image:"t-45.jpg",category:"Impression"},
+    {id:22,name:"Beautifil A2 Packable",price:765,image:"--024.jpg",category:"Composite",brand:"Beautifil"},
+    {id:23,name:"Beautifil A2 Low-Shrinkage",price:1105,image:"--027.jpg",category:"Composite",brand:"Beautifil"},
+    {id:24,name:"Flowable Composite",price:247,image:"--017.jpg",category:"Composite"},
+    {id:25,name:"Maxifil Composite (Flowable)",price:111,image:"t-33.jpg",category:"Composite",brand:"Maxifil"},
+    {id:26,name:"RUBY Composite (Packable)",price:157,image:"t-35.jpg",category:"Composite",brand:"RUBY"},
+    {id:27,name:"EverX Composite",price:174,image:"--102.jpg",category:"Composite",brand:"EverX"},
+    {id:28,name:"Gun Composite",price:187,image:"t-57.jpg",category:"Composite"},
+    {id:29,name:"Universal Bond 4 ml",price:1870,image:"--038.jpg",category:"Composite"},
+    {id:30,name:"Universal Bond 0.5 ml",price:383,image:"--039.jpg",category:"Composite"},
+    {id:31,name:"Bond Brush",price:24,image:"t-59.jpg",category:"Composite"},
+    {id:32,name:"HAN Self-Adhesive Resin Cement",price:842,image:"--025.jpg",category:"Composite",brand:"HAN"},
+    {id:33,name:"Temporary Cement",price:323,image:"--064.jpg",category:"Composite"},
+    {id:34,name:"Glass Ionomer Cement (GIC)",price:468,image:"--065.jpg",category:"Composite"},
+    {id:35,name:"Light Cure GIC Capsules",price:132,image:"--051.jpg",category:"Composite"},
+    {id:36,name:"Glass Ionomer Capsule",price:140,image:"t-58.jpg",category:"Composite"},
+    {id:37,name:"Temporary Restoration",price:64,image:"--001.jpg",category:"Composite"},
+    {id:38,name:"TheraCal LC",price:723,image:"--066.jpg",category:"Composite",brand:"TheraCal"},
+    {id:39,name:"Acid Etchant",price:68,image:"--063.jpg",category:"Composite"},
+    {id:40,name:"Enamel Shade",price:123,image:"--076.jpg",category:"Composite"},
+    {id:41,name:"Dentin Shade",price:132,image:"--077.jpg",category:"Composite"},
+    {id:42,name:"Celluloid Strip",price:10,image:"--103.jpg",category:"Composite"},
+    {id:43,name:"Resin Rings",price:221,image:"--018.jpg",category:"Composite"},
+    {id:44,name:"Temporary Crown (Han)",price:1190,image:"--048.jpg",category:"Temporary Crowns",brand:"HAN"},
+    {id:45,name:"Temporary Crown (Charm)",price:1275,image:"--049.jpg",category:"Temporary Crowns",brand:"Charm"},
+    {id:46,name:"Mouth Mirror Handle",price:111,image:"--019.jpg",category:"Examination"},
+    {id:47,name:"Double-Sided Mouth Mirror",price:72,image:"--023.jpg",category:"Examination"},
+    {id:48,name:"Mirror",price:32,image:"t-11.jpg",category:"Examination"},
+    {id:49,name:"Zeffiro Periodontal Probe",price:587,image:"Zeffiro Periodontal Probe.jpg",category:"Examination",brand:"Zeffiro"},
+    {id:50,name:"Welco Probe",price:344,image:"Welco Probe.jpeg",category:"Examination",brand:"Welco"},
+    {id:51,name:"Periodontal Probe",price:23,image:"t-18.jpg",category:"Examination"},
+    {id:52,name:"Excavator (Zeffiro)",price:587,image:"--081.jpg",category:"Examination",brand:"Zeffiro"},
+    {id:53,name:"Welco Excavator",price:344,image:"Welco Excavator.jpeg",category:"Examination",brand:"Welco"},
+    {id:54,name:"Caries Detector",price:204,image:"--043.jpg",category:"Examination"},
+    {id:55,name:"Articulating Paper 12pcs",price:85,image:"--002.jpg",category:"Examination"},
+    {id:56,name:"Tweezer",price:38,image:"tweezer.jpg",category:"Examination"},
+    {id:57,name:"Endodontic Ruler",price:34,image:"--090.jpg",category:"Examination"},
+    {id:58,name:"MTA",price:38,image:"--007.jpg",category:"Endodontics"},
+    {id:59,name:"Resin Sealer",price:259,image:"--021.jpg",category:"Endodontics"},
+    {id:60,name:"Endo Sponge",price:9,image:"--033.jpg",category:"Endodontics"},
+    {id:61,name:"Gutta-Percha (15-45)",price:115,image:"--094.jpg",category:"Endodontics"},
+    {id:62,name:"Gutta-Percha (45-80)",price:115,image:"--095.jpg",category:"Endodontics"},
+    {id:63,name:"H-File (15-40)",price:60,image:"--098.jpg",category:"Endodontics"},
+    {id:64,name:"H-File (45-80)",price:60,image:"--099.jpg",category:"Endodontics"},
+    {id:65,name:"K-File (15-40)",price:60,image:"--100.jpg",category:"Endodontics"},
+    {id:66,name:"K-File (45-80)",price:60,image:"--101.jpg",category:"Endodontics"},
+    {id:67,name:"K-File No. 10",price:60,image:"--104.jpg",category:"Endodontics"},
+    {id:68,name:"K-File No. 8",price:60,image:"--105.jpg",category:"Endodontics"},
+    {id:69,name:"Endo Z Bur — Low Speed",price:72,image:"--116.jpg",category:"Endodontics"},
+    {id:70,name:"Endo Z Bur — High Speed",price:30,image:"--116.jpg",category:"Endodontics"},
+    {id:71,name:"Adams Pliers",price:162,image:"--107.jpg",category:"Orthodontics"},
+    {id:72,name:"Loop Former",price:162,image:"--109.jpg",category:"Orthodontics"},
+    {id:73,name:"Cutter Pliers",price:68,image:"--110.jpg",category:"Orthodontics"},
+    {id:74,name:"Orthodontic Wire",price:4,image:"--108.jpg",category:"Orthodontics"},
+    {id:75,name:"Wire ×5",price:21,image:"t-64.jpg",category:"Orthodontics"},
+    {id:76,name:"Polishing Paste",price:64,image:"--044.jpg",category:"Finishing"},
+    {id:77,name:"Polishing Brush Bur",price:2,image:"--047.jpg",category:"Finishing"},
+    {id:78,name:"Finishing Strip",price:72,image:"--072.jpg",category:"Finishing"},
+    {id:79,name:"Cutting Stones",price:7,image:"--111.jpg",category:"Finishing"},
+    {id:80,name:"Finishing Stones",price:7,image:"--112.jpg",category:"Finishing"},
+    {id:81,name:"Carbide Burs",price:34,image:"--113.jpg",category:"Finishing"},
+    {id:82,name:"Kenda Polishing Kit",price:315,image:"t-41.jpg",category:"Finishing",brand:"Kenda"},
+    {id:83,name:"Ruby Finishing Disk",price:242,image:"t-43.jpg",category:"Finishing"},
+    {id:84,name:"Stone ×9",price:174,image:"t-14.jpg",category:"Finishing"},
+    {id:85,name:"Burs Carbide ×8",price:302,image:"t-07.jpg",category:"Finishing"},
+    {id:86,name:"Matrix Band",price:4,image:"t-16.jpg",category:"Matrix"},
+    {id:87,name:"Matrix Holder",price:72,image:"t-17.jpg",category:"Matrix"},
+    {id:88,name:"Suctional Matrix System",price:128,image:"t-39.jpg",category:"Matrix"},
+    {id:89,name:"Saddle Matrix System",price:200,image:"t-40.jpg",category:"Matrix"},
+    {id:90,name:"Spoon Matrix",price:162,image:"t-72.jpg",category:"Matrix"},
+    {id:91,name:"Wedge",price:123,image:"t-74.jpg",category:"Matrix"},
+    {id:92,name:"Amalgam Condenser (Large)",price:26,image:"t-47.jpg",category:"Amalgam"},
+    {id:93,name:"Amalgam Condenser (Small)",price:26,image:"t-48.jpg",category:"Amalgam"},
+    {id:94,name:"Amalgam Carrier",price:75,image:"t-49.jpg",category:"Amalgam"},
+    {id:95,name:"Amalgam Capsule ×12",price:52,image:"t-53.jpg",category:"Amalgam"},
+    {id:96,name:"Ball Burnisher",price:26,image:"t-50.jpg",category:"Amalgam"},
+    {id:97,name:"Anatomical Burnisher",price:26,image:"t-51.jpg",category:"Amalgam"},
+    {id:98,name:"Hollenbeck Carver",price:26,image:"t-52.jpg",category:"Amalgam"},
+    {id:99,name:"Anatomical Carver",price:26,image:"t-54.jpg",category:"Amalgam"},
+    {id:100,name:"Anesthetic Box (Full Box)",price:893,image:"--040.jpg",category:"Anesthesia"},
+    {id:101,name:"Anesthetic Strip",price:179,image:"7878.jpeg",category:"Anesthesia"},
+    {id:102,name:"Topical Anesthetic Gel",price:30,image:"--036.jpg",category:"Anesthesia"},
+    {id:103,name:"Metal Syringe",price:157,image:"--037.jpg",category:"Anesthesia"},
+    {id:104,name:"Injection Needle (Short)",price:191,image:"--058.jpg",category:"Anesthesia"},
+    {id:105,name:"Long Needle",price:191,image:"--058.jpg",category:"Anesthesia"},
+    {id:106,name:"Surgical Gown",price:14,image:"--061.jpg",category:"Surgical"},
+    {id:107,name:"Lancet Holder",price:26,image:"--086.jpg",category:"Surgical"},
+    {id:108,name:"Lancet Blade No. 15",price:2,image:"--087.jpg",category:"Surgical"},
+    {id:109,name:"Metal Scissors",price:47,image:"--083.jpg",category:"Surgical"},
+    {id:110,name:"Blades Surgical ×5",price:13,image:"t-31.jpg",category:"Surgical"},
+    {id:111,name:"Hand Blades",price:26,image:"t-32.jpg",category:"Surgical"},
+    {id:112,name:"Cast Banna (Plastic)",price:174,image:"t-09.jpg",category:"Lab"},
+    {id:113,name:"Cast Banna (Metal)",price:200,image:"t-10.jpg",category:"Lab"},
+    {id:114,name:"Box Size 17 G-T Max",price:476,image:"t-12.jpg",category:"Lab"},
+    {id:115,name:"Box Size 17 Mono",price:506,image:"t-13.jpg",category:"Lab"},
+    {id:116,name:"Torch (Large)",price:221,image:"t-20.jpg",category:"Lab"},
+    {id:117,name:"Torch (Mid)",price:132,image:"t-21.jpg",category:"Lab"},
+    {id:118,name:"Articulator",price:332,image:"t-19.jpg",category:"Lab"},
+    {id:119,name:"Acrostone",price:293,image:"t-23.jpg",category:"Lab"},
+    {id:120,name:"Mortar and Pestle",price:30,image:"t-06.jpg",category:"Lab"},
+    {id:121,name:"Burs Holder Metal 24",price:200,image:"t-15.jpg",category:"Lab"},
+    {id:122,name:"Glass Slab ×2",price:9,image:"t-27.jpg",category:"Lab"},
+    {id:123,name:"Acrylic Teeth Sheet",price:62,image:"t-28.jpg",category:"Lab"},
+    {id:124,name:"Spatula",price:11,image:"t-29.jpg",category:"Lab"},
+    {id:125,name:"Rubber Powel",price:15,image:"t-30.jpg",category:"Lab"},
+    {id:126,name:"Separating Medium",price:7,image:"t-02.jpg",category:"Lab"},
+    {id:127,name:"Catalyst",price:446,image:"--004.jpg",category:"Lab"},
+    {id:128,name:"Oil Spray (Spanish)",price:366,image:"t-04.jpg",category:"Lab"},
+    {id:129,name:"Basbosa Knife",price:21,image:"t-26.jpg",category:"Lab"},
+    {id:130,name:"Wax Carver",price:28,image:"--084.jpg",category:"Lab"},
+    {id:131,name:"Wax Knife",price:28,image:"--085.jpg",category:"Lab"},
+    {id:132,name:"Punch",price:326,image:"t-68.jpg",category:"Rubber Dam"},
+    {id:133,name:"Metal Frame",price:47,image:"t-69.jpg",category:"Rubber Dam"},
+    {id:134,name:"Clamp Forceps",price:247,image:"t-70.jpg",category:"Rubber Dam"},
+    {id:135,name:"6 Clamps",price:128,image:"t-71.jpg",category:"Rubber Dam"},
+    {id:136,name:"Rubber Dam Henry (Box)",price:255,image:"t-73.jpg",category:"Rubber Dam",brand:"Henry"},
+    {id:137,name:"Flex Dam",price:140,image:"--032.jpg",category:"Rubber Dam"},
+    {id:138,name:"X-ray Manual Processing (100 pcs)",price:1696,image:"--067.jpg",category:"X-Ray"},
+    {id:139,name:"X-ray Auto-Processing (50 pcs)",price:1547,image:"--068.jpg",category:"X-Ray"},
+    {id:140,name:"X-ray Auto-Processing (25 pcs)",price:791,image:"--068.jpg",category:"X-Ray"},
+    {id:141,name:"Scaling Kit (4 Instruments)",price:2363,image:"--106.jpg",category:"Periodontics"},
+    {id:142,name:"Welco Scaling Instruments",price:1377,image:"Welco Scaling Instruments.jpeg",category:"Periodontics",brand:"Welco"},
+    {id:143,name:"Retraction Cord",price:106,image:"--012.jpg",category:"Periodontics"},
+    {id:144,name:"Retraction Cord Applicator",price:60,image:"--091.jpg",category:"Periodontics"},
+    {id:145,name:"Welco Blue Composite Applicator",price:344,image:"Welco Blue Composite Applicator.jpeg",category:"Applicators",brand:"Welco"},
+    {id:146,name:"Welco Gold Composite Applicator",price:425,image:"Welco Gold Composite Applicator.jpeg",category:"Applicators",brand:"Welco"},
+    {id:147,name:"Composite Applicator",price:26,image:"t-34.jpg",category:"Applicators"},
+    {id:148,name:"Pink Wax",price:340,image:"--020.jpg",category:"Wax"},
+    {id:149,name:"Dentix",price:162,image:"dentix.jpg",category:"Wax",brand:"Dentix"},
+    {id:150,name:"Dentex Wax Sheets ×24",price:162,image:"t-24.jpg",category:"Wax",brand:"Dentex"},
+    {id:151,name:"English Wax Sheets ×24",price:340,image:"t-25.jpg",category:"Wax"},
+    {id:152,name:"Cotton Rolls",price:14,image:"Cotton Rolls.jpg",category:"Consumables"},
+    {id:153,name:"Kidney Dish",price:43,image:"--011.jpg",category:"Consumables"},
+    {id:154,name:"Gauze",price:34,image:"--008.jpg",category:"Consumables"},
+    {id:155,name:"Disposable Tray",price:234,image:"--014.jpg",category:"Consumables"},
+    {id:156,name:"Wrapping Film",price:136,image:"--029.jpg",category:"Consumables"},
+    {id:157,name:"Plastic Instrument Tray",price:238,image:"--034.jpg",category:"Consumables"},
+    {id:158,name:"Plastic Cup",price:23,image:"--035.jpg",category:"Consumables"},
+    {id:159,name:"Plastic Syringe (100 pcs)",price:119,image:"--050.jpg",category:"Consumables"},
+    {id:160,name:"Napkin",price:60,image:"--052.jpg",category:"Consumables"},
+    {id:161,name:"Dental Floss",price:26,image:"--054.jpg",category:"Consumables"},
+    {id:162,name:"Air-Water Plastic Tips",price:179,image:"--055.jpg",category:"Consumables"},
+    {id:163,name:"Plastic Suction Tips",price:77,image:"--075.jpg",category:"Consumables"},
+    {id:164,name:"Over Gloves",price:10,image:"--062.jpg",category:"Consumables"},
+    {id:165,name:"Overhead (100 pcs)",price:30,image:"--079.jpg",category:"Consumables"},
+    {id:166,name:"Mask",price:43,image:"--005.jpg",category:"Consumables"},
+    {id:167,name:"Metal Sectional Tray",price:13,image:"--045.jpg",category:"Consumables"},
+    {id:168,name:"Single-Sided Retractor",price:15,image:"--046.jpg",category:"Consumables"},
+    {id:169,name:"Dentulous Metal Tray Size 2",price:13,image:"--092.jpg",category:"Consumables"},
+    {id:170,name:"Dentulous Metal Tray Size 3",price:13,image:"--093.jpg",category:"Consumables"},
+    {id:171,name:"Alcohol",price:43,image:"--003.jpg",category:"Sterilization"},
+    {id:172,name:"Sterilization Pouch (5x10)",price:196,image:"--042.jpg",category:"Sterilization"},
+    {id:173,name:"Sterilization Pouch (2.25x5)",price:72,image:"--053.jpg",category:"Sterilization"},
+    {id:174,name:"Sterilization Pouch (4.33x10)",price:187,image:"--056.jpg",category:"Sterilization"},
+    {id:175,name:"Gas",price:41,image:"--013.jpg",category:"Sterilization"},
+    {id:176,name:"Chlorhexidine",price:26,image:"--059.jpg",category:"Sterilization"},
+    {id:177,name:"Varnish",price:72,image:"--082.jpg",category:"Sterilization"},
+    {id:178,name:"Enamel Shade Capsule",price:123,image:"t-55.jpg",category:"Miscellaneous"},
+    {id:179,name:"Dentin Shade Capsule",price:132,image:"t-56.jpg",category:"Miscellaneous"},
+    {id:180,name:"Celluloid Strap",price:10,image:"t-60.jpg",category:"Miscellaneous"}
+];
+
+const CATEGORIES = ["All","Handpieces","Light Curing","Impression","Composite","Temporary Crowns","Examination","Endodontics","Orthodontics","Finishing","Matrix","Amalgam","Anesthesia","Surgical","Lab","Rubber Dam","X-Ray","Periodontics","Applicators","Wax","Consumables","Sterilization","Miscellaneous"];
+
+const GOVERNORATES = ["Cairo","Giza","Alexandria","Dakahlia","Sharqia","Qalyubia","Kafr El Sheikh","Gharbia","Monufia","Beheira","Port Said","Ismailia","Suez","Damietta","North Sinai","South Sinai","Beni Suef","Fayoum","Minya","Asyut","Sohag","Qena","Luxor","Aswan","Red Sea","New Valley","Matrouh"];
+
+const SHIPPING = {"Cairo":50,"Giza":50,"Alexandria":60,"Dakahlia":60,"Sharqia":60,"Qalyubia":55,"Kafr El Sheikh":65,"Gharbia":60,"Monufia":60,"Beheira":65,"Port Said":70,"Ismailia":70,"Suez":70,"Damietta":65,"North Sinai":80,"South Sinai":85,"Beni Suef":65,"Fayoum":65,"Minya":70,"Asyut":75,"Sohag":75,"Qena":80,"Luxor":80,"Aswan":85,"Red Sea":85,"New Valley":90,"Matrouh":85};
+
+// ============ STATE ============
+let cart = JSON.parse(localStorage.getItem('mg_cart') || '[]');
+let currentCategory = 'All';
+let lastOrder = null;
+
+// ============ INIT ============
+function init() {
+    renderCategories();
+    renderProducts();
+    populateGovernorates();
+    updateCartUI();
+    setupSearch();
+}
+
+// ============ CATEGORIES ============
+function renderCategories() {
+    const el = document.getElementById('categories');
+    el.innerHTML = CATEGORIES.map(c => 
+        `<button class="cat-chip ${c===currentCategory?'active':''}" onclick="filterCategory('${c}')">${c}</button>`
+    ).join('');
+}
+
+function filterCategory(cat) {
+    currentCategory = cat;
+    renderCategories();
+    renderProducts();
+    document.getElementById('productsTitle').textContent = cat === 'All' ? 'All Products' : cat;
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function clearFilter() {
+    currentCategory = 'All';
+    renderCategories();
+    renderProducts();
+    document.getElementById('productsTitle').textContent = 'All Products';
+}
+
+// ============ PRODUCTS ============
+function renderProducts() {
+    const list = currentCategory === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category === currentCategory);
+    const grid = document.getElementById('productsGrid');
+    const empty = document.getElementById('emptyState');
+    document.getElementById('productsCount').textContent = `${list.length} product${list.length!==1?'s':''}`;
+
+    if (list.length === 0) {
+        grid.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+    }
+    empty.style.display = 'none';
+    grid.innerHTML = list.map(p => `
+        <div class="product-card" onclick="viewProduct(${p.id})">
+            <div class="product-img-wrap">
+                <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="product-info">
+                <div class="product-name">${p.name}</div>
+                <div class="product-cat">${p.category}</div>
+                <div class="product-bottom">
+                    <div class="product-price">${p.price.toLocaleString()} <small>EGP</small></div>
+                    <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})" aria-label="Add to cart">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ============ PRODUCT DETAIL ============
+function viewProduct(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return;
+    const el = document.getElementById('detailContent');
+    el.innerHTML = `
+        <div class="detail-img-wrap">
+            <img src="${p.image}" alt="${p.name}" onerror="this.style.display='none'">
+        </div>
+        <div>
+            <div class="detail-cat">${p.category}</div>
+            <h1 class="detail-name">${p.name}</h1>
+            ${p.brand ? `<div class="detail-brand">Brand: ${p.brand}</div>` : ''}
+            <div class="detail-price">${p.price.toLocaleString()} <small>EGP</small></div>
+            <div class="qty-row">
+                <span class="qty-label">Quantity:</span>
+                <div class="qty-ctrl">
+                    <button onclick="changeQty(-1)">−</button>
+                    <input type="number" id="detailQty" value="1" min="1" readonly>
+                    <button onclick="changeQty(1)">+</button>
+                </div>
+            </div>
+            <div class="detail-actions">
+                <button class="btn btn-primary" onclick="addToCartFromDetail(${p.id})">Add to Cart</button>
+                <button class="btn btn-outline" onclick="buyNow(${p.id})">Buy Now</button>
+            </div>
+            <div class="detail-meta">
+                <div><strong>Category:</strong> ${p.category}</div>
+                ${p.brand ? `<div><strong>Brand:</strong> ${p.brand}</div>` : ''}
+                <div><strong>Availability:</strong> <span class="stock-ok">● In Stock</span></div>
+                <div><strong>Delivery:</strong> Available across Egypt</div>
+            </div>
+        </div>
+    `;
+    showPage('detail');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function changeQty(d) {
+    const i = document.getElementById('detailQty');
+    let v = parseInt(i.value) + d;
+    if (v < 1) v = 1;
+    if (v > 99) v = 99;
+    i.value = v;
+}
+
+function addToCartFromDetail(id) {
+    const qty = parseInt(document.getElementById('detailQty').value) || 1;
+    const existing = cart.find(x => x.id === id);
+    if (existing) existing.qty += qty;
+    else cart.push({id, qty});
+    saveCart();
+    updateCartUI();
+    const p = PRODUCTS.find(x => x.id === id);
+    toast('Added to Cart', `${p.name} × ${qty}`);
+}
+
+function buyNow(id) {
+    addToCartFromDetail(id);
+    showCheckout();
+}
+
+// ============ CART ============
+function addToCart(id) {
+    const existing = cart.find(x => x.id === id);
+    if (existing) existing.qty += 1;
+    else cart.push({id, qty:1});
+    saveCart();
+    updateCartUI();
+    const p = PRODUCTS.find(x => x.id === id);
+    toast('Added to Cart', p.name);
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(x => x.id !== id);
+    saveCart();
+    updateCartUI();
+    renderCartItems();
+}
+
+function changeCartQty(id, d) {
+    const item = cart.find(x => x.id === id);
+    if (!item) return;
+    item.qty += d;
+    if (item.qty <= 0) { removeFromCart(id); return; }
+    saveCart();
+    updateCartUI();
+    renderCartItems();
+}
+
+function saveCart() { localStorage.setItem('mg_cart', JSON.stringify(cart)); }
+
+function updateCartUI() {
+    const count = cart.reduce((s,i) => s + i.qty, 0);
+    const total = cart.reduce((s,i) => {
+        const p = PRODUCTS.find(x => x.id === i.id);
+        return s + (p ? p.price * i.qty : 0);
+    }, 0);
+    document.getElementById('cartCount').textContent = count || '';
+    document.getElementById('cartSubtotal').textContent = total.toLocaleString() + ' EGP';
+    document.getElementById('cartFooter').style.display = cart.length > 0 ? 'block' : 'none';
+}
+
+function renderCartItems() {
+    const el = document.getElementById('cartItems');
+    if (cart.length === 0) {
+        el.innerHTML = `
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <div class="cart-empty-title">Your cart is empty</div>
+                <div class="cart-empty-text">Add products to get started</div>
+                <button class="btn btn-primary" style="width:auto;padding:10px 20px" onclick="closeCart()">Browse Products</button>
+            </div>
+        `;
+        return;
+    }
+    el.innerHTML = cart.map(item => {
+        const p = PRODUCTS.find(x => x.id === item.id);
+        if (!p) return '';
+        return `
+            <div class="cart-item">
+                <img src="${p.image}" alt="${p.name}" class="cart-item-img" onerror="this.style.display='none'">
+                <div class="cart-item-info">
+                    <div class="cart-item-name">${p.name}</div>
+                    <div class="cart-item-price">${(p.price * item.qty).toLocaleString()} EGP</div>
+                    <div class="cart-qty">
+                        <button onclick="changeCartQty(${item.id},-1)">−</button>
+                        <span>${item.qty}</span>
+                        <button onclick="changeCartQty(${item.id},1)">+</button>
+                    </div>
+                </div>
+                <button class="cart-item-remove" onclick="removeFromCart(${item.id})">×</button>
+            </div>
+        `;
+    }).join('');
+}
+
+function openCart() {
+    renderCartItems();
+    document.getElementById('overlay').classList.add('active');
+    document.getElementById('cartSidebar').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+    document.getElementById('overlay').classList.remove('active');
+    document.getElementById('cartSidebar').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// ============ SEARCH ============
+function setupSearch() {
+    const input = document.getElementById('searchInput');
+    const results = document.getElementById('searchResults');
+    
+    input.addEventListener('input', e => {
+        const q = e.target.value.trim().toLowerCase();
+        if (q.length < 2) { results.classList.remove('active'); return; }
+        
+        const matches = PRODUCTS.filter(p => 
+            p.name.toLowerCase().includes(q) ||
+            p.category.toLowerCase().includes(q) ||
+            (p.brand && p.brand.toLowerCase().includes(q))
+        ).slice(0, 8);
+
+        if (matches.length === 0) {
+            results.innerHTML = `<div class="search-empty">No products found for "${q}"</div>`;
+        } else {
+            results.innerHTML = matches.map(p => `
+                <div class="search-result-item" onclick="viewProduct(${p.id});closeSearch()">
+                    <img src="${p.image}" alt="" class="search-result-img" onerror="this.style.display='none'">
+                    <div class="search-result-info">
+                        <div class="search-result-name">${highlight(p.name, q)}</div>
+                        <div class="search-result-cat">${p.category}${p.brand?' • '+p.brand:''}</div>
+                    </div>
+                    <div class="search-result-price">${p.price.toLocaleString()} EGP</div>
+                    <button class="search-result-add" onclick="event.stopPropagation();addToCart(${p.id})">+</button>
+                </div>
+            `).join('');
+        }
+        results.classList.add('active');
+    });
+
+    document.addEventListener('click', e => {
+        if (!e.target.closest('.search-box')) results.classList.remove('active');
+    });
+}
+
+function highlight(text, q) {
+    const r = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+    return text.replace(r, '<strong style="color:var(--primary)">$1</strong>');
+}
+
+function closeSearch() {
+    document.getElementById('searchResults').classList.remove('active');
+}
+
+// ============ CHECKOUT ============
+function populateGovernorates() {
+    const sel = document.getElementById('cGov');
+    sel.innerHTML = '<option value="">Select Governorate</option>' + 
+        GOVERNORATES.map(g => `<option value="${g}">${g}</option>`).join('');
+}
+
+function showCheckout() {
+    if (cart.length === 0) { toast('Cart is empty','Add products first','error'); return; }
+    renderCheckoutItems();
+    showPage('checkout');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderCheckoutItems() {
+    let subtotal = 0;
+    const el = document.getElementById('checkoutItems');
+    el.innerHTML = cart.map(item => {
+        const p = PRODUCTS.find(x => x.id === item.id);
+        if (!p) return '';
+        const line = p.price * item.qty;
+        subtotal += line;
+        return `
+            <div class="order-item">
+                <img src="${p.image}" alt="" class="order-item-img" onerror="this.style.display='none'">
+                <div class="order-item-name">${p.name}</div>
+                <div class="order-item-qty">×${item.qty}</div>
+                <div class="order-item-price">${line.toLocaleString()}</div>
+            </div>
+        `;
+    }).join('');
+    document.getElementById('coSubtotal').textContent = subtotal.toLocaleString() + ' EGP';
+    document.getElementById('coTotal').textContent = subtotal.toLocaleString() + ' EGP';
+    document.getElementById('coShipping').textContent = '—';
+}
+
+function updateShipping() {
+    const gov = document.getElementById('cGov').value;
+    const ship = SHIPPING[gov] || 0;
+    const subtotal = cart.reduce((s,i) => {
+        const p = PRODUCTS.find(x => x.id === i.id);
+        return s + (p ? p.price * i.qty : 0);
+    }, 0);
+    document.getElementById('coShipping').textContent = ship ? ship.toLocaleString() + ' EGP' : 'Free';
+    document.getElementById('coTotal').textContent = (subtotal + ship).toLocaleString() + ' EGP';
+}
+
+function placeOrder() {
+    const name = document.getElementById('cName').value.trim();
+    const phone = document.getElementById('cPhone').value.trim();
+    const gov = document.getElementById('cGov').value;
+    const city = document.getElementById('cCity').value.trim();
+    const address = document.getElementById('cAddress').value.trim();
+
+    if (!name || !phone || !gov || !city || !address) {
+        toast('Missing Info','Please fill all required fields','error');
+        return;
+    }
+
+    const subtotal = cart.reduce((s,i) => {
+        const p = PRODUCTS.find(x => x.id === i.id);
+        return s + (p ? p.price * i.qty : 0);
+    }, 0);
+    const ship = SHIPPING[gov] || 0;
+
+    lastOrder = {
+        num: 'MG-' + Date.now().toString(36).toUpperCase(),
+        inv: 'INV-' + Date.now().toString().slice(-8),
+        date: new Date().toLocaleDateString('en-GB'),
+        customer: {
+            name, phone,
+            whatsapp: document.getElementById('cWhatsapp').value.trim() || phone,
+            gov, city, address,
+            notes: document.getElementById('cNotes').value.trim()
+        },
+        items: cart.map(i => {
+            const p = PRODUCTS.find(x => x.id === i.id);
+            return {name:p.name, qty:i.qty, price:p.price, image:p.image};
+        }),
+        subtotal, ship, total: subtotal + ship
+    };
+
+    // Clear cart
+    cart = [];
+    saveCart();
+    updateCartUI();
+
+    // Clear form
+    ['cName','cPhone','cWhatsapp','cCity','cAddress','cNotes'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('cGov').value = '';
+
+    renderConfirmation();
+    showPage('confirm');
+    window.scrollTo({top:0,behavior:'smooth'});
+    toast('Order Placed!','Your order has been received');
+}
+
+// ============ CONFIRMATION ============
+function renderConfirmation() {
+    const o = lastOrder;
+    document.getElementById('confirmCard').innerHTML = `
+        <div class="confirm-row"><span>Order Number</span><span>${o.num}</span></div>
+        <div class="confirm-row"><span>Invoice</span><span>${o.inv}</span></div>
+        <div class="confirm-row"><span>Date</span><span>${o.date}</span></div>
+        <div class="confirm-row"><span>Customer</span><span>${o.customer.name}</span></div>
+        <div class="confirm-row"><span>Phone</span><span>${o.customer.phone}</span></div>
+        <div class="confirm-row"><span>Location</span><span>${o.customer.gov}, ${o.customer.city}</span></div>
+        <div class="confirm-row"><span>Address</span><span>${o.customer.address}</span></div>
+        <div class="confirm-row"><span>Items</span><span>${o.items.reduce((s,i)=>s+i.qty,0)} products</span></div>
+        <div class="confirm-row"><span>Subtotal</span><span>${o.subtotal.toLocaleString()} EGP</span></div>
+        <div class="confirm-row"><span>Shipping</span><span>${o.ship.toLocaleString()} EGP</span></div>
+        <div class="confirm-row" style="border-top:2px solid var(--border);padding-top:10px;margin-top:6px">
+            <span style="font-weight:700;color:var(--text)">Total</span>
+            <span style="color:var(--primary);font-size:16px;font-weight:800">${o.total.toLocaleString()} EGP</span>
+        </div>
+    `;
+    generateInvoice();
+}
+
+function generateInvoice() {
+    const o = lastOrder;
+    document.getElementById('printInvoice').innerHTML = `
+        <div style="max-width:700px;margin:0 auto;font-family:Arial,sans-serif">
+            <div style="text-align:center;border-bottom:3px solid #0A6E5C;padding-bottom:20px;margin-bottom:24px">
+                <h1 style="color:#0A6E5C;font-size:32px;margin:0">M GROUP</h1>
+                <p style="color:#666;margin:6px 0 0">Premium Dental Supplies</p>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:24px;gap:20px">
+                <div>
+                    <h3 style="margin:0 0 8px">Invoice</h3>
+                    <p style="margin:3px 0;font-size:13px"><strong>#:</strong> ${o.inv}</p>
+                    <p style="margin:3px 0;font-size:13px"><strong>Order:</strong> ${o.num}</p>
+                    <p style="margin:3px 0;font-size:13px"><strong>Date:</strong> ${o.date}</p>
+                </div>
+                <div style="text-align:right">
+                    <h3 style="margin:0 0 8px">Customer</h3>
+                    <p style="margin:3px 0;font-size:13px"><strong>${o.customer.name}</strong></p>
+                    <p style="margin:3px 0;font-size:13px">${o.customer.phone}</p>
+                    <p style="margin:3px 0;font-size:13px">${o.customer.gov}, ${o.customer.city}</p>
+                    <p style="margin:3px 0;font-size:13px">${o.customer.address}</p>
+                </div>
+            </div>
+            <table style="width:100%;border-collapse:collapse;margin-bottom:20px">
+                <thead>
+                    <tr style="background:#f5f5f5">
+                        <th style="padding:8px;text-align:left;border:1px solid #ddd;font-size:13px">#</th>
+                        <th style="padding:8px;text-align:left;border:1px solid #ddd;font-size:13px">Product</th>
+                        <th style="padding:8px;text-align:center;border:1px solid #ddd;font-size:13px">Qty</th>
+                        <th style="padding:8px;text-align:right;border:1px solid #ddd;font-size:13px">Price</th>
+                        <th style="padding:8px;text-align:right;border:1px solid #ddd;font-size:13px">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${o.items.map((i,n) => `
+                        <tr>
+                            <td style="padding:8px;border:1px solid #ddd;font-size:13px">${n+1}</td>
+                            <td style="padding:8px;border:1px solid #ddd;font-size:13px">${i.name}</td>
+                            <td style="padding:8px;border:1px solid #ddd;font-size:13px;text-align:center">${i.qty}</td>
+                            <td style="padding:8px;border:1px solid #ddd;font-size:13px;text-align:right">${i.price.toLocaleString()}</td>
+                            <td style="padding:8px;border:1px solid #ddd;font-size:13px;text-align:right">${(i.price*i.qty).toLocaleString()}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+            <div style="text-align:right">
+                <p style="margin:4px 0;font-size:14px"><strong>Subtotal:</strong> ${o.subtotal.toLocaleString()} EGP</p>
+                <p style="margin:4px 0;font-size:14px"><strong>Shipping:</strong> ${o.ship.toLocaleString()} EGP</p>
+                <p style="margin:10px 0 0;font-size:20px;color:#0A6E5C"><strong>Total: ${o.total.toLocaleString()} EGP</strong></p>
+            </div>
+            <div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #ddd;color:#999;font-size:12px">
+                <p>M Group — WhatsApp: +20 12 20459975</p>
+                <p>Payment: Cash on Delivery</p>
+            </div>
+        </div>
+    `;
+}
+
+function printInvoice() { window.print(); }
+
+function sendWhatsApp() {
+    const o = lastOrder;
+    let msg = `*M GROUP*\n*NEW ORDER*\n\n`;
+    msg += `📋 Invoice: ${o.inv}\n📦 Order: ${o.num}\n📅 Date: ${o.date}\n\n`;
+    msg += `*Customer:*\n👤 ${o.customer.name}\n📱 ${o.customer.phone}\n📍 ${o.customer.gov}, ${o.customer.city}\n🏠 ${o.customer.address}\n\n`;
+    msg += `*Products:*\n`;
+    o.items.forEach((i,n) => { msg += `${n+1}. ${i.name} × ${i.qty} — ${(i.price*i.qty).toLocaleString()} EGP\n`; });
+    msg += `\n*Subtotal:* ${o.subtotal.toLocaleString()} EGP\n*Shipping:* ${o.ship.toLocaleString()} EGP\n*TOTAL: ${o.total.toLocaleString()} EGP*\n\nPayment: Cash on Delivery`;
+    window.open(`https://wa.me/201220459975?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// ============ NAVIGATION ============
+function showPage(page) {
+    document.getElementById('homePage').style.display = page === 'home' ? 'block' : 'none';
+    document.getElementById('detailPage').classList.toggle('active', page === 'detail');
+    document.getElementById('checkoutPage').classList.toggle('active', page === 'checkout');
+    document.getElementById('confirmPage').classList.toggle('active', page === 'confirm');
+}
+
+function goHome() {
+    showPage('home');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ============ TOAST ============
+function toast(title, msg, type='success') {
+    const c = document.getElementById('toastContainer');
+    const t = document.createElement('div');
+    t.className = 'toast' + (type === 'error' ? ' error' : '');
+    t.innerHTML = `<div class="toast-title">${title}</div><div class="toast-msg">${msg}</div>`;
+    c.appendChild(t);
+    setTimeout(() => {
+        t.style.opacity = '0';
+        t.style.transform = 'translateX(20px)';
+        t.style.transition = 'all .3s';
+        setTimeout(() => t.remove(), 300);
+    }, 2500);
+}
+
+// ============ START ============
+init();
+</script>
+
+</body>
+</html>
